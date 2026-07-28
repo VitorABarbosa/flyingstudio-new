@@ -1,0 +1,493 @@
+@keyframes hero-pan-right {
+  from {
+    transform: scale(1.08) translate3d(-2.5%, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(2.5%, 0, 0);
+  }
+}
+
+@keyframes hero-pan-left {
+  from {
+    transform: scale(1.08) translate3d(2.5%, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-2.5%, 0, 0);
+  }
+}
+
+@keyframes hero-zoom-in {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes hero-zoom-out {
+  from {
+    transform: scale(1.16);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-pan-right {
+  transform: scale(1.08) translate3d(-2.5%, 0, 0);
+  animation: hero-pan-right 5s linear forwards;
+}
+
+.hero-pan-left {
+  transform: scale(1.08) translate3d(2.5%, 0, 0);
+  animation: hero-pan-left 5s linear forwards;
+}
+
+.hero-zoom-in {
+  transform: scale(1);
+  animation: hero-zoom-in 5s linear forwards;
+}
+
+.hero-zoom-out {
+  transform: scale(1.16);
+  animation: hero-zoom-out 5s linear forwards;
+}
+
+@keyframes hero-arrow-nudge {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-arrow-nudge {
+  animation: hero-arrow-nudge 280ms ease-out;
+}
+
+@keyframes hero-highlight-shadow-orbit {
+  0% {
+    box-shadow: 21px -22px 42.3px 0 var(--theme-accent-glow-strong);
+  }
+  25% {
+    box-shadow: 22px 16px 42.3px 0 var(--theme-accent-glow-mid);
+  }
+  50% {
+    box-shadow: -18px 22px 42.3px 0 var(--theme-accent-glow-low);
+  }
+  75% {
+    box-shadow: -22px -14px 42.3px 0 var(--theme-accent-glow-mid);
+  }
+  100% {
+    box-shadow: 21px -22px 42.3px 0 var(--theme-accent-glow-strong);
+  }
+}
+
+.hero-highlight-shadow {
+  animation: hero-highlight-shadow-orbit 8.5s ease-in-out infinite;
+}
+
+@keyframes monitor-power-on {
+  0% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0.62;
+  }
+  28% {
+    opacity: 0.78;
+  }
+  45% {
+    opacity: 0.22;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes monitor-power-off {
+  0% {
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.24;
+  }
+  30% {
+    opacity: 0.08;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.monitor-power-on {
+  animation: monitor-power-on 700ms ease-out both;
+}
+
+.monitor-power-off {
+  animation: monitor-power-off 700ms ease-in both;
+}
+
+@keyframes monitor-rise-enter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0) scale(0.988);
+  }
+  62% {
+    opacity: 1;
+    transform: translate3d(0, -4px, 0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.monitor-rise-enter {
+  animation: monitor-rise-enter 820ms cubic-bezier(0.2, 0.82, 0.22, 1) both;
+  will-change: transform, opacity;
+}
+
+.about-title-glow {
+  position: absolute;
+  isolation: isolate;
+  cursor: default;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+}
+
+.about-title-glow-fill {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  color: transparent;
+  background: radial-gradient(
+    circle 143px at var(--glow-x) var(--glow-y),
+    var(--theme-accent) 0 65%,
+    rgba(var(--theme-accent-rgb), 0) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(0px);
+  opacity: var(--glow-opacity);
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+/* Mesmo efeito de glow do titulo "FLYING STUDIO" da home, porem aplicado a um
+   wordmark em SVG: o gradiente accent e recortado pela forma das letras via
+   mask (em vez de background-clip:text). O wrapper define --glow-x/y/opacity
+   no hover e essas custom properties sao herdadas por este overlay. */
+.wordmark-glow {
+  background: radial-gradient(
+    circle 143px at var(--glow-x, 50%) var(--glow-y, 50%),
+    var(--theme-accent) 0 65%,
+    rgba(var(--theme-accent-rgb), 0) 100%
+  );
+  -webkit-mask-image: var(--wordmark-src);
+  mask-image: var(--wordmark-src);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+/* Variante do glow para wordmarks em TEXTO (DNA Flying Studio): o mesmo
+   gradiente accent seguindo o mouse, mas recortado pelos glifos via
+   background-clip:text em vez de mask de SVG. */
+.text-wordmark-glow {
+  background: radial-gradient(
+    circle 220px at var(--glow-x, 50%) var(--glow-y, 50%),
+    var(--theme-accent) 0 55%,
+    rgba(var(--theme-accent-rgb), 0) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.about-title-entrance {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 1420ms cubic-bezier(0.2, 0.9, 0.24, 1),
+    transform 1420ms cubic-bezier(0.2, 0.9, 0.24, 1);
+  will-change: transform, opacity;
+}
+
+.about-title-entrance-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.about-title-entrance-delay {
+  transition-delay: 280ms;
+}
+
+@keyframes partner-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 36px));
+  }
+}
+
+@keyframes partner-marquee-right {
+  from {
+    transform: translateX(calc(-50% - 36px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.partner-marquee-left {
+  animation: partner-marquee-left 12s linear infinite;
+}
+
+.partner-marquee-right {
+  animation: partner-marquee-right 12s linear infinite;
+}
+
+@keyframes empresas-billboard-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-2350px);
+  }
+}
+
+.empresas-billboard-track {
+  animation: empresas-billboard-marquee 8s linear infinite;
+  filter: blur(0.5px);
+  will-change: transform;
+}
+
+@keyframes empresas-ball-bounce {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.08, 0.92);
+  }
+  12% {
+    transform: translate3d(0, -54px, 0) scale(0.98, 1.02);
+  }
+  26% {
+    transform: translate3d(0, -112px, 0) scale(0.94, 1.06);
+  }
+  46% {
+    transform: translate3d(0, 0, 0) scale(1.1, 0.9);
+  }
+  56% {
+    transform: translate3d(0, -42px, 0) scale(0.99, 1.01);
+  }
+  72% {
+    transform: translate3d(0, 0, 0) scale(1.05, 0.95);
+  }
+}
+
+.empresas-ball-bounce {
+  animation: empresas-ball-bounce 2s cubic-bezier(0.24, 0.72, 0.28, 1) infinite;
+  box-shadow: 0 14px 24px rgba(var(--theme-accent-rgb), 0.18);
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.empresas-pacman-video {
+  mix-blend-mode: screen;
+}
+
+/* ── Pac-Man click reactions ── */
+@keyframes pacman-jump {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-40px) scale(1.05, 0.95);
+  }
+  50% {
+    transform: translateY(-48px) scale(0.95, 1.08);
+  }
+  75% {
+    transform: translateY(-10px) scale(1.02, 0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pacman-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(360deg) scale(1);
+  }
+  75% {
+    transform: rotate(540deg) scale(0.95);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
+
+@keyframes pacman-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-18deg) scale(1.08);
+  }
+  30% {
+    transform: rotate(14deg) scale(1.05);
+  }
+  45% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes pacman-blink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0.2;
+    transform: scale(0.92);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  30% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pacman-react-jump {
+  animation: pacman-jump 0.5s cubic-bezier(0.22, 0.68, 0.32, 1.2) forwards;
+}
+
+.pacman-react-spin {
+  animation: pacman-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.pacman-react-wiggle {
+  animation: pacman-wiggle 0.5s ease-in-out forwards;
+}
+
+.pacman-react-blink {
+  animation: pacman-blink 0.45s ease-in-out forwards;
+}
+
+/* ── Pac-Man power-up easter egg ── */
+@keyframes pacman-powerup-dash {
+  0% {
+    transform: translate(0, 0);
+    filter: drop-shadow(0 12px 28px rgba(32, 28, 44, 0.22));
+  }
+  15% {
+    transform: translateX(0);
+    filter: drop-shadow(0 0 16px rgba(182, 255, 0, 0.5));
+  }
+  50% {
+    transform: translateX(346px);
+    filter: drop-shadow(0 0 16px rgba(182, 255, 0, 0.5));
+  }
+  58% {
+    transform: translateX(346px);
+    filter: drop-shadow(0 0 12px rgba(182, 255, 0, 0.4));
+  }
+  100% {
+    transform: translate(0, 0);
+    filter: drop-shadow(0 12px 28px rgba(32, 28, 44, 0.22));
+  }
+}
+
+.pacman-powerup-active {
+  animation: pacman-powerup-dash 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  z-index: 20 !important;
+}
+
+@keyframes ball-eaten {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.empresas-ball-eaten {
+  animation: ball-eaten 0.25s ease-in forwards !important;
+}
+
+@keyframes ball-respawn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  80% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.empresas-ball-respawn {
+  animation: ball-respawn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

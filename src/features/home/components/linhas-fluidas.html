@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>DNA Wave — Full Width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+  }
+  #dna-wave {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
+</head>
+<body>
+<canvas id="dna-wave"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('dna-wave');
+  const ctx = canvas.getContext('2d');
+  let time = 0;
+  const WAVE_COLOR = 'rgba(126, 82, 255, 0.5)';
+  const LINE_COUNT = 28;
+  const RIBBON_WIDTH = 850;
+  const STROKE_WIDTH = 1.5;
+  const WAVE_AMPLITUDE = 60;
+  const TWIST_SPEED = 0.002;
+  const COMPLEX_TWIST = 0.004;
+  const ANIMATION_SPEED = 0.003;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function drawFrame() {
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = WAVE_COLOR;
+    ctx.lineWidth = STROKE_WIDTH;
+    const centerY = h / 2;
+    for (let i = 0; i < LINE_COUNT; i++) {
+      const lineOffset = (i - LINE_COUNT / 2) * (RIBBON_WIDTH / LINE_COUNT);
+      ctx.beginPath();
+      for (let x = -400; x <= w + 400; x += 5) {
+        const mainWave = Math.sin(x * 0.0015 + time * 0.8) * WAVE_AMPLITUDE;
+        const twistAngle = (x * TWIST_SPEED) + Math.sin(x * COMPLEX_TWIST + time * 0.3) * 1.5 + time;
+        const twistY = lineOffset * Math.cos(twistAngle);
+        const offsetX = lineOffset * Math.sin(twistAngle) * 0.5;
+        const finalX = x + offsetX;
+        const finalY = centerY + mainWave + twistY;
+        x === -400 ? ctx.moveTo(finalX, finalY) : ctx.lineTo(finalX, finalY);
+      }
+      ctx.stroke();
+    }
+    time += ANIMATION_SPEED;
+    requestAnimationFrame(drawFrame);
+  }
+  drawFrame();
+})();
+</script>
+</body>
+</html>

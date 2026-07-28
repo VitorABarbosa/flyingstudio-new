@@ -1,0 +1,417 @@
+/* ─── Home ──────────────────────────────────────────────────────
+   Estilos da home ("Voo além das perspectivas").
+   Prefixo hr- em todas as classes desta folha.
+────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Lima da marca — usado como "sinal vivo" pontual nos dois temas. */
+  --hr-lime: #b6ff00;
+}
+
+/* Ponto de status com anel pulsante — acompanha o tema (roxo no light,
+   lima no dark), igual à luz da lâmpada do "Sobre nós". */
+.hr-live-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--theme-accent);
+}
+
+.hr-live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-accent);
+  animation: hr-pulse 2.4s ease-out infinite;
+}
+
+@keyframes hr-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Indicador de scroll do hero — linha que percorre um trilho. */
+.hr-scroll-line {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  overflow: hidden;
+  background: var(--theme-border-soft);
+}
+
+.hr-scroll-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 100%;
+  height: 40%;
+  background: var(--theme-accent);
+  animation: hr-scroll-cue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Mesmo trilho, mas sobre vídeo: as cores de tema somem contra a imagem. */
+.hr-scroll-line--onVideo {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.hr-scroll-line--onVideo::after {
+  background: #fff;
+}
+
+@keyframes hr-scroll-cue {
+  from {
+    top: -40%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+/* Marquee de parceiros — faixa duplicada, desloca 50%. */
+.hr-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.hr-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: hr-marquee 44s linear infinite;
+}
+
+.hr-marquee:hover .hr-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Segunda fileira do marquee — desliza no sentido oposto. */
+.hr-marquee-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes hr-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Voo de abertura do hero ───────────────────────────────────
+   Header e WhatsApp são `fixed` e vivem fora do hero. Ele publica o estado do
+   voo em `data-hero-flight` no <html> e aqui eles saem de cena — assim os
+   componentes não precisam saber que a animação existe.
+   O `!important` é necessário: o framer escreve `opacity` inline no header,
+   e estilo inline vence regra de classe. */
+html[data-hero-flight] header,
+html[data-hero-flight] .wa-btn,
+html[data-hero-flight] [aria-label='Voltar ao topo'],
+html[data-hero-flight] [aria-label='Navegacao lateral por secao'] {
+  transition: opacity 380ms ease;
+}
+
+html[data-hero-flight='1'] header,
+html[data-hero-flight='1'] .wa-btn,
+html[data-hero-flight='1'] [aria-label='Voltar ao topo'],
+html[data-hero-flight='1'] [aria-label='Navegacao lateral por secao'] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Botão flutuante do WhatsApp — círculo que expande para a ESQUERDA
+   no hover, revelando o rótulo (âncora fixa à direita da tela). */
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: var(--theme-accent);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    transform 0.15s ease;
+}
+
+.wa-sign {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.wa-sign svg {
+  width: 28px;
+  fill: var(--theme-accent-contrast);
+}
+
+.wa-text {
+  position: absolute;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--theme-accent-contrast);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.wa-btn:hover,
+.wa-btn:focus-visible {
+  width: 172px;
+  border-radius: 40px;
+}
+
+.wa-btn:hover .wa-sign,
+.wa-btn:focus-visible .wa-sign {
+  width: 30%;
+  padding-right: 12px;
+}
+
+.wa-btn:hover .wa-text,
+.wa-btn:focus-visible .wa-text {
+  width: 70%;
+  padding-left: 14px;
+  opacity: 1;
+}
+
+.wa-btn:active {
+  transform: translate(2px, 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-btn,
+  .wa-sign,
+  .wa-text {
+    transition: none;
+  }
+}
+
+/* ─── Lanterna do invisível (Sobre nós) ─────────────────────────
+   O cursor revela a imagem escondida sob o breu através de uma
+   máscara radial que segue --lx/--ly (setadas via JS no container). */
+
+/* Envelope da revelação: dissolve o facho antes de ele encostar nos
+   limites da seção. Sem isso o círculo do facho chega opaco na borda
+   e o overflow:hidden da seção o corta em linha reta.
+   São dois envelopes aninhados (um por eixo) porque máscara de pai
+   multiplica com a do filho — assim não dependemos de mask-composite,
+   cujo fallback (add) uniria as máscaras em vez de intersectá-las. */
+.hr-lantern-edges-y {
+  --hr-fade-y: clamp(150px, 22vh, 260px);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--hr-fade-y),
+    #000 calc(100% - var(--hr-fade-y)),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--hr-fade-y),
+    #000 calc(100% - var(--hr-fade-y)),
+    transparent 100%
+  );
+}
+
+.hr-lantern-edges-x {
+  --hr-fade-x: clamp(180px, 14vw, 300px);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--hr-fade-x),
+    #000 calc(100% - var(--hr-fade-x)),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--hr-fade-x),
+    #000 calc(100% - var(--hr-fade-x)),
+    transparent 100%
+  );
+}
+
+/* O facho do cursor é a união de três bolhas de raios diferentes.
+   Camadas de máscara se somam por padrão (mask-composite: add), então o
+   contorno é a união delas — e como cada uma deriva num ritmo próprio,
+   esse contorno ondula em vez de ser um círculo. As paradas longas de
+   cada bolha (queda até ~88%) são o que dá o blur da borda. */
+.hr-lantern-image {
+  opacity: 0;
+  transition: opacity 600ms ease;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-image:
+    radial-gradient(
+      circle 240px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.72) 34%,
+      rgba(0, 0, 0, 0.26) 64%,
+      transparent 88%
+    ),
+    radial-gradient(
+      circle 178px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.6) 40%,
+      transparent 86%
+    ),
+    radial-gradient(
+      circle 132px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.5) 46%,
+      transparent 90%
+    );
+  -webkit-mask-image:
+    radial-gradient(
+      circle 240px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.72) 34%,
+      rgba(0, 0, 0, 0.26) 64%,
+      transparent 88%
+    ),
+    radial-gradient(
+      circle 178px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.6) 40%,
+      transparent 86%
+    ),
+    radial-gradient(
+      circle 132px at var(--lx) var(--ly),
+      #000 0%,
+      rgba(0, 0, 0, 0.5) 46%,
+      transparent 90%
+    );
+}
+
+.hr-lantern:hover .hr-lantern-image {
+  opacity: 1;
+  /* só anima enquanto há hover — fora dele não custa nada */
+  animation: hr-water 13s ease-in-out infinite alternate;
+  will-change: mask-position;
+}
+
+/* Deriva das bolhas. mask-position é animável nativamente, então não
+   precisamos registrar custom properties com @property. */
+@keyframes hr-water {
+  from {
+    mask-position:
+      -34px 22px,
+      30px -26px,
+      8px 34px;
+    -webkit-mask-position:
+      -34px 22px,
+      30px -26px,
+      8px 34px;
+  }
+  50% {
+    mask-position:
+      18px 30px,
+      -26px 14px,
+      -20px -22px;
+    -webkit-mask-position:
+      18px 30px,
+      -26px 14px,
+      -20px -22px;
+  }
+  to {
+    mask-position:
+      28px -20px,
+      -18px 32px,
+      -10px -32px;
+    -webkit-mask-position:
+      28px -20px,
+      -18px 32px,
+      -10px -32px;
+  }
+}
+
+/* Halo lima suave acompanhando o facho */
+.hr-lantern::after {
+  content: '';
+  position: absolute;
+  top: var(--ly);
+  left: var(--lx);
+  width: 520px;
+  height: 520px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--theme-accent-rgb), 0.07) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.hr-lantern:hover::after {
+  opacity: 1;
+}
+
+/* Sem cursor (touch): revela um facho estático central */
+@media (hover: none) {
+  .hr-lantern-image,
+  .hr-lantern:hover .hr-lantern-image {
+    opacity: 1;
+    animation: none;
+    mask-image: radial-gradient(circle 45% at 50% 55%, #000 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle 45% at 50% 55%, #000 0%, transparent 100%);
+  }
+}
+
+/* Cartões de projeto — o hover expande via flex-grow. */
+.hr-project-card {
+  transition:
+    flex-grow 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 400ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hr-live-dot::after,
+  .hr-scroll-line::after,
+  .hr-marquee-track,
+  .hr-lantern:hover .hr-lantern-image {
+    animation: none;
+  }
+
+  .hr-project-card {
+    transition: none;
+  }
+}

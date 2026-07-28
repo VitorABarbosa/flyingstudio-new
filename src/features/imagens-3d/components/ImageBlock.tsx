@@ -1,0 +1,126 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+/* Larguras servidas ao navegador. Precisam existir em `deviceSizes` do Next
+   (padrão: 640, 750, 828, 1080, 1200, 1920, 2048, 3840). */
+const RESPONSIVE_WIDTHS = [828, 1200, 1920] as const;
+
+/**
+ * O acervo é remoto e em resolução de trabalho — cada arquivo passa de 25 MB.
+ * Nada disso pode chegar ao navegador: o que vai no `src` é o otimizador do
+ * Next, que baixa o original uma vez e devolve AVIF/WebP na largura pedida.
+ *
+ * A proporção sobrevive ao redimensionamento, então `naturalWidth/Height` — de
+ * onde sai a proporção usada pelo mosaico — continua correta.
+ */
+export function optimized(src: string, width: number) {
+  if (!src.startsWith('http')) {
+    return src;
+  }
+
+  return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=70`;
+}
+
+type Props = {
+  src: string;
+  title?: string;
+  className?: string;
+  isHovered?: boolean;
+  onAspectRatioChange?: (ratio: number) => void;
+};
+
+export default function ImageBlock({
+  src,
+  title,
+  className = '',
+  isHovered = false,
+  onAspectRatioChange,
+}: Props) {
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  function reportAspectRatio() {
+    const img = imgRef.current;
+
+    if (!img || !img.naturalWidth || !img.naturalHeight) return;
+
+    onAspectRatioChange?.(img.naturalWidth / img.naturalHeight);
+  }
+
+  useEffect(() => {
+    // Imagem que veio do cache dispara `load` antes da hidratação — mede aqui.
+    if (imgRef.current?.complete) {
+      reportAspectRatio();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [src]);
+
+  return (
+    <div
+      className={`
+        relative h-full w-full overflow-hidden
+        bg-[var(--theme-panel)]
+        ${className}
+      `}
+    >
+      {/* O container é uma janela centrada sobre a imagem em proporção
+          natural: quando ele alarga, revela mais imagem pelos dois lados.
+          A imagem em si nunca muda de escala — sem zoom. */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <img
+          ref={imgRef}
+          src={optimized(src, 1920)}
+          srcSet={
+            src.startsWith('http')
+              ? RESPONSIVE_WIDTHS.map((w) => `${optimized(src, w)} ${w}w`).join(', ')
+              : undefined
+          }
+          sizes="(max-width: 768px) 100vw, 70vw"
+          alt={title ?? ''}
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+          onLoad={reportAspectRatio}
+          className="
+            pointer-events-none select-none
+            h-full w-auto min-w-full max-w-none flex-none
+            object-cover object-center
+          "
+        />
+      </div>
+
+      {/* Nome do cliente/projeto: presença discreta — identifica a obra sem
+          competir com a imagem. */}
+      <div
+        className={`
+          pointer-events-none
+          absolute inset-x-0 bottom-0 z-30
+          flex h-[72px] items-end
+          bg-gradient-to-t from-black/50 via-black/20 to-transparent
+          px-5 pb-4
+          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          ${
+            isHovered
+              ? 'translate-y-0 opacity-100'
+              : 'translate-y-4 opacity-0'
+          }
+        `}
+      >
+        <p
+          className="
+            text-left
+            font-['Outfit']
+            text-[12px]
+            font-medium
+            leading-tight
+            tracking-[0.04em]
+            text-white/75
+          "
+        >
+          {title}
+        </p>
+      </div>
+    </div>
+  );
+}
