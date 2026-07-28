@@ -618,32 +618,8 @@
     "hero": {
       "label": "Junte-se a Nós",
       "title": "Seja Flying Studio",
-      "bannerAlt": "Equipe da Flying Studio trabalhando no estúdio"
-    },
-    "departments": {
-      "findByProfile": "Encontre vagas com o seu perfil:",
-      "seeAll": "Ver Todas as Vagas",
-      "vagas": "{count, plural, one {# vaga} other {# vagas}}",
-      "check": "Conferir",
-      "register": "Cadastrar Currículo",
-      "items": {
-        "comercial": {
-          "title": "Comercial",
-          "description": "Relacionamento, vendas e parcerias que aproximam a Flying Studio de novos clientes."
-        },
-        "arte": {
-          "title": "Arte e Criação",
-          "description": "Direção de arte, modelagem e composição que dão vida visual a cada projeto."
-        },
-        "tecnologia": {
-          "title": "Tecnologia",
-          "description": "Desenvolvimento, 3D e ferramentas que sustentam nossas experiências imersivas."
-        },
-        "talentos": {
-          "title": "Talentos",
-          "description": "Não achou sua área? Cadastre seu currículo no nosso banco de talentos."
-        }
-      }
+      "description": "Somos um estúdio de arquitetura visual: arte, tecnologia e mercado no mesmo time. Se você quer construir as imagens que vendem um empreendimento antes do primeiro tijolo, seu lugar pode ser aqui.",
+      "cta": "Cadastrar meu currículo"
     },
     "bancoTalentos": {
       "label": "Banco de Talentos",

@@ -618,32 +618,8 @@
     "hero": {
       "label": "Join Us",
       "title": "Be Flying Studio",
-      "bannerAlt": "The Flying Studio team working at the studio"
-    },
-    "departments": {
-      "findByProfile": "Find roles that match your profile:",
-      "seeAll": "See All Openings",
-      "vagas": "{count, plural, one {# opening} other {# openings}}",
-      "check": "View",
-      "register": "Submit Résumé",
-      "items": {
-        "comercial": {
-          "title": "Sales",
-          "description": "Relationships, sales and partnerships that bring Flying Studio closer to new clients."
-        },
-        "arte": {
-          "title": "Art & Creation",
-          "description": "Art direction, modeling and composition that bring every project to visual life."
-        },
-        "tecnologia": {
-          "title": "Technology",
-          "description": "Development, 3D and tooling that power our immersive experiences."
-        },
-        "talentos": {
-          "title": "Talent",
-          "description": "Didn't find your area? Add your résumé to our talent pool."
-        }
-      }
+      "description": "We are a visual architecture studio: art, technology and market in the same team. If you want to build the images that sell a development before the first brick, your place may be here.",
+      "cta": "Submit my résumé"
     },
     "bancoTalentos": {
       "label": "Talent Pool",

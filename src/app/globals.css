@@ -115,7 +115,7 @@
   --theme-bg-play-btn: #FFFFFF;
   --theme-text-play-btn: #7E52FF;
   --theme-surface-mask: rgba(255, 255, 255, 0.7);
-  --theme-video-mask: rgba(255, 255, 255, 0.32);
+  --theme-video-mask: rgba(0, 0, 0, 0.35);
   --theme-text-tabs: #7E52FF;
   --theme-btn-perspectiva: #000000;
   --theme-btn-default: #7E52FF;
@@ -191,7 +191,7 @@ html[data-theme='dark'] {
   --theme-bg-play-btn: #181818;
   --theme-text-play-btn: #FFFFFF;
   --theme-surface-mask: rgba(0, 0, 0, 0.7);
-  --theme-video-mask: rgba(59, 59, 59, 0.32);
+  --theme-video-mask: rgba(0, 0, 0, 0.35);
   --theme-text-tabs: #b6ff00;
   --theme-btn-perspectiva: #ffffff;
   --theme-btn-default: #B6FF00;
