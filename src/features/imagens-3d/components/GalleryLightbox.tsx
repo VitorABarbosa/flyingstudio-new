@@ -29,9 +29,11 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
      baixado), remonta o <img> com espera crescente em vez de ficar quebrado. */
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [loadAttempt, setLoadAttempt] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setLoadAttempt(0);
+    setIsLoaded(false);
   }, [index]);
 
   useEffect(() => {
@@ -134,9 +136,18 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         className="flex max-h-[86vh] max-w-[92vw] items-center justify-center"
       >
+        {/* Spinner discreto enquanto o otimizador prepara a imagem. */}
+        {!isLoaded && (
+          <span
+            aria-hidden="true"
+            className="absolute top-1/2 left-1/2 size-[34px] -translate-x-1/2 -translate-y-1/2 animate-spin rounded-full border-2 border-white/15 border-t-white/70"
+          />
+        )}
+
         <motion.img
           key={`${item.id}-${loadAttempt}`}
           src={optimized(item.image, 1920)}
+          onLoad={() => setIsLoaded(true)}
           onError={handleLoadError}
           srcSet={
             item.image.startsWith('http')
@@ -148,7 +159,7 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
           draggable={false}
           onClick={(event) => event.stopPropagation()}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="max-h-[86vh] max-w-[92vw] select-none object-contain drop-shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
         />

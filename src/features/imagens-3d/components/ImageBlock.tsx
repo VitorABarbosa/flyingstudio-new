@@ -43,6 +43,7 @@ export default function ImageBlock({
   const imgRef = useRef<HTMLImageElement | null>(null);
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [loadAttempt, setLoadAttempt] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   function reportAspectRatio() {
     const img = imgRef.current;
@@ -50,6 +51,11 @@ export default function ImageBlock({
     if (!img || !img.naturalWidth || !img.naturalHeight) return;
 
     onAspectRatioChange?.(img.naturalWidth / img.naturalHeight);
+  }
+
+  function handleLoad() {
+    setIsLoaded(true);
+    reportAspectRatio();
   }
 
   /**
@@ -81,17 +87,24 @@ export default function ImageBlock({
     setLoadAttempt(0);
 
     // Imagem que veio do cache dispara `load` antes da hidratação — mede aqui.
-    if (imgRef.current?.complete) {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth) {
+      setIsLoaded(true);
       reportAspectRatio();
+    } else {
+      setIsLoaded(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
   return (
+    /* Enquanto a imagem não chega, o painel pulsa como skeleton — e uma
+       imagem que falhou fica invisível (painel liso) em vez do ícone
+       quebrado do navegador, enquanto o retry trabalha. */
     <div
       className={`
         relative h-full w-full overflow-hidden
         bg-[var(--theme-panel)]
+        ${isLoaded ? '' : 'animate-pulse'}
         ${className}
       `}
     >
@@ -113,13 +126,15 @@ export default function ImageBlock({
           draggable={false}
           loading="lazy"
           decoding="async"
-          onLoad={reportAspectRatio}
+          onLoad={handleLoad}
           onError={handleLoadError}
-          className="
+          className={`
             pointer-events-none select-none
             h-full w-auto min-w-full max-w-none flex-none
             object-cover object-center
-          "
+            transition-opacity duration-500
+            ${isLoaded ? 'opacity-100' : 'opacity-0'}
+          `}
         />
       </div>
 

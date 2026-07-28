@@ -6,7 +6,11 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ['image/avif', 'image/webp'],
+    /* Só WebP: codificar AVIF de originais grandes é MUITO lento e enfileira
+       o otimizador quando a galeria pede dezenas de imagens de uma vez —
+       era a causa das imagens quebradas/demoradas. WebP codifica em fração
+       do tempo com qualidade equivalente. */
+    formats: ['image/webp'],
     /* Acervo de Perspectivas: os arquivos são os de trabalho, em resolução
        cheia. Liberar o domínio aqui é o que permite ao otimizador baixar o
        original uma vez e servir ao navegador uma versão redimensionada. */
