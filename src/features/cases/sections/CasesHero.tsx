@@ -5,6 +5,7 @@ import { useRef, type ReactNode } from 'react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { scrollToElement } from '@/lib/scroll-to-element';
 import CasesArrow from '../components/CasesArrow';
 import { EASE, revealItem, staggerContainer } from '../lib/animations';
 
@@ -89,6 +90,11 @@ export default function CasesHero() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.96 }}
           href="#projetos"
+          onClick={(event) => {
+            /* Âncora nativa briga com o Lenis — a rolagem vai para ele. */
+            event.preventDefault();
+            scrollToElement('projetos');
+          }}
           className="mt-9 inline-flex h-14 items-center gap-5 rounded-full bg-[#b6ff00] px-6 text-[16px] font-medium tracking-[0.02em] text-[#201c2c] md:mt-10"
         >
           {t('cta')}

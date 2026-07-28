@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import LinhasFluidas from '@/components/common/LinhasFluidas';
+import { scrollToElement } from '@/lib/scroll-to-element';
 import DecodeText from '@/components/common/DecodeText';
 import { EASE } from '../lib/animations';
 
@@ -93,6 +94,11 @@ export default function DnaHero() {
         <motion.div variants={rise} className="mt-[clamp(1.5rem,3.5vh,2.5rem)]">
           <a
             href="#nossa-historia"
+            onClick={(event) => {
+              /* Âncora nativa briga com o Lenis — a rolagem vai para ele. */
+              event.preventDefault();
+              scrollToElement('nossa-historia');
+            }}
             aria-label={t('scrollLabel')}
             className="flex size-[58px] items-center justify-center rounded-full bg-[var(--theme-accent)] shadow-[0_18px_44px_-14px_var(--theme-accent-glow-soft)] transition-transform duration-200 hover:scale-105 focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none"
           >

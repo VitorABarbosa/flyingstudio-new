@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import LinhasFluidas from '@/components/common/LinhasFluidas';
+import { scrollToElement } from '@/lib/scroll-to-element';
 import {
   staggerContainer,
   revealText,
@@ -73,6 +74,12 @@ export default function JunteSeANosHero() {
         <motion.a
           variants={revealItem}
           href="#banco-talentos"
+          onClick={(event) => {
+            /* Âncora nativa briga com o Lenis (um glide em curso engole o
+               salto) — a rolagem vai para o próprio Lenis. */
+            event.preventDefault();
+            scrollToElement('banco-talentos');
+          }}
           whileHover={buttonHover}
           whileTap={pressTap}
           className="mt-[clamp(1.75rem,4vh,2.5rem)] inline-flex items-center gap-[10px] rounded-full bg-[var(--theme-btn-default)] px-[30px] py-[16px] font-['Outfit'] text-[15px] leading-none font-medium text-[var(--theme-btn-text-default)] shadow-[0_18px_44px_-14px_var(--theme-accent-glow-soft)] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none"

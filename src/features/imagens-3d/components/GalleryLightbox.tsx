@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -9,6 +9,9 @@ import type { GalleryItem } from '../types/gallery.types';
 
 /* Larguras servidas no lightbox — precisam existir em `deviceSizes` do Next. */
 const LIGHTBOX_WIDTHS = [1200, 1920, 2048] as const;
+
+/** Tentativas extras quando o otimizador falha em servir a imagem. */
+const MAX_LOAD_RETRIES = 4;
 
 type Props = {
   items: GalleryItem[];
@@ -21,6 +24,34 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
   const t = useTranslations('Images3DPage.lightbox');
 
   const item = items[index];
+
+  /* Mesmo seguro do ImageBlock: se o otimizador falhar (original ainda sendo
+     baixado), remonta o <img> com espera crescente em vez de ficar quebrado. */
+  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
+
+  useEffect(() => {
+    setLoadAttempt(0);
+  }, [index]);
+
+  useEffect(() => {
+    return () => {
+      if (retryTimerRef.current) {
+        clearTimeout(retryTimerRef.current);
+      }
+    };
+  }, []);
+
+  function handleLoadError() {
+    if (loadAttempt >= MAX_LOAD_RETRIES) return;
+
+    retryTimerRef.current = setTimeout(
+      () => {
+        setLoadAttempt((current) => current + 1);
+      },
+      1200 * (loadAttempt + 1)
+    );
+  }
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -104,8 +135,9 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
         className="flex max-h-[86vh] max-w-[92vw] items-center justify-center"
       >
         <motion.img
-          key={item.id}
+          key={`${item.id}-${loadAttempt}`}
           src={optimized(item.image, 1920)}
+          onError={handleLoadError}
           srcSet={
             item.image.startsWith('http')
               ? LIGHTBOX_WIDTHS.map((w) => `${optimized(item.image, w)} ${w}w`).join(', ')

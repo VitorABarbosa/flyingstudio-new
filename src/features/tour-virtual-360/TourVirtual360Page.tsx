@@ -5,6 +5,7 @@ import FooterReveal from '@/components/layout/FooterReveal';
 import { FluidParticlesBackground } from '@/components/ui/fluid-particles-background';
 import Header from '@/components/layout/Header';
 import ServiceBridgeCta from '@/components/sections/ServiceBridgeCta';
+import { scrollToElement } from '@/lib/scroll-to-element';
 import TourHero from './components/TourHero';
 import TourProjetosSection from './components/TourProjetosSection';
 import TourExperienceSection from './components/TourExperienceSection';
@@ -20,7 +21,7 @@ export default function TourVirtual360Page() {
 
   const handleSelectTour = (id: string) => {
     setActiveTourId(id);
-    document.getElementById('experimente')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToElement('experimente');
   };
 
   return (

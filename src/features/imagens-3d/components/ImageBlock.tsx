@@ -1,6 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+/** Tentativas extras quando o otimizador falha em servir a imagem. */
+const MAX_LOAD_RETRIES = 4;
 
 /* Larguras servidas ao navegador. Precisam existir em `deviceSizes` do Next
    (padrão: 640, 750, 828, 1080, 1200, 1920, 2048, 3840). */
@@ -38,6 +41,8 @@ export default function ImageBlock({
   onAspectRatioChange,
 }: Props) {
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
 
   function reportAspectRatio() {
     const img = imgRef.current;
@@ -47,7 +52,34 @@ export default function ImageBlock({
     onAspectRatioChange?.(img.naturalWidth / img.naturalHeight);
   }
 
+  /**
+   * O primeiro pedido de uma imagem do acervo pode falhar: o otimizador ainda
+   * está baixando o original de ~28 MB (ou a fila está cheia) e responde erro
+   * — e um <img> quebrado não tenta de novo sozinho. Remontamos com espera
+   * crescente; na retentativa o original já costuma estar em cache.
+   */
+  function handleLoadError() {
+    if (loadAttempt >= MAX_LOAD_RETRIES) return;
+
+    retryTimerRef.current = setTimeout(
+      () => {
+        setLoadAttempt((current) => current + 1);
+      },
+      1200 * (loadAttempt + 1)
+    );
+  }
+
   useEffect(() => {
+    return () => {
+      if (retryTimerRef.current) {
+        clearTimeout(retryTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    setLoadAttempt(0);
+
     // Imagem que veio do cache dispara `load` antes da hidratação — mede aqui.
     if (imgRef.current?.complete) {
       reportAspectRatio();
@@ -68,6 +100,7 @@ export default function ImageBlock({
           A imagem em si nunca muda de escala — sem zoom. */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <img
+          key={loadAttempt}
           ref={imgRef}
           src={optimized(src, 1920)}
           srcSet={
@@ -81,6 +114,7 @@ export default function ImageBlock({
           loading="lazy"
           decoding="async"
           onLoad={reportAspectRatio}
+          onError={handleLoadError}
           className="
             pointer-events-none select-none
             h-full w-auto min-w-full max-w-none flex-none

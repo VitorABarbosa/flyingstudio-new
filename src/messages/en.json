@@ -643,6 +643,10 @@
         "whatsapp": {
           "label": "Whatsapp",
           "placeholder": "(11) 98746-5895"
+        },
+        "motivation": {
+          "label": "Why do you want to join Flying?",
+          "placeholder": "Tell us in a few lines what brings you here"
         }
       },
       "areas": {

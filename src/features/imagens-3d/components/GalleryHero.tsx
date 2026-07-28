@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { scrollToElement } from '@/lib/scroll-to-element';
 import { galleryCategoryOrder, gallerySections } from '../data/galleryData';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -51,10 +52,7 @@ export default function GalleryHero() {
   function handleCategoryClick(filter: string) {
     setActiveFilter(filter);
     window.dispatchEvent(new CustomEvent('gallery-filter-change', { detail: { filter } }));
-    document.getElementById('galeria-imagens-3d')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    scrollToElement('galeria-imagens-3d');
   }
 
   return (
