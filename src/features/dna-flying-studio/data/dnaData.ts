@@ -65,7 +65,7 @@ export const dnaCompanies: DnaCompany[] = [
   {
     key: 'nid',
     photoSrc:
-      'https://img.flyingstudio.com.br/site-flying/LIVING/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
+      'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
     logoSrc: '/home/nosso-grupo/logos/nid.png',
     logoWidth: 291,
     logoHeight: 83,

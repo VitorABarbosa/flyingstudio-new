@@ -155,7 +155,7 @@ export default function FormularioDadosSection() {
     <section
       id="formulario"
       aria-labelledby="formulario-title"
-      className="relative w-full scroll-mt-[80px] bg-[var(--theme-bg)] pt-[clamp(40px,7vh,76px)] pb-[clamp(64px,10vh,96px)]"
+      className="relative w-full scroll-mt-[80px] pt-[clamp(40px,7vh,76px)] pb-[clamp(64px,10vh,96px)]"
     >
       <div className="mx-auto w-full max-w-[1240px] px-4">
         {/* O titulo visivel da pagina e o do hero; aqui ele so nomeia a secao

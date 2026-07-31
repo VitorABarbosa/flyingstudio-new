@@ -1,5 +1,4 @@
 import FooterReveal from '@/components/layout/FooterReveal';
-import Header from '@/components/layout/Header';
 import DnaEssenciaSection from './sections/DnaEssenciaSection';
 import DnaGrupoSection from './sections/DnaGrupoSection';
 import DnaHero from './sections/DnaHero';
@@ -11,7 +10,6 @@ import DnaVozesSection from './sections/DnaVozesSection';
 export default function DnaFlyingStudioPage() {
   return (
     <main id="page-top" className="bg-[var(--theme-bg)]">
-      <Header />
       <DnaHero />
       {/* `pt` curto: o hero agora termina logo depois da seta, e o respiro
           grande de antes deixava a primeira seção fora da dobra. */}

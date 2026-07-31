@@ -1,22 +1,26 @@
 import FooterReveal from '@/components/layout/FooterReveal';
-import Header from '@/components/layout/Header';
+import { FluidParticlesBackground } from '@/components/ui/fluid-particles-background';
 import JunteSeANosHero from './components/JunteSeANosHero';
 import BancoTalentosSection from './components/BancoTalentosSection';
 
 export default function JunteSeANosPage() {
   return (
-    /* Fundo no padrão do DNA: bg do tema + linhas fluidas dentro do hero. */
-    <main id="page-top" className="bg-[var(--theme-bg)]">
-      <Header />
+    /* Sem `bg` opaco aqui: o `body` já pinta `--theme-bg`, e uma superfície
+       opaca no `main` cobriria o campo de linhas, que é `fixed` e vive atrás
+       de todo o conteúdo — mesmo arranjo das páginas de serviço. */
+    <main id="page-top" className="relative">
+      <FluidParticlesBackground className="z-0" />
 
-      {/* Página deliberadamente objetiva: convite (hero) e cadastro do
-          currículo (banco de talentos). Nada de vagas, contagens ou seções
-          institucionais — quem chegou aqui veio se candidatar. */}
-      <JunteSeANosHero />
+      <div className="relative z-10">
+        {/* Página deliberadamente objetiva: convite (hero) e cadastro do
+            currículo (banco de talentos). Nada de vagas, contagens ou seções
+            institucionais — quem chegou aqui veio se candidatar. */}
+        <JunteSeANosHero />
 
-      <BancoTalentosSection />
+        <BancoTalentosSection />
 
-      <FooterReveal />
+        <FooterReveal />
+      </div>
     </main>
   );
 }

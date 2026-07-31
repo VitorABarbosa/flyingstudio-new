@@ -68,7 +68,6 @@ type FormState = {
   area: string;
   email: string;
   whatsapp: string;
-  motivation: string;
 };
 
 export default function BancoTalentosSection() {
@@ -80,7 +79,6 @@ export default function BancoTalentosSection() {
     area: '',
     email: '',
     whatsapp: '',
-    motivation: '',
   });
   const [file, setFile] = useState<File | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -110,7 +108,7 @@ export default function BancoTalentosSection() {
     <section
       id="banco-talentos"
       aria-labelledby="banco-talentos-title"
-      className="w-full scroll-mt-[80px] bg-[var(--theme-bg)] px-4 py-[40px]"
+      className="w-full scroll-mt-[80px] px-4 py-[40px]"
     >
       <form
         onSubmit={handleSubmit}
@@ -232,17 +230,6 @@ export default function BancoTalentosSection() {
                 onChange={(e) => update('whatsapp')(e.target.value)}
                 placeholder={t('fields.whatsapp.placeholder')}
                 className={controlClassName}
-              />
-            </Field>
-
-            <Field label={t('fields.motivation.label')} htmlFor={`${fieldId}-motivation`}>
-              <textarea
-                id={`${fieldId}-motivation`}
-                value={form.motivation}
-                onChange={(e) => update('motivation')(e.target.value)}
-                placeholder={t('fields.motivation.placeholder')}
-                rows={3}
-                className={`${controlClassName} resize-none`}
               />
             </Field>
           </motion.div>
