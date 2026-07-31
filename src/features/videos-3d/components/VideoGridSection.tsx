@@ -41,15 +41,12 @@ export default function VideoGridSection({ section }: { section: VideoSectionTyp
   return (
     <section className="w-full">
       <div className="mx-auto w-full max-w-[1800px] px-4 md:px-6">
-        <div className="flex flex-col gap-3 border-b border-[color-mix(in_srgb,var(--theme-text)_12%,transparent)] pb-5 md:flex-row md:items-end md:justify-between md:gap-12">
-          <div className="flex flex-col gap-1.5">
-            <span className="font-['Outfit'] text-[11px] font-bold tracking-[0.22em] text-[var(--theme-accent)] uppercase">
-              {t(`sections.${section.id}.eyebrow`)}
-            </span>
-            <h2 className="font-['Outfit'] text-[26px] leading-tight font-semibold text-[var(--theme-text)] md:text-[36px]">
-              {t(`sections.${section.id}.title`)}
-            </h2>
-          </div>
+        {/* O título da categoria vive na VideoFilterBar (o filtro ativo É o
+            título) — aqui ficam só a contagem e a descrição. */}
+        <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-12">
+          <span className="font-['Outfit'] text-[11px] font-bold tracking-[0.22em] text-[var(--theme-accent)] uppercase">
+            {t(`sections.${section.id}.eyebrow`)}
+          </span>
 
           <p className="max-w-[64ch] font-['Outfit'] text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[15px]">
             {t(`sections.${section.id}.description`)}
