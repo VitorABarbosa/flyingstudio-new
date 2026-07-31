@@ -72,11 +72,9 @@ export default function Footer() {
           <BrandLogo fill className="object-contain" />
         </Link>
 
-        {/* Telefone — abre WhatsApp — Figma node 2076:2780 */}
+        {/* Telefone fixo — disca direto (fixo não tem WhatsApp) — Figma node 2076:2780 */}
         <a
-          href={WHATSAPP_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="tel:+551123514138"
           className="shrink-0 font-sans text-[16px] leading-[1.2] font-medium whitespace-nowrap text-[var(--theme-text-body)] transition-opacity hover:opacity-70"
         >
           {t('phone')}

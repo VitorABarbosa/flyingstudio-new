@@ -10,43 +10,8 @@
       "metaLocation": "São Paulo — Brasil",
       "metaSince": "Desde 2010",
       "metaMarket": "Mercado imobiliário",
-      "scrollCue": "Abaixe para explorar"
-    },
-    "services": {
-      "eyebrow": "O que fazemos",
-      "titleStart": "Do conceito ao",
-      "titleAccent": "concreto",
-      "intro": "Cada projeto pede uma linguagem. Dominamos todas — da imagem estática à vivência interativa.",
-      "linkHint": "Conhecer",
-      "stackHint": "Clique para ver a próxima",
-      "liveExample": "Exemplo real — interaja",
-      "items": {
-        "images3d": {
-          "name": "Imagens 3D",
-          "tagline": "O gatilho do desejo",
-          "desc": "Damos forma ao invisível — luz, enquadramento e vida em peças que despertam o desejo antes do primeiro tijolo."
-        },
-        "videos3d": {
-          "name": "Filmes 3D",
-          "tagline": "A narrativa que vende",
-          "desc": "Metros quadrados viram narrativas de vida: histórias magnéticas que conectam o empreendimento à emoção de quem compra."
-        },
-        "tour360": {
-          "name": "Tour Virtual 360º",
-          "tagline": "O amanhã, sentido de perto",
-          "desc": "Uma vivência hiper-realista em todos os ângulos — o cliente não vê o projeto, ele caminha por dentro dele."
-        },
-        "apps": {
-          "name": "Aplicativos",
-          "tagline": "O controle da apresentação",
-          "desc": "A narrativa comercial sob controle absoluto: uma trilha de convencimento que guia a decisão passo a passo."
-        },
-        "dsbrave": {
-          "name": "D.sbrave",
-          "tagline": "A máquina do tempo 360º",
-          "desc": "O futuro na palma da mão: o comprador passeia pelas memórias de um lar que ainda será criado."
-        }
-      }
+      "scrollCue": "Abaixe para explorar",
+      "tagline": "Muito além das perspectivas"
     },
     "dsbrave": {
       "eyebrow": "Produto próprio",
@@ -61,29 +26,6 @@
         "predio": "Prédio"
       }
     },
-    "about": {
-      "eyebrow": "Sobre nós",
-      "titleStart": "Nascemos para dar forma ao",
-      "titleAccent": "invisível",
-      "desc": "Desde 2011 materializamos o sonho do comprador antes do primeiro tijolo ser assentado. O que começou como arte 3D virou um ecossistema completo de tecnologia para lançamentos imobiliários.",
-      "photoChip": "QG — Berrini, São Paulo",
-      "hint": "Mova o cursor — revele o invisível",
-      "stats": {
-        "s1": {
-          "value": "2011",
-          "label": "Fundação"
-        },
-        "s2": {
-          "value": "15 anos",
-          "label": "De mercado"
-        },
-        "s3": {
-          "value": "4 empresas",
-          "label": "No Grupo Flying"
-        }
-      },
-      "cta": "Conheça o DNA Flying Studio"
-    },
     "partners": {
       "title": "Muito mais que clientes",
       "subtitle": "Parceiros, amigos e uma verdadeira família."
@@ -95,23 +37,91 @@
       "primary": "Iniciar um projeto",
       "whatsapp": "Chamar no WhatsApp",
       "emailLabel": "ou escreva para"
+    },
+    "grupo": {
+      "eyebrow": "Nosso Grupo",
+      "titleStart": "Uma essência,",
+      "titleAccent": "quatro olhares",
+      "narrative": "A Flying transbordou: o que nasceu dando forma ao invisível cresceu em frentes que hoje caminham juntas — imagem, filme, design e desenvolvimento imobiliário. Quatro empresas falando a mesma língua, da concepção do produto à experiência que vende.",
+      "cta": "Conheça o grupo por dentro",
+      "companies": {
+        "flying": {
+          "name": "Flying Studio",
+          "role": "Tecnologia artística 3D",
+          "desc": "A casa-mãe: imagens, aplicativos, tours e experiências imersivas para lançamentos."
+        },
+        "rinno": {
+          "name": "Rinno Films",
+          "role": "Produtora audiovisual",
+          "desc": "A narrativa que vende: filmes conceituais, de produto, virais e documentais."
+        },
+        "nid": {
+          "name": "NID Studio",
+          "role": "Design estratégico",
+          "desc": "A arquitetura do desejo: interiores, fachadas, estandes de vendas e decorados."
+        },
+        "ogdi": {
+          "name": "Open Group",
+          "role": "Desenvolvimento imobiliário",
+          "desc": "Da oportunidade ao lançamento: estruturação, viabilidade e produto imobiliário."
+        }
+      }
     }
+  },
+  "Hero": {
+    "headline": "Tecnologia Artística 3D",
+    "label": "SOMOS EXPERT NO MERCADO IMOBILIÁRIO",
+    "tagline": "Muito além das perspectivas",
+    "cards": {
+      "images": {
+        "title": "Criamos\nImagens 3D",
+        "description": "Procuramos identificar a <b>essência</b> de cada projeto para criar imagens visualmente impactantes, que <b>transmitam o real valor</b> do empreendimento.",
+        "cta": "Quero saber mais"
+      },
+      "video": {
+        "title": "Filmes\nRealistas",
+        "description": "Nossos filmes contam histórias, procuramos destacar os <b>diferenciais</b> de cada projeto <b>dando vida ao conceito</b> através dos movimentos, efeitos e das trilhas sonoras.",
+        "cta": "Quero saber mais"
+      },
+      "tech": {
+        "title": "Cases de\nAplicativos",
+        "description": "Ofereça ao seu cliente uma <b>experiência imersiva</b> e <b>padronizada</b> ao conhecer seu produto, adicione imagens, filmes, tours e todo conteúdo que desejar.",
+        "cta": "Quero saber mais"
+      },
+      "tour": {
+        "title": "Tour Virtual\n360º graus",
+        "description": "Vivencie seus projetos em uma <b>experiência imersiva</b> de <b>realidade virtual</b> que proporciona <b>sensações novas</b> e <b>interativas</b>.",
+        "cta": "Quero saber mais"
+      },
+      "dsbrave": {
+        "title": "Conheça o\nD.sbrave",
+        "description": "Transforme a apresentação do seu projeto em uma <b>vivência imersiva por dentro do empreendimento</b>, aproximando o cliente dos espaços, sensações e diferenciais de cada ambiente.",
+        "cta": "Quero saber mais"
+      }
+    }
+  },
+  "Sobre": {
+    "label": "FLYING STUDIO",
+    "intro": "Sempre inovando e olhando para o futuro a Flying Studio tem se reinventado a cada novo desafio e procurado sempre alcançar novos horizontes. Nosso principal objetivo é ser a parceira ideal na área de tecnologia artística 3D para enfrentarmos juntos os grandes desafios do mercado imobiliário.",
+    "years": "Há 15 anos no mercado",
+    "description": "Com 15 anos de história, temos participado ativamente da trajetória e sucesso de nossos parceiros, não só produzindo imagens e filmes, mas também construindo um grande legado.",
+    "cta": "Conheça a Flying Studio"
   },
   "ServiceBridge": {
     "images3d": {
-      "question": "Quer passar mais emoção?",
+      "question": "A emoção cresce em movimento.",
       "action": "Conheça os Filmes"
     },
     "videos3d": {
-      "question": "E se o corretor tivesse o empreendimento na mão?",
+      "question": "Agora, o empreendimento na mão do corretor.",
       "action": "Conheça os Aplicativos"
     },
     "apps": {
-      "question": "Quer ainda mais imersão?",
+      "question": "O próximo passo é caminhar por dentro do projeto.",
       "action": "Explorar o Tour Virtual 360"
     },
     "tour360": {
-      "question": "Pronto para reunir tudo em um só lugar?",
+      "question": "Tudo isso, reunido em um só lugar.",
       "action": "Descubra o D.sbrave"
     },
     "dsbrave": {
@@ -129,9 +139,10 @@
   "Header": {
     "navLabel": "Menu principal",
     "nav": {
-      "dna": "DNA Flying Studio",
+      "home": "Home",
+      "about": "Sobre Nós",
       "services": "Serviços",
-      "cases": "Cases",
+      "cases": "Nosso Grupo",
       "join": "Junte-se a Nós",
       "news": "Flying News"
     },
@@ -140,7 +151,7 @@
       "videos3d": "Filmes",
       "apps": "Aplicativos",
       "dsbrave": "D.sbrave",
-      "tour360": "Tour Virtual"
+      "tour360": "Tour Virtual 360º"
     },
     "contact": "Contato",
     "openMenu": "Abrir menu",
@@ -156,24 +167,34 @@
   },
   "DSbravePage": {
     "hero": {
-      "eyebrow": "Serviço",
-      "description": "Uma central imersiva para reunir os tours virtuais do empreendimento em uma experiência única de navegação.",
-      "iframeTitle": "Central D.sbrave — Granlote Treviso",
-      "interactLabel": "Clique para interagir",
-      "screenTitle": "Conheça o D.sbrave",
-      "screenSubtitle": "Uma vivência imersiva por dentro do empreendimento"
-    },
-    "projects": {
-      "eyebrow": "QUEM JÁ USA",
-      "title": "Projetos com D.sbrave",
-      "prevLabel": "Voltar projetos",
-      "nextLabel": "Avançar projetos"
+      "home": "Home",
+      "eyebrow": "Serviço"
     },
     "explainer": {
-      "eyebrow": "O QUE É O D.SBRAVE",
-      "title": "Todos os ambientes em um só lugar",
-      "description": "O D.sbrave organiza implantação, áreas de lazer, livings, decorados e demais tours do empreendimento em uma navegação contínua. Em vez de abrir vários links, o cliente percorre uma experiência centralizada, mais clara e mais próxima da sensação de visita.",
-      "points": {
+      "eyebrow": "O QUE É O",
+      "title": "Apresenta, vende e monitora",
+      "description": "Onde toda a materialização se encontra: um hub interativo e inteligente que reúne apresentação, vendas e gestão do empreendimento em uma única plataforma. Do primeiro render ao acompanhamento da obra, o cliente vivencia o futuro — e a operação inteira trabalha em um só lugar."
+    },
+    "module": {
+      "prevLabel": "Voltar módulos",
+      "nextLabel": "Avançar módulos",
+      "items": {
+        "splitview": {
+          "title": "Split View",
+          "description": "Acompanhamento da obra em tempo real, lado a lado com o projeto."
+        },
+        "lotes": {
+          "title": "Automação de Lotes",
+          "description": "Reservas e disponibilidade atualizadas instantaneamente."
+        },
+        "mapa": {
+          "title": "Mapa Interativo de Arredores",
+          "description": "Visualização aérea 360° via drone, com pins de outros empreendimentos e integração direta com seus sites."
+        },
+        "exploracao": {
+          "title": "Exploração 360°",
+          "description": "Ambientes explorados em alta qualidade, direto no hub."
+        },
         "unify": {
           "title": "Unifica os tours",
           "description": "Reúne os ambientes virtuais do projeto em uma única central de acesso."
@@ -185,13 +206,7 @@
         "desire": {
           "title": "Constrói desejo",
           "description": "Aproxima o cliente da rotina, dos espaços e da sensação de futuro lar."
-        }
-      }
-    },
-    "module": {
-      "eyebrow": "MÓDULO D.SBRAVE",
-      "title": "Próprio ou integrado ao aplicativo",
-      "items": {
+        },
         "standalone": {
           "title": "Módulo próprio",
           "description": "Uma experiência independente para campanhas, lançamentos e apresentações comerciais."
@@ -200,15 +215,24 @@
           "title": "Dentro do app",
           "description": "Também pode ser incorporado ao aplicativo do empreendimento como área imersiva."
         }
-      },
-      "button": "Quero meu D.sbrave →"
+      }
+    },
+    "projects": {
+      "eyebrow": "QUEM JÁ USA",
+      "title": "Projetos com D.sbrave",
+      "prevLabel": "Voltar projetos",
+      "nextLabel": "Avançar projetos"
+    },
+    "demo": {
+      "headline": "Veja o D.sbrave em ação.",
+      "button": "Solicitar demonstração"
     }
   },
   "Images3DPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Serviço",
-      "title": "Perspectivas",
-      "description": "Navegue por nossos projetos e experimente uma nova perspectiva."
+      "title": "Imagens"
     },
     "sections": {
       "geral": {
@@ -242,14 +266,14 @@
       "next": "Próxima imagem",
       "close": "Fechar"
     },
-    "ctaHeadline": "Vamos dar forma ao seu empreendimento?",
+    "ctaHeadline": "Vamos dar forma ao seu empreendimento.",
     "ctaLabel": "Quero minhas perspectivas"
   },
   "Videos3DPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Serviço",
-      "title": "Vídeos 3D",
-      "description": "Navegue por nossos projetos e experimente uma nova perspectiva."
+      "title": "Filmes"
     },
     "tabs": {
       "todos": "Todos",
@@ -292,68 +316,62 @@
   },
   "AplicativosPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Serviço",
-      "title": "Aplicativos",
-      "description": "Ofereça ao seu cliente uma experiência imersiva e personalizada ao conhecer seu produto. Tudo online e prático."
+      "title": "Aplicativos"
     },
-    "experimente": {
-      "titlePre": "Veja com os",
-      "titleAccent": "próprios olhos",
-      "subtitle": "Experiência imersiva e interativa que conecta cliente e projeto.",
-      "interactHint": "Clique para interagir"
-    },
-    "projects": {
-      "eyebrow": "SOLUÇÕES EM APLICATIVOS",
-      "title": "Projetos Personalizados",
-      "prevLabel": "Voltar projetos",
-      "nextLabel": "Avançar projetos",
-      "openApp": "Ver o aplicativo de {project}"
+    "explainer": {
+      "eyebrow": "O QUE É O APLICATIVO",
+      "title": "O showroom digital da Flying",
+      "description": "Uma aplicação web interativa que coloca o empreendimento inteiro na mão do corretor: renders realistas, vídeos 3D, plantas interativas e tours 360° em um só ambiente, com a identidade de cada projeto. É a apresentação que dá forma ao invisível diante do cliente — e padroniza a experiência de venda."
     },
     "benefits": {
-      "title": "Vantagens do formato multiplataforma",
-      "ctaLabel": "Quero o meu aplicativo →",
+      "prevLabel": "Voltar diferenciais",
+      "nextLabel": "Avançar diferenciais",
       "items": {
         "sob-medida": {
-          "title": "Sob medida",
-          "description": "Design sob medida para cada incorporadora, reforçando a marca."
+          "title": "Design sob medida",
+          "description": "Cada aplicação é única para a incorporadora, reforçando a marca do empreendimento."
         },
         "multiplataforma": {
           "title": "Qualquer dispositivo",
           "description": "Pode ser acessado em qualquer dispositivo, sem necessidade de instalação."
         },
         "memoravel": {
-          "title": "Experiência memorável",
+          "title": "Venda memorável",
           "description": "Transforma o momento da venda em uma experiência visual memorável."
         },
         "corretor": {
           "title": "Na mão do corretor",
-          "description": "No estande, o corretor conduz a apresentação e responde na hora: planta, implantação, vista do andar. Tudo num só lugar."
+          "description": "No estande ou onde a venda acontecer, o corretor conduz a apresentação e responde na hora: planta, implantação, vista do andar."
         }
       }
+    },
+    "projects": {
+      "eyebrow": "SOLUÇÕES EM APLICATIVOS",
+      "title": "Projetos Personalizados",
+      "prevLabel": "Voltar projetos",
+      "nextLabel": "Avançar projetos"
+    },
+    "demo": {
+      "headline": "Veja o Aplicativo em ação.",
+      "button": "Solicitar demonstração"
     }
   },
   "Tour360Page": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Serviço",
-      "title": "Tour Virtual 360°",
-      "description": "A realidade virtual para revolucionar a forma de apresentar seu projeto. Entre nessa imersão inovadora."
+      "title": "Tour Virtual 360°"
     },
-    "projects": {
-      "eyebrow": "SOLUÇÕES EM TOUR VIRTUAL 360°",
-      "title": "Conheça Nossos Projetos",
-      "prevLabel": "Voltar projetos",
-      "nextLabel": "Avançar projetos",
-      "openTour": "Ver o tour de {project}"
-    },
-    "experience": {
-      "titlePre": "Experimente o",
-      "titleHighlight": "Tour 360°",
-      "interactHint": "Clique para interagir"
+    "explainer": {
+      "eyebrow": "O QUE É O TOUR VIRTUAL",
+      "title": "O empreendimento por dentro",
+      "description": "Uma experiência hiper-realista em 360° que coloca o cliente dentro do empreendimento antes do primeiro tijolo ser assentado. Na apresentação conduzida pelo corretor, o projeto vira vivência: espaço, acabamento e atmosfera do futuro lar, sentidos de perto."
     },
     "benefits": {
-      "eyebrow": "CONHEÇA NOSSA",
-      "title": "Tecnologia 360°",
-      "ctaLabel": "Quero o meu tour 360º →",
+      "prevLabel": "Voltar diferenciais",
+      "nextLabel": "Avançar diferenciais",
       "items": {
         "1": {
           "title": "Seu Produto Imersivo",
@@ -372,6 +390,16 @@
           "description": "Uma forma inovadora de apresentar seu produto de maneira memorável e interativa."
         }
       }
+    },
+    "projects": {
+      "eyebrow": "SOLUÇÕES EM TOUR VIRTUAL 360°",
+      "title": "Conheça Nossos Projetos",
+      "prevLabel": "Voltar projetos",
+      "nextLabel": "Avançar projetos"
+    },
+    "demo": {
+      "headline": "Veja o Tour Virtual em ação.",
+      "button": "Solicitar demonstração"
     }
   },
   "DnaPage": {
@@ -527,7 +555,8 @@
             "Lançamento"
           ]
         }
-      }
+      },
+      "cta": "Conheça o grupo por dentro"
     },
     "parceiros": {
       "titlePre": "Muito mais que clientes,",
@@ -562,20 +591,22 @@
     }
   },
   "Footer": {
-    "phone": "+55 11 99344-3369",
+    "phone": "(11) 2351-4138",
     "email": "studio@flyingstudio.com.br",
     "address": "Av. Engenheiro Luís Carlos Berrini, 936 - Itaim Bibi, São Paulo, SP.",
     "ariaLabel": "Flying Studio no {name}"
   },
   "Contato": {
     "hero": {
-      "ariaHeading": "Vamos começar um projeto juntos?",
+      "label": "Contato",
+      "bannerAlt": "Escritório da Flying Studio",
+      "ariaHeading": "Vamos começar um projeto juntos.",
       "words": {
         "w1": "Vamos",
         "w2": "começar",
         "w3": "um",
         "w4": "projeto",
-        "w5": "juntos?"
+        "w5": "juntos."
       }
     },
     "form": {
@@ -608,9 +639,9 @@
       "submitted": "Enviado!"
     },
     "meeting": {
-      "title": "Quer marcar uma",
-      "titleHighlight": "reunião antes?",
-      "text": "Sem problemas, entre em contato para validar a disponibilidade.",
+      "title": "Marque uma",
+      "titleHighlight": "reunião antes.",
+      "text": "Entre em contato para validar a disponibilidade.",
       "cta": "Validar disponibilidade"
     }
   },
@@ -618,14 +649,13 @@
     "hero": {
       "label": "Junte-se a Nós",
       "title": "Seja Flying Studio",
-      "description": "Somos um estúdio de arquitetura visual: arte, tecnologia e mercado no mesmo time. Se você quer construir as imagens que vendem um empreendimento antes do primeiro tijolo, seu lugar pode ser aqui.",
-      "cta": "Cadastrar meu currículo"
+      "bannerAlt": "Equipe da Flying Studio trabalhando no estúdio"
     },
     "bancoTalentos": {
       "label": "Banco de Talentos",
       "titleLine1": "Junte-se",
       "titleLine2": "a nós",
-      "paragraph": "Buscando um lugar onde possa crescer, aprender e fazer a diferença? Venha fazer parte da nossa família Flying Studio. Estamos sempre à procura de talentos que compartilhem nossa visão e paixão pelo novo.",
+      "paragraph": "Um lugar para crescer, aprender e fazer a diferença: venha fazer parte da nossa família Flying Studio. Estamos sempre à procura de talentos que compartilhem nossa visão e paixão pelo novo.",
       "closing": "Vamos construir algo extraordinário juntos!",
       "fields": {
         "name": {
@@ -643,10 +673,6 @@
         "whatsapp": {
           "label": "Whatsapp",
           "placeholder": "(11) 98746-5895"
-        },
-        "motivation": {
-          "label": "Por que você quer se juntar à Flying?",
-          "placeholder": "Conte em poucas linhas o que te move até aqui"
         }
       },
       "areas": {
@@ -672,7 +698,7 @@
     "ariaLabel": "Menu lateral principal",
     "close": "Fechar menu",
     "languageLabel": "Mudar para {locale}",
-    "ctaTitle": "Vamos começar um projeto juntos?",
+    "ctaTitle": "Vamos começar um projeto juntos.",
     "ctaButton": "Solicitar Orçamento",
     "links": {
       "home": "Home",
@@ -684,7 +710,7 @@
       "dsbrave": "D.sbrave",
       "join": "Junte-se a Nós",
       "news": "Flying News",
-      "cases": "Cases",
+      "cases": "Nosso Grupo",
       "contact": "Contato"
     }
   },
@@ -808,7 +834,7 @@
       "seeComplete": "Ver completo"
     },
     "cta": {
-      "title": "Vamos construir o <accent>próximo lançamento?</accent>",
+      "title": "Vamos construir o <accent>próximo lançamento.</accent>",
       "description": "Conecte inteligência, arquitetura, tecnologia e narrativa para preservar a força do seu projeto em cada etapa.",
       "button": "Fale com o Grupo Flying"
     }

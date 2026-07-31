@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState, useTransition } from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
@@ -25,11 +25,14 @@ const serviceLinks: { key: ServiceLinkKey; href: string }[] = [
 ];
 
 type HeaderNavEntry =
-  | { kind: 'link'; key: 'dna' | 'cases' | 'join' | 'news'; href: string }
+  | { kind: 'link'; key: 'home' | 'about' | 'cases' | 'join' | 'news'; href: string }
   | { kind: 'dropdown' };
 
+/* Ordem oficial: Home · Sobre Nós · Serviços · Cases · Junte-se a Nós.
+   "Sobre Nós" leva à página DNA Flying Studio — a institucional do site. */
 const headerNav: HeaderNavEntry[] = [
-  { kind: 'link', key: 'dna', href: futurePageHrefs.dna },
+  { kind: 'link', key: 'home', href: '/' },
+  { kind: 'link', key: 'about', href: futurePageHrefs.dna },
   { kind: 'dropdown' },
   { kind: 'link', key: 'cases', href: futurePageHrefs.cases },
   { kind: 'link', key: 'join', href: futurePageHrefs.join },
@@ -113,7 +116,7 @@ function ServicesDropdown() {
         }`}
       >
         <div
-          className={`flex w-[224px] flex-col overflow-hidden rounded-[18px] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] py-[8px] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)] backdrop-blur-[20px] transition-opacity duration-200 ${
+          className={`flex w-[224px] flex-col overflow-hidden rounded-[18px] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] py-[8px] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_20px_50px_-20px_rgba(0,0,0,0.35)] backdrop-blur-[9px] backdrop-saturate-[1.25] transition-opacity duration-200 ${
             open ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -133,11 +136,7 @@ function ServicesDropdown() {
   );
 }
 
-/** Folga a partir do topo antes de a barra virar pílula. */
-const BASE_THRESHOLD = 24;
-
 export default function Header() {
-  const [floating, setFloating] = useState(false);
   const t = useTranslations('Header');
   const locale = useLocale();
   const router = useRouter();
@@ -145,66 +144,6 @@ export default function Header() {
   const [isPending, startTransition] = useTransition();
 
   const targetLocale = locale === 'pt-BR' ? 'en' : 'pt-BR';
-
-  const { scrollY } = useScroll();
-
-  /**
-   * Ponto em que a barra vira pílula.
-   *
-   * Não pode ser um valor fixo: a home tem um hero preso na viewport que
-   * consome vários viewports de scroll: quando ele solta, o scroll já está
-   * muito além de qualquer limiar pequeno, e a header apareceria flutuante
-   * enquanto o hero ainda está na tela. Então o limiar é o fim do hero — se
-   * houver um. Nas demais páginas cai no valor de sempre.
-   */
-  const [threshold, setThreshold] = useState(BASE_THRESHOLD);
-
-  useEffect(() => {
-    const hero = document.getElementById('hero');
-
-    if (!hero) {
-      setThreshold(BASE_THRESHOLD);
-      return;
-    }
-
-    const measure = () => {
-      const end = hero.offsetTop + hero.offsetHeight - window.innerHeight;
-      setThreshold(Math.max(BASE_THRESHOLD, end + BASE_THRESHOLD));
-    };
-
-    measure();
-
-    /* A pista do hero muda de altura fora do ciclo do React — voo já visto
-       encolhe para 100svh, fontes/vídeo reacomodam o layout. Sem observar o
-       elemento, um refresh no meio da página media a pista longa e exigia
-       rolar muito além do hero real para a barra virar pílula. */
-    const observer = new ResizeObserver(measure);
-    observer.observe(hero);
-
-    window.addEventListener('resize', measure);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('resize', measure);
-    };
-  }, [pathname]);
-
-  /* Refresh no meio da página não dispara evento de scroll — reavalia o
-     estado assim que o limiar é conhecido (ou remedido). */
-  useEffect(() => {
-    setFloating(window.scrollY > threshold);
-  }, [threshold]);
-
-  // Enquanto o hero está na tela a header é uma barra integrada à página; ao
-  // passar dele vira a pílula flutuante. Ela permanece SEMPRE visível.
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setFloating(latest > threshold);
-  });
-
-  /* A barra transparente integrada só faz sentido na home, deitada sobre o
-     hero imersivo. Nas páginas internas a header já nasce como pílula. */
-  const isHome = pathname === '/';
-  const isFloating = !isHome || floating;
 
   function handleSwitchLanguage() {
     startTransition(() => {
@@ -217,48 +156,21 @@ export default function Header() {
   }
 
   return (
+    /* A header é SEMPRE a pílula flutuante — em todas as páginas, do topo ao
+       fim do scroll. Só a entrada é animada (desce suave no primeiro paint). */
     <motion.header
       initial={{ y: -60, opacity: 0 }}
-      animate={isFloating ? 'pill' : 'bar'}
-      variants={{
-        bar: {
-          y: 0,
-          opacity: 1,
-          top: 0,
-          left: 0,
-          right: 0,
-          maxWidth: 2400,
-          borderRadius: 0,
-          paddingTop: 16,
-          paddingBottom: 16,
-          paddingLeft: 36,
-          paddingRight: 28,
-        },
-        pill: {
-          y: 0,
-          opacity: 1,
-          top: 14,
-          left: 12,
-          right: 12,
-          maxWidth: 1280,
-          borderRadius: 999,
-          paddingTop: 9,
-          paddingBottom: 9,
-          paddingLeft: 22,
-          paddingRight: 10,
-        },
-      }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-      className="fixed top-0 right-0 left-0 z-50 mx-auto flex items-center justify-between gap-[16px]"
+      className="fixed top-[14px] right-[12px] left-[12px] z-50 mx-auto flex max-w-[1280px] items-center justify-between gap-[16px] rounded-full pt-[9px] pr-[10px] pb-[9px] pl-[22px]"
     >
       {/* Camada de vidro — separada para o backdrop-filter do dropdown
-          continuar amostrando a página (mesma translucidez nos dois). */}
-      <motion.span
+          continuar amostrando a página (mesma translucidez nos dois).
+          Vidro CLARO: blur curto só para dar corpo, saturação leve e um fio
+          de luz na borda superior — o conteúdo atrás permanece reconhecível. */}
+      <span
         aria-hidden="true"
-        initial={false}
-        animate={{ opacity: isFloating ? 1 : 0 }}
-        transition={{ duration: 0.55, ease: 'easeOut' }}
-        className="absolute inset-0 -z-10 rounded-[inherit] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-[20px]"
+        className="absolute inset-0 -z-10 rounded-[inherit] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-[9px] backdrop-saturate-[1.25]"
       />
       <Link
         href="/"

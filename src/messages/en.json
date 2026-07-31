@@ -10,43 +10,8 @@
       "metaLocation": "São Paulo — Brazil",
       "metaSince": "Since 2010",
       "metaMarket": "Real estate market",
-      "scrollCue": "Scroll to explore"
-    },
-    "services": {
-      "eyebrow": "What we do",
-      "titleStart": "From concept to",
-      "titleAccent": "concrete",
-      "intro": "Every project calls for a language. We master them all — from still images to interactive experiences.",
-      "linkHint": "Discover",
-      "stackHint": "Click to see the next one",
-      "liveExample": "Real example — interact",
-      "items": {
-        "images3d": {
-          "name": "3D Images",
-          "tagline": "The trigger of desire",
-          "desc": "We give shape to the invisible — light, framing and life in images that awaken desire before the first brick."
-        },
-        "videos3d": {
-          "name": "3D Films",
-          "tagline": "The narrative that sells",
-          "desc": "Square meters become life stories: magnetic narratives that connect the development to the buyer's emotion."
-        },
-        "tour360": {
-          "name": "360º Virtual Tour",
-          "tagline": "Tomorrow, felt up close",
-          "desc": "A hyper-realistic experience from every angle — clients don't see the project, they walk inside it."
-        },
-        "apps": {
-          "name": "Apps",
-          "tagline": "Presentation under control",
-          "desc": "The commercial narrative under absolute control: a persuasion path guiding the decision step by step."
-        },
-        "dsbrave": {
-          "name": "D.sbrave",
-          "tagline": "The 360º time machine",
-          "desc": "The future in the palm of the hand: buyers stroll through the memories of a home yet to be built."
-        }
-      }
+      "scrollCue": "Scroll to explore",
+      "tagline": "Far beyond perspectives"
     },
     "dsbrave": {
       "eyebrow": "Our own product",
@@ -61,29 +26,6 @@
         "predio": "Tower"
       }
     },
-    "about": {
-      "eyebrow": "About us",
-      "titleStart": "We were born to give shape to the",
-      "titleAccent": "invisible",
-      "desc": "Since 2011 we have materialized the buyer's dream before the first brick is laid. What began as 3D art became a complete technology ecosystem for real-estate launches.",
-      "photoChip": "HQ — Berrini, São Paulo",
-      "hint": "Move your cursor — reveal the invisible",
-      "stats": {
-        "s1": {
-          "value": "2011",
-          "label": "Founded"
-        },
-        "s2": {
-          "value": "15 years",
-          "label": "In the market"
-        },
-        "s3": {
-          "value": "4 companies",
-          "label": "In Grupo Flying"
-        }
-      },
-      "cta": "Meet the Flying Studio DNA"
-    },
     "partners": {
       "title": "Much more than clients",
       "subtitle": "Partners, friends and a true family."
@@ -95,23 +37,91 @@
       "primary": "Start a project",
       "whatsapp": "Chat on WhatsApp",
       "emailLabel": "or write to"
+    },
+    "grupo": {
+      "eyebrow": "Our Group",
+      "titleStart": "One essence,",
+      "titleAccent": "four perspectives",
+      "narrative": "Flying overflowed: what was born giving shape to the invisible grew into fronts that now walk together — image, film, design and real-estate development. Four companies speaking the same language, from product conception to the experience that sells.",
+      "cta": "Meet the group from the inside",
+      "companies": {
+        "flying": {
+          "name": "Flying Studio",
+          "role": "3D artistic technology",
+          "desc": "The mother house: images, apps, tours and immersive experiences for launches."
+        },
+        "rinno": {
+          "name": "Rinno Films",
+          "role": "Audiovisual production",
+          "desc": "The narrative that sells: concept, product, viral and documentary films."
+        },
+        "nid": {
+          "name": "NID Studio",
+          "role": "Strategic design",
+          "desc": "The architecture of desire: interiors, facades, sales stands and show units."
+        },
+        "ogdi": {
+          "name": "Open Group",
+          "role": "Real-estate development",
+          "desc": "From opportunity to launch: structuring, feasibility and real-estate product."
+        }
+      }
     }
+  },
+  "Hero": {
+    "headline": "Artistic 3D Technology",
+    "label": "EXPERTS IN THE REAL ESTATE MARKET",
+    "tagline": "Much beyond perspectives",
+    "cards": {
+      "images": {
+        "title": "We Create\n3D Images",
+        "description": "We seek to identify the <b>essence</b> of each project to create visually striking images that <b>convey the real value</b> of the development.",
+        "cta": "Learn more"
+      },
+      "video": {
+        "title": "Realistic\nFilms",
+        "description": "Our films tell stories. We highlight the <b>differentiators</b> of each project, <b>bringing the concept to life</b> through motion, effects, and soundtracks.",
+        "cta": "Learn more"
+      },
+      "tech": {
+        "title": "App\nCases",
+        "description": "Offer your client an <b>immersive</b> and <b>standardized</b> experience when getting to know your product — add images, films, tours, and any content you want.",
+        "cta": "Learn more"
+      },
+      "tour": {
+        "title": "Virtual Tour\n360º degrees",
+        "description": "Experience your projects in an <b>immersive</b> <b>virtual reality</b> experience that delivers <b>new</b> and <b>interactive</b> sensations.",
+        "cta": "Learn more"
+      },
+      "dsbrave": {
+        "title": "Discover\nD.sbrave",
+        "description": "Turn your project's presentation into an <b>immersive walkthrough inside the development</b>, bringing the client closer to the spaces, sensations, and unique features of each environment.",
+        "cta": "Learn more"
+      }
+    }
+  },
+  "Sobre": {
+    "label": "FLYING STUDIO",
+    "intro": "Always innovating and looking to the future, Flying Studio has reinvented itself with each new challenge and consistently sought new horizons. Our main goal is to be the ideal partner in artistic 3D technology so we can face the major challenges of the real estate market together.",
+    "years": "15 years in the market",
+    "description": "With 15 years of history, we have actively participated in the trajectory and success of our partners, not only by producing images and films, but also by building a great legacy.",
+    "cta": "Meet Flying Studio"
   },
   "ServiceBridge": {
     "images3d": {
-      "question": "Want to convey more emotion?",
+      "question": "Emotion grows in motion.",
       "action": "Discover the Films"
     },
     "videos3d": {
-      "question": "What if brokers had the development in their hands?",
+      "question": "Now, the development in the broker's hands.",
       "action": "Discover the Apps"
     },
     "apps": {
-      "question": "Want even more immersion?",
+      "question": "The next step is walking inside the project.",
       "action": "Explore the 360° Virtual Tour"
     },
     "tour360": {
-      "question": "Ready to bring it all together?",
+      "question": "All of it, together in one place.",
       "action": "Discover D.sbrave"
     },
     "dsbrave": {
@@ -129,9 +139,10 @@
   "Header": {
     "navLabel": "Main menu",
     "nav": {
-      "dna": "Flying Studio DNA",
+      "home": "Home",
+      "about": "About Us",
       "services": "Services",
-      "cases": "Cases",
+      "cases": "Our Group",
       "join": "Join Us",
       "news": "Flying News"
     },
@@ -140,7 +151,7 @@
       "videos3d": "Films",
       "apps": "Applications",
       "dsbrave": "D.sbrave",
-      "tour360": "Virtual Tour"
+      "tour360": "Virtual Tour 360º"
     },
     "contact": "Contact",
     "openMenu": "Open menu",
@@ -156,12 +167,55 @@
   },
   "DSbravePage": {
     "hero": {
-      "eyebrow": "Service",
-      "description": "An immersive hub that gathers a development virtual tours into one navigation experience.",
-      "iframeTitle": "D.sbrave hub — Granlote Treviso",
-      "interactLabel": "Click to interact",
-      "screenTitle": "Meet D.sbrave",
-      "screenSubtitle": "An immersive experience inside the development"
+      "home": "Home",
+      "eyebrow": "Service"
+    },
+    "explainer": {
+      "eyebrow": "WHAT IS",
+      "title": "It presents, sells and monitors",
+      "description": "Where all the materialization comes together: an intelligent, interactive hub that unites presentation, sales and development management in a single platform. From the first render to construction tracking, the client lives the future — and the whole operation works in one place."
+    },
+    "module": {
+      "prevLabel": "Previous modules",
+      "nextLabel": "Next modules",
+      "items": {
+        "splitview": {
+          "title": "Split View",
+          "description": "Real-time construction progress, side by side with the project."
+        },
+        "lotes": {
+          "title": "Lot Automation",
+          "description": "Reservations and availability updated instantly."
+        },
+        "mapa": {
+          "title": "Interactive Surroundings Map",
+          "description": "360° aerial drone view with pins for other developments and direct integration with their websites."
+        },
+        "exploracao": {
+          "title": "360° Exploration",
+          "description": "High-quality environments explored right inside the hub."
+        },
+        "unify": {
+          "title": "Unifies the tours",
+          "description": "Brings the project's virtual environments together in a single access hub."
+        },
+        "guide": {
+          "title": "Guides the visit",
+          "description": "Helps users understand the development as a journey, not scattered content."
+        },
+        "desire": {
+          "title": "Builds desire",
+          "description": "Brings the client closer to the routine, the spaces and the feeling of a future home."
+        },
+        "standalone": {
+          "title": "Standalone module",
+          "description": "An independent experience for campaigns, launches and sales presentations."
+        },
+        "app": {
+          "title": "Inside the app",
+          "description": "It can also be embedded in the development's app as an immersive area."
+        }
+      }
     },
     "projects": {
       "eyebrow": "WHO ALREADY USES IT",
@@ -169,46 +223,16 @@
       "prevLabel": "Previous projects",
       "nextLabel": "Next projects"
     },
-    "explainer": {
-      "eyebrow": "WHAT D.SBRAVE IS",
-      "title": "Every space in one place",
-      "description": "D.sbrave organizes site plans, leisure areas, livings, decorated units, and other virtual tours into continuous navigation. Instead of opening several links, clients move through a centralized experience that is clearer and closer to a real visit.",
-      "points": {
-        "unify": {
-          "title": "Unifies tours",
-          "description": "Gathers the project virtual environments into one access hub."
-        },
-        "guide": {
-          "title": "Guides the visit",
-          "description": "Helps users understand the development as a journey, not loose content."
-        },
-        "desire": {
-          "title": "Builds desire",
-          "description": "Brings clients closer to the routine, spaces, and feeling of a future home."
-        }
-      }
-    },
-    "module": {
-      "eyebrow": "D.SBRAVE MODULE",
-      "title": "Standalone or inside the app",
-      "items": {
-        "standalone": {
-          "title": "Standalone module",
-          "description": "An independent experience for campaigns, launches, and sales presentations."
-        },
-        "app": {
-          "title": "Inside the app",
-          "description": "It can also be embedded into the development application as an immersive area."
-        }
-      },
-      "button": "I want my D.sbrave →"
+    "demo": {
+      "headline": "See D.sbrave in action.",
+      "button": "Request a demo"
     }
   },
   "Images3DPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Service",
-      "title": "Perspectives",
-      "description": "Browse our projects and experience a new perspective."
+      "title": "Images"
     },
     "sections": {
       "geral": {
@@ -242,14 +266,14 @@
       "next": "Next image",
       "close": "Close"
     },
-    "ctaHeadline": "Shall we give shape to your development?",
+    "ctaHeadline": "Let's give shape to your development.",
     "ctaLabel": "I want my perspectives"
   },
   "Videos3DPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Service",
-      "title": "3D Films",
-      "description": "Browse our projects and experience a new perspective."
+      "title": "Films"
     },
     "tabs": {
       "todos": "All",
@@ -292,68 +316,62 @@
   },
   "AplicativosPage": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Service",
-      "title": "Applications",
-      "description": "Offer your client an immersive, personalized experience when getting to know your product. All online and practical."
+      "title": "Apps"
     },
-    "experimente": {
-      "titlePre": "See it with your",
-      "titleAccent": "own eyes",
-      "subtitle": "An immersive, interactive experience that connects client and project.",
-      "interactHint": "Click to interact"
+    "explainer": {
+      "eyebrow": "WHAT IS THE APP",
+      "title": "Flying's digital showroom",
+      "description": "An interactive web application that puts the entire development in the broker's hands: realistic renders, 3D films, interactive floor plans and 360° tours in a single environment, carrying each project's identity. It is the presentation that gives shape to the invisible before the client's eyes — and standardizes the sales experience."
+    },
+    "benefits": {
+      "prevLabel": "Previous highlights",
+      "nextLabel": "Next highlights",
+      "items": {
+        "sob-medida": {
+          "title": "Tailor-made design",
+          "description": "Each application is unique to the developer, reinforcing the project's brand."
+        },
+        "multiplataforma": {
+          "title": "Any device",
+          "description": "Accessible on any device, no installation required."
+        },
+        "memoravel": {
+          "title": "Memorable sales",
+          "description": "Turns the sales moment into a memorable visual experience."
+        },
+        "corretor": {
+          "title": "In the broker's hands",
+          "description": "At the sales stand or wherever the sale happens, the broker leads the presentation and answers on the spot: floor plan, masterplan, view from the unit."
+        }
+      }
     },
     "projects": {
       "eyebrow": "APPLICATION SOLUTIONS",
       "title": "Custom Projects",
       "prevLabel": "Previous projects",
-      "nextLabel": "Next projects",
-      "openApp": "View the {project} app"
+      "nextLabel": "Next projects"
     },
-    "benefits": {
-      "title": "Advantages of the multiplatform format",
-      "ctaLabel": "I want my application →",
-      "items": {
-        "sob-medida": {
-          "title": "Tailor-made",
-          "description": "Tailor-made design for each developer, reinforcing the brand."
-        },
-        "multiplataforma": {
-          "title": "Any device",
-          "description": "Accessible on any device, with no installation required."
-        },
-        "memoravel": {
-          "title": "Memorable experience",
-          "description": "Turns the moment of sale into a memorable visual experience."
-        },
-        "corretor": {
-          "title": "In the agent's hands",
-          "description": "At the sales stand, the agent leads the presentation and answers on the spot: floor plan, site layout, view from the floor. All in one place."
-        }
-      }
+    "demo": {
+      "headline": "See the App in action.",
+      "button": "Request a demo"
     }
   },
   "Tour360Page": {
     "hero": {
+      "home": "Home",
       "eyebrow": "Service",
-      "title": "360° Virtual Tour",
-      "description": "Virtual reality to revolutionize how you present your project. Step into this innovative immersion."
+      "title": "360° Virtual Tour"
     },
-    "projects": {
-      "eyebrow": "360° VIRTUAL TOUR SOLUTIONS",
-      "title": "Get to Know Our Projects",
-      "prevLabel": "Previous projects",
-      "nextLabel": "Next projects",
-      "openTour": "View the tour of {project}"
-    },
-    "experience": {
-      "titlePre": "Try the",
-      "titleHighlight": "360° Tour",
-      "interactHint": "Click to interact"
+    "explainer": {
+      "eyebrow": "WHAT IS THE VIRTUAL TOUR",
+      "title": "The development from the inside",
+      "description": "A hyper-realistic 360° experience that places the client inside the development before the first brick is laid. In the broker-led presentation, the project becomes an experience: the space, finishes and atmosphere of a future home, felt up close."
     },
     "benefits": {
-      "eyebrow": "DISCOVER OUR",
-      "title": "360° Technology",
-      "ctaLabel": "I want my 360º tour →",
+      "prevLabel": "Previous highlights",
+      "nextLabel": "Next highlights",
       "items": {
         "1": {
           "title": "Your Immersive Product",
@@ -372,6 +390,16 @@
           "description": "An innovative way to present your product in a memorable, interactive manner."
         }
       }
+    },
+    "projects": {
+      "eyebrow": "360° VIRTUAL TOUR SOLUTIONS",
+      "title": "Get to Know Our Projects",
+      "prevLabel": "Previous projects",
+      "nextLabel": "Next projects"
+    },
+    "demo": {
+      "headline": "See the Virtual Tour in action.",
+      "button": "Request a demo"
     }
   },
   "DnaPage": {
@@ -527,7 +555,8 @@
             "Launch"
           ]
         }
-      }
+      },
+      "cta": "Meet the group from the inside"
     },
     "parceiros": {
       "titlePre": "Much more than clients,",
@@ -562,20 +591,22 @@
     }
   },
   "Footer": {
-    "phone": "+55 11 99344-3369",
+    "phone": "(11) 2351-4138",
     "email": "studio@flyingstudio.com.br",
     "address": "Av. Engenheiro Luís Carlos Berrini, 936 - Itaim Bibi, São Paulo, SP.",
     "ariaLabel": "Flying Studio on {name}"
   },
   "Contato": {
     "hero": {
-      "ariaHeading": "Shall we start a project together?",
+      "label": "Contact",
+      "bannerAlt": "The Flying Studio office",
+      "ariaHeading": "Let's start a project together.",
       "words": {
         "w1": "Shall we",
         "w2": "start",
         "w3": "a",
         "w4": "project",
-        "w5": "together?"
+        "w5": "together."
       }
     },
     "form": {
@@ -608,9 +639,9 @@
       "submitted": "Sent!"
     },
     "meeting": {
-      "title": "Want to schedule a",
-      "titleHighlight": "meeting first?",
-      "text": "No problem, get in touch to check availability.",
+      "title": "Schedule a",
+      "titleHighlight": "meeting first.",
+      "text": "Get in touch to check availability.",
       "cta": "Check availability"
     }
   },
@@ -618,14 +649,13 @@
     "hero": {
       "label": "Join Us",
       "title": "Be Flying Studio",
-      "description": "We are a visual architecture studio: art, technology and market in the same team. If you want to build the images that sell a development before the first brick, your place may be here.",
-      "cta": "Submit my résumé"
+      "bannerAlt": "The Flying Studio team working at the studio"
     },
     "bancoTalentos": {
       "label": "Talent Pool",
       "titleLine1": "Join",
       "titleLine2": "us",
-      "paragraph": "Looking for a place where you can grow, learn and make a difference? Come be part of our Flying Studio family. We're always looking for talent who share our vision and passion for the new.",
+      "paragraph": "A place to grow, learn and make a difference: come be part of our Flying Studio family. We're always looking for talent who share our vision and passion for the new.",
       "closing": "Let's build something extraordinary together!",
       "fields": {
         "name": {
@@ -643,10 +673,6 @@
         "whatsapp": {
           "label": "Whatsapp",
           "placeholder": "(11) 98746-5895"
-        },
-        "motivation": {
-          "label": "Why do you want to join Flying?",
-          "placeholder": "Tell us in a few lines what brings you here"
         }
       },
       "areas": {
@@ -672,7 +698,7 @@
     "ariaLabel": "Main sidebar menu",
     "close": "Close menu",
     "languageLabel": "Switch to {locale}",
-    "ctaTitle": "Shall we start a project together?",
+    "ctaTitle": "Let's start a project together.",
     "ctaButton": "Request Quote",
     "links": {
       "home": "Home",
@@ -684,7 +710,7 @@
       "dsbrave": "D.sbrave",
       "join": "Join Us",
       "news": "Flying News",
-      "cases": "Cases",
+      "cases": "Our Group",
       "contact": "Contact"
     }
   },
@@ -808,7 +834,7 @@
       "seeComplete": "View full case"
     },
     "cta": {
-      "title": "Shall we build the <accent>next launch?</accent>",
+      "title": "Let's build the <accent>next launch.</accent>",
       "description": "Connect intelligence, architecture, technology and narrative to preserve your project's strength at every stage.",
       "button": "Talk to Grupo Flying"
     }

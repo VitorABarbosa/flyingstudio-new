@@ -19,6 +19,14 @@
 /.next/
 /out/
 
+# versões web do acervo geradas por scripts/gerar-acervo-web.mjs
+# (vão para o servidor de imagens, não para o repositório)
+/acervo-web/
+
+# vídeos brutos de demonstração (~200 MB cada) — o site usa as versões
+# web comprimidas (exemplo-aplicativo.mp4 / exemplo-dsbrave.mp4)
+/public/tour/Exemplo_*.mp4
+
 # production
 /build
 

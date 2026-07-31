@@ -61,9 +61,10 @@
   --theme-panel-soft: #3f3e3e;
   --theme-footer-bg: #f1f1f1;
   --theme-header-bg: rgba(255, 255, 255, 0.63);
-  --theme-header-glass: rgba(255, 255, 255, 0.5);
-  /* Vidro da header flutuante e do dropdown — mesma translucidez nos dois. */
-  --theme-header-glass: rgba(255, 255, 255, 0.48);
+  /* Vidro da header flutuante e do dropdown — mesma translucidez nos dois.
+     Vidro CLARO, não fosco: fill e blur baixos para o conteúdo (linhas
+     fluidas, imagens) continuar legível passando por trás. */
+  --theme-header-glass: rgba(255, 255, 255, 0.26);
   --theme-text: #201c2c;
   --theme-text-body: #202020;
   --theme-muted: #424242;
@@ -78,6 +79,12 @@
   --theme-card-hover: #201c2c;
   --theme-card-text: #201c2c;
   --theme-card-text-hover: #ffffff;
+  /* Vidro dos cards de serviço da home. No tema claro é BRANCO translúcido
+     (o cinza vinha de um véu tirado do texto, escuro demais aqui); no escuro
+     é um véu claro. Translúcido nos dois para as linhas passarem por trás. */
+  --theme-card-glass: rgba(255, 255, 255, 0.72);
+  --theme-card-glass-strong: rgba(255, 255, 255, 0.85);
+  --theme-card-glass-edge: rgba(255, 255, 255, 0.9);
   --theme-accent: #7e52ff;
   --theme-accent-rgb: 126, 82, 255;
   --theme-accent-hover: #7446ff;
@@ -134,9 +141,10 @@ html[data-theme='dark'] {
   --theme-panel-soft: #3f3e3e;
   --theme-footer-bg: #272727;
   --theme-header-bg: rgba(32, 32, 32, 0.8);
-  --theme-header-glass: rgba(32, 32, 32, 0.55);
-  /* Vidro da header flutuante e do dropdown — mesma translucidez nos dois. */
-  --theme-header-glass: rgba(28, 26, 36, 0.55);
+  /* Vidro da header flutuante e do dropdown — mesma translucidez nos dois.
+     Vidro CLARO, não fosco: fill e blur baixos para o conteúdo (linhas
+     fluidas, imagens) continuar legível passando por trás. */
+  --theme-header-glass: rgba(28, 26, 36, 0.25);
   --theme-text: #ffffff;
   --theme-text-body: #ffffff;
   --theme-muted: #d2d2d2;
@@ -151,6 +159,10 @@ html[data-theme='dark'] {
   --theme-card-hover: #4a4a4a;
   --theme-card-text: #ffffff;
   --theme-card-text-hover: #ffffff;
+  /* Vidro dos cards no escuro: o cinza translúcido que já estava lá. */
+  --theme-card-glass: rgba(255, 255, 255, 0.1);
+  --theme-card-glass-strong: rgba(255, 255, 255, 0.14);
+  --theme-card-glass-edge: rgba(255, 255, 255, 0.14);
   --theme-accent: #b6ff00;
   --theme-accent-rgb: 182, 255, 0;
   --theme-accent-hover: #a8ef00;

@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import Header from '@/components/layout/Header';
 import FlyingNewsHeroSection from './components/FlyingNewsHeroSection';
 import FlyingNewsHighlightsSection from './components/FlyingNewsHighlightsSection';
 import FlyingNewsCarouselSection from './components/FlyingNewsCarouselSection';
@@ -56,7 +55,6 @@ export default async function FlyingNewsPage() {
 
   return (
     <main>
-      <Header />
       <FlyingNewsHeroSection copy={copy} />
       <FlyingNewsHighlightsSection
         eyebrow={highlightsT('eyebrow')}

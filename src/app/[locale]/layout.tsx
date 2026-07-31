@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from 'next';
 import { Outfit } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import DesignScaleProvider from '@/components/layout/DesignScaleProvider';
+import Header from '@/components/layout/Header';
 import SectionScrollRail from '@/components/layout/SectionScrollRail';
 import ScrollToTopButton from '@/components/layout/ScrollToTopButton';
 import SmoothScroll from '@/components/layout/SmoothScroll';
@@ -107,6 +108,11 @@ export default async function LocaleLayout({
         <DesignScaleProvider />
         <NextIntlClientProvider>
           <SmoothScroll>
+            {/* A header vive no LAYOUT, não nas páginas: layouts persistem
+                entre navegações, então ela não remonta a cada troca de rota
+                — sem replay da animação de entrada (o "aparece transparente
+                e depois vitrifica"). A entrada anima só no primeiro load. */}
+            <Header />
             <SectionScrollRail />
             <ScrollToTopButton />
             <WhatsAppButton />

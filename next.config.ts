@@ -11,14 +11,15 @@ const nextConfig: NextConfig = {
        era a causa das imagens quebradas/demoradas. WebP codifica em fração
        do tempo com qualidade equivalente. */
     formats: ['image/webp'],
-    /* Acervo de Perspectivas: os arquivos são os de trabalho, em resolução
-       cheia. Liberar o domínio aqui é o que permite ao otimizador baixar o
-       original uma vez e servir ao navegador uma versão redimensionada. */
+    /* Acervo de Perspectivas. O site usa a pasta site-flying-web/ — mestres
+       de ~1,7 MB gerados por scripts/gerar-acervo-web.mjs a partir dos
+       originais de trabalho (site-flying/, ~21 MB cada), que continuam no
+       servidor mas não devem ser referenciados por páginas. */
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'img.flyingstudio.com.br',
-        pathname: '/site-flying/**',
+        pathname: '/site-flying-web/**',
       },
     ],
     /* Original de ~28 MB não deve ser reprocessado a cada visita. */
