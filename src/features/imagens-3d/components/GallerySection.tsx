@@ -13,16 +13,23 @@ type GallerySectionProps = {
 
 const INITIAL_VISIBLE_ITEMS = 17;
 
-const DEFAULT_ROW_SIZES = [2, 3, 2, 3, 2, 3, 2];
-const FACHADAS_ROW_SIZES = [3, 2, 3, 2, 3];
+/* Fileiras de 3 e 4 (antes 2 e 3): com mais imagens dividindo a largura,
+   nenhuma combinação de proporções preenche a linha com exatidão — sempre
+   sobra folga para o hover revelar — e as linhas ficam naturalmente mais
+   baixas. */
+const DEFAULT_ROW_SIZES = [3, 4, 3, 4, 3, 4, 3];
+/* Fachadas tem 12 imagens: três fileiras cheias de 4, sem sobras. */
+const FACHADAS_ROW_SIZES = [4, 4, 4];
 
 /**
- * Depois das 17 imagens iniciais, o restante começa com linha de 3 imagens.
+ * Depois das 17 imagens iniciais, o restante começa com linha de 4 imagens.
  */
-const EXTRA_ROW_SIZES = [3, 2, 3, 2, 3, 2, 3];
+const EXTRA_ROW_SIZES = [4, 3, 4, 3, 4, 3, 4];
 
-const DEFAULT_ROW_HEIGHT = 626;
-const FACHADAS_THREE_IMAGES_ROW_HEIGHT = 977;
+/* Alturas em escala de "uma linha cabe confortável na tela": linhas do
+   padrão ~metade de um monitor 1080p, e mesmo a linha mais alta (verticais
+   comprimidas, ver MAX_ROW_HEIGHT) nunca passa de um viewport. */
+const DEFAULT_ROW_HEIGHT = 440;
 const ROW_GAP = 12;
 
 /**
@@ -31,7 +38,8 @@ const ROW_GAP = 12;
  */
 const MIN_SQUEEZED_WIDTH_BY_ROW_LENGTH: Record<number, number> = {
   2: 220,
-  3: 90,
+  3: 120,
+  4: 90,
 };
 
 /**
@@ -44,9 +52,10 @@ const BASE_COMPRESSION = 0.8;
 
 /**
  * Teto para a altura que uma linha pode atingir ao esticar para comprimir
- * imagens verticais (caso extremo: linha só de verticais).
+ * imagens verticais (caso extremo: linha só de verticais). Abaixo de um
+ * viewport comum: nenhuma linha sozinha deve passar da tela.
  */
-const MAX_ROW_HEIGHT = 1100;
+const MAX_ROW_HEIGHT = 760;
 
 /**
  * Multiplicador aplicado a todo flex-grow. Regra do flexbox: se a soma dos
@@ -69,21 +78,6 @@ const sectionContainer = {
   show: {
     transition: {
       staggerChildren: 0.12,
-    },
-  },
-};
-
-const headerAnimation = {
-  hidden: {
-    opacity: 0,
-    y: 36,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -139,15 +133,22 @@ function buildImageRows<T>(items: T[], rowSizes: number[]): T[][] {
     rowSizeIndex += 1;
   }
 
-  return rows;
-}
+  /* Sobra de 1 imagem no fim viraria um banner de largura cheia, sem hover.
+     Empresta uma imagem da fileira anterior para fechar com pelo menos 2. */
+  if (rows.length > 1) {
+    const lastRow = rows[rows.length - 1];
+    const previousRow = rows[rows.length - 2];
 
-function getRowHeight(sectionId: string, rowLength: number) {
-  if (sectionId === 'fachadas' && rowLength === 3) {
-    return FACHADAS_THREE_IMAGES_ROW_HEIGHT;
+    if (lastRow.length === 1 && previousRow.length > 2) {
+      const borrowed = previousRow.pop();
+
+      if (borrowed) {
+        lastRow.unshift(borrowed);
+      }
+    }
   }
 
-  return DEFAULT_ROW_HEIGHT;
+  return rows;
 }
 
 export default function GallerySection({ section }: GallerySectionProps) {
@@ -343,7 +344,7 @@ export default function GallerySection({ section }: GallerySectionProps) {
     observerIndex: number,
     keyPrefix: string
   ) {
-    const patternHeight = getRowHeight(section.id, row.length);
+    const patternHeight = DEFAULT_ROW_HEIGHT;
     const rowWidth = rowWidths[observerIndex] ?? 0;
 
     /* Largura útil da linha (descontando os gaps entre as imagens). */
@@ -482,22 +483,8 @@ export default function GallerySection({ section }: GallerySectionProps) {
       animate="show"
     >
       <div className="mx-auto w-full max-w-[1800px] px-4 md:px-6">
-        {/* Cabeçalho da categoria: uma linha, não um bloco. O nome do serviço
-            e o olho-de-boi já vivem no masthead — repeti-los aqui empurrava a
-            obra para baixo sem informar nada de novo. */}
-        <motion.div
-          variants={headerAnimation}
-          className="flex flex-col gap-3 border-b border-[color-mix(in_srgb,var(--theme-text)_12%,transparent)] pb-5 md:flex-row md:items-end md:justify-between md:gap-12"
-        >
-          <h2 className="font-['Outfit'] text-[26px] leading-tight font-semibold text-[var(--theme-text)] md:text-[36px]">
-            {t(`sections.${section.id}.title`)}
-          </h2>
-
-          <p className="max-w-[64ch] font-['Outfit'] text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[15px]">
-            {t(`sections.${section.id}.description`)}
-          </p>
-        </motion.div>
-
+        {/* O cabeçalho da categoria (título + descrição) vive inteiro na
+            GalleryFilterBar, que persiste acima das seções. */}
         <LayoutGroup id={`gallery-${section.id}`}>
           <div className="relative">
             <motion.div

@@ -121,7 +121,10 @@ export default function ImageBlock({
               ? RESPONSIVE_WIDTHS.map((w) => `${optimized(src, w)} ${w}w`).join(', ')
               : undefined
           }
-          sizes="(max-width: 768px) 100vw, 70vw"
+          /* Fileiras de 3-4: cada imagem exibe ~25-33vw e expande até ~45vw
+             no hover. Declarar isso deixa o navegador escolher 828/1200 em
+             vez de sempre 1920 — download e decode muito menores. */
+          sizes="(max-width: 768px) 100vw, 45vw"
           alt={title ?? ''}
           draggable={false}
           loading="lazy"
