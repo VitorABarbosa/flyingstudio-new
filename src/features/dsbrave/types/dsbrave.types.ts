@@ -1,17 +1,28 @@
-export type DSbraveExplainerPointKey = 'unify' | 'guide' | 'desire';
+export type DSbravePointIconKey =
+  | 'split'
+  | 'zap'
+  | 'map'
+  | 'orbit'
+  | 'layers'
+  | 'route'
+  | 'home'
+  | 'airplay'
+  | 'smartphone';
 
-export type DSbravePointIconKey = 'layers' | 'route' | 'home';
-
-export type DSbraveExplainerPoint = {
-  key: DSbraveExplainerPointKey;
-  icon: DSbravePointIconKey;
-};
-
-export type DSbraveIntegrationKey = 'standalone' | 'app';
+export type DSbraveIntegrationKey =
+  | 'splitview'
+  | 'lotes'
+  | 'mapa'
+  | 'exploracao'
+  | 'unify'
+  | 'guide'
+  | 'desire'
+  | 'standalone'
+  | 'app';
 
 export type DSbraveIntegration = {
   key: DSbraveIntegrationKey;
-  icon: string;
+  icon: DSbravePointIconKey;
 };
 
 export type DSbraveProject = {

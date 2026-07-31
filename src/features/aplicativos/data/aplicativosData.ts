@@ -14,42 +14,36 @@ export const appProjectCards: AppProjectCard[] = [
     client: 'Archtech',
     project: 'Arch Consolação',
     image: '/aplicativos/projetos/archtech-arch-consolacao.png',
-    appUrl: 'https://flyingstudio.com.br/consolacao/',
   },
   {
     id: 'washington-luiz',
     client: 'Construlike',
     project: 'Washington Luiz',
     image: '/aplicativos/projetos/construlike-washington-luiz.png',
-    appUrl: 'https://flyingstudio.com.br/construlike-wl/',
   },
   {
     id: 'the-one-tucuruvi',
     client: 'Ousy',
     project: 'The One Tucuruvi',
     image: '/aplicativos/projetos/ousy-the-one-tucuruvi.png',
-    appUrl: 'https://flyingstudio.com.br/theone-tucuruvi/',
   },
   {
     id: 'seven',
     client: 'Argo',
     project: 'Seven',
     image: '/aplicativos/projetos/argo-seven.png',
-    appUrl: 'https://flyingstudio.com.br/seven/',
   },
   {
     id: 'mirage',
     client: 'Construlike',
     project: 'Mirage Clube de Campo',
     image: '/aplicativos/projetos/construlike-mirage-clube-de-campo.png',
-    appUrl: 'https://flyingstudio.com.br/mirage-clubedecampo/',
   },
   {
     id: 'verde-e-vida',
     client: 'Miro',
     project: 'Verde e Vida',
     image: '/aplicativos/projetos/miro-verde-e-vida.png',
-    appUrl: 'https://flyingstudio.com.br/verdeevida/',
   },
 ];
 

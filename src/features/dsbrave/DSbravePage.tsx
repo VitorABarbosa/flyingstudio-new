@@ -1,10 +1,9 @@
 import FooterReveal from '@/components/layout/FooterReveal';
 import { FluidParticlesBackground } from '@/components/ui/fluid-particles-background';
-import Header from '@/components/layout/Header';
 import ServiceBridgeCta from '@/components/sections/ServiceBridgeCta';
+import DSbraveDemoCta from './sections/DSbraveDemoCta';
 import DSbraveExplainerSection from './sections/DSbraveExplainerSection';
 import DSbraveHero from './sections/DSbraveHero';
-import DSbraveModuleSection from './sections/DSbraveModuleSection';
 import DSbraveProjectsSection from './sections/DSbraveProjectsSection';
 
 export default function DSbravePage() {
@@ -15,15 +14,17 @@ export default function DSbravePage() {
     <main id="page-top" className="relative">
       <FluidParticlesBackground className="z-0" />
 
-      <Header />
 
       <div className="relative z-10">
         <DSbraveHero />
 
-        <div className="flex flex-col gap-12 pt-2 pb-12 md:gap-16 md:pb-16">
+        {/* Ritmo vertical padronizado das páginas de serviço: o espaçamento
+            (topo pós-hero, entre seções e rodapé) vive SÓ aqui — as seções
+            não carregam padding vertical próprio. */}
+        <div className="flex flex-col gap-12 pt-12 pb-12 md:gap-16 md:pt-16 md:pb-16">
           <DSbraveExplainerSection />
           <DSbraveProjectsSection />
-          <DSbraveModuleSection />
+          <DSbraveDemoCta />
         </div>
 
         <ServiceBridgeCta page="dsbrave" />

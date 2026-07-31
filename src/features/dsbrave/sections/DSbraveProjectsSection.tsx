@@ -12,14 +12,7 @@ const VISIBLE_CARDS_TABLET = 2;
 const VISIBLE_CARDS_MOBILE = 1;
 
 /**
- * Seta do carrossel — mesmo desenho das de Filmes, Aplicativos e Tour.
- *
- * Cápsula VERTICAL, não círculo: navegação e reprodução precisam de silhuetas
- * diferentes. No hover a cápsula se alonga e o accent sobe a partir da borda
- * externa, como uma aba puxada para fora do trilho.
- *
- * A divisa é SVG, não o caractere "←": glifo de seta muda de desenho conforme
- * a fonte e não alinha igual em todo sistema.
+ * Seta do carrossel — mesmo desenho das demais do site, na calha lateral.
  */
 function CarouselArrow({
   direction,
@@ -38,7 +31,7 @@ function CarouselArrow({
       aria-label={label}
       onClick={onClick}
       className={`group absolute top-1/2 z-20 -translate-y-1/2 cursor-pointer focus-visible:outline-none ${
-        isLeft ? 'left-[-10px] md:left-[10px]' : 'right-[-10px] md:right-[10px]'
+        isLeft ? 'left-[-10px] md:left-0' : 'right-[-10px] md:right-0'
       }`}
     >
       <span
@@ -79,6 +72,10 @@ function CarouselArrow({
   );
 }
 
+/**
+ * Prova social discreta: cabeçalho pequeno, cards compactos e trilho
+ * estreito — a hierarquia da página pertence aos módulos e ao CTA.
+ */
 export default function DSbraveProjectsSection() {
   const t = useTranslations('DSbravePage.projects');
 
@@ -178,7 +175,7 @@ export default function DSbraveProjectsSection() {
           </h2>
         </div>
 
-        <div className="relative mt-12">
+        <div className="relative mt-8 md:mt-10 md:px-[64px]">
           <CarouselArrow direction="left" onClick={handlePrev} label={t('prevLabel')} />
           <CarouselArrow direction="right" onClick={handleNext} label={t('nextLabel')} />
 

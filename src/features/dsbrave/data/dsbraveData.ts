@@ -1,21 +1,21 @@
-import type {
-  DSbraveExplainerPoint,
-  DSbraveIntegration,
-  DSbraveProject,
-} from '../types/dsbrave.types';
+import type { DSbraveIntegration, DSbraveProject } from '../types/dsbrave.types';
 
-/** Central em exibição no topo da página. */
-export const dsbraveDemoUrl = 'https://flyingstudio.com.br/vr/vr-granlote-treviso-dsbrave/';
-
-export const dsbraveExplainerPoints: DSbraveExplainerPoint[] = [
+/**
+ * Os 4 módulos oficiais do hub (apresentação institucional "New Era"):
+ * Split View, Automação de Lotes, Mapa Interativo de Arredores e
+ * Exploração 360°. Texto de cada um no i18n (DSbravePage.module.items);
+ * a ordem daqui é a ordem da ficha numerada na página.
+ */
+export const dsbraveIntegrations: DSbraveIntegration[] = [
+  { key: 'splitview', icon: 'split' },
+  { key: 'lotes', icon: 'zap' },
+  { key: 'mapa', icon: 'map' },
+  { key: 'exploracao', icon: 'orbit' },
   { key: 'unify', icon: 'layers' },
   { key: 'guide', icon: 'route' },
   { key: 'desire', icon: 'home' },
-];
-
-export const dsbraveIntegrations: DSbraveIntegration[] = [
-  { key: 'standalone', icon: '/shared/icons/devices/icon-airplay.svg' },
-  { key: 'app', icon: '/shared/icons/devices/icon-smartphone.svg' },
+  { key: 'standalone', icon: 'airplay' },
+  { key: 'app', icon: 'smartphone' },
 ];
 
 /* Os arquivos de imagem são nomeados em slug (sem espaço nem acento) para não

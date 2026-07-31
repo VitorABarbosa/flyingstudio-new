@@ -23,11 +23,6 @@ const VISIBLE_CARDS_DESKTOP = 4;
 const VISIBLE_CARDS_TABLET = 2;
 const VISIBLE_CARDS_MOBILE = 1;
 
-type ProjetosPersonalizadosSectionProps = {
-  activeProjectId: string;
-  onSelectProject: (id: string) => void;
-};
-
 /**
  * Seta do carrossel — mesmo desenho das de Filmes.
  *
@@ -55,7 +50,7 @@ function CarouselArrow({
       aria-label={label}
       onClick={onClick}
       className={`group absolute top-1/2 z-20 -translate-y-1/2 cursor-pointer focus-visible:outline-none ${
-        isLeft ? 'left-[-10px] md:left-[10px]' : 'right-[-10px] md:right-[10px]'
+        isLeft ? 'left-[-10px] md:left-0' : 'right-[-10px] md:right-0'
       }`}
     >
       <span
@@ -96,10 +91,7 @@ function CarouselArrow({
   );
 }
 
-export default function ProjetosPersonalizadosSection({
-  activeProjectId,
-  onSelectProject,
-}: ProjetosPersonalizadosSectionProps) {
+export default function ProjetosPersonalizadosSection() {
   const t = useTranslations('AplicativosPage.projects');
   const [visibleCards, setVisibleCards] = useState(VISIBLE_CARDS_DESKTOP);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -192,7 +184,7 @@ export default function ProjetosPersonalizadosSection({
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionAnimation}
-      className="w-full py-16"
+      className="w-full"
     >
       <div className="mx-auto w-full max-w-[1800px] px-4 md:px-6">
         <div className="text-center">
@@ -205,7 +197,9 @@ export default function ProjetosPersonalizadosSection({
           </h2>
         </div>
 
-        <div className="relative mt-12">
+        {/* Calhas laterais (padding) reservam o espaço das setas FORA dos
+            cards — a seta fica na calha, nunca por cima do conteúdo. */}
+        <div className="relative mt-10 md:mt-12 md:px-[64px]">
           <CarouselArrow direction="left" onClick={handlePrev} label={t('prevLabel')} />
           <CarouselArrow direction="right" onClick={handleNext} label={t('nextLabel')} />
 
@@ -235,11 +229,6 @@ export default function ProjetosPersonalizadosSection({
                     client={project.client}
                     project={project.project}
                     image={project.image}
-                    isActive={project.id === activeProjectId}
-                    onSelect={() => onSelectProject(project.id)}
-                    label={t('openApp', {
-                      project: `${project.client} — ${project.project}`,
-                    })}
                   />
                 </div>
               ))}

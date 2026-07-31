@@ -1,3 +1,9 @@
+/**
+ * Vitrine estática: os cards apresentam os projetos, mas o aplicativo em si
+ * não é navegável pelo site — a tecnologia é apresentada em demonstração
+ * guiada, sob solicitação. Por isso não existe campo de URL aqui: o endereço
+ * real não deve embarcar no bundle.
+ */
 export type AppProjectCard = {
   id: string;
   /** Incorporadora ou construtora — o destaque em cima do card. */
@@ -5,8 +11,6 @@ export type AppProjectCard = {
   /** Nome do empreendimento. */
   project: string;
   image: string;
-  /** Aplicativo que o card carrega na seção "Veja com os próprios olhos". */
-  appUrl: string;
 };
 
 export type BeneficioIconKey = 'palette' | 'devices' | 'sparkles' | 'presentation';
