@@ -33,7 +33,6 @@
     "cta": {
       "titleStart": "Take the next",
       "titleAccent": "step",
-      "subtitle": "Let's build the next success story together.",
       "primary": "Start a project",
       "whatsapp": "Chat on WhatsApp",
       "emailLabel": "or write to"
@@ -47,21 +46,25 @@
       "companies": {
         "flying": {
           "name": "Flying Studio",
-          "role": "3D artistic technology",
-          "desc": "The mother house: images, apps, tours and immersive experiences for launches."
+          "slogan": "Far beyond perspectives.",
+          "role": "Launch ecosystem",
+          "desc": "The arsenal that enchants, immerses and sells: images, apps, 360º tours and immersive experiences."
         },
         "rinno": {
           "name": "Rinno Films",
+          "slogan": "Your project deserves cinema.",
           "role": "Audiovisual production",
           "desc": "The narrative that sells: concept, product, viral and documentary films."
         },
         "nid": {
           "name": "NID Studio",
+          "slogan": "Your creative nest.",
           "role": "Strategic design",
           "desc": "The architecture of desire: interiors, facades, sales stands and show units."
         },
         "ogdi": {
           "name": "Open Group",
+          "slogan": "Value is born before the build.",
           "role": "Real-estate development",
           "desc": "From opportunity to launch: structuring, feasibility and real-estate product."
         }
@@ -70,41 +73,44 @@
   },
   "Hero": {
     "headline": "Artistic 3D Technology",
+    "titleStart": "We make tomorrow",
+    "titleAccent": "felt.",
+    "subtitle": "From the first image to the decision to buy",
     "label": "EXPERTS IN THE REAL ESTATE MARKET",
     "tagline": "Much beyond perspectives",
     "cards": {
       "images": {
-        "title": "We Create\n3D Images",
-        "description": "We seek to identify the <b>essence</b> of each project to create visually striking images that <b>convey the real value</b> of the development.",
+        "title": "High-Impact\nImages",
+        "description": "The first impression that defines the sale. Aesthetic rigor, light, framing and humanization to capture the <b>essence of the project</b> and spark <b>immediate desire</b>.",
         "cta": "Learn more"
       },
       "video": {
-        "title": "Realistic\nFilms",
-        "description": "Our films tell stories. We highlight the <b>differentiators</b> of each project, <b>bringing the concept to life</b> through motion, effects, and soundtracks.",
+        "title": "Strategic\nFilms",
+        "description": "We don't make videos: we tell the development's story in a magnetic way. Concept, product, viral and documentary films that <b>turn square meters into life stories</b>.",
         "cta": "Learn more"
       },
       "tech": {
-        "title": "App\nCases",
-        "description": "Offer your client an <b>immersive</b> and <b>standardized</b> experience when getting to know your product — add images, films, tours, and any content you want.",
+        "title": "Commercial\nApps",
+        "description": "Absolute control of the narrative. Content in layers and logical sequences creates a <b>path of persuasion</b> that guides the decision step by step, <b>whoever is presenting</b>.",
         "cta": "Learn more"
       },
       "tour": {
-        "title": "Virtual Tour\n360º degrees",
-        "description": "Experience your projects in an <b>immersive</b> <b>virtual reality</b> experience that delivers <b>new</b> and <b>interactive</b> sensations.",
+        "title": "Virtual Tour\n360º",
+        "description": "The hyper-realistic experience: the client explores every space from every angle, <b>making it tangible</b> and <b>removing objections to buying</b>.",
         "cta": "Learn more"
       },
       "dsbrave": {
         "title": "Discover\nD.sbrave",
-        "description": "Turn your project's presentation into an <b>immersive walkthrough inside the development</b>, bringing the client closer to the spaces, sensations, and unique features of each environment.",
+        "description": "The 360º time machine. The buyer <b>walks through their future home</b> with full autonomy and starts creating their stories right there.",
         "cta": "Learn more"
       }
     }
   },
   "Sobre": {
     "label": "FLYING STUDIO",
-    "intro": "Always innovating and looking to the future, Flying Studio has reinvented itself with each new challenge and consistently sought new horizons. Our main goal is to be the ideal partner in artistic 3D technology so we can face the major challenges of the real estate market together.",
-    "years": "15 years in the market",
-    "description": "With 15 years of history, we have actively participated in the trajectory and success of our partners, not only by producing images and films, but also by building a great legacy.",
+    "intro": "On 9 May 2011 we opened our doors with a simple, powerful belief: a picture is worth more than a thousand words. Since then we have been the bridge between the idea and the sale, giving shape to the buyer’s dream before the first brick is laid.",
+    "years": "We were born to give shape to the invisible.",
+    "description": "Art will always be our compass, but the journey brought us something even more valuable: market precision. We have followed the birth of hundreds of developments and we understand what makes a project sell.",
     "cta": "Meet Flying Studio"
   },
   "ServiceBridge": {
@@ -172,8 +178,8 @@
     },
     "explainer": {
       "eyebrow": "WHAT IS",
-      "title": "It presents, sells and monitors",
-      "description": "Where all the materialization comes together: an intelligent, interactive hub that unites presentation, sales and development management in a single platform. From the first render to construction tracking, the client lives the future — and the whole operation works in one place."
+      "title": "The future in the palm of the hand.",
+      "description": "Flying's exclusive 360º immersion app: full autonomy for the buyer to walk through their future home, explore every space from every angle and start creating their stories right there. And it doesn't stop at the sale — from the first render to construction tracking, the whole operation works in one place."
     },
     "module": {
       "prevLabel": "Previous modules",
@@ -322,8 +328,8 @@
     },
     "explainer": {
       "eyebrow": "WHAT IS THE APP",
-      "title": "Flying's digital showroom",
-      "description": "An interactive web application that puts the entire development in the broker's hands: realistic renders, 3D films, interactive floor plans and 360° tours in a single environment, carrying each project's identity. It is the presentation that gives shape to the invisible before the client's eyes — and standardizes the sales experience."
+      "title": "Control of the presentation.",
+      "description": "Absolute control of the commercial narrative. Interactive applications that bring the whole development together — renders, films, floor plans and 360º tours in one place — and go further: the content is structured in layers and logical sequences, creating a path of persuasion that guides the client's decision step by step."
     },
     "benefits": {
       "prevLabel": "Previous highlights",
@@ -337,9 +343,9 @@
           "title": "Any device",
           "description": "Accessible on any device, no installation required."
         },
-        "memoravel": {
-          "title": "Memorable sales",
-          "description": "Turns the sales moment into a memorable visual experience."
+        "a-prova-de-falhas": {
+          "title": "Failure-proof",
+          "description": "The scale and persuasive power of the project keep their full force, whoever is running the presentation."
         },
         "corretor": {
           "title": "In the broker's hands",
@@ -366,8 +372,8 @@
     },
     "explainer": {
       "eyebrow": "WHAT IS THE VIRTUAL TOUR",
-      "title": "The development from the inside",
-      "description": "A hyper-realistic 360° experience that places the client inside the development before the first brick is laid. In the broker-led presentation, the project becomes an experience: the space, finishes and atmosphere of a future home, felt up close."
+      "title": "The end of objections.",
+      "description": "A hyper-realistic 360º experience: the client explores every detail, from every angle and in every space, making it tangible long before the first brick. What the floor plan doesn't explain and the image doesn't answer, the tour resolves — on any screen, through a link."
     },
     "benefits": {
       "prevLabel": "Previous highlights",
@@ -407,15 +413,15 @@
       "metaSince": "Since 2011",
       "metaPlace": "São Paulo — Brazil",
       "subtitle": "Get to know our essence at the root.",
-      "description": "Always innovating and looking to the future, Flying Studio has reinvented itself with each new challenge, always seeking new horizons.",
+      "description": "On May 9, 2011, we opened our doors with a simple, powerful belief: an image is worth more than a thousand words. Everything we are was born from that belief.",
       "scrollLabel": "Go to our history"
     },
     "historia": {
       "eyebrow": "OUR",
       "title": "History",
       "foundedLabel": "Since May 9, 2011",
-      "description": "We strive to be your ideal partner, leveraging your launch through 3D technology. With more than a decade of history, we have actively participated in the trajectory and success of our partners, not only producing images and films, but also building a great legacy. We stand out for our enthusiasm, hands-on profile, and market vision.",
-      "description2": "Throughout this journey, while illustrating tomorrow for the market's biggest players, we absorbed the intelligence behind every success. We followed the birth of hundreds of developments and learned to read the market's whispers — what draws the investor's eye, what accelerates a launch, and what turns a plot of land into an object of desire. Art will always be our compass, but it was this experience that gave us market precision.",
+      "description": "For years we were the bridge between the idea and the sale, virtually materializing the buyer's dream before the first brick was laid. We proved that our art is not just about illustrating reality — it is about making clients experience the future. Far beyond perspectives has always been our motto and, secretly, our prophecy.",
+      "description2": "Over almost two decades, while illustrating tomorrow for the market's biggest players, we absorbed the intelligence behind every success and the wisdom behind every failure. We followed the birth of hundreds of developments and came to understand what makes a project sell: what draws the investor's eye, what accelerates a launch, and what turns a plot of land into a true case of success and desire.",
       "imageAlt1": "Flying Studio team at the office",
       "imageAlt2": "Flying Studio studio space",
       "imageAlt3": "'An image is worth a thousand words' mural at the office",
@@ -430,31 +436,31 @@
         "cultura": {
           "eyebrow": "OUR",
           "title": "Culture",
-          "description": "We believe in creativity, collaboration, and authenticity, valuing every member of our team and their ideas. Our culture of continuous evolution encourages learning to achieve success. Be genuine, be innovative, and join us on this journey into the future!"
+          "description": "Our evolution was an awakening. Art will always be our compass, but the journey brought us something even more valuable: market precision. We learned to read the market's whispers and capture the consumer's unspoken needs — and it is this dual nature, artistic and strategic, that defines everyone here."
         },
         "proposito": {
           "eyebrow": "OUR",
           "title": "Purpose",
-          "description": "We use art and 3D technology as tools to anticipate the future, weaving dreams and delivering experiences that raise the real estate market to a new level of beauty and innovation. We value every detail in creating unique, captivating spaces, understanding our clients' needs and turning ideas into masterpieces."
+          "description": "A flawless image is the perfect invitation, but our goal became bigger: taking control of the entire buying experience. We designed an ecosystem where technology is an invitation to enchantment — and visual attraction is only the first act of a great spectacle of conversion."
         },
         "manifesto": {
           "eyebrow": "OUR",
           "title": "Manifesto",
-          "description": "We were born to give shape to the invisible. Since May 9, 2011, we have virtually materialized the buyer's dream before the first brick was laid, making clients experience the future. Far beyond perspectives — that has always been our motto and, secretly, our prophecy."
+          "description": "We were born to give shape to the invisible. We don't deliver mere products: we orchestrate a technological arsenal designed to enchant, immerse and sell — imagery, apps, 360º immersion, films and experiences that make tomorrow tangible."
         }
       },
       "pilares": {
         "missao": {
           "title": "Mission",
-          "description": "To transform how the real estate market presents itself, delivering unique and engaging visual experiences through cutting-edge technology and 3D images that move people."
+          "description": "To make clients experience the future: materializing the buyer's dream before construction and turning every presentation into a buying decision."
         },
         "visao": {
           "title": "Vision",
-          "description": "To be recognized as a reference in technological and visual solutions for the national and international real estate market, generating positive impact through inspiring, memorable creations."
+          "description": "To be the ecosystem behind the great launches: the visual and technological intelligence the biggest players seek to dominate the market."
         },
         "valores": {
           "title": "Values",
-          "description": "Innovation, quality, integrity, collaboration, passion, and responsibility are our watchwords. We are always in pursuit of creative, surprising solutions for our clients without ever giving up excellent service."
+          "description": "Aesthetic rigor in every detail, intelligence in every decision and total synergy between creation, technology and strategy — so a project's grandeur is never lost along the way."
         }
       }
     },
@@ -506,7 +512,7 @@
     "grupo": {
       "titlePre": "Our",
       "titleAccent": "Group",
-      "description": "A great launch demands mastery on multiple fronts. Led by Flying Studio, the Flying Group gathers specialized companies operating in perfect synergy — from product design to launch technology. When every front speaks the same language, the result is speed, coherence, and conversion.",
+      "description": "A great launch demands mastery on multiple fronts. The Flying Group gathers specialized companies operating in perfect synergy — from product design to launch technology. When every front speaks the same language, the result is speed, coherence, and conversion.",
       "visitLabel": "Visit website",
       "openLabel": "View details",
       "closeLabel": "Close",
@@ -598,6 +604,7 @@
   },
   "Contato": {
     "hero": {
+      "home": "Home",
       "label": "Contact",
       "bannerAlt": "The Flying Studio office",
       "ariaHeading": "Let's start a project together.",
@@ -613,24 +620,29 @@
       "title": "Fill in your details",
       "fields": {
         "company": {
-          "label": "Company Name",
-          "placeholder": "Espaço Gourmet"
+          "label": "Company Name"
         },
         "email": {
-          "label": "E-mail",
-          "placeholder": "user@gmail.com"
+          "label": "E-mail"
         },
         "whatsapp": {
-          "label": "Whatsapp",
-          "placeholder": "(11) 98746-5895"
+          "label": "Whatsapp"
         },
         "responsible": {
-          "label": "Contact",
-          "placeholder": "Luis Augusto"
+          "label": "Contact"
         },
-        "description": {
+        "subject": {
           "label": "What do you need?",
-          "placeholder": "Tell us briefly about the project: what you need, timeline and any important detail."
+          "placeholder": "Select a subject",
+          "options": {
+            "imagens": "3D Images",
+            "filmes": "3D Films",
+            "aplicativos": "Apps",
+            "tour": "Virtual Tour 360º",
+            "dsbrave": "D.sbrave",
+            "lancamento": "A complete launch",
+            "outro": "Something else"
+          }
         }
       },
       "privacyPrefix": "I accept the",
@@ -639,14 +651,15 @@
       "submitted": "Sent!"
     },
     "meeting": {
-      "title": "Schedule a",
-      "titleHighlight": "meeting first.",
-      "text": "Get in touch to check availability.",
-      "cta": "Check availability"
+      "title": "Every launch starts with",
+      "titleHighlight": "a conversation.",
+      "text": "A Flying specialist gets your project and answers on WhatsApp.",
+      "cta": "Talk to a specialist"
     }
   },
   "JunteSeANos": {
     "hero": {
+      "home": "Home",
       "label": "Join Us",
       "title": "Be Flying Studio",
       "bannerAlt": "The Flying Studio team working at the studio"
@@ -655,24 +668,21 @@
       "label": "Talent Pool",
       "titleLine1": "Join",
       "titleLine2": "us",
-      "paragraph": "A place to grow, learn and make a difference: come be part of our Flying Studio family. We're always looking for talent who share our vision and passion for the new.",
+      "paragraph": "Our HQ on Berrini is more than a studio: it's a laboratory where creative minds, technology developers and launch strategists work in the same room. Everything we make is born from that synergy — and those are the people we are always looking for.",
       "closing": "Let's build something extraordinary together!",
       "fields": {
         "name": {
-          "label": "Full Name",
-          "placeholder": "Paulo Oliveira Silva"
+          "label": "Full Name"
         },
         "area": {
           "label": "Desired area:",
           "placeholder": "Select"
         },
         "email": {
-          "label": "E-mail",
-          "placeholder": "user@gmail.com"
+          "label": "E-mail"
         },
         "whatsapp": {
-          "label": "Whatsapp",
-          "placeholder": "(11) 98746-5895"
+          "label": "Whatsapp"
         }
       },
       "areas": {
@@ -781,13 +791,31 @@
   "CasesPage": {
     "hero": {
       "home": "Home",
+      "label": "Our Group",
       "title": "<strong>One</strong> <light>project</light><br></br><strong>four</strong> <light>perspectives</light><strong>,</strong><br></br><light>one</light> <strong>complete experience.</strong>",
-      "description": "Real projects that reveal the power of different specialties working in the same direction.",
       "cta": "Explore cases",
       "imageAlt": "Real estate launch environment created by Grupo Flying"
     },
     "intro": {
-      "statement": "<strong>From the idea to the sales experience,</strong> <muted>every discipline speaks the same language.</muted>"
+      "statement": "<strong>From the idea to the sales experience,</strong> <muted>every discipline speaks the same language.</muted>",
+      "companies": {
+        "ogdi": {
+          "desc": "The ecosystem's starting point. From opportunity to launch: structuring, feasibility and real-estate product design — the intelligence that makes value be born before construction.",
+          "cta": "Discover OGDI"
+        },
+        "nid": {
+          "desc": "The architecture of desire. Interiors, facades, sales stands and decorated model homes — the strategic design that precedes the sale and sets the stage where the buying decision happens.",
+          "cta": "Discover NID Studio"
+        },
+        "flying": {
+          "desc": "The group's mother company. Born to give shape to the invisible, it orchestrates the arsenal that enchants, immerses and sells — high-impact imagery, apps, D.sbrave, immersive rooms and augmented reality. We don't just display tomorrow: we make it felt.",
+          "cta": "Discover our DNA"
+        },
+        "rinno": {
+          "desc": "The narrative that sells. Concept, product, viral and documentary films that tell the development's story magnetically — turning square meters into life narratives.",
+          "cta": "Discover Rinno Films"
+        }
+      }
     },
     "ecosystemRings": {
       "title": "A complete ecosystem"
@@ -831,11 +859,26 @@
     },
     "projects": {
       "title": "Intelligence translated into <accent>experience</accent>.",
-      "seeComplete": "View full case"
+      "seeComplete": "View full case",
+      "items": {
+        "the-one-saude": {
+          "description": "A launch built by different specialties, from architecture to the digital experience."
+        },
+        "cosmopolitan": {
+          "description": "From concept to launch: imagery, film and experiences that shaped the development before the first brick."
+        },
+        "vita-vila-prudente": {
+          "description": "Interiors and perspectives that materialize living well, turning every room into desire."
+        },
+        "livigno": {
+          "description": "The project's essence translated into imagery and narratives that anticipate the living experience."
+        }
+      }
     },
     "cta": {
-      "title": "Let's build the <accent>next launch.</accent>",
-      "description": "Connect intelligence, architecture, technology and narrative to preserve your project's strength at every stage.",
+      "eyebrow": "THE NEXT CASE IS YOURS",
+      "title": "Your launch at the <accent>center of the ecosystem.</accent>",
+      "description": "Four forces speaking the same language, from product design to the experience that sells — an entire universe conspiring in favor of your next great sale.",
       "button": "Talk to Grupo Flying"
     }
   },
