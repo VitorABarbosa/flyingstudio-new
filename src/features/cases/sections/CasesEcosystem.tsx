@@ -42,13 +42,13 @@ export default function CasesEcosystem() {
               type="button"
               onClick={() => selectCompany(company.id)}
               aria-pressed={active}
-              className={`relative flex h-[190px] cursor-pointer flex-col items-start justify-between border border-[#6e6e6e] bg-[#272727] p-5 text-left transition-[opacity,filter] duration-300 md:h-[250px] md:p-[26px] ${active ? 'opacity-100' : 'opacity-30 brightness-75 hover:opacity-55 hover:brightness-90'}`}
+              className={`relative flex h-[150px] cursor-pointer flex-col items-start justify-between border border-[#6e6e6e] bg-[#272727] p-4 text-left transition-[opacity,filter] duration-300 md:h-[188px] md:p-5 ${active ? 'opacity-100' : 'opacity-30 brightness-75 hover:opacity-55 hover:brightness-90'}`}
             >
-              <span className="absolute top-4 right-5 text-[16px] text-white md:text-[20px]">{company.number}</span>
-              <span className="flex h-[72px] max-w-[78%] items-center">
-                <Image src={company.logo} alt={t(`${company.id}.name`)} width={company.logoWidth} height={company.logoHeight} className="max-h-[58px] w-auto max-w-full object-contain" />
+              <span className="absolute top-3 right-4 text-[13px] text-white md:text-[15px]">{company.number}</span>
+              <span className="flex h-[56px] max-w-[78%] items-center">
+                <Image src={company.logo} alt={t(`${company.id}.name`)} width={company.logoWidth} height={company.logoHeight} className="max-h-[44px] w-auto max-w-full object-contain" />
               </span>
-              <span className="text-[16px] text-white md:text-[20px]">{t(`${company.id}.name`)}</span>
+              <span className="text-[14px] text-white md:text-[16px]">{t(`${company.id}.name`)}</span>
               {active || prevCompany === company.id ? (
                 // A barra anterior se esvazia na direção do movimento enquanto a nova
                 // preenche o card a partir da borda por onde "entra"
@@ -79,7 +79,7 @@ export default function CasesEcosystem() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 0.85, delay: 0.2, ease: EASE }}
-        className="grid min-h-[308px] items-center gap-8 bg-[#272727] px-7 py-10 md:px-[62px] lg:grid-cols-[minmax(300px,0.75fr)_1.55fr] lg:gap-20"
+        className="grid min-h-[230px] items-center gap-6 bg-[#272727] px-6 py-8 md:px-[44px] lg:grid-cols-[minmax(280px,0.75fr)_1.55fr] lg:gap-14"
       >
         {/* key remonta o conteúdo a cada troca, disparando o crossfade */}
         <motion.div
@@ -88,8 +88,8 @@ export default function CasesEcosystem() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <span className="text-[18px] font-semibold text-[#9dff00] md:text-[20px]">{t(`${activeCompany}.eyebrow`)}</span>
-          <h2 className="mt-6 max-w-[590px] text-[32px] leading-[1.26] font-semibold text-white md:text-[40px]">
+          <span className="text-[14px] font-semibold text-[#9dff00] md:text-[16px]">{t(`${activeCompany}.eyebrow`)}</span>
+          <h2 className="mt-4 max-w-[560px] text-[24px] leading-[1.26] font-semibold text-white md:text-[32px]">
             {t(`${activeCompany}.title`)}
           </h2>
         </motion.div>
@@ -98,7 +98,7 @@ export default function CasesEcosystem() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08, ease: EASE }}
-          className="max-w-[875px] text-[18px] leading-[1.4] text-white md:text-[24px] md:leading-[1.26]"
+          className="max-w-[820px] text-[16px] leading-[1.5] text-white md:text-[19px] md:leading-[1.4]"
         >
           {t(`${activeCompany}.description`)}
         </motion.p>

@@ -141,15 +141,19 @@ function OrbitingPlanet({ ring, index, hidden, skipMotion }: OrbitingPlanetProps
   );
 }
 
-export default function CasesEcosystemRings() {
+interface CasesEcosystemRingsProps {
+  /** Empresa em destaque — controlada pelo pai para sincronizar com o índice ao lado */
+  hovered: CompanyId | null;
+  onHoveredChange: (id: CompanyId | null) => void;
+}
+
+export default function CasesEcosystemRings({ hovered, onHoveredChange }: CasesEcosystemRingsProps) {
   const t = useTranslations('CasesPage.ecosystem');
-  const tRings = useTranslations('CasesPage.ecosystemRings');
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-25% 0px' });
   const prefersReducedMotion = useReducedMotion();
   const [buildActive, setBuildActive] = useState<CompanyId | null>(null);
   const [built, setBuilt] = useState(false);
-  const [hovered, setHovered] = useState<CompanyId | null>(null);
   const [planets, setPlanets] = useState<ReadonlySet<CompanyId>>(new Set());
 
   const skipMotion = Boolean(prefersReducedMotion);
@@ -181,29 +185,9 @@ export default function CasesEcosystemRings() {
   const activeRing = fillRing ?? null;
   const glowColor = fillRing ? fillRing.color : ogdi.color;
 
-  const title = tRings('title');
-
   return (
-    <div ref={sectionRef} className="w-full max-w-[759px]">
-      <h2
-        aria-label={title}
-        className="mx-auto max-w-[838px] text-center text-[clamp(20px,2.6vw,36px)] leading-[1.2] font-normal tracking-[0.19em] text-[var(--theme-text)] uppercase"
-      >
-        {title.split('').map((char, index) => (
-          <motion.span
-            key={`${char}-${index}`}
-            aria-hidden
-            className="inline-block whitespace-pre"
-            initial={skipMotion ? false : { opacity: 0, y: 18, filter: 'blur(6px)' }}
-            animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : undefined}
-            transition={{ duration: 0.6, delay: index * 0.03, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </h2>
-
-      <div className="relative mx-auto mt-12 aspect-square w-full max-w-[759px] md:mt-16">
+    <div ref={sectionRef} className="w-full">
+      <div className="relative mx-auto aspect-square w-full">
         {/* Brilho ambiente atrás do centro */}
         <motion.div
           aria-hidden
@@ -349,9 +333,9 @@ export default function CasesEcosystemRings() {
                 stroke="transparent"
                 strokeWidth={34}
                 style={{ pointerEvents: 'stroke', cursor: 'pointer' }}
-                onMouseEnter={() => setHovered(ring.id)}
-                onMouseLeave={() => setHovered(null)}
-                onClick={() => setHovered((current) => (current === ring.id ? null : ring.id))}
+                onMouseEnter={() => onHoveredChange(ring.id)}
+                onMouseLeave={() => onHoveredChange(null)}
+                onClick={() => onHoveredChange(hovered === ring.id ? null : ring.id)}
               />
             ))}
         </svg>

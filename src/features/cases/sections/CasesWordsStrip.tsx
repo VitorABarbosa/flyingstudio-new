@@ -29,7 +29,7 @@ export default function CasesWordsStrip() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto flex w-full max-w-[1718px] flex-col items-center justify-between gap-5 overflow-hidden px-5 py-24 text-center text-[clamp(34px,3.35vw,64px)] leading-[1.2] font-semibold md:flex-row md:px-6 md:py-32"
+      className="mx-auto flex w-full max-w-[1718px] flex-col items-center justify-between gap-5 overflow-hidden px-5 py-16 text-center text-[clamp(26px,2.6vw,46px)] leading-[1.2] font-semibold md:flex-row md:px-6 md:py-20"
     >
       {words.map((word, index) => (
         <motion.span
