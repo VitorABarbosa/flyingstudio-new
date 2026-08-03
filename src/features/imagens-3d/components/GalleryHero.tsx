@@ -35,12 +35,12 @@ export default function GalleryHero() {
       >
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Portaria_B_HR.jpg"
+            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_IMAGENS.jpg"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_90%]"
+            className="object-cover object-[center_40%]"
           />
         </motion.div>
 

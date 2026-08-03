@@ -1,35 +1,39 @@
 /**
  * Gera as versões WEB do acervo de Perspectivas.
  *
- * O problema que este script resolve: os arquivos em img.flyingstudio.com.br/
- * site-flying/ são os de TRABALHO — média de 21 MB, chegando a 50 MB, até
- * ~70 megapixels. O otimizador de imagem do Next precisa baixar e decodificar
- * esse original inteiro na primeira vez que cada largura é pedida; com a
- * galeria pedindo dezenas de imagens de uma vez, a fila satura e o site fica
- * lento (ou quebra) em todo cache frio.
+ * O problema que este script resolve: os arquivos de site-flying/ são os de
+ * TRABALHO — média de 16 MB, chegando a 160 MB, até ~70 megapixels. O
+ * otimizador de imagem do Next precisa baixar e decodificar esse original
+ * inteiro na primeira vez que cada largura é pedida; com a galeria pedindo
+ * dezenas de imagens de uma vez, a fila satura e o site fica lento (ou
+ * quebra) em todo cache frio.
  *
- * A saída daqui é o mesmo acervo em resolução de tela (máx. 2560px no lado
- * maior, JPEG progressivo q80, sem metadados) — tipicamente 100-60x menor.
- * Com os arquivos web no servidor, o otimizador passa a partir de originais
- * de ~0,5 MB e o custo de cache frio praticamente desaparece.
+ * A saída daqui é o mesmo acervo em resolução de tela — tipicamente 10-60x
+ * menor. Com os arquivos web no servidor, o otimizador passa a partir de
+ * mestres de ~1-2 MB e o custo de cache frio praticamente desaparece.
  *
- * Uso:
- *   node scripts/gerar-acervo-web.mjs
+ * Uso (lê o acervo LOCAL, com todas as subpastas — inclusive DESTAQUES/):
+ *   node scripts/gerar-acervo-web.mjs "C:\\caminho\\para\\site-flying"
  *
- * Saída:  acervo-web/<PASTA>/<mesmo_nome>.jpg  (espelha o servidor)
+ * Saída:  acervo-web/<MESMA_ESTRUTURA>/<mesmo_nome>.jpg
+ *         (.png de origem vira .jpg na saída — ajustar a URL no site)
  * Depois: subir o CONTEÚDO de acervo-web/ para o servidor como a pasta
  *         site-flying-web/  (ficando .../site-flying-web/EXTERNAS/... etc.)
  *
  * O script é retomável: arquivos já gerados são pulados.
  */
 
-import { mkdir, stat, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const ORIGIN = 'https://img.flyingstudio.com.br';
-const FOLDERS = ['EXTERNAS', 'FACHADAS', 'LIVING', 'LOTEAMENTOS', 'PLANTAS'];
+const SRC_ROOT = process.argv[2] ? path.resolve(process.argv[2]) : null;
 const OUT_ROOT = path.resolve(process.cwd(), 'acervo-web');
+
+if (!SRC_ROOT) {
+  console.error('Uso: node scripts/gerar-acervo-web.mjs "<pasta local site-flying>"');
+  process.exit(1);
+}
 
 /**
  * Lado maior e qualidade da versão web — calibrados por medição, não por
@@ -41,18 +45,19 @@ const OUT_ROOT = path.resolve(process.cwd(), 'acervo-web');
 const MAX_EDGE = 3840;
 const JPEG_QUALITY = 85;
 const CONCURRENCY = 3;
+const EXTENSOES = new Set(['.jpg', '.jpeg', '.png']);
 
-async function listFolder(folder) {
-  const res = await fetch(`${ORIGIN}/site-flying/${folder}/`);
-
-  if (!res.ok) {
-    throw new Error(`Listagem falhou para ${folder}: HTTP ${res.status}`);
+async function walk(dir) {
+  const out = [];
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...(await walk(full)));
+    } else if (EXTENSOES.has(path.extname(entry.name).toLowerCase())) {
+      out.push(full);
+    }
   }
-
-  const html = await res.text();
-
-  /* O autoindex devolve hrefs absolutos e já URL-encoded. */
-  return [...html.matchAll(/href="(\/site-flying\/[^"]+\.jpe?g)"/gi)].map((m) => m[1]);
+  return out;
 }
 
 async function alreadyDone(outPath) {
@@ -64,29 +69,24 @@ async function alreadyDone(outPath) {
   }
 }
 
-async function processOne(href) {
-  const decodedName = decodeURIComponent(href.split('/').pop());
-  const folder = href.split('/')[2];
-  const outDir = path.join(OUT_ROOT, folder);
-  const outPath = path.join(outDir, decodedName);
+async function processOne(srcPath) {
+  const rel = path.relative(SRC_ROOT, srcPath);
+  /* Saída sempre .jpg — PNGs de origem viram JPEG (renders não têm alfa). */
+  const relJpg = rel.replace(/\.(png|jpe?g)$/i, '.jpg');
+  const outPath = path.join(OUT_ROOT, relJpg);
 
   if (await alreadyDone(outPath)) {
-    return { name: `${folder}/${decodedName}`, skipped: true };
+    return { name: relJpg, skipped: true };
   }
 
-  const res = await fetch(ORIGIN + href);
-
-  if (!res.ok) {
-    throw new Error(`Download falhou (${res.status}): ${href}`);
-  }
-
-  const original = Buffer.from(await res.arrayBuffer());
+  const original = await readFile(srcPath);
 
   const image = sharp(original, { limitInputPixels: false });
   const meta = await image.metadata();
 
   const output = await image
     .rotate() // aplica orientação EXIF antes de descartar metadados
+    .flatten({ background: '#ffffff' }) // PNG com alfa não vira fundo preto
     .resize({
       width: MAX_EDGE,
       height: MAX_EDGE,
@@ -103,24 +103,23 @@ async function processOne(href) {
     })
     .toBuffer();
 
-  await mkdir(outDir, { recursive: true });
+  await mkdir(path.dirname(outPath), { recursive: true });
   await writeFile(outPath, output);
 
   return {
-    name: `${folder}/${decodedName}`,
+    name: relJpg,
     inMb: original.length / 1048576,
     outKb: output.length / 1024,
     dims: `${meta.width}x${meta.height}`,
   };
 }
 
-const queue = [];
+const queue = await walk(SRC_ROOT);
 
-for (const folder of FOLDERS) {
-  queue.push(...(await listFolder(folder)));
-}
-
-console.log(`Acervo: ${queue.length} imagens. Gerando versões web (máx. ${MAX_EDGE}px, q${JPEG_QUALITY})...\n`);
+console.log(
+  `Acervo local: ${queue.length} imagens em ${SRC_ROOT}.\n` +
+    `Gerando versões web (máx. ${MAX_EDGE}px, q${JPEG_QUALITY})...\n`
+);
 
 let totalIn = 0;
 let totalOut = 0;
@@ -130,10 +129,10 @@ const failures = [];
 
 async function worker() {
   while (queue.length > 0) {
-    const href = queue.shift();
+    const srcPath = queue.shift();
 
     try {
-      const result = await processOne(href);
+      const result = await processOne(srcPath);
 
       if (result.skipped) {
         skipped += 1;
@@ -144,12 +143,12 @@ async function worker() {
       totalIn += result.inMb;
       totalOut += result.outKb / 1024;
       console.log(
-        `[${String(done).padStart(2, '0')}] ${result.name}  ${result.dims}  ` +
+        `[${String(done).padStart(3, '0')}] ${result.name}  ${result.dims}  ` +
           `${result.inMb.toFixed(1)} MB -> ${Math.round(result.outKb)} KB`
       );
     } catch (error) {
-      failures.push({ href, message: error.message });
-      console.error(`ERRO ${href}: ${error.message}`);
+      failures.push({ srcPath, message: error.message });
+      console.error(`ERRO ${srcPath}: ${error.message}`);
     }
   }
 }
@@ -168,7 +167,7 @@ if (done > 0) {
 
 if (failures.length > 0) {
   console.log('\nFalhas (rode o script de novo para tentar só elas):');
-  failures.forEach((f) => console.log(` - ${f.href}: ${f.message}`));
+  failures.forEach((f) => console.log(` - ${f.srcPath}: ${f.message}`));
   process.exitCode = 1;
 } else {
   console.log(`\nPronto. Suba o CONTEÚDO de acervo-web/ para o servidor como site-flying-web/`);

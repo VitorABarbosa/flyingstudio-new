@@ -33,7 +33,7 @@ export default function AplicativosHero() {
       >
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Beach_Tennis_Fire_Place_B_HR.jpg"
+            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_APLICATIVOS.jpg"
             alt=""
             fill
             priority

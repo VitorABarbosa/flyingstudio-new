@@ -22,7 +22,8 @@ const COMPANIES: {
     color: '#7E52FF', // roxo Flying
     media: {
       type: 'image',
-      src: 'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Ousy_The_One_Tucuruvi_Sky_Pool_HR.jpg',
+      /* O Sky Pool saiu do acervo novo — piscina do Dado Vila Mariana no lugar. */
+      src: 'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Dado_Vila_Mariana_Piscina_HR.jpg',
     },
     logo: '/cases/logo-flying.png',
     logoSize: 'min(80%, 300px)',

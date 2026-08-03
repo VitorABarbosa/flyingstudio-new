@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
        do tempo com qualidade equivalente. */
     formats: ['image/webp'],
     /* Acervo de Perspectivas. O site usa a pasta site-flying-web/ — mestres
-       de ~1,7 MB gerados por scripts/gerar-acervo-web.mjs a partir dos
-       originais de trabalho (site-flying/, ~21 MB cada), que continuam no
+       de ~1,8 MB gerados por scripts/gerar-acervo-web.mjs a partir dos
+       originais de trabalho (site-flying/, até 160 MB), que continuam no
        servidor mas não devem ser referenciados por páginas. */
     remotePatterns: [
       {

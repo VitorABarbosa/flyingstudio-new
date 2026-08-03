@@ -27,7 +27,7 @@ export default function DSbraveHero() {
       >
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/LIVING/Macuco_Grand_Canal_Beauty_HR.jpg"
+            src="https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Piscina_C_HR.jpg"
             alt=""
             fill
             priority

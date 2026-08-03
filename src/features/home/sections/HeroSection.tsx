@@ -19,29 +19,34 @@ type HeroSlide = {
   animation: string;
 };
 
+/* Destaques do acervo (DESTAQUES/DESTAQUES_HEROS_HOME). O hero é a vitrine
+   do estúdio, então usa os ORIGINAIS de site-flying/ servidos crus
+   (`unoptimized` no <Image>): qualidade máxima absoluta, ao custo de
+   12-28 MB por slide — decisão consciente, validada em uso. O resto do site
+   segue nas versões -web otimizadas. */
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: '/home/hero/hero-background.jpg',
-    alt: 'Flying Studio hero slide 1',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_EVENTOS_HR.jpg',
+    alt: 'GCS Mirante Boa Vista — espaço de eventos',
     animation: 'hero-pan-right',
   },
   {
     id: 'slide-2',
-    src: '/home/hero/HERO_02.jpg',
-    alt: 'Flying Studio hero slide 2',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
+    alt: 'GCS Mirante Boa Vista — detalhe da piscina',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-3',
-    src: '/home/hero/HERO_03.jpg',
-    alt: 'Flying Studio hero slide 3',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Quero_Meu_Ape_Pedra_do_Sol_Campo_HR.jpg',
+    alt: 'Quero Meu Apê Pedra do Sol — campo',
     animation: 'hero-zoom-in',
   },
   {
     id: 'slide-4',
-    src: '/home/hero/HERO_04.jpg',
-    alt: 'Flying Studio hero slide 4',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Seedincorp_VNC_Alameda_Externa_HR.JPG',
+    alt: 'Seedincorp VNC — alameda externa',
     animation: 'hero-zoom-out',
   },
 ];
@@ -111,6 +116,8 @@ export default function HeroSection() {
                 alt={slide.alt}
                 fill
                 priority={index === 0}
+                /* Original servido cru, sem otimizador — teste de qualidade máxima */
+                unoptimized
                 className={`object-cover object-bottom will-change-transform ${
                   index === currentSlide ? slide.animation : ''
                 }`}
