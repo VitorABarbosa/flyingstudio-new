@@ -27,8 +27,8 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Cartesia_Casa_Do_Poeta_Portaria_R00.jpg',
-    alt: 'Cartesia Casa do Poeta — portaria',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Citz_Organique_Acesso_02_R00.jpg',
+    alt: 'Citz Organique — acesso',
     animation: 'hero-pan-right',
   },
   {

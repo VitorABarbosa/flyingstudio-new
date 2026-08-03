@@ -19,12 +19,6 @@ const rawGallerySections: GallerySectionType[] = [
     id: 'geral',
     items: [
       {
-        id: 'geral-01',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Cartesia_Casa_Do_Poeta_Portaria_R00.jpg',
-      },
-      {
         id: 'geral-02',
         title: 'Archtech | Itu',
         image:
@@ -271,12 +265,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Aman_San_Pietro_Av_Acesso_HR%20.jpg',
       },
       {
-        id: 'geral-44',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Banheiro_Master_R01.jpg',
-      },
-      {
         id: 'geral-45',
         title: 'Paes G. | Orissanga',
         image:
@@ -298,12 +286,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Aman | San Pietro',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Aman_San_Pietro_Fotomontagem.jpg',
-      },
-      {
-        id: 'geral-49',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Boulevard_R01.jpg',
       },
       {
         id: 'geral-50',
@@ -330,12 +312,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/FTM_Resisdencial_Italia_Fachada_Casa_Diurna_HR.jpg',
       },
       {
-        id: 'geral-54',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_do_Poeta_Corredor_R01.jpg',
-      },
-      {
         id: 'geral-55',
         title: 'Paes G. | Orissanga',
         image:
@@ -358,12 +334,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'FTM | Residencial Itália',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/FTM_Resisdencial_Italia_Portaria_HR.jpg',
-      },
-      {
-        id: 'geral-59',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_do_Poeta_Cozinha_Fechada_R00.jpg',
       },
       {
         id: 'geral-60',
@@ -390,12 +360,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Beach_Tennis_Fire_Place_B_HR.jpg',
       },
       {
-        id: 'geral-64',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Living_B_R01.jpg',
-      },
-      {
         id: 'geral-65',
         title: 'ProHidro | Carlos Reinaldo',
         image:
@@ -418,12 +382,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Granlote | Boituva',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Campo_Lazer_C_HR.jpg',
-      },
-      {
-        id: 'geral-69',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Rooftop_B_R00b.jpg',
       },
       {
         id: 'geral-70',
@@ -1460,12 +1418,6 @@ const rawGallerySections: GallerySectionType[] = [
     id: 'externas',
     items: [
       {
-        id: 'externas-01',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Cartesia_Casa_Do_Poeta_Portaria_R00.jpg',
-      },
-      {
         id: 'externas-02',
         title: 'Citz | Organique',
         image:
@@ -2353,42 +2305,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Canopus | Pedro de Toledo',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/Canopus_Pedro_de_Toledo_Lobby_HR.jpg',
-      },
-      {
-        id: 'internas-09',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Banheiro_Master_R01.jpg',
-      },
-      {
-        id: 'internas-10',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Boulevard_R01.jpg',
-      },
-      {
-        id: 'internas-11',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_do_Poeta_Corredor_R01.jpg',
-      },
-      {
-        id: 'internas-12',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_do_Poeta_Cozinha_Fechada_R00.jpg',
-      },
-      {
-        id: 'internas-13',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Living_B_R01.jpg',
-      },
-      {
-        id: 'internas-14',
-        title: 'Cartesia | Casa do Poeta',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Cartesia_Casa_Do_Poeta_Rooftop_B_R00b.jpg',
       },
       {
         id: 'internas-15',

@@ -41,8 +41,10 @@
       "eyebrow": "Nosso Grupo",
       "titleStart": "Uma essência,",
       "titleAccent": "quatro olhares",
-      "narrative": "A Flying transbordou: o que nasceu dando forma ao invisível cresceu em frentes que hoje caminham juntas — imagem, filme, design e desenvolvimento imobiliário. Quatro empresas falando a mesma língua, da concepção do produto à experiência que vende.",
+      "narrative": "Um grande lançamento exige maestria em múltiplas frentes. O Grupo Flying reúne empresas especializadas operando em perfeita sinergia — da formatação do produto à tecnologia do lançamento. Quando todas as frentes falam a mesma língua, o resultado é velocidade, coerência e conversão.",
       "cta": "Conheça o grupo por dentro",
+      "visitLabel": "Conhecer o site",
+      "visitFlying": "Conhecer nosso DNA",
       "companies": {
         "flying": {
           "name": "Flying Studio",
@@ -648,7 +650,9 @@
       "privacyPrefix": "Eu aceito a",
       "privacyLink": "Política de Privacidade",
       "submit": "Estou Pronto",
-      "submitted": "Enviado!"
+      "submitted": "Enviado!",
+      "sending": "Enviando...",
+      "error": "O envio falhou agora. Tente de novo em instantes ou chame no WhatsApp."
     },
     "meeting": {
       "title": "Todo lançamento começa com",
@@ -695,7 +699,9 @@
       "uploadTitle": "Adicione o currículo aqui",
       "uploadHint": "arraste o arquivo ou clique na área",
       "submit": "Enviar Currículo",
-      "submitted": "Currículo enviado!"
+      "submitted": "Currículo enviado!",
+      "sending": "Enviando...",
+      "error": "O envio falhou agora. Tente de novo em instantes."
     }
   },
   "Metadata": {

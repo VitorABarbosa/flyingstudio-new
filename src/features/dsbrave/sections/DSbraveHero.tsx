@@ -25,9 +25,11 @@ export default function DSbraveHero() {
         ref={bannerRef}
         className="relative h-[clamp(240px,34vh,360px)] w-full overflow-hidden rounded-b-[clamp(24px,3vw,44px)]"
       >
-        <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
+        {/* Zoom menor que o padrão (1.16) — ajuste fino para esta imagem;
+            1.06 ainda cobre o deslocamento do parallax sem mostrar borda. */}
+        <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Piscina_C_HR.jpg"
+            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_DSBRAVE.png"
             alt=""
             fill
             priority

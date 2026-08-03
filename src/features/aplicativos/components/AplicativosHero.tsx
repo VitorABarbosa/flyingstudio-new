@@ -31,14 +31,16 @@ export default function AplicativosHero() {
         ref={bannerRef}
         className="relative h-[clamp(240px,34vh,360px)] w-full overflow-hidden rounded-b-[clamp(24px,3vw,44px)]"
       >
-        <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
+        {/* Zoom maior que o padrão (1.16) e enquadramento puxado para cima
+            (a imagem "desce" na moldura), por pedido de ajuste fino. */}
+        <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.35]">
           <Image
             src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_APLICATIVOS.jpg"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-[center_42%]"
           />
         </motion.div>
 

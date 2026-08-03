@@ -3,6 +3,7 @@
 import { useId, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { WEB3FORMS_ENDPOINT, WEB3FORMS_KEY } from '@/lib/web3forms';
 import {
   staggerContainer,
   revealItem,
@@ -83,6 +84,7 @@ export default function BancoTalentosSection() {
   const [file, setFile] = useState<File | null>(null);
   const [dragging, setDragging] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
 
   const update = (key: keyof FormState) => (value: string) =>
     setForm((current) => ({ ...current, [key]: value }));
@@ -97,11 +99,43 @@ export default function BancoTalentosSection() {
     if (dropped) setFile(dropped);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  /* Envio via Web3Forms (mesma mecânica dos sites Rinno/OGDI), com o
+     currículo indo como anexo. O e-mail do candidato vira o Reply-To. */
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!canSubmit) return;
-    // Integracao de envio (upload do curriculo) sera conectada futuramente.
-    setSubmitted(true);
+    if (!canSubmit || submitted || status === 'sending') return;
+
+    // Honeypot: humanos não veem o campo; preenchido = bot, aborta em silêncio.
+    if (new FormData(event.currentTarget).get('botcheck')) return;
+
+    const areaLabel = form.area ? t(`areas.${form.area}`) : '—';
+    const data = new FormData();
+    data.append('access_key', WEB3FORMS_KEY);
+    data.append('from_name', 'Site Flying Studio');
+    data.append('subject', `Site Flying Studio — Banco de Talentos: ${form.name.trim()}`);
+    data.append('email', form.email.trim());
+    data.append('Nome', form.name.trim());
+    data.append('Área desejada', areaLabel);
+    data.append('Whatsapp', form.whatsapp.trim());
+    if (file) data.append('attachment', file, file.name);
+
+    setStatus('sending');
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+      const json = (await res.json()) as { success?: boolean };
+      if (json.success) {
+        setSubmitted(true);
+        setStatus('idle');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -114,6 +148,15 @@ export default function BancoTalentosSection() {
         onSubmit={handleSubmit}
         className="mx-auto flex max-w-[1680px] flex-col items-start gap-12 rounded-[40px] bg-[var(--theme-surface-alt)] p-[40px] lg:flex-row lg:items-center lg:gap-16 lg:p-[64px]"
       >
+        {/* Honeypot anti-spam — escondido de humanos */}
+        <input
+          type="checkbox"
+          name="botcheck"
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden
+        />
         {/* Texto */}
         <motion.div
           variants={staggerContainer}
@@ -274,14 +317,14 @@ export default function BancoTalentosSection() {
 
             <motion.button
               type="submit"
-              disabled={!canSubmit}
+              disabled={!canSubmit || submitted || status === 'sending'}
               variants={revealItem}
-              whileHover={canSubmit ? buttonHover : undefined}
-              whileTap={canSubmit ? pressTap : undefined}
+              whileHover={canSubmit && !submitted ? buttonHover : undefined}
+              whileTap={canSubmit && !submitted ? pressTap : undefined}
               className="flex w-[300px] max-w-full items-center justify-center gap-2 rounded-full bg-[var(--theme-text)] px-[24px] py-[16px] font-['Outfit'] text-[16px] font-medium tracking-[0.32px] text-[var(--theme-bg)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              {submitted ? t('submitted') : t('submit')}
-              {!submitted ? (
+              {submitted ? t('submitted') : status === 'sending' ? t('sending') : t('submit')}
+              {!submitted && status !== 'sending' ? (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path
                     d="M4.5 10h11M11 5.5l4.5 4.5-4.5 4.5"
@@ -293,6 +336,12 @@ export default function BancoTalentosSection() {
                 </svg>
               ) : null}
             </motion.button>
+
+            {status === 'error' ? (
+              <p role="alert" className="font-['Outfit'] text-[15px] text-[#ff5d5d]">
+                {t('error')}
+              </p>
+            ) : null}
           </motion.div>
         </div>
       </form>

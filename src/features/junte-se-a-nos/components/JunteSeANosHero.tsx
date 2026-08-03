@@ -33,7 +33,7 @@ export default function JunteSeANosHero() {
             className="absolute inset-0"
           >
             <Image
-              src="/junte-se-a-nos/hero/banner.png"
+              src="/junte-se-a-nos/hero/banner-v2.png"
               alt={t('bannerAlt')}
               fill
               priority

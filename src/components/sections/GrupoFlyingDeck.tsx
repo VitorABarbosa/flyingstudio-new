@@ -3,12 +3,15 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { Link } from '@/i18n/navigation';
+import { futurePageHrefs } from '@/lib/site-navigation';
 
 type CompanyKey = 'flying' | 'rinno' | 'nid' | 'ogdi';
 
 type CompanyMedia = { type: 'image'; src: string } | { type: 'vimeo'; id: string };
 
-/** Cor-assinatura de cada casa — também são as paradas do degradê da linha. */
+/** Cor-assinatura de cada casa — também são as paradas do degradê da linha.
+    `site: null` = a Flying é a casa; o CTA dela leva ao nosso DNA. */
 const COMPANIES: {
   key: CompanyKey;
   color: string;
@@ -16,6 +19,7 @@ const COMPANIES: {
   logo: string;
   logoSize: string;
   logoPosition: string;
+  site: string | null;
 }[] = [
   {
     key: 'flying',
@@ -28,6 +32,7 @@ const COMPANIES: {
     logo: '/cases/logo-flying.png',
     logoSize: 'min(80%, 300px)',
     logoPosition: 'center 51%',
+    site: null,
   },
   {
     key: 'rinno',
@@ -37,6 +42,7 @@ const COMPANIES: {
     logo: '/cases/logo-rinno.png',
     logoSize: 'min(76%, 300px)',
     logoPosition: 'center',
+    site: 'https://rinnofilms.com.br',
   },
   {
     key: 'nid',
@@ -48,6 +54,7 @@ const COMPANIES: {
     logo: '/cases/logo-nid.png',
     logoSize: 'min(64%, 250px)',
     logoPosition: 'center',
+    site: 'https://nidstudio.com.br',
   },
   {
     key: 'ogdi',
@@ -56,10 +63,62 @@ const COMPANIES: {
     logo: '/cases/logo-ogdi.png',
     logoSize: 'min(64%, 250px)',
     logoPosition: 'center',
+    site: 'https://ogdi.com.br',
   },
 ];
 
 const EASE_CLASS = 'ease-[cubic-bezier(0.22,1,0.36,1)]';
+
+/**
+ * CTA leve para o site de cada casa, na cor dela: as externas abrem em nova
+ * aba (seta inclinada); a Flying é a casa, então o convite leva ao nosso DNA.
+ */
+function CompanySiteCta({
+  company,
+  className = '',
+}: {
+  company: (typeof COMPANIES)[number];
+  className?: string;
+}) {
+  const t = useTranslations('Home.grupo');
+  const classes = `group/cta inline-flex items-center gap-[6px] font-['Outfit'] text-[13px] font-semibold transition-opacity duration-200 hover:opacity-75 focus-visible:opacity-75 focus-visible:outline-none ${className}`;
+  const arrow = (external: boolean) => (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className={`transition-transform duration-300 group-hover/cta:translate-x-[3px] ${external ? '-rotate-45' : ''}`}
+    >
+      <path
+        d="M2 8h12M9.5 3.5L14 8l-4.5 4.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  return company.site ? (
+    <a
+      href={company.site}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classes}
+      style={{ color: company.color }}
+    >
+      {t('visitLabel')}
+      {arrow(true)}
+    </a>
+  ) : (
+    <Link href={futurePageHrefs.dna} className={classes} style={{ color: company.color }}>
+      {t('visitFlying')}
+      {arrow(false)}
+    </Link>
+  );
+}
 
 /**
  * A linha neon que costura as quatro casas: uma onda contínua atravessando o
@@ -256,6 +315,7 @@ export default function GrupoFlyingDeck() {
                 <span className="mt-[12px] block max-w-[42ch] font-['Outfit'] text-[14px] leading-[1.6] text-white/75 md:text-[15px]">
                   {t(`companies.${company.key}.desc`)}
                 </span>
+                <CompanySiteCta company={company} className="mt-[14px]" />
               </span>
             </article>
           );
@@ -286,6 +346,7 @@ export default function GrupoFlyingDeck() {
             <p className="mt-2 font-['Outfit'] text-[14px] leading-[1.6] text-[var(--theme-muted)]">
               {t(`companies.${company.key}.desc`)}
             </p>
+            <CompanySiteCta company={company} className="mt-3" />
           </article>
         ))}
       </div>

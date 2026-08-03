@@ -41,8 +41,10 @@
       "eyebrow": "Our Group",
       "titleStart": "One essence,",
       "titleAccent": "four perspectives",
-      "narrative": "Flying overflowed: what was born giving shape to the invisible grew into fronts that now walk together — image, film, design and real-estate development. Four companies speaking the same language, from product conception to the experience that sells.",
+      "narrative": "A great launch demands mastery on multiple fronts. The Flying Group gathers specialized companies operating in perfect synergy — from product design to launch technology. When every front speaks the same language, the result is speed, coherence, and conversion.",
       "cta": "Meet the group from the inside",
+      "visitLabel": "Visit the website",
+      "visitFlying": "Discover our DNA",
       "companies": {
         "flying": {
           "name": "Flying Studio",
@@ -648,7 +650,9 @@
       "privacyPrefix": "I accept the",
       "privacyLink": "Privacy Policy",
       "submit": "I'm Ready",
-      "submitted": "Sent!"
+      "submitted": "Sent!",
+      "sending": "Sending...",
+      "error": "The submission failed just now. Try again in a moment or reach us on WhatsApp."
     },
     "meeting": {
       "title": "Every launch starts with",
@@ -695,7 +699,9 @@
       "uploadTitle": "Add your résumé here",
       "uploadHint": "drag the file or click the area",
       "submit": "Submit Résumé",
-      "submitted": "Résumé sent!"
+      "submitted": "Résumé sent!",
+      "sending": "Sending...",
+      "error": "The submission failed just now. Try again in a moment."
     }
   },
   "Metadata": {

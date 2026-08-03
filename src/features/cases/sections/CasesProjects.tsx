@@ -16,7 +16,10 @@ import { EASE, popIn, revealBlur, revealItem, staggerContainer } from '../lib/an
  * canto. A altura é presa à viewport (~44vh) para caberem dois por tela.
  */
 
+/* Ordem canônica do ecossistema: OGDI abre (o ponto de partida), depois
+   NID, Flying e Rinno — a mesma sequência das órbitas. */
 const partnerLogos = [
+  { src: '/cases/logo-ogdi.png', alt: 'OGDI', width: 153, height: 58, className: 'h-auto w-[62px] object-contain md:w-[74px]' },
   { src: '/cases/logo-nid.png', alt: 'NID Studio', width: 117, height: 34, className: 'h-auto w-[84px] object-contain md:w-[100px]' },
   { src: '/cases/logo-flying.png', alt: 'Flying Studio', width: 195, height: 25, className: 'h-auto w-[140px] object-contain md:w-[168px]' },
   { src: '/cases/logo-rinno.png', alt: 'Rinno Filmes', width: 167, height: 33, className: 'h-auto w-[124px] object-contain md:w-[144px]' },

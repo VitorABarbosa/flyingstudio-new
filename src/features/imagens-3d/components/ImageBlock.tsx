@@ -25,6 +25,17 @@ export function optimized(src: string, width: number) {
   return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=70`;
 }
 
+/**
+ * A GRADE não usa o otimizador: miniaturas de 1920px q82 (~400 KB) geradas
+ * por scripts/gerar-acervo-thumbs.mjs e servidas direto do servidor de
+ * imagens, como estático puro — sem fila de processamento no cache frio.
+ * Qualidade acima do que o otimizador entregava à grade (828-1200px q70).
+ * O lightbox continua no otimizador (uma imagem por vez, no mestre 3840).
+ */
+function thumb(src: string) {
+  return src.replace('/site-flying-web/', '/site-flying-thumbs/');
+}
+
 type Props = {
   src: string;
   title?: string;
@@ -115,16 +126,7 @@ export default function ImageBlock({
         <img
           key={loadAttempt}
           ref={imgRef}
-          src={optimized(src, 1920)}
-          srcSet={
-            src.startsWith('http')
-              ? RESPONSIVE_WIDTHS.map((w) => `${optimized(src, w)} ${w}w`).join(', ')
-              : undefined
-          }
-          /* Fileiras de 3-4: cada imagem exibe ~25-33vw e expande até ~45vw
-             no hover. Declarar isso deixa o navegador escolher 828/1200 em
-             vez de sempre 1920 — download e decode muito menores. */
-          sizes="(max-width: 768px) 100vw, 45vw"
+          src={thumb(src)}
           alt={title ?? ''}
           draggable={false}
           loading="lazy"

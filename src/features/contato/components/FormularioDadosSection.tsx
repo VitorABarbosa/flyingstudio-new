@@ -4,6 +4,7 @@ import { useId, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { WEB3FORMS_ENDPOINT, WEB3FORMS_KEY } from '@/lib/web3forms';
 import {
   staggerContainer,
   revealItem,
@@ -154,6 +155,7 @@ export default function FormularioDadosSection() {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [accepted, setAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
 
   const update = (key: keyof FormState) => (value: string) =>
     setForm((current) => ({ ...current, [key]: value }));
@@ -165,11 +167,44 @@ export default function FormularioDadosSection() {
     form.responsible.trim() !== '' &&
     form.subject !== '';
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  /* Envio via Web3Forms (mesma mecânica dos sites Rinno/OGDI): FormData
+     direto para a API, com os rótulos em português para o e-mail chegar
+     legível. O e-mail do lead vai no campo `email` (vira o Reply-To). */
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!canSubmit) return;
-    // Integracao de envio ao backend sera conectada futuramente.
-    setSubmitted(true);
+    if (!canSubmit || submitted || status === 'sending') return;
+
+    // Honeypot: humanos não veem o campo; preenchido = bot, aborta em silêncio.
+    if (new FormData(event.currentTarget).get('botcheck')) return;
+
+    const subjectLabel = t(`fields.subject.options.${form.subject}`);
+    const data = new FormData();
+    data.append('access_key', WEB3FORMS_KEY);
+    data.append('from_name', 'Site Flying Studio');
+    data.append('subject', `Site Flying Studio — Contato: ${subjectLabel}`);
+    data.append('email', form.email.trim());
+    data.append('Empresa', form.company.trim());
+    data.append('Responsável', form.responsible.trim());
+    data.append('Whatsapp', form.whatsapp.trim());
+    data.append('Assunto', subjectLabel);
+
+    setStatus('sending');
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+      const json = (await res.json()) as { success?: boolean };
+      if (json.success) {
+        setSubmitted(true);
+        setStatus('idle');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -200,6 +235,15 @@ export default function FormularioDadosSection() {
             caber numa linha só — abaixo disso o título quebra em três. */}
         <div className="grid grid-cols-1 items-start gap-[clamp(2rem,4vw,3.5rem)] lg:grid-cols-[clamp(320px,29vw,440px)_minmax(0,1fr)]">
           <form onSubmit={handleSubmit} className="flex w-full flex-col lg:order-2">
+            {/* Honeypot anti-spam — escondido de humanos */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+            />
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -336,14 +380,20 @@ export default function FormularioDadosSection() {
 
               <motion.button
                 type="submit"
-                disabled={!canSubmit}
-                whileHover={canSubmit ? buttonHover : undefined}
-                whileTap={canSubmit ? pressTap : undefined}
+                disabled={!canSubmit || submitted || status === 'sending'}
+                whileHover={canSubmit && !submitted ? buttonHover : undefined}
+                whileTap={canSubmit && !submitted ? pressTap : undefined}
                 className="flex items-center justify-center rounded-full bg-[var(--theme-text)] px-[28px] py-[16px] font-['Outfit'] text-[16px] font-medium tracking-[0.32px] text-[var(--theme-bg)] transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
               >
-                {submitted ? t('submitted') : t('submit')}
+                {submitted ? t('submitted') : status === 'sending' ? t('sending') : t('submit')}
               </motion.button>
             </motion.div>
+
+            {status === 'error' ? (
+              <p role="alert" className="mt-4 font-['Outfit'] text-[15px] text-[#ff5d5d]">
+                {t('error')}
+              </p>
+            ) : null}
           </form>
 
           {/* Atalho para quem prefere conversar antes de preencher. Acompanha o
