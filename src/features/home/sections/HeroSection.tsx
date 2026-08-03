@@ -27,26 +27,26 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_EVENTOS_HR.jpg',
-    alt: 'GCS Mirante Boa Vista — espaço de eventos',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Cartesia_Casa_Do_Poeta_Portaria_R00.jpg',
+    alt: 'Cartesia Casa do Poeta — portaria',
     animation: 'hero-pan-right',
   },
   {
     id: 'slide-2',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
-    alt: 'GCS Mirante Boa Vista — detalhe da piscina',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_EVENTOS_HR.jpg',
+    alt: 'GCS Mirante Boa Vista — espaço de eventos',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-3',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Quero_Meu_Ape_Pedra_do_Sol_Campo_HR.jpg',
-    alt: 'Quero Meu Apê Pedra do Sol — campo',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
+    alt: 'GCS Mirante Boa Vista — detalhe da piscina',
     animation: 'hero-zoom-in',
   },
   {
     id: 'slide-4',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Seedincorp_VNC_Alameda_Externa_HR.JPG',
-    alt: 'Seedincorp VNC — alameda externa',
+    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Paes_G_Orissanga_Piscina_R00.jpg',
+    alt: 'Paes G. Orissanga — piscina',
     animation: 'hero-zoom-out',
   },
 ];
