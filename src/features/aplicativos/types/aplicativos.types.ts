@@ -13,7 +13,7 @@ export type AppProjectCard = {
   image: string;
 };
 
-export type BeneficioIconKey = 'palette' | 'devices' | 'sparkles' | 'presentation';
+export type BeneficioIconKey = 'palette' | 'devices' | 'sparkles' | 'shield' | 'presentation';
 
 export type BeneficioItem = {
   /** Chave do item no namespace AplicativosPage.benefits.items. */

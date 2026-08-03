@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import SectionScaleFrame from '@/components/layout/SectionScaleFrame';
 import LinhasFluidas from '@/components/common/LinhasFluidas';
@@ -15,9 +15,10 @@ import {
 import { homeCtaHrefs } from '@/lib/site-navigation';
 
 /**
- * "Tecnologia Artística 3D" — a seção original de serviços, fiel ao Figma
+ * "O que fazemos" — a seção original de serviços, fiel ao Figma
  * (node 379:1490): cinco cards com o badge do ícone montado na borda de cima,
- * descrição com trechos em negrito e o CTA "Quero saber mais".
+ * descrição com trechos em negrito e o CTA "Quero saber mais". O título, a
+ * pílula e a copy dos cards saem do Manifesto Flying Studio.
  *
  * Único desvio do original: a superfície do card é vidro acinzentado
  * (véu translúcido + desfoque do que está atrás) em vez de cor chapada,
@@ -31,15 +32,16 @@ type HeroCard = {
   left: number;
   icon: string;
   iconSize: number;
-  /** Largura da caixa de descricao (Figma) — controla a quebra de linha. */
-  descWidth: number;
 };
 
 const SECTION_TOP_OFFSET = 90;
 const SECTION_BOTTOM_SPACE = 30;
 const TITLE_TOP = SECTION_TOP_OFFSET + 0;
-const SUBTITLE_TOP = SECTION_TOP_OFFSET + 134;
-const CARD_TOP = SECTION_TOP_OFFSET + 378;
+/* O título do manifesto ocupa duas linhas (2 × 115px a 96px/1.2), contra a
+   única do "Tecnologia Artística 3D". A pílula desce para depois delas e os
+   cards acompanham, senão o badge encostaria nela. */
+const SUBTITLE_TOP = SECTION_TOP_OFFSET + 264;
+const CARD_TOP = SECTION_TOP_OFFSET + 440;
 // Layout de 5 cards (Figma node 379:1490): cards de 312.618px, passo 343px,
 // centralizados no canvas 1920 (margem ~118px de cada lado).
 const CARD_WIDTH = 312.618;
@@ -48,6 +50,9 @@ const CARD_RADIUS = 40;
 // Offsets do conteudo dentro do card (Figma, relativos ao topo do card).
 const TITLE_OFFSET = 79;
 const DESC_OFFSET = 202;
+/* Caixa da descrição: uma largura só para os cinco. As do Figma eram
+   recortadas para a copy antiga, mais curta. */
+const DESC_WIDTH = 248;
 const BADGE_SIZE = 80;
 const BADGE_LEFT = (CARD_WIDTH - BADGE_SIZE) / 2;
 // Badge centralizado na borda superior do card (Figma: y=-40 de um circulo 80).
@@ -82,47 +87,35 @@ const heroCards: HeroCard[] = [
     left: 118,
     icon: '/home/hero/icon-criar-imagem-light.svg',
     iconSize: 32,
-    descWidth: 208,
   },
   {
     key: 'video',
     left: 461,
     icon: '/home/hero/icon-criar-videos-light.svg',
     iconSize: 34.832,
-    descWidth: 184,
   },
   {
     key: 'tech',
     left: 803.617,
     icon: '/home/hero/icon-apps-light.svg',
     iconSize: 35.317,
-    descWidth: 197,
   },
   {
     key: 'tour',
     left: 1146.234,
     icon: '/home/hero/icon-tour360-light.svg',
     iconSize: 34,
-    descWidth: 193,
   },
   {
     key: 'dsbrave',
     left: 1489,
     icon: '/home/hero/icon-dsbrave-light.png',
     iconSize: 36,
-    descWidth: 207,
   },
 ];
 
 export default function ServicesIndex() {
   const t = useTranslations('Hero');
-  const locale = useLocale();
-  const isPortuguese = locale === 'pt-BR';
-  const titleBase = isPortuguese ? 'Tecnologia' : 'Artistic';
-  const titleHighlight = isPortuguese ? 'Artística 3D' : '3D Technology';
-  const subtitle = isPortuguese
-    ? 'Somos expert no mercado imobiliário'
-    : 'Experts in the real estate market';
 
   return (
     <section
@@ -152,8 +145,8 @@ export default function ServicesIndex() {
             className="absolute left-1/2 z-10 w-[1080px] text-center font-['Outfit'] text-[96px] leading-[1.2] font-semibold text-[var(--theme-text)]"
             style={{ top: `${TITLE_TOP}px` }}
           >
-            <span>{titleBase} </span>
-            <span className="text-[var(--theme-accent)]">{titleHighlight}</span>
+            <span>{t('titleStart')} </span>
+            <span className="text-[var(--theme-accent)]">{t('titleAccent')}</span>
           </motion.h2>
 
           <motion.div
@@ -162,7 +155,7 @@ export default function ServicesIndex() {
             style={{ top: `${SUBTITLE_TOP}px` }}
           >
             <p className="font-['Outfit'] text-[24px] leading-[1.5] font-normal whitespace-nowrap text-[var(--theme-text)]">
-              {subtitle}
+              {t('subtitle')}
             </p>
           </motion.div>
 
@@ -213,7 +206,7 @@ export default function ServicesIndex() {
                     style={{
                       left: `${CARD_WIDTH / 2}px`,
                       top: `${DESC_OFFSET}px`,
-                      width: `${card.descWidth}px`,
+                      width: `${DESC_WIDTH}px`,
                     }}
                   >
                     {t.rich(`cards.${card.key}.description`, {

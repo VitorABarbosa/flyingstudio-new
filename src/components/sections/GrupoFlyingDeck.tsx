@@ -188,7 +188,9 @@ export default function GrupoFlyingDeck() {
                   isFocused ? 'opacity-0' : 'opacity-100'
                 }`}
                 style={{
-                  backgroundColor: 'rgba(6, 5, 10, 0.68)',
+                  /* Quanto mais fechado o véu, mais a janela da logo salta —
+                     é o contraste entre os dois que desenha a marca. */
+                  backgroundColor: 'rgba(6, 5, 10, 0.85)',
                   WebkitMaskImage: `url(${company.logo}), linear-gradient(#fff, #fff)`,
                   WebkitMaskRepeat: 'no-repeat, no-repeat',
                   WebkitMaskPosition: `${company.logoPosition}, center`,
@@ -239,11 +241,13 @@ export default function GrupoFlyingDeck() {
                     : 'translate-y-[14px] opacity-0 [transition-delay:0ms]'
                 }`}
               >
+                {/* Acima do nome vai o LEMA, não o ramo de atuação: é ele que
+                    apresenta a marca. O que cada casa faz está na descrição. */}
                 <span
                   className="block font-['Outfit'] text-[11px] font-semibold tracking-[0.26em] uppercase"
                   style={{ color: company.color }}
                 >
-                  {t(`companies.${company.key}.role`)}
+                  {t(`companies.${company.key}.slogan`)}
                 </span>
                 <span className="mt-[8px] block font-['Outfit'] text-[clamp(1.7rem,2.4vw,2.4rem)] leading-[1.05] font-semibold whitespace-nowrap text-white">
                   {t(`companies.${company.key}.name`)}
@@ -273,7 +277,7 @@ export default function GrupoFlyingDeck() {
               style={{ color: company.color }}
             >
               {String(index + 1).padStart(2, '0')} ·{' '}
-              <span className="uppercase">{t(`companies.${company.key}.role`)}</span>
+              <span className="uppercase">{t(`companies.${company.key}.slogan`)}</span>
             </span>
             <h3 className="mt-2 font-['Outfit'] text-[22px] leading-tight font-semibold text-[var(--theme-text)]">
               {t(`companies.${company.key}.name`)}

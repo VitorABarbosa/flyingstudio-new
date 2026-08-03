@@ -54,7 +54,7 @@ export default function GalleryFilterBar() {
               aria-pressed={isActive}
               className={`cursor-pointer font-['Outfit'] leading-tight transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:text-[var(--theme-text)] focus-visible:outline-none ${
                 isActive
-                  ? 'text-[24px] font-semibold text-[var(--theme-text)] md:text-[34px]'
+                  ? 'text-[24px] font-semibold text-[var(--theme-accent)] md:text-[34px]'
                   : 'text-[17px] font-normal text-[var(--theme-muted)] hover:text-[var(--theme-text)] md:text-[22px]'
               }`}
             >

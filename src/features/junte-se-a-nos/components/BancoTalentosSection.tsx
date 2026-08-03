@@ -168,7 +168,6 @@ export default function BancoTalentosSection() {
                 type="text"
                 value={form.name}
                 onChange={(e) => update('name')(e.target.value)}
-                placeholder={t('fields.name.placeholder')}
                 className={controlClassName}
               />
             </Field>
@@ -217,7 +216,6 @@ export default function BancoTalentosSection() {
                 type="email"
                 value={form.email}
                 onChange={(e) => update('email')(e.target.value)}
-                placeholder={t('fields.email.placeholder')}
                 className={controlClassName}
               />
             </Field>
@@ -228,7 +226,6 @@ export default function BancoTalentosSection() {
                 type="tel"
                 value={form.whatsapp}
                 onChange={(e) => update('whatsapp')(e.target.value)}
-                placeholder={t('fields.whatsapp.placeholder')}
                 className={controlClassName}
               />
             </Field>

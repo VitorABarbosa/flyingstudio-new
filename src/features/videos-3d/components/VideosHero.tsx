@@ -70,7 +70,7 @@ export default function VideosHero() {
               {t('hero.home')}
             </Link>
             <span aria-hidden="true">›</span>
-            <span className="text-[#b6ff00]">{t('hero.eyebrow')}</span>
+            <span className="text-[var(--theme-accent)]">{t('hero.eyebrow')}</span>
           </motion.div>
 
           <motion.h1

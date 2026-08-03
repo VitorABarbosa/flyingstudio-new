@@ -29,7 +29,7 @@ export default function PartnersRow() {
   return (
     <section
       id="parceiros"
-      className="relative w-full overflow-hidden bg-[var(--theme-bg)] py-[clamp(4rem,9vh,6.5rem)] transition-colors duration-200"
+      className="relative w-full overflow-hidden bg-[var(--theme-bg)] pt-[clamp(2rem,4vh,3rem)] pb-[clamp(2.5rem,5vh,3.5rem)] transition-colors duration-200"
     >
       <motion.div
         className="mx-auto w-full max-w-[1400px] px-[clamp(1.5rem,5vw,5rem)]"

@@ -5,7 +5,6 @@ import DnaHero from './sections/DnaHero';
 import DnaHistoriaSection from './sections/DnaHistoriaSection';
 import DnaParceirosSection from './sections/DnaParceirosSection';
 import DnaStatementSection from './sections/DnaStatementSection';
-import DnaVozesSection from './sections/DnaVozesSection';
 
 export default function DnaFlyingStudioPage() {
   return (
@@ -17,7 +16,6 @@ export default function DnaFlyingStudioPage() {
         <DnaHistoriaSection />
         <DnaStatementSection />
         <DnaEssenciaSection />
-        <DnaVozesSection />
         <DnaGrupoSection />
         <DnaParceirosSection />
       </div>

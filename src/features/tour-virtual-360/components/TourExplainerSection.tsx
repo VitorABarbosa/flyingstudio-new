@@ -188,21 +188,22 @@ export default function TourExplainerSection() {
             vertical do primeiro card de diferencial. */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="text-left lg:pl-[72px]">
-            {/* O eyebrow é centralizado em relação AO TÍTULO (não à página):
-                o inline-flex encolhe para a largura do título, e o eyebrow
-                se centra dentro dela. */}
-            <div className="inline-flex flex-col items-center">
-              <span className="font-['Outfit'] text-[13px] font-bold tracking-[0.22em] uppercase text-[var(--theme-accent)] md:text-[14px]">
-                {t('eyebrow')}
-              </span>
-              <h2 className="mt-3 font-['Outfit'] text-[32px] leading-tight font-semibold text-[var(--theme-text)] md:text-[48px]">
-                {t('title')}
-              </h2>
-            </div>
+            {/* A descrição define a coluna; o eyebrow e o título se centram
+                sobre ELA — não sobre a página nem sobre a própria largura. */}
+            <div className="max-w-[58ch]">
+              <div className="flex flex-col items-center text-center">
+                <span className="font-['Outfit'] text-[13px] font-bold tracking-[0.22em] uppercase text-[var(--theme-accent)] md:text-[14px]">
+                  {t('eyebrow')}
+                </span>
+                <h2 className="mt-3 font-['Outfit'] text-[32px] leading-tight font-semibold text-[var(--theme-text)] md:text-[48px]">
+                  {t('title')}
+                </h2>
+              </div>
 
-            <p className="mt-5 max-w-[58ch] font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
-              {t('description')}
-            </p>
+              <p className="mt-5 font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
+                {t('description')}
+              </p>
+            </div>
           </div>
 
           {/* O tour de verdade rodando na tela do notebook — vídeo, não o

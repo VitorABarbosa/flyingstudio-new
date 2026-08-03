@@ -69,7 +69,7 @@ export default function TourHero() {
               {t('home')}
             </Link>
             <span aria-hidden="true">›</span>
-            <span className="text-[#b6ff00]">{t('eyebrow')}</span>
+            <span className="text-[var(--theme-accent)]">{t('eyebrow')}</span>
           </motion.div>
 
           <motion.h1

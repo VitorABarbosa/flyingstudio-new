@@ -175,35 +175,36 @@ export default function DSbraveExplainerSection() {
             vertical do primeiro card de módulo. */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="text-left lg:pl-[72px]">
-            {/* O eyebrow é centralizado em relação AO TÍTULO (não à página):
-                o inline-flex encolhe para a largura do título, e o eyebrow
-                se centra dentro dela. */}
-            <div className="inline-flex flex-col items-center">
-              <span className="inline-flex items-baseline gap-[8px] font-['Outfit'] text-[16px] font-bold tracking-[0.22em] uppercase text-[var(--theme-accent)] md:text-[20px]">
-                {t('eyebrow')}
-                {/* Mesmo tratamento da home: o "D." é o logo, "sbrave" segue
+            {/* A descrição define a coluna; o eyebrow e o título se centram
+                sobre ELA — não sobre a página nem sobre a própria largura. */}
+            <div className="max-w-[58ch]">
+              <div className="flex flex-col items-center text-center">
+                <span className="inline-flex items-baseline gap-[8px] font-['Outfit'] text-[16px] font-bold tracking-[0.22em] text-[var(--theme-accent)] uppercase md:text-[20px]">
+                  {t('eyebrow')}
+                  {/* Mesmo tratamento da home: o "D." é o logo, "sbrave" segue
                     em texto. */}
-                {/* Lockup maior que o resto da linha: a marca é a protagonista
+                  {/* Lockup maior que o resto da linha: a marca é a protagonista
                     do eyebrow. */}
-                <span className="inline-flex items-baseline text-[1.6em] normal-case tracking-[0.02em]">
-                  <Image
-                    src="/home/Logo_Desbrave.png"
-                    alt="D."
-                    width={681}
-                    height={568}
-                    className="inline-block h-[1.3em] w-auto translate-y-[0.24em]"
-                  />
-                  sbrave
+                  <span className="inline-flex items-baseline text-[1.6em] tracking-[0.02em] normal-case">
+                    <Image
+                      src="/home/Logo_Desbrave.png"
+                      alt="D."
+                      width={681}
+                      height={568}
+                      className="inline-block h-[1.3em] w-auto translate-y-[0.24em]"
+                    />
+                    sbrave
+                  </span>
                 </span>
-              </span>
-              <h2 className="mt-3 font-['Outfit'] text-[32px] leading-tight font-semibold text-[var(--theme-text)] md:text-[48px]">
-                {t('title')}
-              </h2>
-            </div>
+                <h2 className="mt-3 font-['Outfit'] text-[32px] leading-tight font-semibold text-[var(--theme-text)] md:text-[48px]">
+                  {t('title')}
+                </h2>
+              </div>
 
-            <p className="mt-5 max-w-[58ch] font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
-              {t('description')}
-            </p>
+              <p className="mt-5 font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
+                {t('description')}
+              </p>
+            </div>
           </div>
 
           {/* O D.sbrave de verdade rodando na tela do notebook — versão web

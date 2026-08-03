@@ -52,6 +52,6 @@ export const appProjectCards: AppProjectCard[] = [
 export const beneficiosItems: BeneficioItem[] = [
   { id: 'sob-medida', icon: 'palette' },
   { id: 'multiplataforma', icon: 'devices' },
-  { id: 'memoravel', icon: 'sparkles' },
+  { id: 'a-prova-de-falhas', icon: 'shield' },
   { id: 'corretor', icon: 'presentation' },
 ];

@@ -15,16 +15,20 @@ export default function FinalCta() {
   return (
     <section
       id="de-o-proximo-passo"
-      className="relative w-full overflow-hidden bg-[var(--theme-bg)] py-[clamp(6rem,16vh,11rem)] transition-colors duration-200"
+      className="relative w-full overflow-hidden bg-[var(--theme-bg)] pt-[clamp(2.5rem,5vh,3.5rem)] pb-[clamp(3rem,6vh,4.5rem)] transition-colors duration-200"
     >
       {/* Âncora legada para CTAs que apontam para /#contato */}
       <span id="contato" className="absolute top-0" aria-hidden="true" />
 
       <div className="absolute inset-0" aria-hidden="true">
+        {/* Traço fino de propósito: o `scale={2}` multiplica a espessura, então
+            o padrão saía com 3px de linha. Com `strokeWidth` em 0.8 ele volta
+            a ~1.6px — o mesmo desenho, desta vez em fio. */}
         <LinhasFluidas
-          opacity={0.2}
+          opacity={0.07}
           scale={2}
           lineCount={18}
+          strokeWidth={0.8}
           waveAmplitude={140}
           fps={30}
           fadeEdges={18}
@@ -44,13 +48,6 @@ export default function FinalCta() {
         >
           {t('titleStart')} <span className="text-[var(--theme-accent)]">{t('titleAccent')}</span>.
         </motion.h2>
-
-        <motion.p
-          variants={revealItem}
-          className="mt-[20px] max-w-[44ch] text-[clamp(1rem,1.25vw,1.2rem)] leading-[1.6] text-[var(--theme-muted)]"
-        >
-          {t('subtitle')}
-        </motion.p>
 
         <motion.div
           variants={revealItem}

@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -74,12 +75,18 @@ export default function ContatoHero() {
             animate="show"
             className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 pt-[clamp(32px,8vh,64px)] text-center"
           >
-            <motion.span
+            {/* Trilha no padrão das páginas de serviço: Home vira link e a
+                etapa atual acende em lima. */}
+            <motion.div
               variants={revealText}
-              className="font-['Outfit'] text-[18px] font-bold tracking-[0.04em] text-[var(--theme-accent)] uppercase md:text-[20px]"
+              className="flex items-center justify-center gap-2 font-['Outfit'] text-[13px] font-medium tracking-[0.04em] text-white md:text-[16px]"
             >
-              {t('hero.label')}
-            </motion.span>
+              <Link href="/" className="transition-opacity hover:opacity-70">
+                {t('hero.home')}
+              </Link>
+              <span aria-hidden="true">›</span>
+              <span className="text-[var(--theme-accent)]">{t('hero.label')}</span>
+            </motion.div>
 
             <motion.h1
               variants={revealText}

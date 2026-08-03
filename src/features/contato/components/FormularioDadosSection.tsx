@@ -109,12 +109,33 @@ function Field({
 const controlClassName =
   "w-full bg-transparent px-2 py-3 font-['Outfit'] text-[18px] font-medium text-[var(--theme-accent)] outline-none placeholder:text-[var(--theme-muted)]";
 
+/**
+ * `<option>` nativa herda o fundo do SO (branco), o que some no tema escuro
+ * com texto claro. Forçamos fundo/cor pelo tema para a lista ficar legível —
+ * mesmo tratamento do Banco de Talentos.
+ */
+const optionStyle = {
+  backgroundColor: 'var(--theme-surface)',
+  color: 'var(--theme-text)',
+} as const;
+
+/** Assuntos do contato: os cinco serviços, o pacote e a saída para o resto. */
+const subjectKeys = [
+  'imagens',
+  'filmes',
+  'aplicativos',
+  'tour',
+  'dsbrave',
+  'lancamento',
+  'outro',
+] as const;
+
 type FormState = {
   company: string;
   responsible: string;
   email: string;
   whatsapp: string;
-  description: string;
+  subject: string;
 };
 
 const EMPTY_FORM: FormState = {
@@ -122,7 +143,7 @@ const EMPTY_FORM: FormState = {
   responsible: '',
   email: '',
   whatsapp: '',
-  description: '',
+  subject: '',
 };
 
 export default function FormularioDadosSection() {
@@ -142,7 +163,7 @@ export default function FormularioDadosSection() {
     form.company.trim() !== '' &&
     form.email.trim() !== '' &&
     form.responsible.trim() !== '' &&
-    form.description.trim() !== '';
+    form.subject !== '';
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -175,7 +196,9 @@ export default function FormularioDadosSection() {
           cor do texto e foram calibradas para o fundo da pagina. Quem ganha o
           card e o aside.
         */}
-        <div className="grid grid-cols-1 items-start gap-[clamp(2rem,4vw,3.5rem)] lg:grid-cols-[clamp(300px,26vw,380px)_minmax(0,1fr)]">
+        {/* A coluna do card é larga o bastante para "Todo lançamento começa"
+            caber numa linha só — abaixo disso o título quebra em três. */}
+        <div className="grid grid-cols-1 items-start gap-[clamp(2rem,4vw,3.5rem)] lg:grid-cols-[clamp(320px,29vw,440px)_minmax(0,1fr)]">
           <form onSubmit={handleSubmit} className="flex w-full flex-col lg:order-2">
             <motion.div
               variants={staggerContainer}
@@ -191,21 +214,16 @@ export default function FormularioDadosSection() {
                   type="text"
                   value={form.company}
                   onChange={(e) => update('company')(e.target.value)}
-                  placeholder={t('fields.company.placeholder')}
                   className={controlClassName}
                 />
               </Field>
 
-              <Field
-                label={t('fields.responsible.label')}
-                htmlFor={`${fieldId}-responsible`}
-              >
+              <Field label={t('fields.responsible.label')} htmlFor={`${fieldId}-responsible`}>
                 <input
                   id={`${fieldId}-responsible`}
                   type="text"
                   value={form.responsible}
                   onChange={(e) => update('responsible')(e.target.value)}
-                  placeholder={t('fields.responsible.placeholder')}
                   className={controlClassName}
                 />
               </Field>
@@ -217,7 +235,6 @@ export default function FormularioDadosSection() {
                   type="email"
                   value={form.email}
                   onChange={(e) => update('email')(e.target.value)}
-                  placeholder={t('fields.email.placeholder')}
                   className={controlClassName}
                 />
               </Field>
@@ -228,25 +245,51 @@ export default function FormularioDadosSection() {
                   type="tel"
                   value={form.whatsapp}
                   onChange={(e) => update('whatsapp')(e.target.value)}
-                  placeholder={t('fields.whatsapp.placeholder')}
                   className={controlClassName}
                 />
               </Field>
 
-              {/* Linha 3 — a descricao ocupa as duas colunas. */}
+              {/* Linha 3 — o assunto ocupa as duas colunas. */}
               <Field
-                label={t('fields.description.label')}
-                htmlFor={`${fieldId}-description`}
+                label={t('fields.subject.label')}
+                htmlFor={`${fieldId}-subject`}
                 className="md:col-span-2"
               >
-                <textarea
-                  id={`${fieldId}-description`}
-                  rows={4}
-                  value={form.description}
-                  onChange={(e) => update('description')(e.target.value)}
-                  placeholder={t('fields.description.placeholder')}
-                  className={`${controlClassName} block resize-y leading-[1.45]`}
-                />
+                <div className="relative">
+                  <select
+                    id={`${fieldId}-subject`}
+                    value={form.subject}
+                    onChange={(e) => update('subject')(e.target.value)}
+                    className={`${controlClassName} cursor-pointer appearance-none pr-9 ${
+                      form.subject === '' ? 'text-[var(--theme-muted)]' : ''
+                    }`}
+                  >
+                    <option value="" disabled style={optionStyle}>
+                      {t('fields.subject.placeholder')}
+                    </option>
+                    {subjectKeys.map((key) => (
+                      <option key={key} value={key} style={optionStyle}>
+                        {t(`fields.subject.options.${key}`)}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                    className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2 text-[var(--theme-text)]"
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
               </Field>
             </motion.div>
 
@@ -310,7 +353,7 @@ export default function FormularioDadosSection() {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={VIEWPORT_ONCE}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-5 rounded-[32px] bg-[var(--theme-surface)] p-[clamp(28px,3vw,40px)] lg:order-1 lg:sticky lg:top-[110px]"
+            className="flex flex-col gap-5 rounded-[32px] bg-[var(--theme-surface)] p-[clamp(28px,3vw,40px)] lg:sticky lg:top-[110px] lg:order-1"
           >
             <h3 className="font-['Outfit'] text-[28px] leading-[1.15] font-semibold text-[var(--theme-text)] md:text-[32px]">
               {tMeeting('title')}{' '}
