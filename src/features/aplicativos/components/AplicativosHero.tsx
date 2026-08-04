@@ -35,7 +35,7 @@ export default function AplicativosHero() {
             (a imagem "desce" na moldura), por pedido de ajuste fino. */}
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.35]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_APLICATIVOS.jpg"
+            src="/aplicativos/hero.jpg"
             alt=""
             fill
             priority

@@ -13,6 +13,7 @@ import SmoothScroll from '@/components/layout/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import AcervoZoomPrefetch from '@/components/common/AcervoZoomPrefetch';
 import ThemeScript from '@/components/theme/ThemeScript';
+import ThemeRestore from '@/components/theme/ThemeRestore';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -106,6 +107,9 @@ export default async function LocaleLayout({
     <html lang={locale} className={outfit.variable} suppressHydrationWarning>
       <body>
         <ThemeScript />
+        {/* Antes da Header: o efeito dele corrige o <html> antes do sync do
+            ThemeToggle (ver comentário no componente). */}
+        <ThemeRestore />
         <DesignScaleProvider />
         <NextIntlClientProvider>
           <SmoothScroll>

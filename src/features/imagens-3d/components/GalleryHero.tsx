@@ -35,7 +35,7 @@ export default function GalleryHero() {
       >
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1.16]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_IMAGENS.jpg"
+            src="/imagens-3d/hero.jpg"
             alt=""
             fill
             priority

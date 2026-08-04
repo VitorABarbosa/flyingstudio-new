@@ -25,8 +25,11 @@ export default function ThemeToggle({ color = 'var(--theme-accent)' }: ThemeTogg
 
   useEffect(() => {
     const syncTheme = () => {
+      /* A fonte da verdade é o localStorage; o data-theme é só o espelho no
+         DOM (e pode estar zerado logo após uma troca de idioma). */
+      const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as SiteTheme | null;
       const rootTheme = document.documentElement.dataset.theme as SiteTheme | undefined;
-      setTheme(getResolvedTheme(rootTheme));
+      setTheme(getResolvedTheme(stored ?? rootTheme));
     };
 
     syncTheme();

@@ -29,7 +29,7 @@ export default function DSbraveHero() {
             1.06 ainda cobre o deslocamento do parallax sem mostrar borda. */}
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-[1]">
           <Image
-            src="https://img.flyingstudio.com.br/site-flying-web/DESTAQUES/HEROS_SERVICOS/HERO_DSBRAVE.png"
+            src="/dsbrave/hero.jpg"
             alt=""
             fill
             priority
