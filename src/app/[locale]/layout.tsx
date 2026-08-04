@@ -11,6 +11,7 @@ import SectionScrollRail from '@/components/layout/SectionScrollRail';
 import ScrollToTopButton from '@/components/layout/ScrollToTopButton';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
+import AcervoZoomPrefetch from '@/components/common/AcervoZoomPrefetch';
 import ThemeScript from '@/components/theme/ThemeScript';
 
 const outfit = Outfit({
@@ -116,6 +117,9 @@ export default async function LocaleLayout({
             <SectionScrollRail />
             <ScrollToTopButton />
             <WhatsAppButton />
+            {/* Baixa os mestres do zoom da galeria em segundo plano desde a
+                primeira página — o clique no zoom encontra tudo no cache. */}
+            <AcervoZoomPrefetch />
             {children}
           </SmoothScroll>
         </NextIntlClientProvider>

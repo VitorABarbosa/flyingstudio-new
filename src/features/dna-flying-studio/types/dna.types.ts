@@ -45,4 +45,6 @@ export type DnaCompany = {
 export type DnaPartnerLogo = {
   id: string;
   src: string;
+  /** Altura de exibição (px); canvases com margem interna pedem mais que o padrão. */
+  h?: number;
 };

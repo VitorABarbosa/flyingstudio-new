@@ -217,19 +217,15 @@ export default function FlyAppExplainerSection() {
             />
 
             <div className="absolute top-[7.2%] left-[11.3%] z-20 h-[80.6%] w-[77.7%] overflow-hidden bg-black">
-              {/* Versão web comprimida do Exemplo_Aplicativo (1280px, sem
-                  áudio) — o bruto de 175 MB não embarca no site. */}
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
+              {/* Exemplo_Aplicativo hospedado no Vimeo em modo background
+                  (autoplay mudo em loop) — o vídeo não embarca no site. */}
+              <iframe
+                src="https://player.vimeo.com/video/1215470231?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1"
+                title=""
+                allow="autoplay"
                 aria-hidden="true"
-                className="h-full w-full object-fill"
-              >
-                <source src="/aplicativos/exemplo-aplicativo.mp4" type="video/mp4" />
-              </video>
+                className="pointer-events-none h-full w-full border-0"
+              />
             </div>
           </div>
         </div>

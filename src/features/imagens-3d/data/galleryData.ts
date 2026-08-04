@@ -37,11 +37,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/ARGO_SEVEN_PIANO%20VISTA%20MAR.jpg',
       },
       {
-        id: 'geral-05',
-        title: 'Benx | Artsy',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Benx_Artsy.jpg',
-      },
-      {
         id: 'geral-06',
         title: 'Citz | Organique',
         image:
@@ -65,11 +60,6 @@ const rawGallerySections: GallerySectionType[] = [
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/ARGO_SEVEN_SUITE%2003.jpg',
       },
       {
-        id: 'geral-10',
-        title: 'Benx | Geometria',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Benx_Geometria.jpg',
-      },
-      {
         id: 'geral-11',
         title: 'Citz | Organique',
         image:
@@ -91,12 +81,6 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-14',
         title: 'Argo | Seven',
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/ARGO_SEVEN_VARANDA%2001.jpg',
-      },
-      {
-        id: 'geral-15',
-        title: 'Emoções | Hélio Pelegrino',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Emocoes_Helio_Pelegrino_Tipo_4Dorm_HR.jpg',
       },
       {
         id: 'geral-16',
@@ -126,7 +110,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-20',
         title: 'Macuco | Grand Canal',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Lazer_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Lazer_HR_v2.jpg',
       },
       {
         id: 'geral-21',
@@ -155,7 +139,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-25',
         title: 'Macuco | Grand Canal',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Pavimento_HR_v2.jpg',
       },
       {
         id: 'geral-26',
@@ -185,7 +169,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-30',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Terreo_HR_v2.jpg',
       },
       {
         id: 'geral-31',
@@ -215,7 +199,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-35',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR_v2.jpg',
       },
       {
         id: 'geral-36',
@@ -244,7 +228,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-40',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR_v2.jpg',
       },
       {
         id: 'geral-41',
@@ -268,7 +252,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-45',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Final_13_Amp_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Final_13_Amp_R00_v2.jpg',
       },
       {
         id: 'geral-46',
@@ -291,7 +275,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-50',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Rooftop_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Rooftop_R00_v2.jpg',
       },
       {
         id: 'geral-51',
@@ -315,7 +299,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-55',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Terreo_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Terreo_R00_v2.jpg',
       },
       {
         id: 'geral-56',
@@ -339,7 +323,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-60',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR_v2.jpg',
       },
       {
         id: 'geral-61',
@@ -363,7 +347,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-65',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR_v2.jpg',
       },
       {
         id: 'geral-66',
@@ -387,7 +371,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-70',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR_v2.jpg',
       },
       {
         id: 'geral-71',
@@ -417,7 +401,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-75',
         title: 'Quero Meu Apê',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Quero_Meu_Ape_Loteamento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Quero_Meu_Ape_Loteamento_HR_v2.jpg',
       },
       {
         id: 'geral-76',
@@ -446,7 +430,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-80',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_1%C2%BA_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_1%C2%BA_Pavimento_HR_v2.jpg',
       },
       {
         id: 'geral-81',
@@ -475,7 +459,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-85',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR_v2.jpg',
       },
       {
         id: 'geral-86',
@@ -504,7 +488,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-90',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_terreo_HR_v2.jpg',
       },
       {
         id: 'geral-91',
@@ -534,7 +518,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-95',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR_v2.jpg',
       },
       {
         id: 'geral-96',
@@ -564,7 +548,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-100',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR_v2.jpg',
       },
       {
         id: 'geral-101',
@@ -594,7 +578,7 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-105',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR_v2.jpg',
       },
       {
         id: 'geral-106',
@@ -1411,6 +1395,84 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-246',
         title: 'Macuco | Grand Canal',
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Macuco_Grand_Canal_Beauty_HR.jpg',
+      },
+      {
+        id: 'geral-247',
+        title: 'Casa Viva | Cupecê',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Casa_Viva_Cupece_3%C2%BAPavimento_HR.jpg',
+      },
+      {
+        id: 'geral-248',
+        title: 'GCS | Mirante Boa Vista',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/GCS_Mirante_Boa_Vista_Implantacao_HR.jpg',
+      },
+      {
+        id: 'geral-249',
+        title: 'Granlote | Boituva',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Granlote_Boituva_Loteamento_R00.jpg',
+      },
+      {
+        id: 'geral-250',
+        title: 'Granlote | Treviso',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Granlote_Treviso_Implantacao_Loteamento_HR.jpg',
+      },
+      {
+        id: 'geral-251',
+        title: 'Grove | Hearth Stone',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Grove_Hearth_Stone_3800_First_Floor_R00.jpg',
+      },
+      {
+        id: 'geral-252',
+        title: 'Integra | Ipês',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Integra_Ipes_Planta_Inferior_Acesso_Garden_Torre_A_HR.jpg',
+      },
+      {
+        id: 'geral-253',
+        title: 'Macuco | Castelli di Cecilia',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_castelli_di_Cecilia_Lazer_1_R00.jpg',
+      },
+      {
+        id: 'geral-254',
+        title: 'San Bo | Vila Coty',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/San_Bo_Vila_Coty_Implantacao_R00.jpg',
+      },
+      {
+        id: 'geral-255',
+        title: 'Soedil | Varandas 2',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Soedil_Varandas_2_Planta_Tipo_01_HR.jpg',
+      },
+      {
+        id: 'geral-256',
+        title: 'Talon | Atlantis',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Talon_Atlantis_Loteamento_Cotas_HR.jpg',
+      },
+      {
+        id: 'geral-257',
+        title: 'Ticem | Indaiatuba',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ticem_Indaiatuba_Tipo_07_Cobetura_HR.jpg',
+      },
+      {
+        id: 'geral-258',
+        title: 'TS | Hits Park',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/TS_HITS_PARK_TIPO_01_Ampliada_HR.jpg',
+      },
+      {
+        id: 'geral-259',
+        title: 'TS | Hits Park',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/TS_HITS_PARK_TIPO_01_Dormit%C3%B3rio_HR.jpg',
       },
     ],
   },
@@ -2809,128 +2871,190 @@ const rawGallerySections: GallerySectionType[] = [
     id: 'plantas-humanizadas',
     items: [
       {
-        id: 'plantas-humanizadas-01',
-        title: 'Benx | Artsy',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Benx_Artsy.jpg',
-      },
-      {
-        id: 'plantas-humanizadas-02',
-        title: 'Benx | Geometria',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Benx_Geometria.jpg',
-      },
-      {
-        id: 'plantas-humanizadas-03',
-        title: 'Emoções | Hélio Pelegrino',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Emocoes_Helio_Pelegrino_Tipo_4Dorm_HR.jpg',
-      },
-      {
         id: 'plantas-humanizadas-04',
         title: 'Macuco | Grand Canal',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Lazer_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Lazer_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-05',
         title: 'Macuco | Grand Canal',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_Grand_Canal_Implantacao_Pavimento_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-06',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Terreo_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-07',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-08',
         title: 'Ousy | The One Tucuruvi',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-09',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Final_13_Amp_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Final_13_Amp_R00_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-10',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Rooftop_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Rooftop_R00_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-11',
         title: 'Paes G. | Orissanga',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Terreo_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Terreo_R00_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-12',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-13',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-14',
         title: 'ProHidro | Carlos Reinaldo',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-15',
         title: 'Quero Meu Apê',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Quero_Meu_Ape_Loteamento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Quero_Meu_Ape_Loteamento_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-16',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_1%C2%BA_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_1%C2%BA_Pavimento_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-17',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-18',
         title: 'Reacty | Brooklin',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_terreo_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-19',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-20',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-21',
         title: 'Tavares Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR_v2.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-22',
+        title: 'Casa Viva | Cupecê',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Casa_Viva_Cupece_3%C2%BAPavimento_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-23',
+        title: 'GCS | Mirante Boa Vista',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/GCS_Mirante_Boa_Vista_Implantacao_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-24',
+        title: 'Granlote | Boituva',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Granlote_Boituva_Loteamento_R00.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-25',
+        title: 'Granlote | Treviso',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Granlote_Treviso_Implantacao_Loteamento_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-26',
+        title: 'Grove | Hearth Stone',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Grove_Hearth_Stone_3800_First_Floor_R00.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-27',
+        title: 'Integra | Ipês',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Integra_Ipes_Planta_Inferior_Acesso_Garden_Torre_A_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-28',
+        title: 'Macuco | Castelli di Cecilia',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Macuco_castelli_di_Cecilia_Lazer_1_R00.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-29',
+        title: 'San Bo | Vila Coty',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/San_Bo_Vila_Coty_Implantacao_R00.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-30',
+        title: 'Soedil | Varandas 2',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Soedil_Varandas_2_Planta_Tipo_01_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-31',
+        title: 'Talon | Atlantis',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Talon_Atlantis_Loteamento_Cotas_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-32',
+        title: 'Ticem | Indaiatuba',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ticem_Indaiatuba_Tipo_07_Cobetura_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-33',
+        title: 'TS | Hits Park',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/TS_HITS_PARK_TIPO_01_Ampliada_HR.jpg',
+      },
+      {
+        id: 'plantas-humanizadas-34',
+        title: 'TS | Hits Park',
+        image:
+          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/TS_HITS_PARK_TIPO_01_Dormit%C3%B3rio_HR.jpg',
       },
     ],
   },

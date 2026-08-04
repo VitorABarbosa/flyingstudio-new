@@ -37,7 +37,8 @@ function MarqueeRow({ logos, reverse = false }: MarqueeRowProps) {
             alt={logo.id}
             width={160}
             height={40}
-            className="theme-icon-adaptive h-[32px] w-auto object-contain opacity-70 md:h-[40px]"
+            style={logo.h ? { height: `${logo.h}px` } : undefined}
+            className={`theme-icon-adaptive w-auto object-contain opacity-70 ${logo.h ? '' : 'h-[32px] md:h-[40px]'}`}
           />
         ))}
       </motion.div>

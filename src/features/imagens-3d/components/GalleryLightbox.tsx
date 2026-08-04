@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { optimized } from './ImageBlock';
 import type { GalleryItem } from '../types/gallery.types';
 
 /* Larguras servidas no lightbox — precisam existir em `deviceSizes` do Next. */
-const LIGHTBOX_WIDTHS = [1200, 1920, 2048] as const;
 
 /** Tentativas extras quando o otimizador falha em servir a imagem. */
 const MAX_LOAD_RETRIES = 4;
@@ -100,7 +98,7 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
       if (!neighbor) return;
 
       const preload = new Image();
-      preload.src = optimized(neighbor.image, 1920);
+      preload.src = neighbor.image;
     });
   }, [items, index]);
 
@@ -144,16 +142,14 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
           />
         )}
 
+        {/* O mestre 3840 q85 DIRETO do servidor, sem otimizador: a qualidade
+            calibrada do acervo chega intacta ao zoom. O AcervoZoomPrefetch
+            (no layout) já vem baixando tudo em segundo plano. */}
         <motion.img
           key={`${item.id}-${loadAttempt}`}
-          src={optimized(item.image, 1920)}
+          src={item.image}
           onLoad={() => setIsLoaded(true)}
           onError={handleLoadError}
-          srcSet={
-            item.image.startsWith('http')
-              ? LIGHTBOX_WIDTHS.map((w) => `${optimized(item.image, w)} ${w}w`).join(', ')
-              : undefined
-          }
           sizes="92vw"
           alt={item.title}
           draggable={false}

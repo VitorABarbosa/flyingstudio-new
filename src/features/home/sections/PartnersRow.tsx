@@ -9,6 +9,9 @@ type Partner = {
   id: string;
   src: string;
   width: number;
+  /** Altura de exibição (px). O marquee usa 40 por padrão; os canvases da
+      leva nova têm margem interna, então pedem mais para a ARTE empatar. */
+  h?: number;
 };
 
 const PARTNERS: Partner[] = [
@@ -21,6 +24,25 @@ const PARTNERS: Partner[] = [
   { id: 'logica', src: '/home/parceiros/partner-logica.png', width: 120 },
   { id: 'rsf', src: '/home/parceiros/partner-rsf.png', width: 100 },
   { id: 'sulplan', src: '/home/parceiros/partner-sulplan.png', width: 130 },
+  /* Leva de agosto/2026: canvas padronizado 3:2 (quadrado nos marcados). */
+  { id: 'ldinc', src: '/home/parceiros/LDinc.png', width: 120, h: 56 },
+  { id: 'engecastro', src: '/home/parceiros/Engecastro.png', width: 120, h: 56 },
+  { id: 'soedil', src: '/home/parceiros/soedil.png', width: 120, h: 56 },
+  { id: 'chaincorp', src: '/home/parceiros/chaincorp.png', width: 120, h: 56 },
+  { id: 'bcanton', src: '/home/parceiros/b.canton.png', width: 120, h: 56 },
+  { id: 'five5', src: '/home/parceiros/five_5.png', width: 95, h: 52 },
+  { id: 'dalle', src: '/home/parceiros/dalle.png', width: 95, h: 52 },
+  { id: 'tseng', src: '/home/parceiros/ts_eng.png', width: 120, h: 56 },
+  { id: 'integra', src: '/home/parceiros/integra.png', width: 120, h: 56 },
+  { id: 'granlote', src: '/home/parceiros/granlote.png', width: 120, h: 56 },
+  { id: 'argo', src: '/home/parceiros/argo.png', width: 120, h: 56 },
+  { id: 'reacty', src: '/home/parceiros/reacty.png', width: 120, h: 56 },
+  { id: 'oxe', src: '/home/parceiros/oxe.png', width: 120, h: 56 },
+  { id: 'casaviva', src: '/home/parceiros/casa_viva.png', width: 120, h: 56 },
+  { id: 'ftm', src: '/home/parceiros/ftm.png', width: 120, h: 56 },
+  { id: 'canopus', src: '/home/parceiros/canopus.png', width: 120, h: 56 },
+  { id: 'construlike', src: '/home/parceiros/constru_like.png', width: 120, h: 56 },
+  { id: 'queromeuape', src: '/home/parceiros/Quero_meu_ape.png', width: 120, h: 56 },
 ];
 
 export default function PartnersRow() {
@@ -68,7 +90,8 @@ export default function PartnersRow() {
                   aria-hidden={index >= PARTNERS.length}
                   width={partner.width}
                   height={48}
-                  className="theme-icon-adaptive h-[40px] w-auto shrink-0 opacity-55 transition-opacity duration-300 hover:opacity-100"
+                  style={{ height: `${partner.h ?? 40}px` }}
+                  className="theme-icon-adaptive w-auto shrink-0 opacity-55 transition-opacity duration-300 hover:opacity-100"
                 />
               ))}
             </div>
@@ -83,7 +106,8 @@ export default function PartnersRow() {
                   aria-hidden
                   width={partner.width}
                   height={48}
-                  className="theme-icon-adaptive h-[40px] w-auto shrink-0 opacity-55 transition-opacity duration-300 hover:opacity-100"
+                  style={{ height: `${partner.h ?? 40}px` }}
+                  className="theme-icon-adaptive w-auto shrink-0 opacity-55 transition-opacity duration-300 hover:opacity-100"
                 />
               ))}
             </div>
