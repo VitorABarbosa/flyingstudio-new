@@ -870,14 +870,14 @@
         "the-one-saude": {
           "description": "A launch built by different specialties, from architecture to the digital experience."
         },
-        "cosmopolitan": {
-          "description": "From concept to launch: imagery, film and experiences that shaped the development before the first brick."
+        "canvas-altino": {
+          "description": "From the place's vocation to the narrative that sells: a complete launch, desired before it existed."
         },
-        "vita-vila-prudente": {
-          "description": "Interiors and perspectives that materialize living well, turning every room into desire."
+        "the-one-tucuruvi": {
+          "description": "Compact living turned into grandeur, with the whole city inside the studio."
         },
         "livigno": {
-          "description": "The project's essence translated into imagery and narratives that anticipate the living experience."
+          "description": "Graphite presence, welcoming interiors and an elegance felt before the visit."
         }
       }
     },
@@ -886,6 +886,84 @@
       "title": "Your launch at the <accent>center of the ecosystem.</accent>",
       "description": "Four forces speaking the same language, from product design to the experience that sells — an entire universe conspiring in favor of your next great sale.",
       "button": "Talk to Grupo Flying"
+    },
+    "detail": {
+      "hero": {
+        "eyebrow": "CASE STUDY"
+      },
+      "ficha": {
+        "type": "Type",
+        "location": "Location",
+        "scope": "Scope"
+      },
+      "visitLabel": "Discover {name}",
+      "seeMore": "See more",
+      "nextCase": "Next case",
+      "items": {
+        "the-one-saude": {
+          "heroDescription": "A launch built by different specialties, from architecture to digital experience.",
+          "statement": "One launch, a single <accent>language</accent>.",
+          "narrative": "The One Saúde is born from the union of welcoming architecture, an aspirational visual atmosphere and a sales experience that presents the development with clarity.",
+          "ficha": {
+            "type": "Residential",
+            "location": "Saúde | São Paulo, Brazil",
+            "scope": "Concept, architecture, visualization, app and film"
+          },
+          "services": {
+            "ogdi": "Led the vocation analysis and concept development for the project.",
+            "nid": "Designed the development's shared amenities.",
+            "flying": "Created the images that present every space and the launch's sales app.",
+            "rinno": "Produced the Concept, Product and Viral films that set the launch in motion."
+          }
+        },
+        "canvas-altino": {
+          "heroDescription": "A launch built on every front, from product strategy to the emotion of the sale.",
+          "statement": "Before the concrete, the <accent>concept</accent>.",
+          "narrative": "Canvas Altino is born from the meeting of strategy and sensibility: a product conceived from the place's vocation, a sales stage designed to enchant, and a visual narrative that made the development desired before it existed.",
+          "ficha": {
+            "type": "Residential",
+            "location": "Presidente Altino | Osasco, Brazil",
+            "scope": "Concept, architecture, visualization, app and film"
+          },
+          "services": {
+            "ogdi": "Handled the vocation analysis and concept development for the project.",
+            "nid": "Created the sales stand and the decorated model apartment.",
+            "flying": "Produced the project's images and the sales app.",
+            "rinno": "Produced the Concept Film, the Broker Film, the social pills and the 3D Storytelling Film."
+          }
+        },
+        "the-one-tucuruvi": {
+          "heroDescription": "A launch that turns compact living into grandeur, from product design to the sales experience.",
+          "statement": "A few meters, a whole <accent>metropolis</accent>.",
+          "narrative": "The One Tucuruvi is born from precision: a product designed around the essential, an architecture that expands every meter, and a visual narrative that brings the whole city inside the studio.",
+          "ficha": {
+            "type": "Residential — studios",
+            "location": "Tucuruvi | São Paulo, Brazil",
+            "scope": "Concept, architecture, visualization, app and film"
+          },
+          "services": {
+            "ogdi": "Handled the vocation analysis and concept development for the project.",
+            "nid": "Created the project's facade and interior design.",
+            "flying": "Produced the project's images and the sales app.",
+            "rinno": "Produced the launch's Concept, Product and Viral films."
+          }
+        },
+        "livigno": {
+          "heroDescription": "A launch built in the details, from product concept to spaces that embrace daily life.",
+          "statement": "Desire lives in the <accent>details</accent>.",
+          "narrative": "Livigno is born from the balance between presence and warmth: a product conceived with clarity, spaces designed for real life, and a visual experience that makes its elegance felt before the visit.",
+          "ficha": {
+            "type": "Residential",
+            "location": "São Paulo, Brazil",
+            "scope": "Concept, architecture, visualization and app"
+          },
+          "services": {
+            "ogdi": "Handled the vocation analysis and concept development for the project.",
+            "nid": "Created the sales stand, the decorated units and the shared amenities.",
+            "flying": "Produced the project's images and the sales app."
+          }
+        }
+      }
     }
   },
   "FuturePage": {

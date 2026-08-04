@@ -7,6 +7,10 @@ export const groupCompanies: GroupCompany[] = [
   { id: 'rinno', number: '04', logo: '/cases/logo-rinno.png', logoWidth: 277, logoHeight: 55, accentColor: '#ff00a9' },
 ];
 
+/* Conteúdo dos cases no servidor de imagens — mesma esteira da galeria
+   (mestres web 3840 q85; miniaturas derivam trocando -web por -thumbs). */
+export const CASES_CDN = 'https://img.flyingstudio.com.br/site-flying-web/CASES';
+
 export const caseProjects: CaseProject[] = [
   {
     id: 'the-one-saude',
@@ -18,22 +22,22 @@ export const caseProjects: CaseProject[] = [
     imagePosition: 'center 52%',
   },
   {
-    id: 'cosmopolitan',
-    title: 'Cosmopolitan',
-    company: 'OXE ENGENHARIA',
-    location: 'SÃO PAULO, SP',
-    image: '/cases/cosmopolitan.jpg',
+    id: 'canvas-altino',
+    title: 'Canvas Altino',
+    company: 'CANVAS',
+    location: 'OSASCO, SP',
+    image: `${CASES_CDN}/CANVAS_ALTINO/Canvas_Altino_Fachada_Noturna_HR.jpg`,
     size: 'half',
-    imagePosition: 'center 48%',
+    imagePosition: 'center 42%',
   },
   {
-    id: 'vita-vila-prudente',
-    title: 'Vita Vila Prudente',
-    company: 'ENGECASTRO',
+    id: 'the-one-tucuruvi',
+    title: 'The One Tucuruvi',
+    company: 'OUSY',
     location: 'SÃO PAULO, SP',
-    image: '/cases/vita-vila-prudente.jpg',
+    image: `${CASES_CDN}/THE_ONE_TUCURUVI/Ousy_The_One_Tucuruvi_Sky_Pool_HR.jpg`,
     size: 'half',
-    imagePosition: 'center 60%',
+    imagePosition: 'center 55%',
   },
   {
     id: 'livigno',

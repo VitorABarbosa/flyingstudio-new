@@ -10,7 +10,7 @@ import { EASE, popIn, revealBlur, revealFromLeft, revealItem, staggerContainer }
 const partnerLogos = [
   { src: '/cases/logo-nid.png', alt: 'NID Studio', width: 117, height: 34, className: 'h-auto w-[96px] object-contain md:w-[117px]' },
   { src: '/cases/logo-flying.png', alt: 'Flying Studio', width: 195, height: 25, className: 'h-auto w-[160px] object-contain md:w-[195px]' },
-  { src: '/cases/logo-rinno.png', alt: 'Rinno Filmes', width: 167, height: 33, className: 'h-auto w-[142px] object-contain md:w-[167px]' },
+  { src: '/cases/logo-rinno.png', alt: 'Rinno Films', width: 167, height: 33, className: 'h-auto w-[142px] object-contain md:w-[167px]' },
 ];
 
 export default function CasesFeatured() {

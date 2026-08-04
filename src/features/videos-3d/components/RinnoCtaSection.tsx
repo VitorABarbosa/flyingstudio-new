@@ -71,7 +71,7 @@ export default function RinnoCtaSection() {
             <div className="flex shrink-0 flex-col items-start gap-6 lg:items-center">
               <Image
                 src="/home/nosso-grupo/logos/rinno-films.png"
-                alt="Rinno Filmes"
+                alt="Rinno Films"
                 width={1920}
                 height={378}
                 className="theme-icon-adaptive h-[clamp(26px,2.4vw,38px)] w-auto object-contain"

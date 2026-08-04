@@ -4,8 +4,11 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { futurePageHrefs } from '@/lib/site-navigation';
 import CasesArrow from '../components/CasesArrow';
 import { caseProjects } from '../data/casesData';
+import { hasCaseDetail } from '../data/caseDetailsData';
 import type { CaseProject } from '../types/cases.types';
 import { EASE, popIn, revealBlur, revealItem, staggerContainer } from '../lib/animations';
 
@@ -22,7 +25,7 @@ const partnerLogos = [
   { src: '/cases/logo-ogdi.png', alt: 'OGDI', width: 153, height: 58, className: 'h-auto w-[62px] object-contain md:w-[74px]' },
   { src: '/cases/logo-nid.png', alt: 'NID Studio', width: 117, height: 34, className: 'h-auto w-[84px] object-contain md:w-[100px]' },
   { src: '/cases/logo-flying.png', alt: 'Flying Studio', width: 195, height: 25, className: 'h-auto w-[140px] object-contain md:w-[168px]' },
-  { src: '/cases/logo-rinno.png', alt: 'Rinno Filmes', width: 167, height: 33, className: 'h-auto w-[124px] object-contain md:w-[144px]' },
+  { src: '/cases/logo-rinno.png', alt: 'Rinno Films', width: 167, height: 33, className: 'h-auto w-[124px] object-contain md:w-[144px]' },
 ];
 
 function CaseBanner({ project }: { project: CaseProject }) {
@@ -81,16 +84,23 @@ function CaseBanner({ project }: { project: CaseProject }) {
           ))}
         </motion.div>
 
-        <motion.button
-          variants={revealItem}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          type="button"
-          className="group/cta mt-6 inline-flex w-fit items-center gap-3 text-[16px] font-bold text-[#b6ff00] md:absolute md:right-0 md:bottom-[44px] md:mt-0 md:text-[20px]"
-        >
-          {t('seeComplete')}
-          <CasesArrow className="size-6 transition-transform duration-300 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1" />
-        </motion.button>
+        {/* O link só aparece quando o case tem página interna registrada */}
+        {hasCaseDetail(project.id) && (
+          <motion.div
+            variants={revealItem}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-6 w-fit md:absolute md:right-0 md:bottom-[44px] md:mt-0"
+          >
+            <Link
+              href={`${futurePageHrefs.cases}/${project.id}`}
+              className="group/cta inline-flex items-center gap-3 text-[16px] font-bold text-[#b6ff00] md:text-[20px]"
+            >
+              {t('seeComplete')}
+              <CasesArrow className="size-6 transition-transform duration-300 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1" />
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     </article>
   );

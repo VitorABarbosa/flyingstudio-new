@@ -53,7 +53,7 @@
           "desc": "O arsenal que encanta, imerge e vende: imagens, aplicativos, tours 360º e experiências imersivas."
         },
         "rinno": {
-          "name": "Rinno Filmes",
+          "name": "Rinno Films",
           "slogan": "Seu Projeto Merece Cinema.",
           "role": "Produtora audiovisual",
           "desc": "A narrativa que vende: filmes conceituais, de produto, virais e documentários."
@@ -315,11 +315,11 @@
       "expandLabel": "Ampliar vídeo {title}"
     },
     "rinno": {
-      "eyebrow": "Rinno Filmes · Grupo Flying",
+      "eyebrow": "Rinno Films · Grupo Flying",
       "titlePre": "Aqui nasce o",
       "titleAccent": "cinema imobiliário.",
       "description": "A produtora do grupo trata cada empreendimento como roteiro: documentários que eternizam a primeira centelha criativa, filmes conceituais e de produto que despertam o desejo, e narrativas virais que dominam as redes.",
-      "cta": "Conhecer a Rinno Filmes"
+      "cta": "Conhecer a Rinno Films"
     }
   },
   "AplicativosPage": {
@@ -531,7 +531,7 @@
           ]
         },
         "rinno": {
-          "name": "Rinno Filmes",
+          "name": "Rinno Films",
           "role": "Produtora audiovisual",
           "description": "A narrativa que vende: filmes conceituais, de produto, virais e documentários para o mercado imobiliário.",
           "services": [
@@ -819,7 +819,7 @@
         },
         "rinno": {
           "desc": "A narrativa que vende. Filmes conceituais, de produto, virais e documentários que contam a história do empreendimento de forma magnética — transformando metros quadrados em narrativas de vida.",
-          "cta": "Conhecer a Rinno Filmes"
+          "cta": "Conhecer a Rinno Films"
         }
       }
     },
@@ -851,7 +851,7 @@
         "description": "Imagens, animações e tecnologias interativas que tornam visível o que ainda está por existir e transformam apresentação em experiência."
       },
       "rinno": {
-        "name": "Rinno Filmes",
+        "name": "Rinno Films",
         "eyebrow": "RINNO FILMES",
         "title": "Movimento para histórias que merecem ser sentidas.",
         "description": "Filmes conceito, de produto e institucionais que traduzem diferenciais em narrativas capazes de criar conexão e desejo."
@@ -870,14 +870,14 @@
         "the-one-saude": {
           "description": "Um lançamento construído por diferentes especialidades, da arquitetura à experiência digital."
         },
-        "cosmopolitan": {
-          "description": "Do conceito ao lançamento: imagens, filme e experiências que deram forma ao empreendimento antes do primeiro tijolo."
+        "canvas-altino": {
+          "description": "Da vocação do lugar à narrativa que vende: um lançamento completo, desejado antes de existir."
         },
-        "vita-vila-prudente": {
-          "description": "Interiores e perspectivas que materializam o morar bem, transformando cada ambiente em desejo."
+        "the-one-tucuruvi": {
+          "description": "O morar compacto transformado em grandeza, com a cidade inteira dentro do studio."
         },
         "livigno": {
-          "description": "A essência do projeto traduzida em imagens e narrativas que antecipam a experiência de morar."
+          "description": "Presença grafite, interiores que acolhem e uma elegância sentida antes mesmo da visita."
         }
       }
     },
@@ -886,6 +886,84 @@
       "title": "Seu lançamento no <accent>centro do ecossistema.</accent>",
       "description": "Quatro forças falando a mesma língua, da formatação do produto à experiência que vende — um universo inteiro conspirando a favor da sua próxima grande venda.",
       "button": "Fale com o Grupo Flying"
+    },
+    "detail": {
+      "hero": {
+        "eyebrow": "CASE"
+      },
+      "ficha": {
+        "type": "Tipo",
+        "location": "Localização",
+        "scope": "Escopo"
+      },
+      "visitLabel": "Conheça a {name}",
+      "seeMore": "Ver mais",
+      "nextCase": "Próximo case",
+      "items": {
+        "the-one-saude": {
+          "heroDescription": "Um lançamento construído por diferentes especialidades, da arquitetura à experiência digital.",
+          "statement": "Um lançamento com uma só <accent>linguagem</accent>.",
+          "narrative": "The One Saúde nasce da união entre uma arquitetura acolhedora, uma atmosfera visual aspiracional e uma experiência comercial capaz de apresentar o empreendimento com clareza.",
+          "ficha": {
+            "type": "Residencial",
+            "location": "Saúde | São Paulo, SP",
+            "scope": "Conceituação, arquitetura, visualização, aplicativo e audiovisual"
+          },
+          "services": {
+            "ogdi": "Assinou a análise de vocação e o desenvolvimento de conceito do empreendimento.",
+            "nid": "Desenhou as áreas comuns do empreendimento.",
+            "flying": "Criou as imagens que apresentam todos os ambientes e o aplicativo comercial do lançamento.",
+            "rinno": "Produziu o Filme Conceito, o Filme Produto e o Filme Viral que deram movimento ao lançamento."
+          }
+        },
+        "canvas-altino": {
+          "heroDescription": "Um lançamento construído em todas as frentes, da estratégia do produto à emoção da venda.",
+          "statement": "Antes do concreto, o <accent>conceito</accent>.",
+          "narrative": "O Canvas Altino nasce do encontro entre estratégia e sensibilidade: um produto concebido a partir da vocação do lugar, um palco de vendas desenhado para encantar e uma narrativa visual que fez o empreendimento ser desejado antes de existir.",
+          "ficha": {
+            "type": "Residencial",
+            "location": "Presidente Altino | Osasco, SP",
+            "scope": "Conceituação, arquitetura, visualização, aplicativo e audiovisual"
+          },
+          "services": {
+            "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
+            "nid": "Criou o PDV e o apartamento decorado do lançamento.",
+            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
+            "rinno": "Produziu o Filme Conceito, o Filme Corretor, as pílulas para redes e o Filme Storytelling 3D."
+          }
+        },
+        "the-one-tucuruvi": {
+          "heroDescription": "Um lançamento que transforma o morar compacto em grandeza, do desenho do produto à experiência de venda.",
+          "statement": "Poucos metros, uma <accent>metrópole</accent>.",
+          "narrative": "O The One Tucuruvi nasce da precisão: um produto desenhado para o essencial, uma arquitetura que amplia cada metro e uma narrativa visual que coloca a cidade inteira dentro do studio.",
+          "ficha": {
+            "type": "Residencial — studios",
+            "location": "Tucuruvi | São Paulo, SP",
+            "scope": "Conceituação, arquitetura, visualização, aplicativo e audiovisual"
+          },
+          "services": {
+            "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
+            "nid": "Criou o design de fachada e o design de interiores do empreendimento.",
+            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
+            "rinno": "Produziu o Filme Conceito, o Filme Produto e o Filme Viral do lançamento."
+          }
+        },
+        "livigno": {
+          "heroDescription": "Um lançamento construído no detalhe, do conceito do produto aos ambientes que acolhem a rotina.",
+          "statement": "O desejo mora nos <accent>detalhes</accent>.",
+          "narrative": "O Livigno nasce do equilíbrio entre presença e acolhimento: um produto concebido com clareza, ambientes desenhados para receber a vida real e uma experiência visual que faz a elegância ser sentida antes mesmo da visita.",
+          "ficha": {
+            "type": "Residencial",
+            "location": "São Paulo, SP",
+            "scope": "Conceituação, arquitetura, visualização e aplicativo"
+          },
+          "services": {
+            "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
+            "nid": "Criou o PDV, os apartamentos decorados e as áreas comuns do projeto.",
+            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas."
+          }
+        }
+      }
     }
   },
   "FuturePage": {
