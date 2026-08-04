@@ -220,7 +220,7 @@ export default function TourExplainerSection() {
             <div className="absolute top-[6.1%] left-[11.3%] z-20 h-[85%] w-[77.8%] overflow-hidden bg-black">
               {/* Exemplo_Tour hospedado no Vimeo em modo background. */}
               <iframe
-                src="https://player.vimeo.com/video/1215470221?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1"
+                src="https://player.vimeo.com/video/1215470221?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&transparent=0"
                 title=""
                 allow="autoplay"
                 aria-hidden="true"

@@ -220,7 +220,7 @@ export default function FlyAppExplainerSection() {
               {/* Exemplo_Aplicativo hospedado no Vimeo em modo background
                   (autoplay mudo em loop) — o vídeo não embarca no site. */}
               <iframe
-                src="https://player.vimeo.com/video/1215470231?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1"
+                src="https://player.vimeo.com/video/1215470231?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&transparent=0"
                 title=""
                 allow="autoplay"
                 aria-hidden="true"
