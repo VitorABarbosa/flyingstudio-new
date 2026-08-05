@@ -50,7 +50,7 @@
           "name": "Flying Studio",
           "slogan": "Far beyond perspectives.",
           "role": "Launch ecosystem",
-          "desc": "The arsenal that enchants, immerses and sells: images, apps, 360º tours and immersive experiences."
+          "desc": "We orchestrate a technological arsenal designed to enchant, immerse and sell — imagery, apps, 360º immersion, films and experiences that make tomorrow tangible."
         },
         "rinno": {
           "name": "Rinno Films",
@@ -68,7 +68,7 @@
           "name": "Open Group",
           "slogan": "Value is born before the build.",
           "role": "Real-estate development",
-          "desc": "From opportunity to launch: structuring, feasibility and real-estate product."
+          "desc": "From opportunity to launch: structuring, feasibility, product development and launch."
         }
       }
     }
@@ -291,17 +291,14 @@
     },
     "sections": {
       "conceitos": {
-        "eyebrow": "10 films",
         "title": "Concepts",
         "description": "Concept films focused on lifestyle and brand positioning, connecting the development to the buyer's emotions."
       },
       "produtos": {
-        "eyebrow": "13 films",
         "title": "Products",
         "description": "A deep dive into architecture, infrastructure, and technical differentiators, showcasing every square meter of the development."
       },
       "virais": {
-        "eyebrow": "14 films",
         "title": "Virals",
         "description": "Short, dynamic 9:16 formats optimized for social media engagement and paid traffic campaigns."
       }
@@ -312,10 +309,13 @@
       "pageLabel": "Go to page {page}",
       "closeLabel": "Close video",
       "openLabel": "Open video {title}",
-      "expandLabel": "Expand video {title}"
+      "expandLabel": "Expand video {title}",
+      "seeMoreRinno": "See more at Rinno Films"
     },
     "rinno": {
       "eyebrow": "Rinno Films · Flying Group",
+      "leadQuestion": "Looking for documentaries and institutional films?",
+      "leadAnswer": "They're by <rinno>Rinno Films</rinno> — the same production company behind every film on this page.",
       "titlePre": "This is where",
       "titleAccent": "real estate cinema begins.",
       "description": "The group's production company treats every development as a screenplay: documentaries that preserve the first creative spark, concept and product films that awaken desire, and viral narratives that take over the feeds.",
@@ -468,12 +468,12 @@
     },
     "statement": {
       "headline": "We don't just display tomorrow — we make it felt.",
-      "complement": "If one image speaks louder than a thousand words, imagine the power of an entire digital universe conspiring in favor of your next big sale."
+      "complement": "If one image speaks louder than a thousand words, imagine the power of an entire digital universe conspiring in favor of your next big launch."
     },
     "qg": {
       "eyebrow": "OUR HQ",
       "title": "The epicenter of real estate technology",
-      "address": "Av. Engenheiro Luís Carlos Berrini, 936 — 7th floor, São Paulo",
+      "address": "Av. Engenheiro Luís Carlos Berrini — Itaim Bibi, São Paulo, SP",
       "description": "More than a studio: an innovation lab where creative minds, technology developers, and launch strategists work in full synergy. Wherever your development is being born, it is from here that we orchestrate the visual and technological intelligence that will make it dominate the market."
     },
     "vozes": {
@@ -594,14 +594,14 @@
       },
       "card5": {
         "name": "Livigno",
-        "description": "TAVARES ROSSETI"
+        "description": "TAVARES E ROSSETI"
       }
     }
   },
   "Footer": {
     "phone": "(11) 2351-4138",
     "email": "studio@flyingstudio.com.br",
-    "address": "Av. Engenheiro Luís Carlos Berrini, 936 - Itaim Bibi, São Paulo, SP.",
+    "address": "Av. Engenheiro Luís Carlos Berrini — Itaim Bibi, São Paulo, SP",
     "ariaLabel": "Flying Studio on {name}"
   },
   "Contato": {
@@ -867,8 +867,8 @@
       "title": "Intelligence translated into <accent>experience</accent>.",
       "seeComplete": "View full case",
       "items": {
-        "the-one-saude": {
-          "description": "A launch built by different specialties, from architecture to the digital experience."
+        "macuco-grand-canal": {
+          "description": "Club-scale leisure and a visual narrative that presents every space before construction."
         },
         "canvas-altino": {
           "description": "From the place's vocation to the narrative that sells: a complete launch, desired before it existed."
@@ -900,20 +900,20 @@
       "seeMore": "See more",
       "nextCase": "Next case",
       "items": {
-        "the-one-saude": {
-          "heroDescription": "A launch built by different specialties, from architecture to digital experience.",
-          "statement": "One launch, a single <accent>language</accent>.",
-          "narrative": "The One Saúde is born from the union of welcoming architecture, an aspirational visual atmosphere and a sales experience that presents the development with clarity.",
+        "macuco-grand-canal": {
+          "heroDescription": "A launch built on every front, from product concept to the film that presents it.",
+          "statement": "A whole world at a single <accent>address</accent>.",
+          "narrative": "Macuco Grand Canal is born from generosity: a product that gathers leisure, wellness and conviviality at club scale, spaces designed for every age and a visual narrative that makes each space feel lived in before construction.",
           "ficha": {
             "type": "Residential",
-            "location": "Saúde | São Paulo, Brazil",
-            "scope": "Concept, architecture, visualization, app and film"
+            "location": "Santos, Brazil",
+            "scope": "Concept, sales stand, visualization, app and film"
           },
           "services": {
             "ogdi": "Led the vocation analysis and concept development for the project.",
-            "nid": "Designed the development's shared amenities.",
-            "flying": "Created the images that present every space and the launch's sales app.",
-            "rinno": "Produced the Concept, Product and Viral films that set the launch in motion."
+            "nid": "Designed the launch's sales stand.",
+            "flying": "Produced the development's images and the launch's sales app.",
+            "rinno": "Produced the Concept Film, the Broker Film and the social media clips."
           }
         },
         "canvas-altino": {

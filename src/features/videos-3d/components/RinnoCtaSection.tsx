@@ -33,6 +33,25 @@ export default function RinnoCtaSection() {
       className="w-full"
     >
       <div className="mx-auto w-full max-w-[1800px] px-4 md:px-6">
+        {/* Gancho acima do banner: a pergunta fisga quem chegou procurando
+            documentário/institucional, e a resposta corrige a leitura — a
+            Rinno não faz SÓ esses, ela é a produtora de todos os filmes da
+            página. */}
+        <div className="mb-[clamp(20px,3.5vh,36px)] text-center">
+          <p className="font-['Outfit'] text-[clamp(1.15rem,2vw,1.8rem)] leading-[1.3] font-semibold text-[var(--theme-text)]">
+            {t('leadQuestion')}
+          </p>
+          <p className="mt-2 font-['Outfit'] text-[clamp(0.95rem,1.2vw,1.15rem)] leading-[1.5] text-[var(--theme-muted)]">
+            {t.rich('leadAnswer', {
+              rinno: (chunks) => (
+                <span className="font-semibold" style={{ color: RINNO }}>
+                  {chunks}
+                </span>
+              ),
+            })}
+          </p>
+        </div>
+
         <div
           className="relative overflow-hidden rounded-[clamp(24px,3vw,40px)] px-[clamp(24px,5vw,72px)] py-[clamp(36px,6vw,68px)]"
           style={{
@@ -61,7 +80,7 @@ export default function RinnoCtaSection() {
                 {t('titlePre')} <span style={{ color: RINNO }}>{t('titleAccent')}</span>
               </h2>
 
-              <p className="mt-4 max-w-[60ch] font-['Outfit'] text-[clamp(0.95rem,1.15vw,1.15rem)] leading-[1.65] text-[var(--theme-muted)]">
+              <p className="mt-4 max-w-[60ch] text-justify font-['Outfit'] text-[clamp(0.95rem,1.15vw,1.15rem)] leading-[1.65] text-[var(--theme-muted)]">
                 {t('description')}
               </p>
             </div>

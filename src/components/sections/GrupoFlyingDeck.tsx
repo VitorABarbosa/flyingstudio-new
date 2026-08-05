@@ -49,7 +49,7 @@ const COMPANIES: {
     color: '#FF8A3D', // laranja NID
     media: {
       type: 'image',
-      src: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Reacty_Sto_Arcadio_Gourmet_HR.jpg',
+      src: 'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
     },
     logo: '/cases/logo-nid.png',
     logoSize: 'min(64%, 250px)',

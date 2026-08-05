@@ -42,12 +42,8 @@ export default function VideoGridSection({ section }: { section: VideoSectionTyp
     <section className="w-full">
       <div className="mx-auto w-full max-w-[1800px] px-4 md:px-6">
         {/* O título da categoria vive na VideoFilterBar (o filtro ativo É o
-            título) — aqui ficam só a contagem e a descrição. */}
-        <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-12">
-          <span className="font-['Outfit'] text-[11px] font-bold tracking-[0.22em] text-[var(--theme-accent)] uppercase">
-            {t(`sections.${section.id}.eyebrow`)}
-          </span>
-
+            título) — aqui fica só a descrição. */}
+        <div className="flex md:justify-end">
           <p className="max-w-[64ch] font-['Outfit'] text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[15px]">
             {t(`sections.${section.id}.description`)}
           </p>

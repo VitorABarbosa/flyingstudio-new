@@ -67,10 +67,15 @@ export default function FooterReveal() {
             className="pointer-events-none absolute"
             style={{ ...PHOTO_CROP, ...photoStyle }}
           >
+            {/* `unoptimized`: o otimizador re-encodava a foto em q75 (compressão
+                dupla) — o arquivo é servido direto, sem nenhum re-encode, como
+                nas heroes e na galeria. Este é o upscale 6K (6144px) que o
+                Vitor salvou — folga de sobra para 4K e telas com escala. */}
             <Image
-              src="/home/footer/foto-empresa.jpg"
+              src="/home/footer/upscale-foto-empresa-nitida.jpg"
               alt="Flying Studio - Escritório"
               fill
+              unoptimized
               className="object-cover"
               sizes="115vw"
             />

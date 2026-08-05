@@ -11,7 +11,7 @@ const WHATSAPP_HREF = 'https://wa.me/5511993443369';
 const EMAIL_HREF = 'mailto:studio@flyingstudio.com.br';
 const MAPS_HREF =
   'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('Av. Engenheiro Luís Carlos Berrini, 936 - Itaim Bibi, São Paulo, SP');
+  encodeURIComponent('Av. Engenheiro Luís Carlos Berrini - Itaim Bibi, São Paulo, SP');
 
 const socialLinks = [
   {

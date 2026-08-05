@@ -68,7 +68,7 @@ export default function CaseDetailOverview({
 
           <motion.p
             variants={revealItem}
-            className="max-w-[540px] text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[16px] md:leading-[1.55]"
+            className="max-w-[540px] text-justify text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[16px] md:leading-[1.55]"
           >
             {t(`items.${caseId}.narrative`)}
           </motion.p>
@@ -101,7 +101,7 @@ export default function CaseDetailOverview({
                 />
                 {tCompanies(`${companyId}.name`)}
               </p>
-              <p className="mt-2 text-[13px] leading-[1.55] text-[var(--theme-muted)] md:text-[15px]">
+              <p className="mt-2 text-justify text-[13px] leading-[1.55] text-[var(--theme-muted)] md:text-[15px]">
                 {t(`items.${caseId}.services.${companyId}`)}
               </p>
             </motion.div>

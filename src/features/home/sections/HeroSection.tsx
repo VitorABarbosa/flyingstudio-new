@@ -27,26 +27,26 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Citz_Organique_Acesso_02_R00.jpg',
-    alt: 'Citz Organique — acesso',
-    animation: 'hero-pan-right',
+    src: 'https://img.flyingstudio.com.br/site-flying/LOTEAMENTOS/Granlote_Boituva_Piscina_Clube_A_HR.jpg',
+    alt: 'Granlote Boituva — piscina do clube',
+    animation: 'hero-zoom-in',
   },
   {
     id: 'slide-2',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_EVENTOS_HR.jpg',
-    alt: 'GCS Mirante Boa Vista — espaço de eventos',
+    src: 'https://img.flyingstudio.com.br/site-flying/LIVING/Mf7_Laje_Laje_Coworking_R00.jpg',
+    alt: 'MF7 Laje — coworking',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-3',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
-    alt: 'GCS Mirante Boa Vista — detalhe da piscina',
-    animation: 'hero-zoom-in',
+    src: 'https://img.flyingstudio.com.br/site-flying/FACHADAS/GNO_Manhattan_Fachada_R00.jpg',
+    alt: 'GNO Manhattan — fachada',
+    animation: 'hero-pan-right',
   },
   {
     id: 'slide-4',
-    src: 'https://img.flyingstudio.com.br/site-flying/EXTERNAS/Paes_G_Orissanga_Piscina_R00.jpg',
-    alt: 'Paes G. Orissanga — piscina',
+    src: 'https://img.flyingstudio.com.br/site-flying/LIVING/ARGO_SEVEN_VARANDA%20SUITE%202.jpg',
+    alt: 'Argo Seven — varanda da suíte',
     animation: 'hero-zoom-out',
   },
 ];

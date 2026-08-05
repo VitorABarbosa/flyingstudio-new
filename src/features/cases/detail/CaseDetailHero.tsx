@@ -99,7 +99,7 @@ export default function CaseDetailHero({
             </motion.p>
             <motion.p
               variants={revealItem}
-              className="mt-4 max-w-[560px] text-[14px] leading-[1.55] text-white/90 md:text-[16px] md:leading-[1.5]"
+              className="mt-4 max-w-[560px] text-justify text-[14px] leading-[1.55] text-white/90 md:text-[16px] md:leading-[1.5]"
             >
               {t(`detail.items.${project.id}.heroDescription`)}
             </motion.p>

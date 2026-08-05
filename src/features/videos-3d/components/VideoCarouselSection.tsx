@@ -12,6 +12,22 @@ type VideoCarouselSectionProps = {
 
 const ITEMS_PER_PAGE = 4;
 
+/**
+ * O carrossel é vitrine, não acervo: cada categoria mostra no máximo 2
+ * páginas (8 vídeos). A lista completa vive no filtro da categoria, que
+ * abre a visão em grade com tudo.
+ */
+const MAX_CAROUSEL_PAGES = 2;
+
+/* Na última página, o CTA aponta para a tela exclusiva da categoria no site
+   da Rinno Films — na cor dela, a mesma do fecho da página. */
+const RINNO = '#ff00a4';
+const RINNO_CATEGORY_URLS: Record<string, string> = {
+  conceitos: 'https://rinnofilms.com.br/servicos/conceito',
+  produtos: 'https://rinnofilms.com.br/servicos/produto',
+  virais: 'https://rinnofilms.com.br/servicos/viral',
+};
+
 const headerAnimation = {
   hidden: { opacity: 0, y: 28 },
   show: {
@@ -24,46 +40,32 @@ const headerAnimation = {
   },
 };
 
-const itemsAnimation = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.12,
-    },
-  },
-};
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-const itemAnimation = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
-  show: {
+/* Troca de página como carrossel de verdade: a página atual desliza para
+   fora enquanto a nova entra pelo lado oposto — nada de apagar tudo e
+   recomeçar. O `custom` carrega a direção da navegação (1 avança, -1 volta). */
+const pageSlide = {
+  enter: (direction: number) => ({ x: direction * 72, opacity: 0 }),
+  center: {
+    x: 0,
     opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.75,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
+    transition: { duration: 0.55, ease: EASE },
   },
-};
-
-const pageAnimation = {
-  initial: { opacity: 0, y: 18 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-  exit: {
+  exit: (direction: number) => ({
+    x: direction * -72,
     opacity: 0,
-    y: -12,
-    transition: {
-      duration: 0.28,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
+    transition: { duration: 0.32, ease: EASE },
+  }),
+};
+
+/* Revelação do bloco de cards na primeira dobra (via whileInView da seção). */
+const cardsReveal = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE, delay: 0.1 },
   },
 };
 
@@ -152,6 +154,7 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
   const t = useTranslations('Videos3DPage');
   const sectionTitle = t(`sections.${section.id}.title`);
   const [currentPage, setCurrentPage] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const pages = useMemo(() => {
@@ -161,12 +164,15 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
       chunks.push(section.items.slice(i, i + ITEMS_PER_PAGE));
     }
 
-    return chunks;
+    return chunks.slice(0, MAX_CAROUSEL_PAGES);
   }, [section.items]);
 
   const totalPages = pages.length;
   const currentItems = pages[currentPage] ?? [];
   const gridColumnsClass = getGridColumnsClass(currentItems.length);
+
+  const rinnoCategoryUrl = RINNO_CATEGORY_URLS[section.id];
+  const isLastPage = totalPages > 1 && currentPage === totalPages - 1;
 
   function stopActiveVideo() {
     setActiveVideoId(null);
@@ -176,17 +182,20 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
     if (pageIndex < 0 || pageIndex >= totalPages) return;
 
     stopActiveVideo();
+    setDirection(pageIndex > currentPage ? 1 : -1);
     setCurrentPage(pageIndex);
   }
 
   function goPrevious() {
     stopActiveVideo();
+    setDirection(-1);
 
     setCurrentPage((prev) => (prev > 0 ? prev - 1 : prev));
   }
 
   function goNext() {
     stopActiveVideo();
+    setDirection(1);
 
     setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : prev));
   }
@@ -211,14 +220,9 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
           variants={headerAnimation}
           className="flex flex-col gap-3 border-b border-[color-mix(in_srgb,var(--theme-text)_12%,transparent)] pb-5 md:flex-row md:items-end md:justify-between md:gap-12"
         >
-          <div className="flex flex-col gap-1.5">
-            <span className="font-['Outfit'] text-[11px] font-bold tracking-[0.22em] text-[var(--theme-accent)] uppercase">
-              {t(`sections.${section.id}.eyebrow`)}
-            </span>
-            <h2 className="font-['Outfit'] text-[26px] leading-tight font-semibold text-[var(--theme-text)] md:text-[36px]">
-              {sectionTitle}
-            </h2>
-          </div>
+          <h2 className="font-['Outfit'] text-[26px] leading-tight font-semibold text-[var(--theme-text)] md:text-[36px]">
+            {sectionTitle}
+          </h2>
 
           <p className="max-w-[64ch] font-['Outfit'] text-[14px] leading-[1.6] text-[var(--theme-muted)] md:text-[15px]">
             {t(`sections.${section.id}.description`)}
@@ -244,7 +248,7 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
             </AnimatePresence>
 
             {/* CARDS */}
-            <div className="relative mt-4 overflow-visible">
+            <motion.div variants={cardsReveal} className="relative mt-4 overflow-visible">
               {showLeftArrow && !activeVideoId && (
                 <CarouselArrow
                   direction="left"
@@ -253,26 +257,23 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
                 />
               )}
 
-              <AnimatePresence mode="wait">
+              {/* `popLayout`: a página que sai é tirada do fluxo e desliza
+                  para fora enquanto a nova já entra pelo lado oposto — as
+                  duas se cruzam em vez de sumir tudo e reaparecer. */}
+              <AnimatePresence mode="popLayout" custom={direction} initial={false}>
                 <motion.div
                   key={`${section.id}-page-${currentPage}`}
-                  variants={itemsAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
+                  custom={direction}
+                  variants={pageSlide}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
                   className="w-full overflow-visible"
                 >
-                  <motion.div
-                    variants={pageAnimation}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className={`grid ${gridColumnsClass} gap-4 overflow-visible`}
-                  >
+                  <div className={`grid ${gridColumnsClass} gap-4 overflow-visible`}>
                     {currentItems.map((item) => (
-                      <motion.div
+                      <div
                         key={item.id}
-                        variants={itemAnimation}
                         className={`relative w-full overflow-visible ${
                           activeVideoId === item.id ? 'z-[90]' : 'z-0'
                         } `}
@@ -291,9 +292,41 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
                           })}
                           closeLabel={t('carousel.closeLabel')}
                         />
-                      </motion.div>
+                      </div>
                     ))}
-                  </motion.div>
+                  </div>
+
+                  {/* Fim da vitrine: daqui a leitura segue no acervo completo
+                      da categoria, no site da Rinno. */}
+                  {isLastPage && rinnoCategoryUrl && (
+                    <div className="mt-7 flex justify-end">
+                      <a
+                        href={rinnoCategoryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/rinno inline-flex items-center gap-[8px] font-['Outfit'] text-[15px] font-semibold transition-opacity duration-200 hover:opacity-75 focus-visible:opacity-75 focus-visible:outline-none"
+                        style={{ color: RINNO }}
+                      >
+                        {t('carousel.seeMoreRinno')}
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          aria-hidden="true"
+                          className="-rotate-45 transition-transform duration-300 group-hover/rinno:translate-x-[3px]"
+                        >
+                          <path
+                            d="M2 8h12M9.5 3.5L14 8l-4.5 4.5"
+                            stroke="currentColor"
+                            strokeWidth="1.7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
 
@@ -304,7 +337,7 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
                   label={t('carousel.nextLabel', { title: sectionTitle })}
                 />
               )}
-            </div>
+            </motion.div>
 
             {/* DOTS */}
             {totalPages > 0 && (

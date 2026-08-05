@@ -15,11 +15,11 @@ describe('cases data', () => {
     });
   });
 
-  it('exibe os quatro projetos definidos no Figma', () => {
+  it('exibe os quatro projetos dos banners do Nosso Grupo', () => {
     expect(caseProjects.map(({ title }) => title)).toEqual([
-      'The One Saúde',
-      'Cosmopolitan',
-      'Vita Vila Prudente',
+      'Macuco Grand Canal',
+      'Canvas Altino',
+      'The One Tucuruvi',
       'Livigno',
     ]);
   });

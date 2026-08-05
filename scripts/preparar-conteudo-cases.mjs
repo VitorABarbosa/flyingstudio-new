@@ -29,6 +29,7 @@ const PROJETOS = {
   OUSY_SAUDE: 'THE_ONE_SAUDE',
   OUSY_TUCURUVI: 'THE_ONE_TUCURUVI',
   TAVERES_LIVIGNO: 'LIVIGNO',
+  MACUCO_GRAND_CANAL: 'MACUCO_GRAND_CANAL',
 };
 
 const EXTENSOES = new Set(['.jpg', '.jpeg', '.png']);
@@ -65,6 +66,15 @@ let totalWeb = 0;
 const failures = [];
 
 for (const [srcFolder, outFolder] of Object.entries(PROJETOS)) {
+  /* Pasta de origem pode ter sido apagada depois de convertida/subida —
+     segue para os projetos que ainda existem no disco. */
+  try {
+    await stat(path.join(SRC_ROOT, srcFolder));
+  } catch {
+    console.log(`\n=== ${outFolder}: pasta de origem ausente, pulando ===`);
+    continue;
+  }
+
   const files = await walk(path.join(SRC_ROOT, srcFolder));
   console.log(`\n=== ${outFolder}: ${files.length} imagens ===`);
 

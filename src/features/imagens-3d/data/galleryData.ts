@@ -196,12 +196,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/Canopus_Pedro_de_Toledo_Coworking_HR.jpg',
       },
       {
-        id: 'geral-35',
-        title: 'Ousy | The One Tucuruvi',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR_v2.jpg',
-      },
-      {
         id: 'geral-36',
         title: 'GCS | Mirante Boa Vista',
         image:
@@ -223,12 +217,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Canopus | Pedro de Toledo',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/Canopus_Pedro_de_Toledo_Lobby_HR.jpg',
-      },
-      {
-        id: 'geral-40',
-        title: 'Ousy | The One Tucuruvi',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR_v2.jpg',
       },
       {
         id: 'geral-41',
@@ -253,12 +241,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Paes G. | Orissanga',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Final_13_Amp_R00_v2.jpg',
-      },
-      {
-        id: 'geral-46',
-        title: 'GCS | Mirante Boa Vista',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_CONDOMINIO_HR.jpg',
       },
       {
         id: 'geral-47',
@@ -290,12 +272,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/FACHADAS/Herc_Barao_Limeira_Fachada_Noturna_HR.jpg',
       },
       {
-        id: 'geral-53',
-        title: 'FTM | Residencial Itália',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/FTM_Resisdencial_Italia_Fachada_Casa_Diurna_HR.jpg',
-      },
-      {
         id: 'geral-55',
         title: 'Paes G. | Orissanga',
         image:
@@ -320,12 +296,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/FTM_Resisdencial_Italia_Portaria_HR.jpg',
       },
       {
-        id: 'geral-60',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR_v2.jpg',
-      },
-      {
         id: 'geral-61',
         title: 'GCS | Mirante Boa Vista',
         image:
@@ -344,12 +314,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Beach_Tennis_Fire_Place_B_HR.jpg',
       },
       {
-        id: 'geral-65',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR_v2.jpg',
-      },
-      {
         id: 'geral-66',
         title: 'GCS | Mirante Boa Vista',
         image:
@@ -366,18 +330,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Granlote | Boituva',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Granlote_Boituva_Campo_Lazer_C_HR.jpg',
-      },
-      {
-        id: 'geral-70',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR_v2.jpg',
-      },
-      {
-        id: 'geral-71',
-        title: 'GCS | Mirante Boa Vista',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
       },
       {
         id: 'geral-72',
@@ -456,12 +408,6 @@ const rawGallerySections: GallerySectionType[] = [
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Dado_VIla_Mariana_Jogos_HR.jpg',
       },
       {
-        id: 'geral-85',
-        title: 'Reacty | Brooklin',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR_v2.jpg',
-      },
-      {
         id: 'geral-86',
         title: 'GNO | Manhattan',
         image:
@@ -516,7 +462,7 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'geral-95',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR_v2.jpg',
       },
@@ -546,7 +492,7 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'geral-100',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR_v2.jpg',
       },
@@ -576,7 +522,7 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'geral-105',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR_v2.jpg',
       },
@@ -652,21 +598,10 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/Lumy_Ipiranga_Lavanderia_R00.jpg',
       },
       {
-        id: 'geral-118',
-        title: 'Lumy | Ipiranga',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Lumy_Ipiranga_Acesso_R00.jpg',
-      },
-      {
         id: 'geral-119',
         title: 'V2 | The Icon',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/FACHADAS/V2_THE%20ICON_FACHADA_NOTURNA_CONCEITUAL_HR.jpg',
-      },
-      {
-        id: 'geral-120',
-        title: 'Quero Meu Apê | Pedra do Sol',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Quero_Meu_Ape_Pedra_do_Sol_Fotomontagem_HR.jpg',
       },
       {
         id: 'geral-121',
@@ -840,12 +775,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Plano_e_Plano_Carlos_Weber_01_Piscina_Adulto_HR.jpg',
       },
       {
-        id: 'geral-151',
-        title: 'MF7 | Cariris',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/MF7_Cariris_Lobby_Comercial_A4.jpg',
-      },
-      {
         id: 'geral-152',
         title: 'Plano&Plano | Carlos Weber',
         image:
@@ -902,12 +831,6 @@ const rawGallerySections: GallerySectionType[] = [
         id: 'geral-161',
         title: 'MF7 | Cariris',
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/MF7_Cariris_Podcast_A4.jpg',
-      },
-      {
-        id: 'geral-162',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Prohidro_Carlos_Reinaldo_Piscina_HR.jpg',
       },
       {
         id: 'geral-163',
@@ -1034,11 +957,6 @@ const rawGallerySections: GallerySectionType[] = [
         image: 'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/RB2_Sao_Jose_Lojas_HR.jpg',
       },
       {
-        id: 'geral-185',
-        title: 'Pagano | Franca',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Pagano_Franca_Reuniao_HR.jpg',
-      },
-      {
         id: 'geral-186',
         title: 'Reacty | Sto. Arcádio',
         image:
@@ -1114,22 +1032,10 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Sancan_Roselandia_Praca_do_Redario_HR.jpg',
       },
       {
-        id: 'geral-199',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Prohidro_Carlos_Reinaldo_Living_Tipo_01_HR.jpg',
-      },
-      {
         id: 'geral-200',
         title: 'Seedincorp | VNC',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Seedincorp_VNC_Alameda_Externa_HR.jpg',
-      },
-      {
-        id: 'geral-201',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Prohidro_Carlos_Reinaldo_Living_Tipo_03_HR.jpg',
       },
       {
         id: 'geral-202',
@@ -1310,69 +1216,69 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'geral-232',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Bicicletario_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Bicicletario_HR.jpg',
       },
       {
         id: 'geral-233',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Brinquedoteca_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Brinquedoteca_HR.jpg',
       },
       {
         id: 'geral-234',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
       },
       {
         id: 'geral-235',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Delivery_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Delivery_HR.jpg',
       },
       {
         id: 'geral-236',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Estudio_Podcast_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Estudio_Podcast_HR.jpg',
       },
       {
         id: 'geral-237',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Fitness_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Fitness_HR.jpg',
       },
       {
         id: 'geral-238',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Gourmet_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Gourmet_HR.jpg',
       },
       {
         id: 'geral-239',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Hall_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Hall_HR.jpg',
       },
       {
         id: 'geral-240',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Salao_Festas_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Salao_Festas_HR.jpg',
       },
       {
         id: 'geral-241',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Sauna_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Sauna_HR.jpg',
       },
       {
         id: 'geral-242',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Spinning_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Spinning_HR.jpg',
       },
       {
         id: 'geral-243',
@@ -1540,12 +1446,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_Mirante_Boa_Vista_Capela_R00.jpg',
       },
       {
-        id: 'externas-12',
-        title: 'GCS | Mirante Boa Vista',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_MIRANTE_BOA_VISTA_ESP_CONDOMINIO_HR.jpg',
-      },
-      {
         id: 'externas-13',
         title: 'GCS | Mirante Boa Vista',
         image:
@@ -1568,12 +1468,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'GCS | Mirante Boa Vista',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PASSARELA_HR.jpg',
-      },
-      {
-        id: 'externas-17',
-        title: 'GCS | Mirante Boa Vista',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/GCS_MIRANTE_BOA_VISTA_PISCINA_DETALHE_HR.jpg',
       },
       {
         id: 'externas-18',
@@ -1640,11 +1534,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'IX | Zuquim',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/IX_Zuquim_Passeio_Bosque_R00.jpg',
-      },
-      {
-        id: 'externas-29',
-        title: 'Lumy | Ipiranga',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Lumy_Ipiranga_Acesso_R00.jpg',
       },
       {
         id: 'externas-30',
@@ -1731,12 +1620,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'ProHidro | Carlos Reinaldo',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/ProHidro_Carlos_Reinaldo_Lojas_HR.jpg',
-      },
-      {
-        id: 'externas-45',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/EXTERNAS/Prohidro_Carlos_Reinaldo_Piscina_HR.jpg',
       },
       {
         id: 'externas-46',
@@ -2175,12 +2058,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Copec_Villa_Samantha_Caminhada_R01.jpg',
       },
       {
-        id: 'loteamentos-12',
-        title: 'FTM | Residencial Itália',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/FTM_Resisdencial_Italia_Fachada_Casa_Diurna_HR.jpg',
-      },
-      {
         id: 'loteamentos-13',
         title: 'FTM | Residencial Itália',
         image:
@@ -2269,12 +2146,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'Quero Meu Apê | Pedra do Sol',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Quero_Meu_Ape_Pedra_do_Sol_Esp_Zen_HR.jpg',
-      },
-      {
-        id: 'loteamentos-28',
-        title: 'Quero Meu Apê | Pedra do Sol',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LOTEAMENTOS/Quero_Meu_Ape_Pedra_do_Sol_Fotomontagem_HR.jpg',
       },
       {
         id: 'loteamentos-29',
@@ -2480,12 +2351,6 @@ const rawGallerySections: GallerySectionType[] = [
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/MF7_Cariris_Gourmet_A4.jpg',
       },
       {
-        id: 'internas-35',
-        title: 'MF7 | Cariris',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/MF7_Cariris_Lobby_Comercial_A4.jpg',
-      },
-      {
         id: 'internas-36',
         title: 'MF7 | Cariris',
         image:
@@ -2574,11 +2439,6 @@ const rawGallerySections: GallerySectionType[] = [
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Pagano_Franca_Reuniao_02_HR.jpg',
       },
       {
-        id: 'internas-52',
-        title: 'Pagano | Franca',
-        image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Pagano_Franca_Reuniao_HR.jpg',
-      },
-      {
         id: 'internas-53',
         title: 'Pagano | Franca',
         image: 'https://img.flyingstudio.com.br/site-flying-web/LIVING/Pagano_Franca_Suite_204_HR.jpg',
@@ -2611,18 +2471,6 @@ const rawGallerySections: GallerySectionType[] = [
         title: 'ProHidro | Carlos Reinaldo',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/LIVING/Prohidro_Carlos_Reinaldo_Festas_HR.jpg',
-      },
-      {
-        id: 'internas-59',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Prohidro_Carlos_Reinaldo_Living_Tipo_01_HR.jpg',
-      },
-      {
-        id: 'internas-60',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Prohidro_Carlos_Reinaldo_Living_Tipo_03_HR.jpg',
       },
       {
         id: 'internas-61',
@@ -2779,69 +2627,69 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'internas-87',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Bicicletario_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Bicicletario_HR.jpg',
       },
       {
         id: 'internas-88',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Brinquedoteca_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Brinquedoteca_HR.jpg',
       },
       {
         id: 'internas-89',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
       },
       {
         id: 'internas-90',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Delivery_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Delivery_HR.jpg',
       },
       {
         id: 'internas-91',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Estudio_Podcast_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Estudio_Podcast_HR.jpg',
       },
       {
         id: 'internas-92',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Fitness_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Fitness_HR.jpg',
       },
       {
         id: 'internas-93',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Gourmet_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Gourmet_HR.jpg',
       },
       {
         id: 'internas-94',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Hall_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Hall_HR.jpg',
       },
       {
         id: 'internas-95',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Salao_Festas_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Salao_Festas_HR.jpg',
       },
       {
         id: 'internas-96',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Sauna_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Sauna_HR.jpg',
       },
       {
         id: 'internas-97',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
-          'https://img.flyingstudio.com.br/site-flying-web/LIVING/Tavares_Rosseti_Livigno_Spinning_R00.jpg',
+          'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Spinning_HR.jpg',
       },
       {
         id: 'internas-98',
@@ -2889,18 +2737,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Terreo_HR_v2.jpg',
       },
       {
-        id: 'plantas-humanizadas-07',
-        title: 'Ousy | The One Tucuruvi',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_29%2C33m%C2%B2_Inferior_HR_v2.jpg',
-      },
-      {
-        id: 'plantas-humanizadas-08',
-        title: 'Ousy | The One Tucuruvi',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Ousy_The_One_Tucuruvi_Tipo_31%2C91m%C2%B2_Inferior_HR_v2.jpg',
-      },
-      {
         id: 'plantas-humanizadas-09',
         title: 'Paes G. | Orissanga',
         image:
@@ -2919,24 +2755,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Paes_G_Orissanga_Terreo_R00_v2.jpg',
       },
       {
-        id: 'plantas-humanizadas-12',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_01_HR_v2.jpg',
-      },
-      {
-        id: 'plantas-humanizadas-13',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Tipo_02_HR_v2.jpg',
-      },
-      {
-        id: 'plantas-humanizadas-14',
-        title: 'ProHidro | Carlos Reinaldo',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Prohidro_Carlos_Reinaldo_Torre_Inferior_C_HR_v2.jpg',
-      },
-      {
         id: 'plantas-humanizadas-15',
         title: 'Quero Meu Apê',
         image:
@@ -2949,12 +2767,6 @@ const rawGallerySections: GallerySectionType[] = [
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_1%C2%BA_Pavimento_HR_v2.jpg',
       },
       {
-        id: 'plantas-humanizadas-17',
-        title: 'Reacty | Brooklin',
-        image:
-          'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Reacty_Brooklin_Implantacao_4%C2%BA_ao_12%C2%BA_Pavimento_HR_v2.jpg',
-      },
-      {
         id: 'plantas-humanizadas-18',
         title: 'Reacty | Brooklin',
         image:
@@ -2962,19 +2774,19 @@ const rawGallerySections: GallerySectionType[] = [
       },
       {
         id: 'plantas-humanizadas-19',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Rooftop_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-20',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Implantacao_Terreo_HR_v2.jpg',
       },
       {
         id: 'plantas-humanizadas-21',
-        title: 'Tavares Rosseti | Livigno',
+        title: 'Tavares e Rosseti | Livigno',
         image:
           'https://img.flyingstudio.com.br/site-flying-web/PLANTAS/Tavares_Rosseti_Pavimento_Tipo_HR_v2.jpg',
       },

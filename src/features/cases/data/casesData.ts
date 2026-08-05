@@ -13,13 +13,13 @@ export const CASES_CDN = 'https://img.flyingstudio.com.br/site-flying-web/CASES'
 
 export const caseProjects: CaseProject[] = [
   {
-    id: 'the-one-saude',
-    title: 'The One Saúde',
-    company: 'OUSY',
-    location: 'SÃO PAULO, SP',
-    image: '/cases/the-one.jpg',
+    id: 'macuco-grand-canal',
+    title: 'Macuco Grand Canal',
+    company: 'MACUCO',
+    location: 'SANTOS, SP',
+    image: `${CASES_CDN}/MACUCO_GRAND_CANAL/Macuco_Grand_Canal_Piscina_HR.jpg`,
     size: 'wide',
-    imagePosition: 'center 52%',
+    imagePosition: 'center 55%',
   },
   {
     id: 'canvas-altino',
@@ -42,7 +42,7 @@ export const caseProjects: CaseProject[] = [
   {
     id: 'livigno',
     title: 'Livigno',
-    company: 'TAVARES ROSSETE',
+    company: 'TAVARES E ROSSETI',
     location: 'SÃO PAULO, SP',
     image: '/cases/livigno.jpg',
     size: 'wide',

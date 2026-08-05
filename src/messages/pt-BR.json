@@ -50,7 +50,7 @@
           "name": "Flying Studio",
           "slogan": "Muito além das perspectivas.",
           "role": "Ecossistema de lançamentos",
-          "desc": "O arsenal que encanta, imerge e vende: imagens, aplicativos, tours 360º e experiências imersivas."
+          "desc": "Orquestramos um arsenal tecnológico projetado para encantar, imergir e vender — imagens, aplicativos, imersão 360º, filmes e experiências que tangibilizam o amanhã."
         },
         "rinno": {
           "name": "Rinno Films",
@@ -68,7 +68,7 @@
           "name": "Open Group",
           "slogan": "O Valor nasce antes da obra.",
           "role": "Desenvolvimento imobiliário",
-          "desc": "Da oportunidade ao lançamento: estruturação, viabilidade e produto imobiliário."
+          "desc": "Da oportunidade ao lançamento: estruturação, viabilidade, formatação e lançamento."
         }
       }
     }
@@ -291,17 +291,14 @@
     },
     "sections": {
       "conceitos": {
-        "eyebrow": "10 vídeos",
         "title": "Conceitos",
         "description": "Filmes conceituais focados no lifestyle e no posicionamento da marca, conectando o empreendimento à emoção do comprador."
       },
       "produtos": {
-        "eyebrow": "13 vídeos",
         "title": "Produtos",
         "description": "Um mergulho profundo na arquitetura, infraestrutura e diferenciais técnicos, valorizando cada metro quadrado do empreendimento."
       },
       "virais": {
-        "eyebrow": "14 vídeos",
         "title": "Virais",
         "description": "Formatos curtos e dinâmicos em 9:16, otimizados para gerar engajamento nas redes sociais e campanhas de tráfego pago."
       }
@@ -312,10 +309,13 @@
       "pageLabel": "Ir para a página {page}",
       "closeLabel": "Fechar vídeo",
       "openLabel": "Abrir vídeo {title}",
-      "expandLabel": "Ampliar vídeo {title}"
+      "expandLabel": "Ampliar vídeo {title}",
+      "seeMoreRinno": "Veja mais na Rinno Films"
     },
     "rinno": {
       "eyebrow": "Rinno Films · Grupo Flying",
+      "leadQuestion": "Procurando filmes documentários e institucionais?",
+      "leadAnswer": "São com a <rinno>Rinno Films</rinno> — a mesma produtora por trás de todos os filmes desta página.",
       "titlePre": "Aqui nasce o",
       "titleAccent": "cinema imobiliário.",
       "description": "A produtora do grupo trata cada empreendimento como roteiro: documentários que eternizam a primeira centelha criativa, filmes conceituais e de produto que despertam o desejo, e narrativas virais que dominam as redes.",
@@ -468,12 +468,12 @@
     },
     "statement": {
       "headline": "Nós não apenas exibimos o amanhã — nós o fazemos ser sentido.",
-      "complement": "Se uma imagem fala mais do que mil palavras, imagine o poder de um universo digital inteiro conspirando a favor da sua próxima grande venda."
+      "complement": "Se uma imagem fala mais do que mil palavras, imagine o poder de um universo digital inteiro conspirando a favor do seu próximo grande lançamento."
     },
     "qg": {
       "eyebrow": "NOSSO QG",
       "title": "O epicentro da tecnologia imobiliária",
-      "address": "Av. Engenheiro Luís Carlos Berrini, 936 — 7º andar, São Paulo",
+      "address": "Av. Engenheiro Luís Carlos Berrini — Itaim Bibi, São Paulo, SP",
       "description": "Mais que um estúdio: um laboratório de inovação onde mentes criativas, desenvolvedores de tecnologia e estrategistas de lançamento atuam em total sinergia. Onde quer que o seu empreendimento esteja nascendo, é daqui que orquestramos a inteligência visual e tecnológica que o fará dominar o mercado."
     },
     "vozes": {
@@ -594,14 +594,14 @@
       },
       "card5": {
         "name": "Livigno",
-        "description": "TAVARES ROSSETI"
+        "description": "TAVARES E ROSSETI"
       }
     }
   },
   "Footer": {
     "phone": "(11) 2351-4138",
     "email": "studio@flyingstudio.com.br",
-    "address": "Av. Engenheiro Luís Carlos Berrini, 936 - Itaim Bibi, São Paulo, SP.",
+    "address": "Av. Engenheiro Luís Carlos Berrini — Itaim Bibi, São Paulo, SP",
     "ariaLabel": "Flying Studio no {name}"
   },
   "Contato": {
@@ -867,8 +867,8 @@
       "title": "Inteligência traduzida em <accent>experiência</accent>.",
       "seeComplete": "Ver completo",
       "items": {
-        "the-one-saude": {
-          "description": "Um lançamento construído por diferentes especialidades, da arquitetura à experiência digital."
+        "macuco-grand-canal": {
+          "description": "O lazer em escala de clube e uma narrativa visual que apresenta cada ambiente antes da obra."
         },
         "canvas-altino": {
           "description": "Da vocação do lugar à narrativa que vende: um lançamento completo, desejado antes de existir."
@@ -900,20 +900,20 @@
       "seeMore": "Ver mais",
       "nextCase": "Próximo case",
       "items": {
-        "the-one-saude": {
-          "heroDescription": "Um lançamento construído por diferentes especialidades, da arquitetura à experiência digital.",
-          "statement": "Um lançamento com uma só <accent>linguagem</accent>.",
-          "narrative": "The One Saúde nasce da união entre uma arquitetura acolhedora, uma atmosfera visual aspiracional e uma experiência comercial capaz de apresentar o empreendimento com clareza.",
+        "macuco-grand-canal": {
+          "heroDescription": "Um lançamento construído em todas as frentes, do conceito do produto ao filme que o apresenta.",
+          "statement": "Um mundo inteiro no mesmo <accent>endereço</accent>.",
+          "narrative": "O Macuco Grand Canal nasce da generosidade: um produto que reúne lazer, bem-estar e convivência em escala de clube, ambientes desenhados para todas as idades e uma narrativa visual que faz cada espaço ser vivido antes da obra.",
           "ficha": {
             "type": "Residencial",
-            "location": "Saúde | São Paulo, SP",
-            "scope": "Conceituação, arquitetura, visualização, aplicativo e audiovisual"
+            "location": "Santos, SP",
+            "scope": "Conceituação, PDV, visualização, aplicativo e audiovisual"
           },
           "services": {
-            "ogdi": "Assinou a análise de vocação e o desenvolvimento de conceito do empreendimento.",
-            "nid": "Desenhou as áreas comuns do empreendimento.",
-            "flying": "Criou as imagens que apresentam todos os ambientes e o aplicativo comercial do lançamento.",
-            "rinno": "Produziu o Filme Conceito, o Filme Produto e o Filme Viral que deram movimento ao lançamento."
+            "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
+            "nid": "Assinou o design do PDV do lançamento.",
+            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
+            "rinno": "Produziu o Filme Conceito, o Filme Corretor e as pílulas para redes."
           }
         },
         "canvas-altino": {
