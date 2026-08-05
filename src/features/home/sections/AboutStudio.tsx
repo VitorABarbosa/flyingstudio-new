@@ -173,7 +173,7 @@ export default function AboutStudio() {
 
           <motion.div
             variants={revealItem}
-            className="absolute top-[678px] left-[843px] w-[480px] font-['Outfit'] text-[20px] leading-[1.5] font-normal text-[var(--theme-muted)]"
+            className="absolute top-[678px] left-[843px] w-[480px] text-justify font-['Outfit'] text-[20px] leading-[1.5] font-normal text-[var(--theme-muted)]"
           >
             {t('intro')}
           </motion.div>
@@ -207,7 +207,7 @@ export default function AboutStudio() {
               {t('years')}
             </p>
 
-            <p className="mt-[16px] w-[448px] font-['Outfit'] text-[20px] leading-[1.5] font-normal text-[var(--theme-muted)]">
+            <p className="mt-[16px] w-[448px] text-justify font-['Outfit'] text-[20px] leading-[1.5] font-normal text-[var(--theme-muted)]">
               {t('description')}
             </p>
 

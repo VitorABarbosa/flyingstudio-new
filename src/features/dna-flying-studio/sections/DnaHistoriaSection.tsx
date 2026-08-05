@@ -54,11 +54,11 @@ export default function DnaHistoriaSection() {
             {t('foundedLabel')}
           </p>
 
-          <p className="mt-6 text-[15px] leading-[1.7] text-[var(--theme-muted)] md:text-[20px]">
+          <p className="mt-6 text-justify text-[15px] leading-[1.7] text-[var(--theme-muted)] md:text-[20px]">
             {t('description')}
           </p>
 
-          <p className="mt-5 text-[15px] leading-[1.7] text-[var(--theme-muted)] md:text-[20px]">
+          <p className="mt-5 text-justify text-[15px] leading-[1.7] text-[var(--theme-muted)] md:text-[20px]">
             {t('description2')}
           </p>
         </div>

@@ -31,7 +31,7 @@ export default function DnaGrupoSection() {
           <h2 className="text-[40px] leading-tight font-semibold text-[var(--theme-text)] md:text-[64px]">
             {t('titlePre')} <span className="text-[var(--theme-accent)]">{t('titleAccent')}</span>
           </h2>
-          <p className="mx-auto mt-5 text-[16px] leading-[1.65] text-[var(--theme-muted)] md:text-[22px]">
+          <p className="mx-auto mt-5 text-justify [text-align-last:center] text-[16px] leading-[1.65] text-[var(--theme-muted)] md:text-[22px]">
             {t('description')}
           </p>
         </div>

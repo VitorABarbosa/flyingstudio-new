@@ -13,6 +13,12 @@ type GallerySectionProps = {
 
 const INITIAL_VISIBLE_ITEMS = 17;
 
+/**
+ * O "Ver mais" revela a galeria em lotes: cada clique acrescenta este número
+ * de fileiras, em vez de abrir o restante inteiro de uma vez.
+ */
+const ROWS_PER_CHUNK = 5;
+
 /* Fileiras de 3 e 4 (antes 2 e 3): com mais imagens dividindo a largura,
    nenhuma combinação de proporções preenche a linha com exatidão — sempre
    sobra folga para o hover revelar — e as linhas ficam naturalmente mais
@@ -155,7 +161,7 @@ export default function GallerySection({ section }: GallerySectionProps) {
   const t = useTranslations('Images3DPage');
   const [activeFilter, setActiveFilter] = useState('geral');
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [visibleChunkCount, setVisibleChunkCount] = useState(1);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const [imageAspectRatios, setImageAspectRatios] = useState<Record<string, number>>({});
@@ -199,7 +205,7 @@ export default function GallerySection({ section }: GallerySectionProps) {
 
       setActiveFilter(customEvent.detail.filter);
       setHoveredItemId(null);
-      setIsExpanded(false);
+      setVisibleChunkCount(1);
       setLightboxIndex(null);
     }
 
@@ -271,11 +277,11 @@ export default function GallerySection({ section }: GallerySectionProps) {
     });
   }
 
-  function handleExpandGallery() {
+  function handleShowMoreRows() {
     const currentScrollY = window.scrollY;
 
     setHoveredItemId(null);
-    setIsExpanded(true);
+    setVisibleChunkCount((current) => current + 1);
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -327,16 +333,28 @@ export default function GallerySection({ section }: GallerySectionProps) {
     return null;
   }
 
+  type GalleryItem = GallerySectionType['items'][number];
+
   const visibleItems = section.items.slice(0, INITIAL_VISIBLE_ITEMS);
   const extraItems = section.items.slice(INITIAL_VISIBLE_ITEMS);
 
-  const hasMoreImages = extraItems.length > 0;
+  /* Todas as fileiras da seção, na sequência definitiva: as 17 primeiras
+     imagens seguem o padrão da seção e o restante continua a alternância
+     a partir de linha de 4. */
+  const allRows: GalleryItem[][] = [
+    ...buildImageRows(visibleItems, getSectionRowPattern(section.id)),
+    ...(extraItems.length > 0 ? buildImageRows(extraItems, EXTRA_ROW_SIZES) : []),
+  ];
 
-  const visibleRows = buildImageRows(visibleItems, getSectionRowPattern(section.id));
+  /* Lotes de ROWS_PER_CHUNK fileiras: cada "Ver mais" libera o próximo lote. */
+  const rowChunks: GalleryItem[][][] = [];
 
-  const extraRows = buildImageRows(extraItems, EXTRA_ROW_SIZES);
+  for (let index = 0; index < allRows.length; index += ROWS_PER_CHUNK) {
+    rowChunks.push(allRows.slice(index, index + ROWS_PER_CHUNK));
+  }
 
-  type GalleryItem = GallerySectionType['items'][number];
+  const visibleChunks = rowChunks.slice(0, visibleChunkCount);
+  const hasMoreImages = visibleChunkCount < rowChunks.length;
 
   function renderImageRow(
     row: GalleryItem[],
@@ -487,37 +505,26 @@ export default function GallerySection({ section }: GallerySectionProps) {
             GalleryFilterBar, que persiste acima das seções. */}
         <LayoutGroup id={`gallery-${section.id}`}>
           <div className="relative">
-            <motion.div
-              key={activeFilter}
-              variants={imagesContainer}
-              initial="hidden"
-              animate="show"
-              className="mt-6 flex flex-col gap-3"
-            >
-              {visibleRows.map((row, rowIndex) =>
-                renderImageRow(row, rowIndex, rowIndex, 'visible')
-              )}
-            </motion.div>
-
-            {isExpanded && extraRows.length > 0 && (
+            {visibleChunks.map((chunk, chunkIndex) => (
               <motion.div
+                key={`${section.id}-chunk-${chunkIndex}`}
                 variants={imagesContainer}
                 initial="hidden"
                 animate="show"
-                className="mt-3 flex flex-col gap-3"
+                className={`${chunkIndex === 0 ? 'mt-6' : 'mt-3'} flex flex-col gap-3`}
               >
-                {extraRows.map((row, rowIndex) =>
+                {chunk.map((row, rowIndex) =>
                   renderImageRow(
                     row,
                     rowIndex,
-                    visibleRows.length + rowIndex,
-                    'extra'
+                    chunkIndex * ROWS_PER_CHUNK + rowIndex,
+                    `chunk-${chunkIndex}`
                   )
                 )}
               </motion.div>
-            )}
+            ))}
 
-            {!isExpanded && hasMoreImages && (
+            {hasMoreImages && (
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -541,7 +548,7 @@ export default function GallerySection({ section }: GallerySectionProps) {
                   onMouseDown={(event) => {
                     event.preventDefault();
                   }}
-                  onClick={handleExpandGallery}
+                  onClick={handleShowMoreRows}
                   className="cursor-pointer rounded-full border border-[color-mix(in_srgb,var(--theme-text)_16%,transparent)] bg-[var(--theme-surface)] px-7 py-3 font-['Outfit'] text-[14px] font-semibold text-[var(--theme-text)] shadow-[0_16px_40px_-24px_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-[var(--theme-accent)] hover:text-[var(--theme-accent)] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none"
                 >
                   {t('seeMoreLabel')}

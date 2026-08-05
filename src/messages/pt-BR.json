@@ -41,7 +41,7 @@
       "eyebrow": "Nosso Grupo",
       "titleStart": "Uma essência,",
       "titleAccent": "quatro olhares",
-      "narrative": "Um grande lançamento exige maestria em múltiplas frentes. O Grupo Flying reúne empresas especializadas operando em perfeita sinergia — da formatação do produto à tecnologia do lançamento. Quando todas as frentes falam a mesma língua, o resultado é velocidade, coerência e conversão.",
+      "narrative": "Um grande lançamento exige maestria em múltiplas frentes — e é assim que o Grupo Flying trabalha: empresas especializadas operando em perfeita sinergia, da análise de vocação e formatação do produto ao design, ao audiovisual e à tecnologia do lançamento. Quando todas as frentes falam a mesma língua, o resultado se traduz em velocidade, coerência e conversão.",
       "cta": "Conheça o grupo por dentro",
       "visitLabel": "Conhecer o site",
       "visitFlying": "Conhecer nosso DNA",
@@ -268,7 +268,7 @@
         "description": "Perspectivas externas criadas para transmitir atmosfera, acabamento, iluminação e experiência de uso."
       }
     },
-    "seeMoreLabel": "Ver completo",
+    "seeMoreLabel": "Ver mais",
     "lightbox": {
       "previous": "Imagem anterior",
       "next": "Próxima imagem",
@@ -438,7 +438,7 @@
         "cultura": {
           "eyebrow": "NOSSA",
           "title": "Cultura",
-          "description": "Nossa evolução foi um despertar. A arte sempre será o nosso compasso, mas a trajetória nos trouxe algo ainda mais valioso: a precisão mercadológica. Aprendemos a ler os sussurros do mercado para capturar as necessidades não ditas do consumidor — e é essa dupla natureza, artística e estratégica, que define quem faz parte daqui."
+          "description": "Nossa cultura é baseada na união entre estratégia, criatividade e colaboração para entregar soluções de alto valor. Atuamos com precisão mercadológica, utilizando inteligência e conhecimento do mercado para orientar nossas decisões. Valorizamos a agilidade na execução, sem abrir mão da qualidade, e acreditamos em um ecossistema unificado, onde a comunicação clara e a integração entre as áreas eliminam ruídos e proporcionam uma experiência consistente para clientes e equipe."
         },
         "proposito": {
           "eyebrow": "NOSSO",
@@ -454,11 +454,11 @@
       "pilares": {
         "missao": {
           "title": "Missão",
-          "description": "Fazer o cliente vivenciar o futuro: materializar o sonho do comprador antes da obra e transformar cada apresentação em decisão de compra."
+          "description": "Materializar o futuro antes da obra, transformando projetos em experiências que inspiram confiança, despertam desejo e aceleram decisões de compra."
         },
         "visao": {
           "title": "Visão",
-          "description": "Ser o ecossistema por trás dos grandes lançamentos: a inteligência visual e tecnológica que os maiores players procuram para dominar o mercado."
+          "description": "Consolidar o maior ecossistema de experiências de marca da América Latina e expandir nossa presença internacional, tornando-nos referência mundial em inovação, excelência e transformação de projetos em experiências de alto impacto."
         },
         "valores": {
           "title": "Valores",

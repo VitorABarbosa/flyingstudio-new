@@ -45,7 +45,7 @@ export default function GrupoFlying() {
           </div>
           <motion.p
             variants={revealItem}
-            className="max-w-[44ch] text-[clamp(0.95rem,1.1vw,1.1rem)] leading-[1.6] text-[var(--theme-muted)]"
+            className="max-w-[58ch] text-justify text-[clamp(0.95rem,1.1vw,1.1rem)] leading-[1.6] text-[var(--theme-muted)]"
           >
             {t('narrative')}
           </motion.p>

@@ -78,7 +78,7 @@ export default function DnaEssenciaSection() {
               <span className="text-[18px] font-bold uppercase tracking-[0.06em] text-[var(--theme-accent)] md:text-[22px]">
                 {t(`slides.${activeSlide}.eyebrow`)} {t(`slides.${activeSlide}.title`)}
               </span>
-              <p className="max-w-[1280px] text-[18px] leading-[1.55] font-medium text-[var(--theme-text)] md:text-[26px]">
+              <p className="max-w-[1280px] text-justify text-[18px] leading-[1.55] font-medium text-[var(--theme-text)] md:text-[26px]">
                 {t(`slides.${activeSlide}.description`)}
               </p>
             </motion.div>
@@ -114,7 +114,7 @@ export default function DnaEssenciaSection() {
                 <h3 className="text-[30px] leading-[1.2] font-semibold text-[var(--theme-text)] md:text-[38px]">
                   {t(`pilares.${pilar.key}.title`)}
                 </h3>
-                <p className="text-[15px] leading-[1.6] text-[var(--theme-muted)] md:text-[16px]">
+                <p className="text-justify text-[15px] leading-[1.6] text-[var(--theme-muted)] md:text-[16px]">
                   {t(`pilares.${pilar.key}.description`)}
                 </p>
               </div>
