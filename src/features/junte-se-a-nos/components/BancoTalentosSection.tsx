@@ -14,7 +14,7 @@ import {
   pressTap,
 } from '../lib/animations';
 
-const areaKeys = ['comercial', 'arte', 'tecnologia', 'talentos', 'other'] as const;
+const areaKeys = ['administrativo', 'arte', 'tecnologia', 'arquitetura', 'other'] as const;
 
 function Field({
   label,

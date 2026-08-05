@@ -78,7 +78,7 @@ export default function DnaEssenciaSection() {
               <span className="text-[18px] font-bold uppercase tracking-[0.06em] text-[var(--theme-accent)] md:text-[22px]">
                 {t(`slides.${activeSlide}.eyebrow`)} {t(`slides.${activeSlide}.title`)}
               </span>
-              <p className="max-w-[1280px] text-justify text-[18px] leading-[1.55] font-medium text-[var(--theme-text)] md:text-[26px]">
+              <p className="max-w-[1280px] text-justify text-[18px] leading-[1.55] font-normal text-[var(--theme-text)] md:text-[26px]">
                 {t(`slides.${activeSlide}.description`)}
               </p>
             </motion.div>

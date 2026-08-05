@@ -65,7 +65,9 @@ export default function DnaStatementSection() {
   const words = t('headline').split(' ');
 
   return (
-    <section className="w-full">
+    /* `-mt`: encurta só o vão História → manifesto, sem mexer no ritmo
+       (gap) compartilhado pelas outras seções da página. */
+    <section className="-mt-6 w-full md:-mt-12">
       <div ref={headlineRef} className="mx-auto w-full max-w-[1500px] px-4 text-center md:px-6">
         <p className="font-['Outfit'] text-[clamp(36px,6vw,96px)] leading-[1.1] font-semibold text-[var(--theme-text)]">
           {words.map((word, index) => (

@@ -690,11 +690,11 @@
         }
       },
       "areas": {
-        "comercial": "Sales",
+        "administrativo": "Administrative",
         "arte": "Art & Creation",
         "tecnologia": "Technology",
-        "talentos": "Talent",
-        "other": "Other"
+        "arquitetura": "Architecture",
+        "other": "Others"
       },
       "uploadTitle": "Add your résumé here",
       "uploadHint": "drag the file or click the area",
@@ -907,11 +907,11 @@
           "ficha": {
             "type": "Residential",
             "location": "Santos, Brazil",
-            "scope": "Concept, sales stand, visualization, app and film"
+            "scope": "Concept, design, visualization, app and film"
           },
           "services": {
             "ogdi": "Led the vocation analysis and concept development for the project.",
-            "nid": "Designed the launch's sales stand.",
+            "nid": "Designed the shared amenities décor, the facade and the launch's sales stand.",
             "flying": "Produced the development's images and the launch's sales app.",
             "rinno": "Produced the Concept Film, the Broker Film and the social media clips."
           }
@@ -927,9 +927,9 @@
           },
           "services": {
             "ogdi": "Handled the vocation analysis and concept development for the project.",
-            "nid": "Created the sales stand and the decorated model apartment.",
+            "nid": "Created the sales stand, the decorated model apartment, the shared amenities and the facade design.",
             "flying": "Produced the project's images and the sales app.",
-            "rinno": "Produced the Concept Film, the Broker Film, the social pills and the 3D Storytelling Film."
+            "rinno": "Produced the Concept Film, the Product Film, the Viral Film and the LED panel clips."
           }
         },
         "the-one-tucuruvi": {
@@ -945,7 +945,7 @@
             "ogdi": "Handled the vocation analysis and concept development for the project.",
             "nid": "Created the project's facade and interior design.",
             "flying": "Produced the project's images and the sales app.",
-            "rinno": "Produced the launch's Concept, Product and Viral films."
+            "rinno": "Produced the launch's Product and Viral films."
           }
         },
         "livigno": {
@@ -955,12 +955,13 @@
           "ficha": {
             "type": "Residential",
             "location": "São Paulo, Brazil",
-            "scope": "Concept, architecture, visualization and app"
+            "scope": "Concept, architecture, visualization, app and film"
           },
           "services": {
             "ogdi": "Handled the vocation analysis and concept development for the project.",
-            "nid": "Created the sales stand, the decorated units and the shared amenities.",
-            "flying": "Produced the project's images and the sales app."
+            "nid": "Created the sales stand, the decorated units, the shared amenities and the executive architectural project.",
+            "flying": "Produced the project's images and the sales app.",
+            "rinno": "Produced the launch's Concept, Product and Viral films."
           }
         }
       }

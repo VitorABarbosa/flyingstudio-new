@@ -690,11 +690,11 @@
         }
       },
       "areas": {
-        "comercial": "Comercial",
+        "administrativo": "Administrativo",
         "arte": "Arte e Criação",
         "tecnologia": "Tecnologia",
-        "talentos": "Talentos",
-        "other": "Outra"
+        "arquitetura": "Arquitetura",
+        "other": "Outros"
       },
       "uploadTitle": "Adicione o currículo aqui",
       "uploadHint": "arraste o arquivo ou clique na área",
@@ -907,11 +907,11 @@
           "ficha": {
             "type": "Residencial",
             "location": "Santos, SP",
-            "scope": "Conceituação, PDV, visualização, aplicativo e audiovisual"
+            "scope": "Conceituação, design, visualização, aplicativo e audiovisual"
           },
           "services": {
             "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
-            "nid": "Assinou o design do PDV do lançamento.",
+            "nid": "Assinou a decoração das áreas comuns, o design de fachada e o PDV do lançamento.",
             "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
             "rinno": "Produziu o Filme Conceito, o Filme Corretor e as pílulas para redes."
           }
@@ -927,9 +927,9 @@
           },
           "services": {
             "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
-            "nid": "Criou o PDV e o apartamento decorado do lançamento.",
+            "nid": "Criou o PDV, o apartamento decorado, as áreas comuns e o design de fachada do lançamento.",
             "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
-            "rinno": "Produziu o Filme Conceito, o Filme Corretor, as pílulas para redes e o Filme Storytelling 3D."
+            "rinno": "Produziu o Filme Conceito, o Filme Produto, o Filme Viral e as pílulas para painel de LED."
           }
         },
         "the-one-tucuruvi": {
@@ -945,7 +945,7 @@
             "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
             "nid": "Criou o design de fachada e o design de interiores do empreendimento.",
             "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
-            "rinno": "Produziu o Filme Conceito, o Filme Produto e o Filme Viral do lançamento."
+            "rinno": "Produziu o Filme Produto e o Filme Viral do lançamento."
           }
         },
         "livigno": {
@@ -955,12 +955,13 @@
           "ficha": {
             "type": "Residencial",
             "location": "São Paulo, SP",
-            "scope": "Conceituação, arquitetura, visualização e aplicativo"
+            "scope": "Conceituação, arquitetura, visualização, aplicativo e audiovisual"
           },
           "services": {
             "ogdi": "Fez a análise de vocação e o desenvolvimento de conceito do empreendimento.",
-            "nid": "Criou o PDV, os apartamentos decorados e as áreas comuns do projeto.",
-            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas."
+            "nid": "Criou o PDV, os apartamentos decorados, as áreas comuns e o projeto executivo arquitetônico.",
+            "flying": "Produziu as imagens do empreendimento e o aplicativo comercial de vendas.",
+            "rinno": "Produziu o Filme Conceito, o Filme Produto e o Filme Viral do lançamento."
           }
         }
       }

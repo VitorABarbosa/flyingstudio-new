@@ -24,29 +24,49 @@ type HeroSlide = {
    (`unoptimized` no <Image>): qualidade máxima absoluta, ao custo de
    12-28 MB por slide — decisão consciente, validada em uso. O resto do site
    segue nas versões -web otimizadas. */
+/* Seleção curada pelo Vitor em site-flying/HOME_HERO/ (originais, na ordem
+   dos arquivos). As animações alternam entre os quatro movimentos. */
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: 'https://img.flyingstudio.com.br/site-flying/LOTEAMENTOS/Granlote_Boituva_Piscina_Clube_A_HR.jpg',
-    alt: 'Granlote Boituva — piscina do clube',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/01.jpg',
+    alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-in',
   },
   {
     id: 'slide-2',
-    src: 'https://img.flyingstudio.com.br/site-flying/LIVING/Mf7_Laje_Laje_Coworking_R00.jpg',
-    alt: 'MF7 Laje — coworking',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/02.png',
+    alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-3',
-    src: 'https://img.flyingstudio.com.br/site-flying/FACHADAS/GNO_Manhattan_Fachada_R00.jpg',
-    alt: 'GNO Manhattan — fachada',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/03.jpg',
+    alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-pan-right',
   },
   {
     id: 'slide-4',
-    src: 'https://img.flyingstudio.com.br/site-flying/LIVING/ARGO_SEVEN_VARANDA%20SUITE%202.jpg',
-    alt: 'Argo Seven — varanda da suíte',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/04.jpg',
+    alt: 'Destaque do acervo Flying Studio',
+    animation: 'hero-zoom-out',
+  },
+  {
+    id: 'slide-5',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/05.jpg',
+    alt: 'Destaque do acervo Flying Studio',
+    animation: 'hero-zoom-in',
+  },
+  {
+    id: 'slide-6',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/06.png',
+    alt: 'Destaque do acervo Flying Studio',
+    animation: 'hero-pan-left',
+  },
+  {
+    id: 'slide-7',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/07.png',
+    alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-out',
   },
 ];
@@ -168,13 +188,13 @@ export default function HeroSection() {
             />
           </motion.button>
 
-          {/* Dots do carrossel — circulos de 12px, pitch 36px.
+          {/* Dots do carrossel — circulos de 10px.
             Ativo: var(--theme-accent) (roxo light / verde-limao dark).
             Inativo: var(--theme-rail-inactive).
             Centralizados em x=982 (mesmo centro do tagline e do botao seta). */}
           <motion.div
             variants={revealItemCentered}
-            className="absolute flex items-center gap-[16px]"
+            className="absolute flex items-center gap-[14px]"
             style={{ top: `${HERO_DOTS_TOP}px`, left: '982px' }}
           >
             {heroSlides.map((slide, index) => {
@@ -187,10 +207,10 @@ export default function HeroSection() {
                   aria-label={`Ir para o slide ${index + 1}`}
                   aria-pressed={isActive}
                   onClick={() => setCurrentSlide(index)}
-                  className="flex size-[20px] cursor-pointer items-center justify-center"
+                  className="flex size-[18px] cursor-pointer items-center justify-center"
                 >
                   <span
-                    className={`size-[12px] rounded-full transition-colors duration-200 ${
+                    className={`size-[10px] rounded-full transition-colors duration-200 ${
                       isActive ? 'bg-[var(--theme-accent)]' : 'bg-[var(--theme-rail-inactive)]'
                     }`}
                   />

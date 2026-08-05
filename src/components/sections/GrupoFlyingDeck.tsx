@@ -49,7 +49,8 @@ const COMPANIES: {
     color: '#FF8A3D', // laranja NID
     media: {
       type: 'image',
-      src: 'https://img.flyingstudio.com.br/site-flying-web/CASES/LIVIGNO/Tavares_Rosseti_Livigno_Coworking_Reuniao_Lavanderia_HR.jpg',
+      /* Arquivo local escolhido pelo Vitor (2026-08-05). */
+      src: '/imagem-nid.jpg',
     },
     logo: '/cases/logo-nid.png',
     logoSize: 'min(64%, 250px)',

@@ -18,7 +18,7 @@ export default function GrupoFlying() {
   return (
     /* Respiro menor embaixo que em cima: Parceiros é o fecho de Nosso Grupo
        (as casas e depois quem confia nelas), não uma seção à parte. */
-    <section className="relative w-full overflow-hidden bg-[var(--theme-bg)] pt-[clamp(4rem,10vh,7rem)] pb-[clamp(2.5rem,5vh,4rem)] transition-colors duration-200">
+    <section className="relative w-full overflow-hidden bg-[var(--theme-bg)] pt-[clamp(1.75rem,4.5vh,3.25rem)] pb-[clamp(2.5rem,5vh,4rem)] transition-colors duration-200">
       {/* Cabeçalho no trilho editorial padrão. */}
       <motion.div
         className="relative z-10 mx-auto w-full max-w-[1400px] px-[clamp(1.5rem,5vw,5rem)]"

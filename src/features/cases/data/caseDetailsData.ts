@@ -105,8 +105,7 @@ export const caseDetails: Record<string, CaseDetail> = {
     id: 'livigno',
     heroImage: `${CASES_CDN}/LIVIGNO/Tavares_Rosseti_Livigno_Hall_HR.jpg`,
     heroImagePosition: 'center 50%',
-    /* A Rinno não participou deste case — sem filme no Livigno. */
-    companies: ['ogdi', 'nid', 'flying'],
+    companies: ['ogdi', 'nid', 'flying', 'rinno'],
     /* Todas as imagens do projeto — as mais impactantes abrem o mosaico. */
     mosaic: [
       `${CASES_CDN}/LIVIGNO/Tavares_Rosseti_Livigno_Fachada_Diurna_HR.jpg`,
