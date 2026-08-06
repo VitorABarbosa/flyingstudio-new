@@ -56,12 +56,13 @@ export default function ImageBlock({
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [loadAttempt, setLoadAttempt] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  /* Celular: download sob demanda de verdade. O lazy nativo do Safari busca
-     imagens muito à frente do scroll — na galeria (483 itens) isso vira uma
-     fila de downloads em segundo plano que enche a memória do iPhone. Aqui o
-     <img> só ganha src quando o item chega a ~1,5 telas do viewport; longe
-     disso, o navegador nem sabe que a imagem existe. Sair da página desmonta
-     tudo e os downloads param. Desktop não passa por isso (allowLoad nasce
+  /* Celular: download sob demanda de verdade, nos dois sentidos. O <img> só
+     ganha src quando o item chega a ~1,5 telas do viewport — e PERDE o src
+     quando fica para trás: rolar um case ou o acervo inteiro (483 itens) não
+     acumula centenas de imagens decodificadas na memória do iPhone (era o
+     resto que derrubava a aba ao navegar para outra página). Voltar ao item
+     recarrega do cache HTTP na hora; a proporção medida fica guardada no pai,
+     então o layout não pula. Desktop não passa por isso (allowLoad nasce
      true e permanece). */
   const [allowLoad, setAllowLoad] = useState(true);
 
@@ -69,17 +70,10 @@ export default function ImageBlock({
     if (!window.matchMedia('(max-width: 1023px)').matches) return;
     const container = containerRef.current;
     if (!container) return;
-    // Já veio do cache HTTP antes da hidratação? Não segura o que já chegou.
-    if (imgRef.current?.complete && imgRef.current.naturalWidth) return;
 
     setAllowLoad(false);
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAllowLoad(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => setAllowLoad(entry.isIntersecting),
       { rootMargin: '150% 0px' }
     );
     observer.observe(container);

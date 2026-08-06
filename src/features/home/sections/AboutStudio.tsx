@@ -151,11 +151,15 @@ export default function AboutStudio() {
             variants={revealItem}
             className="absolute top-[923px] left-[-375px] h-[644px] w-[560px] overflow-hidden rounded-[24px]"
           >
+            {/* No celular o canvas de 1920 é escalado para ~20% — as fotos
+                aparecem com ~60-130px. O sizes responsivo pede ao otimizador
+                imagens desse tamanho em vez das de desktop (~6 MB de RAM
+                decodificada a menos por foto na chegada à home). */}
             {renderAdjustedImage(
               'sideLeft',
               '/home/sobre/sobre-office-01.png',
               'Flying Studio - detalhe lateral do escritorio',
-              '326px',
+              '(max-width: 1023px) 17vw, 326px',
             )}
           </motion.div>
 
@@ -167,7 +171,7 @@ export default function AboutStudio() {
               'mainLeft',
               '/home/sobre/sobre-office-01.png',
               'Flying Studio - escritorio',
-              '560px',
+              '(max-width: 1023px) 29vw, 560px',
             )}
           </motion.div>
 
@@ -186,7 +190,7 @@ export default function AboutStudio() {
               'centerBottom',
               '/home/sobre/sobre-office-01.png',
               'Flying Studio - ambiente interno',
-              '560px',
+              '(max-width: 1023px) 29vw, 560px',
             )}
           </motion.div>
 
@@ -198,7 +202,7 @@ export default function AboutStudio() {
               'mainRight',
               '/home/sobre/sobre-office-02.png',
               'Flying Studio - uma imagem vale mais que mil',
-              '618px',
+              '(max-width: 1023px) 32vw, 618px',
             )}
           </motion.div>
 
