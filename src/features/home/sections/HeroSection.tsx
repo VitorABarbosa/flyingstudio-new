@@ -53,9 +53,21 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'slide-5',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/05.png',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/05.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-in',
+  },
+  {
+    id: 'slide-6',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/06.jpg',
+    alt: 'Destaque do acervo Flying Studio',
+    animation: 'hero-pan-left',
+  },
+  {
+    id: 'slide-7',
+    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/07.png',
+    alt: 'Destaque do acervo Flying Studio',
+    animation: 'hero-zoom-out',
   },
 ];
 

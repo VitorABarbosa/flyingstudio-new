@@ -86,7 +86,7 @@ export default function DnaStatementSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
-          className="mx-auto mt-8 max-w-[900px] text-justify [text-align-last:center] text-[16px] leading-[1.65] text-[var(--theme-muted)] md:mt-10 md:text-[22px]"
+          className="mx-auto mt-8 max-w-[900px] text-[16px] leading-[1.65] text-[var(--theme-muted)] md:mt-10 md:text-[22px]"
         >
           {t('complement')}
         </motion.p>
@@ -147,7 +147,7 @@ export default function DnaStatementSection() {
 
           <motion.p
             variants={textItem}
-            className="mt-6 text-justify text-[16px] leading-[1.75] text-[var(--theme-muted)] md:text-[20px]"
+            className="mt-6 text-[16px] leading-[1.75] text-[var(--theme-muted)] md:text-[20px]"
           >
             {qgT('description')}
           </motion.p>

@@ -86,7 +86,7 @@ export default function DnaHero() {
 
         <motion.p
           variants={rise}
-          className="mx-auto mt-[14px] max-w-[68ch] text-justify [text-align-last:center] font-['Outfit'] text-[clamp(0.95rem,1.2vw,1.2rem)] leading-[1.6] text-[var(--theme-muted)]"
+          className="mx-auto mt-[14px] max-w-[68ch] font-['Outfit'] text-[clamp(0.95rem,1.2vw,1.2rem)] leading-[1.6] text-[var(--theme-muted)]"
         >
           {t('description')}
         </motion.p>

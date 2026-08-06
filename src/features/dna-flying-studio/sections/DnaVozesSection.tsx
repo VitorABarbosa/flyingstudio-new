@@ -62,7 +62,7 @@ export default function DnaVozesSection() {
           <h2 className="mt-1 text-[40px] leading-tight font-semibold text-[var(--theme-text)] md:text-[64px]">
             {t('title')}
           </h2>
-          <p className="mx-auto mt-5 text-justify [text-align-last:center] text-[16px] leading-[1.65] text-[var(--theme-muted)] md:text-[22px]">
+          <p className="mx-auto mt-5 text-[16px] leading-[1.65] text-[var(--theme-muted)] md:text-[22px]">
             {t('description')}
           </p>
         </div>

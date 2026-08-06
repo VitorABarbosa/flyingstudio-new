@@ -80,7 +80,7 @@ export default function RinnoCtaSection() {
                 {t('titlePre')} <span style={{ color: RINNO }}>{t('titleAccent')}</span>
               </h2>
 
-              <p className="mt-4 max-w-[60ch] text-justify font-['Outfit'] text-[clamp(0.95rem,1.15vw,1.15rem)] leading-[1.65] text-[var(--theme-muted)]">
+              <p className="mt-4 max-w-[60ch] font-['Outfit'] text-[clamp(0.95rem,1.15vw,1.15rem)] leading-[1.65] text-[var(--theme-muted)]">
                 {t('description')}
               </p>
             </div>

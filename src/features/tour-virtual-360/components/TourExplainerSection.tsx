@@ -200,7 +200,7 @@ export default function TourExplainerSection() {
                 </h2>
               </div>
 
-              <p className="mt-5 text-justify font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
+              <p className="mt-5 font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)] md:text-[18px]">
                 {t('description')}
               </p>
             </div>
