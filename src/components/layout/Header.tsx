@@ -175,7 +175,7 @@ export default function Header() {
           de luz na borda superior — o conteúdo atrás permanece reconhecível. */}
       <span
         aria-hidden="true"
-        className="absolute inset-0 -z-10 rounded-[inherit] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_18px_50px_-24px_rgba(0,0,0,0.45)] lg:backdrop-blur-[9px] lg:backdrop-saturate-[1.25]"
+        className="absolute inset-0 -z-10 rounded-[inherit] border border-[var(--theme-border-soft)] bg-[var(--theme-header-glass)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-[9px] backdrop-saturate-[1.25]"
       />
       <Link
         href="/"

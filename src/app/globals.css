@@ -291,13 +291,10 @@ html[data-theme='dark'] .theme-dark-only {
 html[data-theme='dark'] .theme-light-only {
   display: none;
 }
-/* Pinch-zoom estourava a memoria do Safari/iPhone re-rasterizando canvases,
-   blurs e imagens (aba morta: 'um problema ocorreu repetidamente'). O iOS
-   ignora user-scalable=no, mas respeita touch-action: so o pan fica ativo. */
-html,
-body {
-  touch-action: pan-x pan-y;
-}
+/* Pinch-zoom LIBERADO de novo: o crash da pinca era a re-rasterizacao de
+   canvases, blurs e imagens pesadas — todos removidos/travados no celular
+   (canvas off, vidros so no desktop, imagens sob demanda). Sem essas
+   camadas, o zoom cabe na memoria do Safari. */
 
 /* Troca de tema no celular: o ThemeToggle põe esta classe no <html> por um
    instante ao trocar. Sem ela, dezenas de elementos com transition-colors

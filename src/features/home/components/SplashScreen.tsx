@@ -79,9 +79,13 @@ export default function SplashScreen() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const alreadySeen = window.sessionStorage.getItem(SESSION_KEY) === '1';
+    /* Celular: SEM abertura — direto para o site. Além do pedido de UX, a
+       expansão escalava a bolinha de 11px ~200× e o Safari do iPhone alocava
+       um buffer do tamanho final (um dos estouros da primeira visita). */
+    const isMobile = window.matchMedia('(max-width: 1023px)').matches;
 
-    // Já visto nesta sessão (ou movimento reduzido): não exibe a abertura.
-    if (alreadySeen || prefersReducedMotion) {
+    // Já visto nesta sessão, movimento reduzido ou celular: não exibe a abertura.
+    if (alreadySeen || prefersReducedMotion || isMobile) {
       window.sessionStorage.setItem(SESSION_KEY, '1');
       setInstant(true);
       setVisible(false);
@@ -89,14 +93,6 @@ export default function SplashScreen() {
     }
 
     window.sessionStorage.setItem(SESSION_KEY, '1');
-
-    /* Celular: a expansão escala a bolinha de 11px até ~200× — o Safari do
-       iPhone aloca um buffer do tamanho FINAL e era um dos estouros da
-       primeira visita (o crash "um problema ocorreu repetidamente" logo na
-       home). No celular a abertura termina em fade: a logo aparece e o
-       overlay dissolve, sem a bolinha crescer. Desktop segue com a expansão. */
-    const soft = window.matchMedia('(max-width: 1023px)').matches;
-    const removeAt = soft ? ENTER_HOLD_MS + 250 : REMOVE_MS;
 
     // Garante que a bolinha cobre o canto mais distante da tela.
     const diagonal = Math.hypot(window.innerWidth, window.innerHeight);
@@ -112,18 +108,18 @@ export default function SplashScreen() {
     window.scrollTo(0, 0);
 
     const dotTimer = window.setTimeout(() => setShowDot(true), LOGO_RISE_MS);
-    const expandTimer = soft ? null : window.setTimeout(() => setExpand(true), ENTER_HOLD_MS);
-    const removeTimer = window.setTimeout(() => setVisible(false), removeAt);
+    const expandTimer = window.setTimeout(() => setExpand(true), ENTER_HOLD_MS);
+    const removeTimer = window.setTimeout(() => setVisible(false), REMOVE_MS);
 
     const restore = () => {
       root.style.overflow = previousOverflow;
       window.__lenis?.start();
     };
-    const restoreTimer = window.setTimeout(restore, removeAt);
+    const restoreTimer = window.setTimeout(restore, REMOVE_MS);
 
     return () => {
       window.clearTimeout(dotTimer);
-      if (expandTimer) window.clearTimeout(expandTimer);
+      window.clearTimeout(expandTimer);
       window.clearTimeout(removeTimer);
       window.clearTimeout(restoreTimer);
       restore();
