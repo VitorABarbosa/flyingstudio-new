@@ -67,18 +67,23 @@ export default function FooterReveal() {
             style={{ ...PHOTO_CROP, ...photoStyle }}
           >
             {/* Arquivo servido direto, sem re-encode do otimizador (compressão
-                dupla degradava a foto). Desktop recebe o upscale 6K com
-                nitidez; o celular recebe a versão -mobile de 1280px (~160 KB)
-                via <picture> — o 6K de 4,3 MB não desce em telas pequenas. */}
+                dupla degradava a foto). Escalonado por tela: celular/tablet
+                1280px (~160 KB), notebook 2560px, e o 6K só em telas grandes —
+                decodificar o 6K (~100 MB de RAM) matava a aba no iPhone. */}
             <picture>
               <source
-                media="(max-width: 767px)"
+                media="(max-width: 1023px)"
                 srcSet="/home/footer/upscale-foto-empresa-nitida-mobile.jpg"
+              />
+              <source
+                media="(max-width: 1919px)"
+                srcSet="/home/footer/upscale-foto-empresa-nitida-2k.jpg"
               />
               <img
                 src="/home/footer/upscale-foto-empresa-nitida.jpg"
                 alt="Flying Studio - Escritório"
                 loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </picture>

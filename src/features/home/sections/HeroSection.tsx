@@ -123,32 +123,46 @@ export default function HeroSection() {
           className="absolute top-0 left-1/2 w-[1840px] -translate-x-1/2 overflow-hidden rounded-br-[56px] rounded-bl-[56px]"
           style={{ height: `${HERO_IMAGE_HEIGHT}px` }}
         >
-          {heroSlides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className="absolute inset-0 transition-opacity duration-700"
-              style={{ opacity: index === currentSlide ? 1 : 0 }}
-            >
-              {/* <picture>: o celular recebe a versão -mobile (1080px,
-                  ~100-150 KB) e o desktop segue no arquivo cheio servido
-                  direto — sem otimizador em nenhum dos dois. */}
-              <picture>
-                <source
-                  media="(max-width: 767px)"
-                  srcSet={slide.src.replace('.jpg', '-mobile.jpg')}
-                />
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : 'auto'}
-                  className={`absolute inset-0 h-full w-full object-cover object-bottom will-change-transform ${
-                    index === currentSlide ? slide.animation : ''
-                  }`}
-                />
-              </picture>
-            </div>
-          ))}
+          {heroSlides.map((slide, index) => {
+            /* iOS Safari mata a aba se as 7 imagens ficarem decodificadas ao
+               mesmo tempo ("um problema ocorreu repetidamente") — só a atual
+               e as duas vizinhas (anterior p/ crossfade, próxima p/ preload)
+               ficam montadas; as demais são divs vazias. */
+            const gap = Math.abs(index - currentSlide);
+            const distance = Math.min(gap, heroSlides.length - gap);
+            const mounted = distance <= 1;
+
+            return (
+              <div
+                key={slide.id}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{ opacity: index === currentSlide ? 1 : 0 }}
+              >
+                {/* <picture>: telas até 1023px (celular DEITADO incluso — 844px
+                    passava do corte antigo de 767 e baixava o arquivo cheio)
+                    recebem a versão -mobile de ~120 KB; desktop segue no
+                    arquivo cheio servido direto, sem otimizador. */}
+                {mounted && (
+                  <picture>
+                    <source
+                      media="(max-width: 1023px)"
+                      srcSet={slide.src.replace('.jpg', '-mobile.jpg')}
+                    />
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority={index === currentSlide ? 'high' : 'auto'}
+                      className={`absolute inset-0 h-full w-full object-cover object-bottom ${
+                        index === currentSlide ? slide.animation : ''
+                      }`}
+                    />
+                  </picture>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <motion.div
