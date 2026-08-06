@@ -1,4 +1,5 @@
 import type { Variants } from 'framer-motion';
+import { entryBlur } from '@/lib/entryBlur';
 
 /** Curva padrao do site (mesma de revealAnimation da home). */
 export const EASE = [0.22, 1, 0.36, 1] as const;
@@ -13,34 +14,34 @@ export const staggerContainer: Variants = {
 
 /** Entrada "elaborada": sobe, escala e desfoca suavemente. */
 export const revealItem: Variants = {
-  hidden: { opacity: 0, y: 38, scale: 0.96, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 38, scale: 0.96, filter: entryBlur(8) },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: 'blur(0px)',
+    filter: entryBlur(0),
     transition: { duration: 0.75, ease: EASE },
   },
 };
 
 /** Variacao sem scale, para textos (titulo/subtitulo). */
 export const revealText: Variants = {
-  hidden: { opacity: 0, y: 28, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 28, filter: entryBlur(6) },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: entryBlur(0),
     transition: { duration: 0.7, ease: EASE },
   },
 };
 
 /** Entrada deslizando da esquerda (usada em titulos de destaque). */
 export const revealFromLeft: Variants = {
-  hidden: { opacity: 0, x: -48, filter: 'blur(6px)' },
+  hidden: { opacity: 0, x: -48, filter: entryBlur(6) },
   show: {
     opacity: 1,
     x: 0,
-    filter: 'blur(0px)',
+    filter: entryBlur(0),
     transition: { duration: 0.8, ease: EASE },
   },
 };

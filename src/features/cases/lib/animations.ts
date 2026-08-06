@@ -1,4 +1,5 @@
 import type { Variants } from 'framer-motion';
+import { entryBlur } from '@/lib/entryBlur';
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -15,8 +16,8 @@ export const revealItem: Variants = {
 };
 
 export const revealBlur: Variants = {
-  hidden: { opacity: 0, y: 54, filter: 'blur(10px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.95, ease: EASE } },
+  hidden: { opacity: 0, y: 54, filter: entryBlur(10) },
+  visible: { opacity: 1, y: 0, filter: entryBlur(0), transition: { duration: 0.95, ease: EASE } },
 };
 
 export const revealFromLeft: Variants = {

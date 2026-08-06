@@ -39,7 +39,11 @@ function useVimeoThumbnail(vimeoId: string, enabled: boolean) {
       return;
     }
     let cancelled = false;
-    const endpoint = `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}&width=960`;
+    /* Celular: capa de 640px basta (card de ~390px) e decodificada ocupa
+       metade da RAM da de 960px — com 12+ cards montados na página de
+       Filmes, essa diferença pesava na memória do Safari do iPhone. */
+    const thumbWidth = window.matchMedia('(max-width: 1023px)').matches ? 640 : 960;
+    const endpoint = `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}&width=${thumbWidth}`;
 
     fetch(endpoint)
       .then((response) => (response.ok ? response.json() : null))

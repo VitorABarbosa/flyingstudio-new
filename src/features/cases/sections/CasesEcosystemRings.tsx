@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useAnimationFrame, useInView, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { entryBlur } from '@/lib/entryBlur';
 import type { CompanyId } from '../types/cases.types';
 
 const SIZE = 760;
@@ -347,9 +348,9 @@ export default function CasesEcosystemRings({ hovered, onHoveredChange }: CasesE
               <motion.div
                 key={`${activeRing.id}-${fillRing ? 'fill' : 'rest'}`}
                 className="absolute inset-0 flex items-center justify-center"
-                initial={skipMotion ? false : { opacity: 0, scale: 0.82, filter: 'blur(8px)' }}
-                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, scale: 1.08, filter: 'blur(8px)' }}
+                initial={skipMotion ? false : { opacity: 0, scale: 0.82, filter: entryBlur(8) }}
+                animate={{ opacity: 1, scale: 1, filter: entryBlur(0) }}
+                exit={{ opacity: 0, scale: 1.08, filter: entryBlur(8) }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Image

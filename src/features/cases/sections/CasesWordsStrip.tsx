@@ -3,6 +3,7 @@
 import { motion, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { EASE } from '../lib/animations';
+import { entryBlur } from '@/lib/entryBlur';
 
 // Cada palavra chega de uma direção: esquerda, cima e direita
 const words = [
@@ -16,9 +17,9 @@ const wordVariants: Variants = {
     x: custom.x,
     y: custom.y,
     opacity: 0,
-    filter: 'blur(10px)',
+    filter: entryBlur(10),
   }),
-  visible: { x: 0, y: 0, opacity: 1, filter: 'blur(0px)' },
+  visible: { x: 0, y: 0, opacity: 1, filter: entryBlur(0) },
 };
 
 export default function CasesWordsStrip() {

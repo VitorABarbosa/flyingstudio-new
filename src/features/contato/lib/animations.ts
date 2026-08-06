@@ -1,4 +1,5 @@
 import type { Variants } from 'framer-motion';
+import { entryBlur } from '@/lib/entryBlur';
 
 /** Curva padrao do site (mesma de revealAnimation da home). */
 export const EASE = [0.22, 1, 0.36, 1] as const;
@@ -13,12 +14,12 @@ export const staggerContainer: Variants = {
 
 /** Entrada "elaborada": sobe, escala e desfoca suavemente. */
 export const revealItem: Variants = {
-  hidden: { opacity: 0, y: 38, scale: 0.96, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 38, scale: 0.96, filter: entryBlur(8) },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: 'blur(0px)',
+    filter: entryBlur(0),
     transition: { duration: 0.75, ease: EASE },
   },
 };

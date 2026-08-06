@@ -114,13 +114,16 @@ export default function SidebarMenu({
     <AnimatePresence>
       {open && (
         <div className="fixed inset-0 z-[70]" onClick={onClose}>
-          {/* Backdrop: escurece e desfoca a página atrás do painel. */}
+          {/* Backdrop: escurece a página atrás do painel. Sem desfoque — um
+              backdrop-blur em tela cheia re-rasteriza a página inteira no iOS,
+              e o menu abre justamente na hora de navegar, somando com a página
+              nova montando. O escurecimento sozinho já isola o painel. */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-[var(--theme-backdrop)] backdrop-blur-[10px]"
+            className="absolute inset-0 bg-[var(--theme-backdrop)]"
           />
 
           {/* Painel flutuante — mesma linguagem da pílula da header:
@@ -134,7 +137,7 @@ export default function SidebarMenu({
             animate="show"
             exit="exit"
             onClick={(event) => event.stopPropagation()}
-            className="absolute top-[10px] right-[10px] bottom-[10px] flex w-[min(86vw,380px)] flex-col overflow-hidden rounded-[28px] border border-[var(--theme-border-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_24px_80px_-24px_rgba(0,0,0,0.55)] backdrop-blur-[18px] backdrop-saturate-[1.25]"
+            className="absolute top-[10px] right-[10px] bottom-[10px] flex w-[min(86vw,380px)] flex-col overflow-hidden rounded-[28px] border border-[var(--theme-border-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_24px_80px_-24px_rgba(0,0,0,0.55)] backdrop-blur-[10px] backdrop-saturate-[1.25]"
             style={{ backgroundColor: 'color-mix(in srgb, var(--theme-bg) 88%, transparent)' }}
           >
             {/* Topo: logo + fechar, no mesmo respiro da pílula. */}

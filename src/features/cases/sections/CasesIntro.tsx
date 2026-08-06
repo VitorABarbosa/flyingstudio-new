@@ -10,6 +10,7 @@ import { groupCompanies } from '../data/casesData';
 import type { CompanyId } from '../types/cases.types';
 import { EASE, revealItem, staggerContainer } from '../lib/animations';
 import { Link } from '@/i18n/navigation';
+import { entryBlur } from '@/lib/entryBlur';
 import { futurePageHrefs } from '@/lib/site-navigation';
 
 /**
@@ -33,11 +34,11 @@ const companySites: Record<CompanyId, string | null> = {
 };
 
 const letterVariants: Variants = {
-  hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 18, filter: entryBlur(6) },
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: entryBlur(0),
     transition: { duration: 0.6, delay: index * 0.03, ease: EASE },
   }),
 };

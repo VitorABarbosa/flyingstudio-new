@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import DnaPilarIcon from '../components/DnaPilarIcon';
+import { entryBlur } from '@/lib/entryBlur';
 import { dnaEssenciaSlideKeys, dnaPilares } from '../data/dnaData';
 import {
   EASE,
@@ -69,9 +70,9 @@ export default function DnaEssenciaSection() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeSlide}
-              initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+              initial={{ opacity: 0, y: 28, filter: entryBlur(8) }}
+              animate={{ opacity: 1, y: 0, filter: entryBlur(0) }}
+              exit={{ opacity: 0, y: -20, filter: entryBlur(8) }}
               transition={{ duration: 0.45, ease: EASE }}
               className="flex min-h-[280px] flex-col justify-center gap-4 px-8 py-10 md:min-h-[320px] md:gap-5 md:px-20 md:py-14"
             >

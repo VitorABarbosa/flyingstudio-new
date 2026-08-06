@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import SectionScaleFrame from '@/components/layout/SectionScaleFrame';
 import { flyingNewsCategories } from '../data/flyingNewsCategories';
 import { EASE } from '../lib/animations';
+import { entryBlur } from '@/lib/entryBlur';
 import type { FlyingNewsHeroCopy } from '../types/flyingNews.types';
 
 const HERO_HEIGHT = 973;
@@ -133,8 +134,8 @@ export default function FlyingNewsHeroSection({ copy }: FlyingNewsHeroSectionPro
           ))}
 
           <motion.div
-            initial={{ opacity: 0, x: -60, filter: 'blur(6px)' }}
-            animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, x: -60, filter: entryBlur(6) }}
+            animate={{ opacity: 1, x: 0, filter: entryBlur(0) }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
             className="absolute top-[161px] left-[240px] h-[192.192px] w-[908.934px]"
           >
@@ -155,8 +156,8 @@ export default function FlyingNewsHeroSection({ copy }: FlyingNewsHeroSectionPro
             </motion.div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 60, filter: 'blur(6px)' }}
-            animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, x: 60, filter: entryBlur(6) }}
+            animate={{ opacity: 1, x: 0, filter: entryBlur(0) }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.22 }}
             className="absolute top-[389px] left-[424px] h-[192.192px] w-[741.621px]"
           >

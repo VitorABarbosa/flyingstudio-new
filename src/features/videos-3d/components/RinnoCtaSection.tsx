@@ -58,10 +58,12 @@ export default function RinnoCtaSection() {
             background: `linear-gradient(120deg, color-mix(in srgb, ${RINNO} 16%, var(--theme-surface)) 0%, var(--theme-surface) 55%, color-mix(in srgb, ${RINNO} 10%, var(--theme-surface)) 100%)`,
           }}
         >
-          {/* Luz da marca vazando pelo canto — mesma linguagem do resto do site. */}
+          {/* Luz da marca vazando pelo canto — mesma linguagem do resto do site.
+              Só em telas grandes: blur de 90px exige um buffer enorme no iOS e
+              a página de Filmes já é a mais pesada do site no celular. */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -top-[30%] -right-[10%] h-[320px] w-[46%] rounded-full opacity-60 blur-[90px]"
+            className="pointer-events-none absolute -top-[30%] -right-[10%] hidden h-[320px] w-[46%] rounded-full opacity-60 blur-[90px] lg:block"
             style={{
               background: `radial-gradient(closest-side, color-mix(in srgb, ${RINNO} 55%, transparent), transparent 75%)`,
             }}

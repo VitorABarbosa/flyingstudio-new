@@ -4,6 +4,7 @@ import { useId, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { entryBlur } from '@/lib/entryBlur';
 import { WEB3FORMS_ENDPOINT, WEB3FORMS_KEY } from '@/lib/web3forms';
 import {
   staggerContainer,
@@ -399,8 +400,8 @@ export default function FormularioDadosSection() {
           {/* Atalho para quem prefere conversar antes de preencher. Acompanha o
               scroll do formulario no desktop. */}
           <motion.aside
-            initial={{ opacity: 0, y: 28, filter: 'blur(6px)' }}
-            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, y: 28, filter: entryBlur(6) }}
+            whileInView={{ opacity: 1, y: 0, filter: entryBlur(0) }}
             viewport={VIEWPORT_ONCE}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-5 rounded-[32px] bg-[var(--theme-surface)] p-[clamp(28px,3vw,40px)] lg:sticky lg:top-[110px] lg:order-1"
