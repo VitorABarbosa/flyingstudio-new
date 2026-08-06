@@ -5,6 +5,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import ImageBlock from './ImageBlock';
 import GalleryLightbox from './GalleryLightbox';
+import { useIsMobileLayout } from '@/lib/useIsMobileLayout';
 import type { GallerySectionType } from '../types/gallery.types';
 
 type GallerySectionProps = {
@@ -159,6 +160,9 @@ function buildImageRows<T>(items: T[], rowSizes: number[]): T[][] {
 
 export default function GallerySection({ section }: GallerySectionProps) {
   const t = useTranslations('Images3DPage');
+  /* Celular: sem mosaico comprimido nem hover — cada imagem aparece INTEIRA
+     (proporção natural, largura cheia), empilhada. */
+  const isMobile = useIsMobileLayout();
   const [activeFilter, setActiveFilter] = useState('geral');
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
   const [visibleChunkCount, setVisibleChunkCount] = useState(1);
@@ -398,9 +402,7 @@ export default function GallerySection({ section }: GallerySectionProps) {
         onPointerOver={handleRowPointerOver}
         onPointerLeave={handleRowPointerLeave}
         variants={imageAnimation}
-        animate={{
-          height: rowHeight,
-        }}
+        animate={isMobile ? { height: 'auto' } : { height: rowHeight }}
         transition={{
           height: {
             duration: 1.15,
@@ -449,17 +451,19 @@ export default function GallerySection({ section }: GallerySectionProps) {
               onClick={() => handleOpenLightbox(item.id)}
               variants={imageAnimation}
               animate={
-                shouldExpand
-                  ? {
-                      flexGrow: 0,
-                      flexBasis: `${expandedWidth}px`,
-                      flexShrink: 0,
-                    }
-                  : {
-                      flexGrow: aspectRatio * GROW_SCALE,
-                      flexBasis: '0px',
-                      flexShrink: 1,
-                    }
+                isMobile
+                  ? { flexGrow: 0, flexBasis: 'auto', flexShrink: 1 }
+                  : shouldExpand
+                    ? {
+                        flexGrow: 0,
+                        flexBasis: `${expandedWidth}px`,
+                        flexShrink: 0,
+                      }
+                    : {
+                        flexGrow: aspectRatio * GROW_SCALE,
+                        flexBasis: '0px',
+                        flexShrink: 1,
+                      }
               }
               transition={{
                 flexGrow: {
@@ -471,8 +475,9 @@ export default function GallerySection({ section }: GallerySectionProps) {
                   ease: [0.22, 1, 0.36, 1],
                 },
               }}
+              style={isMobile ? { aspectRatio: String(aspectRatio) } : undefined}
               className="
-                h-[360px] min-w-0 cursor-zoom-in overflow-hidden
+                h-auto w-full min-w-0 cursor-zoom-in overflow-hidden
                 md:h-full
               "
             >

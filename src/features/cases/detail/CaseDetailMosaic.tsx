@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import ImageBlock from '@/features/imagens-3d/components/ImageBlock';
 import GalleryLightbox from '@/features/imagens-3d/components/GalleryLightbox';
+import { useIsMobileLayout } from '@/lib/useIsMobileLayout';
 import type { GalleryItem } from '@/features/imagens-3d/types/gallery.types';
 
 /**
@@ -66,6 +67,8 @@ function buildRows<T>(items: T[]): T[][] {
 
 export default function CaseDetailMosaic({ title, images }: { title: string; images: string[] }) {
   const t = useTranslations('CasesPage.detail');
+  /* Celular: sem mosaico comprimido — cada imagem inteira, empilhada. */
+  const isMobile = useIsMobileLayout();
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -174,7 +177,7 @@ export default function CaseDetailMosaic({ title, images }: { title: string; ima
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        animate={{ height: rowHeight }}
+        animate={isMobile ? { height: 'auto' } : { height: rowHeight }}
         transition={{ height: { duration: 1.15, ease: [0.22, 1, 0.36, 1] } }}
         className="flex w-full flex-col gap-3 overflow-hidden md:flex-row"
       >
@@ -194,15 +197,18 @@ export default function CaseDetailMosaic({ title, images }: { title: string; ima
               data-mosaic-item-id={item.id}
               onClick={() => setLightboxIndex(items.findIndex((i) => i.id === item.id))}
               animate={
-                shouldExpand
-                  ? { flexGrow: 0, flexBasis: `${expandedWidth}px`, flexShrink: 0 }
-                  : { flexGrow: aspectRatio * GROW_SCALE, flexBasis: '0px', flexShrink: 1 }
+                isMobile
+                  ? { flexGrow: 0, flexBasis: 'auto', flexShrink: 1 }
+                  : shouldExpand
+                    ? { flexGrow: 0, flexBasis: `${expandedWidth}px`, flexShrink: 0 }
+                    : { flexGrow: aspectRatio * GROW_SCALE, flexBasis: '0px', flexShrink: 1 }
               }
               transition={{
                 flexGrow: { duration: 1.15, ease: [0.22, 1, 0.36, 1] },
                 flexBasis: { duration: 1.15, ease: [0.22, 1, 0.36, 1] },
               }}
-              className="h-[300px] min-w-0 cursor-zoom-in overflow-hidden md:h-full"
+              style={isMobile ? { aspectRatio: String(aspectRatio) } : undefined}
+              className="h-auto w-full min-w-0 cursor-zoom-in overflow-hidden md:h-full"
             >
               <ImageBlock
                 src={item.image}
