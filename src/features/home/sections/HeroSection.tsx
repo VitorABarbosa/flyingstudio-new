@@ -277,6 +277,10 @@ export default function HeroSection() {
           compartilhado com o desktop), com a tagline, os dots e a seta
           dentro da imagem. */}
       <div className="lg:hidden">
+        {/* Wrapper SEM clip: é ele que segura a seta montada na borda de
+            baixo do hero (metade dentro, metade fora, como no desktop) —
+            dentro do container com overflow-hidden ela seria cortada. */}
+        <div className="relative">
         <div className="relative h-[clamp(400px,58vh,560px)] w-full overflow-hidden rounded-b-[28px]">
           {heroSlides.map((slide, index) => {
             const gap = Math.abs(index - currentSlide);
@@ -315,7 +319,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             variants={staggerContainer}
-            className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-4 px-6 pb-6"
+            className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-3 px-6 pb-[46px]"
           >
             <motion.div variants={revealItem} className="flex items-center gap-[10px]">
               {heroSlides.map((slide, index) => {
@@ -349,22 +353,32 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            <motion.button
-              variants={revealItem}
-              type="button"
-              onClick={handleNextSectionScroll}
-              aria-label="Ir para a próxima seção"
-              className="flex size-[52px] cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[var(--theme-accent)] shadow-[0px_14px_28px_0px_var(--theme-accent-glow)]"
-            >
-              <Image
-                src="/shared/icons/ui/icon-arrow-down-purple.svg"
-                alt=""
-                width={18}
-                height={18}
-                className={`theme-icon-on-accent ${arrowPressed ? 'hero-arrow-nudge' : ''}`}
-              />
-            </motion.button>
           </motion.div>
+        </div>
+
+        {/* A seta vive na LINHA do limite do hero: âncora no bottom do
+            wrapper sem clip, metade sobre a imagem, metade sobre a página.
+            A centralização fica no wrapper — o framer é dono do transform
+            do botão e atropelaria as classes translate. */}
+        <div className="absolute bottom-0 left-1/2 z-20 -translate-x-1/2 translate-y-1/2">
+        <motion.button
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+          type="button"
+          onClick={handleNextSectionScroll}
+          aria-label="Ir para a próxima seção"
+          className="flex size-[52px] cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[var(--theme-accent)] shadow-[0px_14px_28px_0px_var(--theme-accent-glow)]"
+        >
+          <Image
+            src="/shared/icons/ui/icon-arrow-down-purple.svg"
+            alt=""
+            width={18}
+            height={18}
+            className={`theme-icon-on-accent ${arrowPressed ? 'hero-arrow-nudge' : ''}`}
+          />
+        </motion.button>
+        </div>
         </div>
       </div>
     </section>
