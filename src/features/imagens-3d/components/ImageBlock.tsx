@@ -123,8 +123,15 @@ export default function ImageBlock({
           natural: quando ele alarga, revela mais imagem pelos dois lados.
           A imagem em si nunca muda de escala — sem zoom. */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        {/* Telas ≤1023px (inclui iPhone deitado): thumb de 1920px decodificado
+            ocupa ~8 MB de RAM cada — rolar a galeria estourava a memória do
+            Safari no iPhone. O <picture> troca por 1080px via otimizador
+            (fila tranquila no celular: uma coluna + lazy = pedidos em série). */}
+        <picture key={loadAttempt} className="contents">
+          {src.startsWith('http') && (
+            <source media="(max-width: 1023px)" srcSet={optimized(src, 1080)} />
+          )}
         <img
-          key={loadAttempt}
           ref={imgRef}
           src={thumb(src)}
           alt={title ?? ''}
@@ -141,6 +148,7 @@ export default function ImageBlock({
             ${isLoaded ? 'opacity-100' : 'opacity-0'}
           `}
         />
+        </picture>
       </div>
 
       {/* Nome do cliente/projeto: presença discreta — identifica a obra sem

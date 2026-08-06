@@ -10,13 +10,13 @@
         bg-[var(--theme-panel)]
         ${l?"":"animate-pulse"}
         ${c}
-      `,children:[(0,d.jsx)("div",{className:"absolute inset-0 flex items-center justify-center overflow-hidden",children:(0,d.jsx)("img",{ref:h,src:a.replace("/site-flying-web/","/site-flying-thumbs/"),alt:b??"",draggable:!1,loading:"lazy",decoding:"async",onLoad:function(){m(!0);let a=h.current;a&&a.naturalWidth&&a.naturalHeight&&g?.(a.naturalWidth/a.naturalHeight)},onError:function(){j>=4||(i.current=setTimeout(()=>{k(a=>a+1)},1200*(j+1)))},className:`
+      `,children:[(0,d.jsx)("div",{className:"absolute inset-0 flex items-center justify-center overflow-hidden",children:(0,d.jsxs)("picture",{className:"contents",children:[a.startsWith("http")&&(0,d.jsx)("source",{media:"(max-width: 1023px)",srcSet:a.startsWith("http")?`/_next/image?url=${encodeURIComponent(a)}&w=1080&q=70`:a}),(0,d.jsx)("img",{ref:h,src:a.replace("/site-flying-web/","/site-flying-thumbs/"),alt:b??"",draggable:!1,loading:"lazy",decoding:"async",onLoad:function(){m(!0);let a=h.current;a&&a.naturalWidth&&a.naturalHeight&&g?.(a.naturalWidth/a.naturalHeight)},onError:function(){j>=4||(i.current=setTimeout(()=>{k(a=>a+1)},1200*(j+1)))},className:`
             pointer-events-none select-none
             h-full w-auto min-w-full max-w-none flex-none
             object-cover object-center
             transition-opacity duration-500
             ${l?"opacity-100":"opacity-0"}
-          `},j)}),(0,d.jsx)("div",{className:`
+          `})]},j)}),(0,d.jsx)("div",{className:`
           pointer-events-none
           absolute inset-x-0 bottom-0 z-30
           flex h-[72px] items-end

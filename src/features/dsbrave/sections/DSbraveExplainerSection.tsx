@@ -225,6 +225,7 @@ export default function DSbraveExplainerSection() {
                 src="https://player.vimeo.com/video/1215470239?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&transparent=0"
                 title=""
                 allow="autoplay"
+                loading="lazy"
                 aria-hidden="true"
                 className="pointer-events-none h-full w-full border-0"
               />

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { futurePageHrefs } from '@/lib/site-navigation';
 
@@ -178,6 +178,15 @@ function NeonThread() {
 export default function GrupoFlyingDeck() {
   const t = useTranslations('Home.grupo');
   const [focusedKey, setFocusedKey] = useState<CompanyKey | null>(null);
+  /* O deck desktop fica no DOM do celular escondido por CSS — mas `display:
+     none` NÃO impede iframe de carregar: o Vimeo tocava em loop invisível no
+     iPhone, comendo rede e memória até a aba do Safari morrer. O player só
+     monta quando a tela é realmente desktop. */
+  const [mountVimeo, setMountVimeo] = useState(false);
+
+  useEffect(() => {
+    setMountVimeo(window.matchMedia('(min-width: 1024px)').matches);
+  }, []);
 
   return (
     <div className="relative">
@@ -228,15 +237,16 @@ export default function GrupoFlyingDeck() {
                     sizes="(max-width: 1840px) 45vw, 820px"
                     className="object-cover"
                   />
-                ) : (
+                ) : mountVimeo ? (
                   <iframe
                     src={`https://player.vimeo.com/video/${company.media.id}?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1`}
                     title=""
                     allow="autoplay"
+                    loading="lazy"
                     aria-hidden="true"
                     className="pointer-events-none absolute top-1/2 left-1/2 aspect-video min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
                   />
-                )}
+                ) : null}
               </span>
 
               {/* Véu escuro TRANSLÚCIDO com a LOGO recortada no centro: a
