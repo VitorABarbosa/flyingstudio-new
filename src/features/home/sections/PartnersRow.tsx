@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
 import { revealItem, staggerContainer, VIEWPORT_ONCE } from '@/features/home/lib/revealAnimation';
 
 type Partner = {
@@ -47,6 +48,11 @@ const PARTNERS: Partner[] = [
 
 export default function PartnersRow() {
   const t = useTranslations('Home.partners');
+  /* Fora da tela o letreiro PAUSA: são 108 logos animando em loop — no
+     iPhone continuavam compondo camadas mesmo com a seção longe do scroll. */
+  const marqueeAreaRef = useRef<HTMLDivElement | null>(null);
+  const marqueeInView = useInView(marqueeAreaRef, { margin: '25% 0px' });
+  const pausedClass = marqueeInView ? '' : '[animation-play-state:paused]';
 
   return (
     <section
@@ -54,6 +60,7 @@ export default function PartnersRow() {
       className="relative w-full overflow-hidden bg-[var(--theme-bg)] pt-[clamp(2rem,4vh,3rem)] pb-[clamp(2.5rem,5vh,3.5rem)] transition-colors duration-200"
     >
       <motion.div
+        ref={marqueeAreaRef}
         className="mx-auto w-full max-w-[1400px] px-[clamp(1.5rem,5vw,5rem)]"
         initial="hidden"
         whileInView="show"
@@ -81,7 +88,7 @@ export default function PartnersRow() {
           className="mt-[clamp(2.5rem,6vh,4rem)] ml-[calc(50%-50vw)] w-screen"
         >
           <div className="hr-marquee">
-            <div className="hr-marquee-track items-center gap-[clamp(3rem,6vw,5.5rem)] pr-[clamp(3rem,6vw,5.5rem)]">
+            <div className={`hr-marquee-track items-center gap-[clamp(3rem,6vw,5.5rem)] pr-[clamp(3rem,6vw,5.5rem)] ${pausedClass}`}>
               {[...PARTNERS, ...PARTNERS].map((partner, index) => (
                 <Image
                   key={`${partner.id}-${index}`}
@@ -97,7 +104,7 @@ export default function PartnersRow() {
             </div>
           </div>
           <div className="hr-marquee mt-[clamp(1.75rem,4vh,2.75rem)]">
-            <div className="hr-marquee-track hr-marquee-reverse items-center gap-[clamp(3rem,6vw,5.5rem)] pr-[clamp(3rem,6vw,5.5rem)]">
+            <div className={`hr-marquee-track hr-marquee-reverse items-center gap-[clamp(3rem,6vw,5.5rem)] pr-[clamp(3rem,6vw,5.5rem)] ${pausedClass}`}>
               {[...PARTNERS, ...PARTNERS].reverse().map((partner, index) => (
                 <Image
                   key={`${partner.id}-reverse-${index}`}

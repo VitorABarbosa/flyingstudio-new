@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SectionScaleFrame from '@/components/layout/SectionScaleFrame';
 import { scrollToElement } from '@/lib/scroll-to-element';
 import {
@@ -90,11 +90,41 @@ export default function HeroSection() {
   const t = useTranslations('Home.hero');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [arrowPressed, setArrowPressed] = useState(false);
+  /* Ken Burns (pan/zoom) só no desktop: animar transform numa imagem de
+     1840px re-rasteriza a camada acima da resolução exibida — no iPhone
+     era memória queimando o tempo todo na home. No celular os slides
+     trocam pelo crossfade de sempre, parados. */
+  const [kenBurns, setKenBurns] = useState(false);
+  const heroVisibleRef = useRef(true);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, SLIDE_DURATION_MS);
+    setKenBurns(window.matchMedia('(min-width: 1024px)').matches);
+
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      heroVisibleRef.current = entry.isIntersecting;
+    });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    /* O carrossel só avança com o hero na tela e a aba visível — fora disso
+       ficava trocando slide (e decodificando imagem nova) à toa. */
+    let timer = 0;
+    const schedule = (delay: number) => {
+      timer = window.setTimeout(() => {
+        if (document.hidden || !heroVisibleRef.current) {
+          schedule(1000);
+          return;
+        }
+        setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      }, delay);
+    };
+
+    schedule(SLIDE_DURATION_MS);
 
     return () => {
       window.clearTimeout(timer);
@@ -112,6 +142,7 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative z-10 w-full overflow-visible bg-[var(--theme-bg)] transition-colors duration-200"
     >
@@ -155,7 +186,7 @@ export default function HeroSection() {
                       decoding="async"
                       fetchPriority={index === currentSlide ? 'high' : 'auto'}
                       className={`absolute inset-0 h-full w-full object-cover object-bottom ${
-                        index === currentSlide ? slide.animation : ''
+                        index === currentSlide && kenBurns ? slide.animation : ''
                       }`}
                     />
                   </picture>
@@ -175,7 +206,7 @@ export default function HeroSection() {
               saturação), mas com a borda branca de antes. */}
           <motion.div
             variants={revealItem}
-            className="absolute flex items-center justify-center rounded-[40px] border-2 border-white bg-[var(--theme-header-glass)] px-[140px] pt-[12px] pb-[20px] shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-[9px] backdrop-saturate-[1.25]"
+            className="absolute flex items-center justify-center rounded-[40px] border-2 border-white bg-[var(--theme-header-glass)] px-[140px] pt-[12px] pb-[20px] shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)] lg:backdrop-blur-[9px] lg:backdrop-saturate-[1.25]"
             style={{ left: '612px', top: `${HERO_TAGLINE_TOP}px`, width: '740px' }}
           >
             <p className="font-['Outfit'] text-[28px] leading-[1.2] font-normal tracking-[1.4px] whitespace-nowrap text-[var(--theme-text)]">

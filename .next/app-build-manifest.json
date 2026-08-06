@@ -7,12 +7,13 @@
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
       "static/chunks/app/_not-found/page-3160ed76f90015d9.js"
     ],
-    "/sitemap.xml/route": [
+    "/layout": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
-      "static/chunks/app/sitemap.xml/route-068ba3586843ea10.js"
+      "static/css/dd6d6aeaf1838d91.css",
+      "static/chunks/app/layout-6689a8f1d6ce19b2.js"
     ],
     "/robots.txt/route": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
@@ -21,13 +22,12 @@
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
       "static/chunks/app/robots.txt/route-068ba3586843ea10.js"
     ],
-    "/layout": [
+    "/sitemap.xml/route": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
-      "static/css/a0351db185532c3e.css",
-      "static/chunks/app/layout-6689a8f1d6ce19b2.js"
+      "static/chunks/app/sitemap.xml/route-068ba3586843ea10.js"
     ],
     "/[locale]/layout": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
@@ -38,7 +38,7 @@
       "static/chunks/215-4b499324b7291057.js",
       "static/chunks/744-9b734dc9f8dae985.js",
       "static/chunks/953-a218faf39050dfce.js",
-      "static/chunks/app/[locale]/layout-b0e66b25bc51a1f0.js"
+      "static/chunks/app/[locale]/layout-9793ac8c58e5b9ac.js"
     ],
     "/[locale]/page": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
@@ -47,8 +47,8 @@
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
       "static/chunks/215-4b499324b7291057.js",
       "static/chunks/396-eeaf5f3e6e1b0987.js",
-      "static/chunks/789-b227d00cec689782.js",
-      "static/chunks/app/[locale]/page-9398d74d0b16da6e.js"
+      "static/chunks/789-7cf529f56a701a2c.js",
+      "static/chunks/app/[locale]/page-71ad67c415622208.js"
     ],
     "/[locale]/flying-news/page": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
@@ -79,7 +79,7 @@
       "static/chunks/701-d9444ad87c104918.js",
       "static/chunks/953-a218faf39050dfce.js",
       "static/chunks/869-ec57b82a6e63eac2.js",
-      "static/chunks/789-b227d00cec689782.js",
+      "static/chunks/789-7cf529f56a701a2c.js",
       "static/chunks/app/[locale]/[slug]/page-fd1b5e7c5e581002.js"
     ]
   }

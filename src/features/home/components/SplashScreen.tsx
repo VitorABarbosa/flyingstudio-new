@@ -90,6 +90,14 @@ export default function SplashScreen() {
 
     window.sessionStorage.setItem(SESSION_KEY, '1');
 
+    /* Celular: a expansão escala a bolinha de 11px até ~200× — o Safari do
+       iPhone aloca um buffer do tamanho FINAL e era um dos estouros da
+       primeira visita (o crash "um problema ocorreu repetidamente" logo na
+       home). No celular a abertura termina em fade: a logo aparece e o
+       overlay dissolve, sem a bolinha crescer. Desktop segue com a expansão. */
+    const soft = window.matchMedia('(max-width: 1023px)').matches;
+    const removeAt = soft ? ENTER_HOLD_MS + 250 : REMOVE_MS;
+
     // Garante que a bolinha cobre o canto mais distante da tela.
     const diagonal = Math.hypot(window.innerWidth, window.innerHeight);
     setTargetScale(Math.ceil((diagonal * 2) / CIRCLE_BASE_PX) + 20);
@@ -104,18 +112,18 @@ export default function SplashScreen() {
     window.scrollTo(0, 0);
 
     const dotTimer = window.setTimeout(() => setShowDot(true), LOGO_RISE_MS);
-    const expandTimer = window.setTimeout(() => setExpand(true), ENTER_HOLD_MS);
-    const removeTimer = window.setTimeout(() => setVisible(false), REMOVE_MS);
+    const expandTimer = soft ? null : window.setTimeout(() => setExpand(true), ENTER_HOLD_MS);
+    const removeTimer = window.setTimeout(() => setVisible(false), removeAt);
 
     const restore = () => {
       root.style.overflow = previousOverflow;
       window.__lenis?.start();
     };
-    const restoreTimer = window.setTimeout(restore, REMOVE_MS);
+    const restoreTimer = window.setTimeout(restore, removeAt);
 
     return () => {
       window.clearTimeout(dotTimer);
-      window.clearTimeout(expandTimer);
+      if (expandTimer) window.clearTimeout(expandTimer);
       window.clearTimeout(removeTimer);
       window.clearTimeout(restoreTimer);
       restore();

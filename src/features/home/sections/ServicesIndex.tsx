@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import SectionScaleFrame from '@/components/layout/SectionScaleFrame';
 import LinhasFluidas from '@/components/common/LinhasFluidas';
@@ -116,6 +117,13 @@ const heroCards: HeroCard[] = [
 
 export default function ServicesIndex() {
   const t = useTranslations('Hero');
+  /* A flutuação infinita dos 5 cards fica só no desktop: 5 transforms em
+     loop sobre superfícies de vidro re-rasterizavam sem parar no iPhone. */
+  const [float, setFloat] = useState(false);
+
+  useEffect(() => {
+    setFloat(window.matchMedia('(min-width: 1024px)').matches);
+  }, []);
 
   return (
     <section
@@ -151,7 +159,7 @@ export default function ServicesIndex() {
 
           <motion.div
             variants={revealItemCentered}
-            className="absolute left-1/2 z-10 flex flex-col items-center justify-center rounded-[99px] border-2 border-white bg-[var(--theme-chip-bg)] px-[80px] py-[16px] backdrop-blur-[10px]"
+            className="absolute left-1/2 z-10 flex flex-col items-center justify-center rounded-[99px] border-2 border-white bg-[var(--theme-chip-bg)] px-[80px] py-[16px] lg:backdrop-blur-[10px]"
             style={{ top: `${SUBTITLE_TOP}px` }}
           >
             <p className="font-['Outfit'] text-[24px] leading-[1.5] font-normal whitespace-nowrap text-[var(--theme-text)]">
@@ -176,7 +184,7 @@ export default function ServicesIndex() {
             >
               <motion.div
                 className="absolute inset-0"
-                animate={{ y: [0, -FLOAT_DISTANCE, 0] }}
+                animate={float ? { y: [0, -FLOAT_DISTANCE, 0] } : undefined}
                 transition={{
                   duration: FLOAT_DURATION,
                   repeat: Infinity,
@@ -190,7 +198,7 @@ export default function ServicesIndex() {
                   {/* Superfície de vidro. A borda acende em accent no hover e o
                       véu fecha um pouco — o card "ganha corpo" ao ser mirado. */}
                   <div
-                    className={`absolute inset-0 border border-[var(--theme-card-glass-edge)] bg-[var(--theme-card-glass)] shadow-[0_18px_44px_-30px_rgba(0,0,0,0.45)] backdrop-blur-[16px] transition-[background-color,border-color,box-shadow] duration-500 ${EASE_CLASS} group-hover:border-[color-mix(in_srgb,var(--theme-accent)_55%,transparent)] group-hover:bg-[var(--theme-card-glass-strong)] group-hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,0.55)]`}
+                    className={`absolute inset-0 border border-[var(--theme-card-glass-edge)] bg-[var(--theme-card-glass)] shadow-[0_18px_44px_-30px_rgba(0,0,0,0.45)] transition-[background-color,border-color,box-shadow] duration-500 lg:backdrop-blur-[16px] ${EASE_CLASS} group-hover:border-[color-mix(in_srgb,var(--theme-accent)_55%,transparent)] group-hover:bg-[var(--theme-card-glass-strong)] group-hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,0.55)]`}
                     style={{ borderRadius: `${CARD_RADIUS}px` }}
                   />
 

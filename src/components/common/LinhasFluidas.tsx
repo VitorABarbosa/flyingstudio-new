@@ -85,6 +85,11 @@ export default function LinhasFluidas({
     if (!ctx) {
       return;
     }
+    /* Celular: canvas decorativo fora do orçamento de memória do Safari no
+       iPhone (as linhas mal aparecem na tela pequena) — não desenha. */
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      return;
+    }
 
     let frameId = 0;
     let time = 0;
