@@ -3,6 +3,7 @@
 import { useId, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { WEB3FORMS_ENDPOINT, WEB3FORMS_KEY } from '@/lib/web3forms';
 import {
   staggerContainer,
   revealItem,
@@ -107,17 +108,13 @@ export default function BancoTalentosSection() {
     // Honeypot: humanos não veem o campo; preenchido = bot, aborta em silêncio.
     if (new FormData(event.currentTarget).get('botcheck')) return;
 
-    /* FormSubmit (formsubmit.co): gratuito e com ANEXO — no Web3Forms,
-       arquivo é recurso pago (todo envio com currículo voltava 400). O
-       e-mail chega com o PDF anexado (limite 10 MB). O PRIMEIRO envio
-       dispara um e-mail de ativação do FormSubmit para a caixa de destino —
-       é clicar uma vez e pronto. A rota /api/junte-se (SMTP próprio do
-       cPanel) segue no projeto como plano B. */
+    /* Web3Forms (plano Pro): anexo de arquivo é recurso do plano pago —
+       com a assinatura ativa, o currículo segue anexado no e-mail. */
     const areaLabel = form.area ? t(`areas.${form.area}`) : '—';
     const data = new FormData();
-    data.append('_subject', `Site Flying Studio — Banco de Talentos: ${form.name.trim()}`);
-    data.append('_template', 'table');
-    data.append('_captcha', 'false');
+    data.append('access_key', WEB3FORMS_KEY);
+    data.append('from_name', 'Site Flying Studio');
+    data.append('subject', `Site Flying Studio — Banco de Talentos: ${form.name.trim()}`);
     data.append('email', form.email.trim());
     data.append('Nome', form.name.trim());
     data.append('Área desejada', areaLabel);
@@ -126,14 +123,13 @@ export default function BancoTalentosSection() {
 
     setStatus('sending');
     try {
-      const res = await fetch('https://formsubmit.co/ajax/studio@flyingstudio.com.br', {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
       });
-      /* O AJAX do FormSubmit responde success como string ("true"). */
-      const json = (await res.json()) as { success?: boolean | string };
-      if (json.success === true || json.success === 'true') {
+      const json = (await res.json()) as { success?: boolean };
+      if (json.success) {
         setSubmitted(true);
         setStatus('idle');
       } else {
