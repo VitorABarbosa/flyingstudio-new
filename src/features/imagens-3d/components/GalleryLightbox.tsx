@@ -117,8 +117,8 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
 
   const buttonClass = `
     absolute z-10 flex h-11 w-11 cursor-pointer items-center justify-center
-    rounded-full border border-white/15 bg-white/5 text-white/80
-    backdrop-blur-md
+    rounded-full border border-white/15 bg-white/10 text-white/80
+    lg:bg-white/5 lg:backdrop-blur-md
     transition-colors duration-200
     hover:bg-white/15 hover:text-white
     focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:outline-none
@@ -134,7 +134,10 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
       exit={{ opacity: 0 }}
       transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md"
+      /* Celular: sem vidro — backdrop-blur de TELA CHEIA re-rasteriza a página
+         inteira no iOS, justo com uma imagem grande decodificada no zoom. O
+         fundo fica um pouco mais escuro para compensar. */
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 lg:bg-black/70 lg:backdrop-blur-md"
     >
       {/* O zoom de entrada/saída vive neste wrapper — roda uma vez ao abrir e
           ao fechar. A troca de imagem na navegação é só o fade do <img>. */}

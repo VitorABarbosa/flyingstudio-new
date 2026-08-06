@@ -150,6 +150,12 @@ export function FluidParticlesBackground({
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
+    /* Celular: um canvas de viewport inteira redesenhando a 30fps em 9
+       páginas não cabe no orçamento de memória do Safari/iPhone. O efeito
+       tem opacidade 0.08 e mal aparece na tela pequena — o fundo fica liso. */
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      return;
+    }
 
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     let width = 0;

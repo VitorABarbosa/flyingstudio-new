@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import VimeoBackground from '@/components/common/VimeoBackground';
 import BeneficioIcon from './BeneficioIcon';
 import { beneficiosItems } from '../data/aplicativosData';
 
@@ -219,14 +220,7 @@ export default function FlyAppExplainerSection() {
             <div className="absolute top-[7.2%] left-[11.3%] z-20 h-[80.6%] w-[77.7%] overflow-hidden bg-black">
               {/* Exemplo_Aplicativo hospedado no Vimeo em modo background
                   (autoplay mudo em loop) — o vídeo não embarca no site. */}
-              <iframe
-                src="https://player.vimeo.com/video/1215470231?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&transparent=0"
-                title=""
-                allow="autoplay"
-                loading="lazy"
-                aria-hidden="true"
-                className="pointer-events-none h-full w-full border-0"
-              />
+              <VimeoBackground src="https://player.vimeo.com/video/1215470231?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&transparent=0" />
             </div>
           </div>
         </div>

@@ -56,6 +56,16 @@ function wash(color: string, angle = '150deg') {
  */
 function VimeoBackdrop({ vimeoId }: { vimeoId: string }) {
   const [ready, setReady] = useState(false);
+  /* Celular: NENHUM player monta — o grid montava 4 iframes do Vimeo em
+     autoplay simultâneos no iPhone (o maior consumo de memória do site
+     inteiro) e a foto de cada casa já segura o visual sozinha. */
+  const [mount, setMount] = useState(false);
+
+  useEffect(() => {
+    setMount(window.matchMedia('(min-width: 1024px)').matches);
+  }, []);
+
+  if (!mount) return null;
 
   return (
     <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -271,7 +281,7 @@ export default function DnaGrupoDeck({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpenKey(null)}
-              className="absolute -inset-6 z-10 cursor-pointer bg-[var(--theme-bg)]/70 backdrop-blur-[2px]"
+              className="absolute -inset-6 z-10 cursor-pointer bg-[var(--theme-bg)]/70 lg:backdrop-blur-[2px]"
             />
 
             <motion.div
@@ -322,7 +332,7 @@ export default function DnaGrupoDeck({
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, ease: EASE, delay: 0.16 }}
-                  className="absolute inset-x-4 bottom-4 flex flex-col gap-4 rounded-[22px] border border-white/25 bg-black/30 p-6 backdrop-blur-[16px] md:inset-x-6 md:bottom-6 md:max-w-[620px] md:p-8"
+                  className="absolute inset-x-4 bottom-4 flex flex-col gap-4 rounded-[22px] border border-white/25 bg-black/60 p-6 md:inset-x-6 md:bottom-6 md:max-w-[620px] md:p-8 lg:bg-black/30 lg:backdrop-blur-[16px]"
                   style={{ transform: 'translateZ(55px)' }}
                 >
                   {open.logoSrc && (

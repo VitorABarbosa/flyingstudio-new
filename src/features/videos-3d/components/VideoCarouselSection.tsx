@@ -242,7 +242,7 @@ export default function VideoCarouselSection({ section }: VideoCarouselSectionPr
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="fixed inset-0 z-[70] cursor-default bg-[var(--theme-video-mask)] backdrop-blur-md"
+                  className="fixed inset-0 z-[70] cursor-default bg-[var(--theme-video-mask)] lg:backdrop-blur-md"
                 />
               )}
             </AnimatePresence>
