@@ -17,6 +17,10 @@ export default function DesignScaleProvider() {
     const root = document.documentElement;
 
     const update = () => {
+      /* Pinch-zoom no iOS encolhe o window.innerWidth (viewport VISUAL) e
+         dispara resize — recalcular aqui re-escalonava a página inteira no
+         meio do gesto. Com a pinça ativa (scale ≠ 1), o layout não mexe. */
+      if (window.visualViewport && window.visualViewport.scale !== 1) return;
       const raw = window.innerWidth / DESIGN_WIDTH;
       const clamped = Math.min(raw, MAX_SCALE);
       root.style.setProperty('--design-scale', String(clamped));
