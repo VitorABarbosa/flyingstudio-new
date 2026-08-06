@@ -2,11 +2,11 @@
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
   "/apple-icon.png/route": "/apple-icon.png",
-  "/sitemap.xml/route": "/sitemap.xml",
   "/icon.png/route": "/icon.png",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/robots.txt/route": "/robots.txt",
-  "/[locale]/[slug]/page": "/[locale]/[slug]",
   "/[locale]/page": "/[locale]",
+  "/[locale]/[slug]/page": "/[locale]/[slug]",
   "/[locale]/flying-news/page": "/[locale]/flying-news",
   "/[locale]/cases/[caseId]/page": "/[locale]/cases/[caseId]"
 }

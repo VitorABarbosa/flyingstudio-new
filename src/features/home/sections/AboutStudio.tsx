@@ -93,6 +93,10 @@ export default function AboutStudio() {
       id="sobre"
       className="relative w-full overflow-hidden bg-[var(--theme-bg)] transition-colors duration-200"
     >
+      {/* Desktop: o canvas de 1920×1680 fiel ao Figma. No celular ele fica
+          escondido — escalado a ~20%, letreiro, fotos e textos viravam
+          miniaturas ilegíveis; abaixo há um layout empilhado próprio. */}
+      <div className="hidden lg:block">
       <SectionScaleFrame designHeight={ABOUT_SECTION_HEIGHT}>
         <div
           className="about-title-glow absolute z-20 font-['Outfit'] text-[300px] leading-none font-semibold whitespace-pre-line text-[var(--theme-display-watermark)]"
@@ -233,6 +237,84 @@ export default function AboutStudio() {
           </motion.div>
         </motion.div>
       </SectionScaleFrame>
+      </div>
+
+      {/* Celular: a mesma história em coluna — o letreiro em marca-d'água,
+          a apresentação, duas fotos do escritório inteiras e o bloco dos
+          15 anos com o CTA para o DNA. */}
+      <div className="px-5 py-16 lg:hidden">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT_ONCE}
+          variants={staggerContainer}
+          className="mx-auto flex w-full max-w-[460px] flex-col"
+        >
+          <motion.p
+            variants={revealItem}
+            aria-hidden="true"
+            className="font-['Outfit'] text-[clamp(3.2rem,16vw,4.5rem)] leading-[0.95] font-semibold text-[var(--theme-display-watermark)]"
+          >
+            FLYING
+            <span className="block pl-[0.7em]">STUDIO</span>
+          </motion.p>
+
+          <motion.p
+            variants={revealItem}
+            className="mt-7 font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)]"
+          >
+            {t('intro')}
+          </motion.p>
+
+          <motion.div variants={revealItem} className="mt-8 overflow-hidden rounded-[20px]">
+            <Image
+              src="/home/sobre/sobre-office-01.png"
+              alt="Flying Studio - escritorio"
+              width={2560}
+              height={1707}
+              sizes="(max-width: 1023px) 92vw, 560px"
+              className="h-auto w-full object-cover"
+            />
+          </motion.div>
+
+          <motion.div variants={revealItem} className="mt-4 overflow-hidden rounded-[20px]">
+            <Image
+              src="/home/sobre/sobre-office-02.png"
+              alt="Flying Studio - ambiente interno"
+              width={2560}
+              height={1707}
+              sizes="(max-width: 1023px) 92vw, 560px"
+              className="h-auto w-full object-cover"
+            />
+          </motion.div>
+
+          <motion.div variants={revealItem} className="mt-9">
+            <p className="font-['Outfit'] text-[28px] leading-[1.25] font-semibold text-[var(--theme-accent)]">
+              {t('years')}
+            </p>
+
+            <p className="mt-3 font-['Outfit'] text-[15px] leading-[1.65] text-[var(--theme-muted)]">
+              {t('description')}
+            </p>
+
+            <Link
+              href={homeCtaHrefs.about}
+              className="mt-6 inline-flex h-[48px] items-center gap-[8px] rounded-[99px] bg-[var(--theme-accent)] px-[22px] transition-colors duration-200"
+            >
+              <span className="font-['Outfit'] text-[15px] leading-[1.5] font-medium tracking-[0.32px] whitespace-nowrap text-[var(--theme-accent-contrast)]">
+                {t('cta')}
+              </span>
+              <Image
+                src="/shared/icons/ui/icon-cta-arrow.svg"
+                alt=""
+                width={18}
+                height={18}
+                className="theme-icon-on-accent"
+              />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
