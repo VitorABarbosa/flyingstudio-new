@@ -130,6 +130,10 @@ export default function ServicesIndex() {
       id="tecnologia-artistica-3d"
       className="relative w-full overflow-hidden bg-[var(--theme-bg)] transition-colors duration-200"
     >
+      {/* Desktop: o canvas de 1920px fiel ao Figma. No celular ele fica
+          escondido — escalado a ~20%, os 5 cards viravam uma fileira
+          horizontal ilegível; lá embaixo há um layout empilhado próprio. */}
+      <div className="hidden lg:block">
       <SectionScaleFrame designHeight={SECTION_HEIGHT}>
         {/* Animacao de linhas fluidas ao fundo (substitui o grafismo estatico).
             Acompanha a accent do tema automaticamente. */}
@@ -272,6 +276,79 @@ export default function ServicesIndex() {
           ))}
         </motion.div>
       </SectionScaleFrame>
+      </div>
+
+      {/* Celular: os mesmos 5 serviços empilhados, um card por linha — badge
+          na borda de cima, título e descrição em tamanho de leitura e o CTA
+          inteiro. Sem vidro/flutuação (regra de memória do iPhone). */}
+      <div className="px-5 pt-16 pb-14 lg:hidden">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT_ONCE}
+          variants={staggerContainer}
+          className="mx-auto flex w-full max-w-[460px] flex-col items-center"
+        >
+          <motion.h2
+            variants={revealItem}
+            className="text-center font-['Outfit'] text-[30px] leading-[1.25] font-semibold text-[var(--theme-text)]"
+          >
+            <span>{t('titleStart')} </span>
+            <span className="text-[var(--theme-accent)]">{t('titleAccent')}</span>
+          </motion.h2>
+
+          <motion.p
+            variants={revealItem}
+            className="mt-5 rounded-[99px] border-2 border-white bg-[var(--theme-chip-bg)] px-6 py-2.5 text-center font-['Outfit'] text-[13px] leading-[1.5] text-[var(--theme-text)]"
+          >
+            {t('subtitle')}
+          </motion.p>
+
+          <div className="mt-14 flex w-full flex-col gap-12">
+            {heroCards.map((card) => (
+              <motion.article
+                key={card.key}
+                variants={revealItem}
+                className="relative rounded-[28px] border border-[var(--theme-card-glass-edge)] bg-[var(--theme-card-glass)] px-6 pt-12 pb-7 text-center shadow-[0_18px_44px_-30px_rgba(0,0,0,0.45)]"
+              >
+                <div className="absolute -top-[28px] left-1/2 grid size-[56px] -translate-x-1/2 place-items-center rounded-full bg-[var(--theme-accent)] shadow-[0_10px_24px_-10px_var(--theme-accent-glow-soft)]">
+                  <Image
+                    src={card.icon}
+                    alt=""
+                    width={Math.round(card.iconSize * 0.7)}
+                    height={Math.round(card.iconSize * 0.7)}
+                    className="theme-icon-on-accent"
+                  />
+                </div>
+
+                <h3 className="font-['Outfit'] text-[24px] leading-[1.25] font-semibold whitespace-pre-line text-[var(--theme-text)]">
+                  {t(`cards.${card.key}.title`)}
+                </h3>
+
+                <p className="mx-auto mt-3 max-w-[36ch] font-['Outfit'] text-[15px] leading-[1.55] text-[var(--theme-text)]">
+                  {t.rich(`cards.${card.key}.description`, {
+                    b: (chunks) => <span className="font-bold">{chunks}</span>,
+                  })}
+                </p>
+
+                <Link
+                  href={homeCtaHrefs.hero[card.key]}
+                  className="mt-6 inline-flex items-center justify-center gap-[8px] rounded-[99px] bg-[var(--theme-accent)] px-7 py-3 font-['Outfit'] text-[15px] leading-[1.5] font-medium tracking-[0.32px] text-[var(--theme-accent-contrast)]"
+                >
+                  {t(`cards.${card.key}.cta`)}
+                  <Image
+                    src="/shared/icons/ui/icon-cta-arrow.svg"
+                    alt=""
+                    width={14}
+                    height={14}
+                    className="theme-icon-on-accent"
+                  />
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
