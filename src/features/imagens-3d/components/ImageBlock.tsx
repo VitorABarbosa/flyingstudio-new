@@ -52,9 +52,39 @@ export default function ImageBlock({
   onAspectRatioChange,
 }: Props) {
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [loadAttempt, setLoadAttempt] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  /* Celular: download sob demanda de verdade. O lazy nativo do Safari busca
+     imagens muito à frente do scroll — na galeria (483 itens) isso vira uma
+     fila de downloads em segundo plano que enche a memória do iPhone. Aqui o
+     <img> só ganha src quando o item chega a ~1,5 telas do viewport; longe
+     disso, o navegador nem sabe que a imagem existe. Sair da página desmonta
+     tudo e os downloads param. Desktop não passa por isso (allowLoad nasce
+     true e permanece). */
+  const [allowLoad, setAllowLoad] = useState(true);
+
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 1023px)').matches) return;
+    const container = containerRef.current;
+    if (!container) return;
+    // Já veio do cache HTTP antes da hidratação? Não segura o que já chegou.
+    if (imgRef.current?.complete && imgRef.current.naturalWidth) return;
+
+    setAllowLoad(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAllowLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '150% 0px' }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   function reportAspectRatio() {
     const img = imgRef.current;
@@ -112,6 +142,7 @@ export default function ImageBlock({
        imagem que falhou fica invisível (painel liso) em vez do ícone
        quebrado do navegador, enquanto o retry trabalha. */
     <div
+      ref={containerRef}
       className={`
         relative h-full w-full overflow-hidden
         bg-[var(--theme-panel)]
@@ -127,6 +158,7 @@ export default function ImageBlock({
             ocupa ~8 MB de RAM cada — rolar a galeria estourava a memória do
             Safari no iPhone. O <picture> troca por 1080px via otimizador
             (fila tranquila no celular: uma coluna + lazy = pedidos em série). */}
+        {allowLoad && (
         <picture key={loadAttempt} className="contents">
           {src.startsWith('http') && (
             <source media="(max-width: 1023px)" srcSet={optimized(src, 1080)} />
@@ -149,6 +181,7 @@ export default function ImageBlock({
           `}
         />
         </picture>
+        )}
       </div>
 
       {/* Nome do cliente/projeto: presença discreta — identifica a obra sem

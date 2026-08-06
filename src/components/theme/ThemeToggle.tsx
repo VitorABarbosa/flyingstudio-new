@@ -10,10 +10,24 @@ import {
 
 function applyTheme(theme: SiteTheme) {
   const root = document.documentElement;
+  /* Celular: congela as transições durante a troca. Sem isso, dezenas de
+     elementos com `transition-colors` animam ao mesmo tempo (e os vidros de
+     backdrop-blur re-rasterizam a cada frame) — a repintura contínua da
+     página inteira estourava a memória do Safari no iPhone. Com o congelo,
+     o tema troca numa repintura única. Desktop segue com a transição suave. */
+  const freeze = window.matchMedia('(max-width: 1023px)').matches;
+  if (freeze) root.classList.add('theme-switching');
   root.dataset.theme = theme;
   root.classList.toggle('dark', theme === 'dark');
   window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   window.dispatchEvent(new CustomEvent(THEME_TOGGLE_EVENT, { detail: theme }));
+  if (freeze) {
+    /* Dois rAFs: garante que a repintura do tema novo aconteceu com as
+       transições desligadas antes de reativá-las. */
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => root.classList.remove('theme-switching'));
+    });
+  }
 }
 
 type ThemeToggleProps = {
