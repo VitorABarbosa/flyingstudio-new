@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002F[locale]","\u002F[locale]\u002F[slug]","\u002F[locale]\u002Fcases\u002F[caseId]","\u002F[locale]\u002Fflying-news"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

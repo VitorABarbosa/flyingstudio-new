@@ -1,10 +1,11 @@
-// next.config.ts
-import type { NextConfig } from 'next';
+// next.config.mjs — formato .mjs para o padrão de deploy no cPanel (Napoleon),
+// o mesmo dos sites da OGDI e da Rinno Films.
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     /* Só WebP: codificar AVIF de originais grandes é MUITO lento e enfileira
        o otimizador quando a galeria pede dezenas de imagens de uma vez —
