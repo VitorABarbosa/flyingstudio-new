@@ -291,3 +291,10 @@ html[data-theme='dark'] .theme-dark-only {
 html[data-theme='dark'] .theme-light-only {
   display: none;
 }
+/* Pinch-zoom estourava a memoria do Safari/iPhone re-rasterizando canvases,
+   blurs e imagens (aba morta: 'um problema ocorreu repetidamente'). O iOS
+   ignora user-scalable=no, mas respeita touch-action: so o pan fica ativo. */
+html,
+body {
+  touch-action: pan-x pan-y;
+}

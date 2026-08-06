@@ -59,6 +59,11 @@ export function generateStaticParams() {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  /* Pinch-zoom desativado: a pinça re-rasterizava canvases/blurs no iOS e
+     matava a aba por memória. O touch-action no CSS cobre o Safari (que
+     ignora estas flags); estas cobrem os demais navegadores. */
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export async function generateMetadata({
