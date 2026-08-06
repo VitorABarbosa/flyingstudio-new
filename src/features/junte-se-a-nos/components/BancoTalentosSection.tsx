@@ -107,26 +107,33 @@ export default function BancoTalentosSection() {
     // Honeypot: humanos não veem o campo; preenchido = bot, aborta em silêncio.
     if (new FormData(event.currentTarget).get('botcheck')) return;
 
-    /* O envio vai para a rota do PRÓPRIO site (/api/junte-se), que manda o
-       e-mail via SMTP do cPanel com o currículo anexado. Não usa Web3Forms:
-       lá, anexo é recurso pago — todo envio com arquivo voltava 400. */
+    /* FormSubmit (formsubmit.co): gratuito e com ANEXO — no Web3Forms,
+       arquivo é recurso pago (todo envio com currículo voltava 400). O
+       e-mail chega com o PDF anexado (limite 10 MB). O PRIMEIRO envio
+       dispara um e-mail de ativação do FormSubmit para a caixa de destino —
+       é clicar uma vez e pronto. A rota /api/junte-se (SMTP próprio do
+       cPanel) segue no projeto como plano B. */
     const areaLabel = form.area ? t(`areas.${form.area}`) : '—';
     const data = new FormData();
-    data.append('nome', form.name.trim());
+    data.append('_subject', `Site Flying Studio — Banco de Talentos: ${form.name.trim()}`);
+    data.append('_template', 'table');
+    data.append('_captcha', 'false');
     data.append('email', form.email.trim());
-    data.append('area', areaLabel);
-    data.append('whatsapp', form.whatsapp.trim());
+    data.append('Nome', form.name.trim());
+    data.append('Área desejada', areaLabel);
+    data.append('Whatsapp', form.whatsapp.trim());
     if (file) data.append('attachment', file, file.name);
 
     setStatus('sending');
     try {
-      const res = await fetch('/api/junte-se', {
+      const res = await fetch('https://formsubmit.co/ajax/studio@flyingstudio.com.br', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
       });
-      const json = (await res.json()) as { success?: boolean };
-      if (json.success) {
+      /* O AJAX do FormSubmit responde success como string ("true"). */
+      const json = (await res.json()) as { success?: boolean | string };
+      if (json.success === true || json.success === 'true') {
         setSubmitted(true);
         setStatus('idle');
       } else {

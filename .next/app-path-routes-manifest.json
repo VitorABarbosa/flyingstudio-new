@@ -1,13 +1,13 @@
 {
   "/_not-found/page": "/_not-found",
   "/apple-icon.png/route": "/apple-icon.png",
+  "/robots.txt/route": "/robots.txt",
   "/favicon.ico/route": "/favicon.ico",
   "/icon.png/route": "/icon.png",
-  "/robots.txt/route": "/robots.txt",
   "/sitemap.xml/route": "/sitemap.xml",
   "/api/junte-se/route": "/api/junte-se",
   "/[locale]/[slug]/page": "/[locale]/[slug]",
-  "/[locale]/cases/[caseId]/page": "/[locale]/cases/[caseId]",
   "/[locale]/flying-news/page": "/[locale]/flying-news",
-  "/[locale]/page": "/[locale]"
+  "/[locale]/page": "/[locale]",
+  "/[locale]/cases/[caseId]/page": "/[locale]/cases/[caseId]"
 }
