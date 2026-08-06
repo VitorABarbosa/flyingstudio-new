@@ -3,7 +3,6 @@
 import { useId, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { WEB3FORMS_ENDPOINT, WEB3FORMS_KEY } from '@/lib/web3forms';
 import {
   staggerContainer,
   revealItem,
@@ -108,20 +107,20 @@ export default function BancoTalentosSection() {
     // Honeypot: humanos não veem o campo; preenchido = bot, aborta em silêncio.
     if (new FormData(event.currentTarget).get('botcheck')) return;
 
+    /* O envio vai para a rota do PRÓPRIO site (/api/junte-se), que manda o
+       e-mail via SMTP do cPanel com o currículo anexado. Não usa Web3Forms:
+       lá, anexo é recurso pago — todo envio com arquivo voltava 400. */
     const areaLabel = form.area ? t(`areas.${form.area}`) : '—';
     const data = new FormData();
-    data.append('access_key', WEB3FORMS_KEY);
-    data.append('from_name', 'Site Flying Studio');
-    data.append('subject', `Site Flying Studio — Banco de Talentos: ${form.name.trim()}`);
+    data.append('nome', form.name.trim());
     data.append('email', form.email.trim());
-    data.append('Nome', form.name.trim());
-    data.append('Área desejada', areaLabel);
-    data.append('Whatsapp', form.whatsapp.trim());
+    data.append('area', areaLabel);
+    data.append('whatsapp', form.whatsapp.trim());
     if (file) data.append('attachment', file, file.name);
 
     setStatus('sending');
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const res = await fetch('/api/junte-se', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
