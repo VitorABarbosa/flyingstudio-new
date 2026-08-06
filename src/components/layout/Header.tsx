@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState, useTransition } from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import BrandLogo from '@/components/layout/BrandLogo';
+import SidebarMenu from '@/components/layout/SidebarMenu';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import { futurePageHrefs } from '@/lib/site-navigation';
 
@@ -142,6 +143,7 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const targetLocale = locale === 'pt-BR' ? 'en' : 'pt-BR';
 
@@ -157,12 +159,15 @@ export default function Header() {
 
   return (
     /* A header é SEMPRE a pílula flutuante — em todas as páginas, do topo ao
-       fim do scroll. Só a entrada é animada (desce suave no primeiro paint). */
-    <motion.header
+       fim do scroll. Só a entrada é animada (desce suave no primeiro paint).
+       O SidebarMenu fica FORA do <header>: o framer anima transform aqui, e
+       um ancestral com transform sequestraria o `fixed` do overlay. */
+    <>
+      <motion.header
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-      className="fixed top-[14px] right-[12px] left-[12px] z-50 mx-auto flex max-w-[1280px] items-center justify-between gap-[16px] rounded-full pt-[9px] pr-[10px] pb-[9px] pl-[22px]"
+      className="fixed top-[14px] right-[12px] left-[12px] z-50 mx-auto flex max-w-[1280px] items-center justify-between gap-[8px] rounded-full pt-[9px] pr-[8px] pb-[9px] pl-[16px] sm:gap-[16px] sm:pr-[10px] sm:pl-[22px]"
     >
       {/* Camada de vidro — separada para o backdrop-filter do dropdown
           continuar amostrando a página (mesma translucidez nos dois).
@@ -181,7 +186,7 @@ export default function Header() {
           width={214}
           height={27}
           priority
-          className="block h-[22px] w-auto object-contain"
+          className="block h-[17px] w-auto object-contain sm:h-[22px]"
         />
       </Link>
 
@@ -204,7 +209,7 @@ export default function Header() {
         )}
       </nav>
 
-      <div className="flex shrink-0 items-center gap-[8px]">
+      <div className="flex shrink-0 items-center gap-[4px] sm:gap-[8px]">
         <button
           type="button"
           onClick={handleSwitchLanguage}
@@ -219,15 +224,47 @@ export default function Header() {
           <ThemeToggle />
         </span>
 
+        {/* No mobile o botão vira só o envelope (circular) — o rótulo
+            "Contato" não cabe na pílula ao lado do hambúrguer. */}
         <button
           type="button"
           onClick={handleContactClick}
-          className="flex h-[40px] cursor-pointer items-center gap-[7px] rounded-full bg-[var(--theme-btn-default)] px-[20px] font-['Outfit'] text-[14px] leading-none font-medium whitespace-nowrap text-[var(--theme-btn-text-default)] transition-transform duration-200 hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none"
+          aria-label={t('contact')}
+          className="flex h-[38px] w-[38px] cursor-pointer items-center justify-center gap-[7px] rounded-full bg-[var(--theme-btn-default)] font-['Outfit'] text-[14px] leading-none font-medium whitespace-nowrap text-[var(--theme-btn-text-default)] transition-transform duration-200 hover:-translate-y-[1px] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none md:h-[40px] md:w-auto md:px-[20px]"
         >
           <MailIcon />
-          <span>{t('contact')}</span>
+          <span className="hidden md:inline">{t('contact')}</span>
+        </button>
+
+        {/* Hambúrguer: só onde o nav completo não cabe (abaixo de lg).
+            Abre o menu lateral, que já tem todas as páginas + idioma + CTA. */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen(true)}
+          aria-label={t('openMenu')}
+          aria-expanded={menuOpen}
+          className="flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full text-[var(--theme-text)] hover:text-[var(--theme-accent)] lg:hidden"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M3 5.5H17M3 10H17M3 14.5H17"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
       </div>
-    </motion.header>
+
+      </motion.header>
+
+      <SidebarMenu
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        onSwitchLanguage={handleSwitchLanguage}
+        isLanguagePending={isPending}
+        targetLocale={targetLocale}
+      />
+    </>
   );
 }

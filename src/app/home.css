@@ -213,6 +213,19 @@ html[data-hero-flight='1'] [aria-label='Navegacao lateral por secao'] {
   transform: translate(2px, 2px);
 }
 
+/* Mobile: o círculo de 56px ficava enorme na tela do celular — encolhe para
+   44px (e o ícone junto). Hover/expansão nem existe no touch. */
+@media (max-width: 640px) {
+  .wa-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .wa-sign svg {
+    width: 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wa-btn,
   .wa-sign,

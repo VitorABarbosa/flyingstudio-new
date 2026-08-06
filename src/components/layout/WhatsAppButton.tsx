@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com a Flying Studio pelo WhatsApp"
-      className="wa-btn fixed right-[28px] bottom-[92px] z-[65] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none"
+      className="wa-btn fixed right-[34px] bottom-[84px] z-[65] focus-visible:ring-2 focus-visible:ring-[var(--theme-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--theme-ring-offset)] focus-visible:outline-none sm:right-[28px] sm:bottom-[92px]"
     >
       <span className="wa-text">WhatsApp</span>
       <span className="wa-sign" aria-hidden="true">

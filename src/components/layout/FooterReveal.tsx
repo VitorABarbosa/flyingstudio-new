@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import { useRef } from 'react';
 import Footer from '@/components/layout/Footer';
 import SectionScaleFrame from '@/components/layout/SectionScaleFrame';
@@ -67,18 +66,22 @@ export default function FooterReveal() {
             className="pointer-events-none absolute"
             style={{ ...PHOTO_CROP, ...photoStyle }}
           >
-            {/* `unoptimized`: o otimizador re-encodava a foto em q75 (compressão
-                dupla) — o arquivo é servido direto, sem nenhum re-encode, como
-                nas heroes e na galeria. Este é o upscale 6K (6144px) que o
-                Vitor salvou — folga de sobra para 4K e telas com escala. */}
-            <Image
-              src="/home/footer/upscale-foto-empresa-nitida.jpg"
-              alt="Flying Studio - Escritório"
-              fill
-              unoptimized
-              className="object-cover"
-              sizes="115vw"
-            />
+            {/* Arquivo servido direto, sem re-encode do otimizador (compressão
+                dupla degradava a foto). Desktop recebe o upscale 6K com
+                nitidez; o celular recebe a versão -mobile de 1280px (~160 KB)
+                via <picture> — o 6K de 4,3 MB não desce em telas pequenas. */}
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcSet="/home/footer/upscale-foto-empresa-nitida-mobile.jpg"
+              />
+              <img
+                src="/home/footer/upscale-foto-empresa-nitida.jpg"
+                alt="Flying Studio - Escritório"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </picture>
           </motion.div>
         </section>
       </SectionScaleFrame>

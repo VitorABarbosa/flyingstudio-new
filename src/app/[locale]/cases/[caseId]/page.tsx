@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
@@ -12,17 +12,48 @@ export function generateStaticParams() {
   );
 }
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://flyingstudio.com.br';
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ caseId: string }>;
+  params: Promise<{ locale: string; caseId: string }>;
 }): Promise<Metadata> {
-  const { caseId } = await params;
+  const { locale, caseId } = await params;
   const project = caseProjects.find((p) => p.id === caseId);
+  const detail = caseDetails[caseId];
 
-  if (!project) return {};
+  if (!project || !detail) return {};
 
-  return { title: `${project.title} | ${project.company}` };
+  const t = await getTranslations({ locale, namespace: 'CasesPage.detail' });
+  const title = `${project.title} | ${project.company}`;
+  const description = t(`items.${caseId}.heroDescription`);
+
+  const isDefaultLocale = locale === routing.defaultLocale;
+  const path = `/cases/${caseId}`;
+  const canonicalUrl = isDefaultLocale ? `${SITE_URL}${path}` : `${SITE_URL}/${locale}${path}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: `${title} | Flying Studio`,
+      description,
+      url: canonicalUrl,
+      siteName: 'Flying Studio',
+      locale: isDefaultLocale ? 'pt_BR' : 'en_US',
+      type: 'article',
+      /* A capa do case é o próprio hero — imagem real do projeto no share. */
+      images: [{ url: detail.heroImage, width: 1200, height: 630, alt: title }],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pt-BR': `${SITE_URL}${path}`,
+        en: `${SITE_URL}/en${path}`,
+      },
+    },
+  };
 }
 
 export default async function CaseRoute({

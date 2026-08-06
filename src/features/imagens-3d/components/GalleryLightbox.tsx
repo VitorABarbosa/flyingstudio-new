@@ -90,6 +90,15 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
     };
   }, []);
 
+  /* No celular o mestre 3840 é exagero: a tela útil não passa de ~1200px e
+     cada mestre pesa 1,5-2,5 MB — o thumb 1920 cobre o zoom com folga e
+     corta ~85% do download. Só desktop recebe o mestre. */
+  const useThumbMaster =
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches;
+
+  const displaySrc = (url: string) =>
+    useThumbMaster ? url.replace('/site-flying-web/', '/site-flying-thumbs/') : url;
+
   useEffect(() => {
     /* Pré-carrega as vizinhas para a navegação não esperar download. */
     [1, -1].forEach((direction) => {
@@ -98,9 +107,11 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
       if (!neighbor) return;
 
       const preload = new Image();
-      preload.src = neighbor.image;
+      preload.src = useThumbMaster
+        ? neighbor.image.replace('/site-flying-web/', '/site-flying-thumbs/')
+        : neighbor.image;
     });
-  }, [items, index]);
+  }, [items, index, useThumbMaster]);
 
   if (!item) return null;
 
@@ -147,7 +158,7 @@ export default function GalleryLightbox({ items, index, onClose, onStep }: Props
             (no layout) já vem baixando tudo em segundo plano. */}
         <motion.img
           key={`${item.id}-${loadAttempt}`}
-          src={item.image}
+          src={displaySrc(item.image)}
           onLoad={() => setIsLoaded(true)}
           onError={handleLoadError}
           sizes="92vw"

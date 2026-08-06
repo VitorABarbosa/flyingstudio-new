@@ -24,6 +24,32 @@ const outfit = Outfit({
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://flyingstudio.com.br';
 
+/* Dados estruturados (schema.org) — o Google monta o painel da empresa a
+   partir daqui: nome, logo, contato e as redes oficiais conectadas. */
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Flying Studio',
+  url: SITE_URL,
+  logo: `${SITE_URL}/brand/logo-flying-studio.png`,
+  email: 'studio@flyingstudio.com.br',
+  telephone: '+55-11-2351-4138',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Engenheiro Luís Carlos Berrini',
+    addressLocality: 'São Paulo',
+    addressRegion: 'SP',
+    addressCountry: 'BR',
+  },
+  sameAs: [
+    'https://www.instagram.com/flyingstudio3d/',
+    'https://www.behance.net/flyingstudio3d',
+    'https://www.linkedin.com/company/flyingstudio3d/',
+    'https://www.tiktok.com/@flyingstudio_3d',
+    'https://www.youtube.com/@FlyingStudio.3D',
+  ],
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -106,6 +132,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={outfit.variable} suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <ThemeScript />
         {/* Antes da Header: o efeito dele corrige o <html> antes do sync do
             ThemeToggle (ver comentário no componente). */}

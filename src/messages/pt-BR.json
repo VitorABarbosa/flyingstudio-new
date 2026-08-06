@@ -146,6 +146,7 @@
   },
   "Header": {
     "navLabel": "Menu principal",
+    "openMenu": "Abrir menu",
     "nav": {
       "home": "Home",
       "about": "Sobre Nós",
@@ -705,10 +706,52 @@
     }
   },
   "Metadata": {
-    "title": "Flying Studio - Muito Além das perspectivas",
-    "description": "Estúdio criativo especializado em experiências imersivas com tecnologia 3D, realidade aumentada e soluções personalizadas para marcas.",
-    "keywords": "studio criativo, tecnologia 3D, realidade aumentada, experiências imersivas, design digital, visualização arquitetônica",
-    "ogImageAlt": "Flying Studio - Estúdio Criativo"
+    "title": "Flying Studio — Muito Além das Perspectivas",
+    "description": "Há 15 anos transformamos lançamentos imobiliários em experiência: perspectivas 3D, filmes, aplicativo de vendas, tour virtual 360º e imersão que vendem antes da obra.",
+    "keywords": "perspectivas 3D, maquete eletrônica, imagens 3D imobiliárias, filmes imobiliários, aplicativo de vendas, tour virtual 360º, visualização arquitetônica, lançamento imobiliário",
+    "ogImageAlt": "Flying Studio — tecnologia artística 3D para lançamentos imobiliários",
+    "pages": {
+      "dna-flying-studio": {
+        "title": "Sobre Nós",
+        "description": "Conheça a história, a cultura e o ecossistema do Grupo Flying: 15 anos dando forma ao invisível para os maiores lançamentos do mercado imobiliário."
+      },
+      "imagens-3d": {
+        "title": "Imagens 3D e Perspectivas",
+        "description": "Perspectivas 3D hiper-realistas de fachadas, áreas comuns, interiores e plantas humanizadas — imagens que vendem o empreendimento antes da obra."
+      },
+      "videos-3d": {
+        "title": "Filmes Imobiliários",
+        "description": "Filmes conceito, produto e virais produzidos pela Rinno Films: o cinema imobiliário que transforma metros quadrados em narrativas de vida."
+      },
+      "aplicativos": {
+        "title": "Aplicativo de Vendas",
+        "description": "O aplicativo comercial que centraliza o lançamento inteiro — renders, filmes, plantas e tours 360º — numa trilha de convencimento que guia a decisão do cliente."
+      },
+      "tour-virtual-360": {
+        "title": "Tour Virtual 360º",
+        "description": "A vivência hiper-realista do empreendimento: o cliente explora cada ambiente em todos os ângulos, eliminando objeções antes do primeiro tijolo."
+      },
+      "dsbrave": {
+        "title": "D.sbrave — Imersão 360º",
+        "description": "A máquina do tempo 360º: o comprador caminha pelo futuro lar com total autonomia, do estande de vendas ou de qualquer tela."
+      },
+      "cases": {
+        "title": "Nosso Grupo e Cases",
+        "description": "O ecossistema do Grupo Flying em ação: OGDI, NID, Flying Studio e Rinno Films assinando lançamentos completos, da concepção à venda."
+      },
+      "contato": {
+        "title": "Contato",
+        "description": "Fale com a Flying Studio e vamos dar forma ao seu próximo lançamento imobiliário — imagens, filmes, aplicativo e imersão 360º."
+      },
+      "junte-se-a-nos": {
+        "title": "Junte-se a Nós",
+        "description": "Trabalhe no Grupo Flying: envie seu currículo para o banco de talentos do nosso QG na Berrini, em São Paulo."
+      },
+      "flying-news": {
+        "title": "Flying News",
+        "description": "Novidades, bastidores e lançamentos do universo Flying Studio."
+      }
+    }
   },
   "Sidebar": {
     "ariaLabel": "Menu lateral principal",

@@ -1,10 +1,51 @@
 'use client';
 
-import { useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
-import BrandMark from '@/components/layout/BrandMark';
-import { sidebarNavigationItems, type SidebarIconKey } from '@/lib/site-navigation';
+import BrandLogo from '@/components/layout/BrandLogo';
+import { futurePageHrefs } from '@/lib/site-navigation';
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+/* Mesma ordem da header: Home · Sobre Nós · Serviços · Nosso Grupo ·
+   Junte-se a Nós — os rótulos saem do MESMO namespace (Header), então
+   menu lateral e header nunca divergem. */
+const primaryLinks = [
+  { key: 'home', href: '/' },
+  { key: 'about', href: futurePageHrefs.dna },
+] as const;
+
+const serviceLinks = [
+  { key: 'images3d', href: futurePageHrefs.images3d },
+  { key: 'videos3d', href: futurePageHrefs.videos3d },
+  { key: 'apps', href: futurePageHrefs.apps },
+  { key: 'tour360', href: futurePageHrefs.tour360 },
+  { key: 'dsbrave', href: futurePageHrefs.dsbrave },
+] as const;
+
+const secondaryLinks = [
+  { key: 'cases', href: futurePageHrefs.cases },
+  { key: 'join', href: futurePageHrefs.join },
+] as const;
+
+const panelAnimation = {
+  hidden: { x: '110%' },
+  show: { x: '0%', transition: { duration: 0.55, ease: EASE } },
+  exit: { x: '110%', transition: { duration: 0.35, ease: EASE } },
+};
+
+/* Os itens entram em cascata depois que o painel desliza. */
+const listAnimation = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.04, delayChildren: 0.18 } },
+};
+
+const itemAnimation = {
+  hidden: { opacity: 0, x: 24 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: EASE } },
+};
 
 type SidebarMenuProps = {
   open: boolean;
@@ -14,198 +55,11 @@ type SidebarMenuProps = {
   targetLocale: string;
 };
 
-function SidebarIcon({ icon }: { icon: SidebarIconKey }) {
-  const commonProps = {
-    width: 18,
-    height: 18,
-    viewBox: '0 0 24 24',
-    fill: 'none',
-    xmlns: 'http://www.w3.org/2000/svg',
-    'aria-hidden': true,
-    className: 'shrink-0',
-  } as const;
-
-  switch (icon) {
-    case 'home':
-      return (
-        <svg {...commonProps}>
-          <path d="M4 11.5L12 5L20 11.5V19H4V11.5Z" fill="currentColor" />
-          <path d="M10 19V13H14V19" fill="var(--theme-surface)" />
-        </svg>
-      );
-    case 'dna':
-      return (
-        <svg {...commonProps}>
-          <path
-            d="M8 4C8 7 16 7 16 10C16 13 8 13 8 16C8 19 16 19 16 22M16 4C16 7 8 7 8 10C8 13 16 13 16 16C16 19 8 19 8 22"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-        </svg>
-      );
-    case 'images3d':
-      return (
-        <svg {...commonProps}>
-          <rect x="4" y="6" width="16" height="14" rx="3" stroke="currentColor" strokeWidth="1.8" />
-          <circle cx="9" cy="11" r="1.5" fill="currentColor" />
-          <path
-            d="M7 17L11 13L14 15L17 12L19 14"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 'videos3d':
-      return (
-        <svg {...commonProps}>
-          <path d="M8 6L18 12L8 18V6Z" fill="currentColor" />
-        </svg>
-      );
-    case 'apps':
-      return (
-        <svg {...commonProps}>
-          <rect
-            x="7"
-            y="3.5"
-            width="10"
-            height="17"
-            rx="2.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-          <circle cx="12" cy="17.5" r="1" fill="currentColor" />
-        </svg>
-      );
-    case 'tour360':
-      return (
-        <svg {...commonProps}>
-          <rect
-            x="3.5"
-            y="6"
-            width="17"
-            height="12"
-            rx="2.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-          <circle cx="9" cy="12" r="2" stroke="currentColor" strokeWidth="1.8" />
-          <path
-            d="M16 9.5L19 12L16 14.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 'dsbrave':
-      return (
-        <svg {...commonProps}>
-          <rect
-            x="4"
-            y="5"
-            width="16"
-            height="12"
-            rx="2.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-          <path
-            d="M8 20H16M12 17V20"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M8.5 11.5L11 9L13.5 11.5L16 9"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 'join':
-      return (
-        <svg {...commonProps}>
-          <path
-            d="M7 12C7 9.79086 8.79086 8 11 8H14"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M17 12C17 14.2091 15.2091 16 13 16H10"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M10 6L14 8L10 10"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M14 14L10 16L14 18"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 'news':
-      return (
-        <svg {...commonProps}>
-          <rect
-            x="5"
-            y="4.5"
-            width="14"
-            height="15"
-            rx="2"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-          <path
-            d="M8 9H16M8 12H16M8 15H13"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-        </svg>
-      );
-    case 'cases':
-      return (
-        <svg {...commonProps}>
-          <path d="M5 9H19V18H5V9Z" stroke="currentColor" strokeWidth="1.8" />
-          <path
-            d="M9 9V7.5C9 6.11929 10.1193 5 11.5 5H12.5C13.8807 5 15 6.11929 15 7.5V9"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-        </svg>
-      );
-    case 'contact':
-      return (
-        <svg {...commonProps}>
-          <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
-          <path
-            d="M5 7.5L12 12L19 7.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-  }
-}
-
+/**
+ * Menu lateral (mobile/tablet) — o mesmo vidro da pílula da header, em
+ * painel flutuante que desliza da direita. Links grandes em Outfit, os
+ * serviços agrupados sob o eyebrow, e o fecho com idioma + Contato.
+ */
 export default function SidebarMenu({
   open,
   onClose,
@@ -213,152 +67,249 @@ export default function SidebarMenu({
   isLanguagePending,
   targetLocale,
 }: SidebarMenuProps) {
-  const t = useTranslations('Sidebar');
+  const t = useTranslations('Header');
+  const tSidebar = useTranslations('Sidebar');
   const pathname = usePathname();
   const locale = useLocale();
   const router = useRouter();
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     if (!open) {
       return;
     }
 
+    /* Cada abertura do menu começa com a sanfona de serviços recolhida. */
+    setServicesOpen(false);
+
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [open]);
+  }, [open, onClose]);
+
+  function isActive(href: string) {
+    return href === '/' ? pathname === '/' : pathname === href;
+  }
+
+  function linkClasses(href: string, base: string) {
+    return `${base} transition-colors duration-200 ${
+      isActive(href)
+        ? 'text-[var(--theme-accent)]'
+        : 'text-[var(--theme-text)] hover:text-[var(--theme-accent)]'
+    }`;
+  }
 
   return (
-    <div
-      className={`fixed inset-0 z-[70] transition-opacity duration-300 ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
-      onClick={onClose}
-    >
-      <div
-        className={`absolute inset-0 transition-all duration-300 ease-out ${
-          open
-            ? 'bg-[var(--theme-backdrop)] backdrop-blur-[10px]'
-            : 'backdrop-blur-0 bg-transparent'
-        }`}
-      />
+    <AnimatePresence>
+      {open && (
+        <div className="fixed inset-0 z-[70]" onClick={onClose}>
+          {/* Backdrop: escurece e desfoca a página atrás do painel. */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-[var(--theme-backdrop)] backdrop-blur-[10px]"
+          />
 
-      <aside
-        aria-label={t('ariaLabel')}
-        className={`absolute top-0 left-0 flex h-full w-[320px] flex-col bg-[var(--theme-surface)] px-[20px] pt-[18px] pb-[24px] shadow-[0px_24px_60px_0px_var(--theme-border-soft)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? 'translate-x-0' : '-translate-x-full'}`}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="flex items-start justify-between pb-[20px]">
-          <Link href="/" onClick={onClose} aria-label="Flying Studio - Home">
-            <BrandMark className="h-[56px] w-[56px]" />
-          </Link>
-
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label={t('close')}
-            className="mt-[6px] flex h-[28px] w-[28px] items-center justify-center rounded-full text-[var(--theme-muted)] transition-colors hover:bg-[var(--theme-surface-alt)] hover:text-[var(--theme-accent)]"
+          {/* Painel flutuante — mesma linguagem da pílula da header:
+              vidro com borda suave, fio de luz em cima e cantos generosos. */}
+          <motion.aside
+            role="dialog"
+            aria-modal="true"
+            aria-label={tSidebar('ariaLabel')}
+            variants={panelAnimation}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            onClick={(event) => event.stopPropagation()}
+            className="absolute top-[10px] right-[10px] bottom-[10px] flex w-[min(86vw,380px)] flex-col overflow-hidden rounded-[28px] border border-[var(--theme-border-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_24px_80px_-24px_rgba(0,0,0,0.55)] backdrop-blur-[18px] backdrop-saturate-[1.25]"
+            style={{ backgroundColor: 'color-mix(in srgb, var(--theme-bg) 88%, transparent)' }}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
+            {/* Topo: logo + fechar, no mesmo respiro da pílula. */}
+            <div className="flex shrink-0 items-center justify-between px-[24px] pt-[20px] pb-[10px]">
+              <Link href="/" onClick={onClose} aria-label="Flying Studio - Home">
+                <BrandLogo width={214} height={27} className="block h-[18px] w-auto object-contain" />
+              </Link>
+
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label={tSidebar('close')}
+                className="flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full border border-[var(--theme-border-soft)] text-[var(--theme-text)] transition-colors duration-200 hover:text-[var(--theme-accent)]"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M3.5 3.5L12.5 12.5M12.5 3.5L3.5 12.5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navegação: links grandes; serviços agrupados sob o eyebrow. */}
+            <motion.nav
+              variants={listAnimation}
+              initial="hidden"
+              animate="show"
+              className="flex-1 overflow-y-auto px-[24px] pt-[18px]"
             >
-              <path
-                d="M4 4L12 12M12 4L4 12"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-        </div>
+              <ul className="flex flex-col gap-[4px]">
+                {primaryLinks.map((link) => (
+                  <motion.li key={link.key} variants={itemAnimation}>
+                    <Link
+                      href={link.href}
+                      onClick={onClose}
+                      className={linkClasses(
+                        link.href,
+                        "block py-[9px] font-['Outfit'] text-[24px] leading-none font-semibold tracking-[-0.01em]",
+                      )}
+                    >
+                      {t(`nav.${link.key}`)}
+                    </Link>
+                  </motion.li>
+                ))}
 
-        <nav className="flex-1">
-          <ul className="space-y-[8px]">
-            {sidebarNavigationItems.map((item) => {
-              const isHome = item.href === '/';
-              const isActive = isHome ? pathname === '/' : pathname === item.href;
-
-              return (
-                <li key={item.key}>
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
-                    className={`flex h-[40px] items-center gap-[14px] rounded-[18px] px-[14px] font-['Outfit'] text-[15px] leading-none font-medium transition-colors ${
-                      isActive
-                        ? 'bg-[var(--theme-surface-alt)] text-[var(--theme-accent)]'
-                        : 'text-[var(--theme-muted)] hover:bg-[var(--theme-surface-alt)] hover:text-[var(--theme-accent)]'
+                {/* Serviços: item do MESMO peso dos demais, em sanfona —
+                    fecha por padrão e abre no toque, com a seta girando. */}
+                <motion.li variants={itemAnimation}>
+                  <button
+                    type="button"
+                    aria-expanded={servicesOpen}
+                    onClick={() => setServicesOpen((value) => !value)}
+                    className={`flex w-full cursor-pointer items-center justify-between py-[9px] font-['Outfit'] text-[24px] leading-none font-semibold tracking-[-0.01em] transition-colors duration-200 ${
+                      servicesOpen
+                        ? 'text-[var(--theme-accent)]'
+                        : 'text-[var(--theme-text)] hover:text-[var(--theme-accent)]'
                     }`}
                   >
-                    <SidebarIcon icon={item.key} />
-                    <span>{t(`links.${item.key}`)}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                    <span>{t('nav.services')}</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      aria-hidden="true"
+                      className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`}
+                    >
+                      <path
+                        d="M2 3.5L5 6.5L8 3.5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
 
-        <div className="space-y-[12px]">
-          <button
-            type="button"
-            onClick={onSwitchLanguage}
-            disabled={isLanguagePending}
-            className="w-full rounded-[18px] border border-[var(--theme-border-strong)] px-[16px] py-[10px] font-['Outfit'] text-[13px] font-medium text-[var(--theme-accent)] transition-colors hover:bg-[var(--theme-surface-alt)] disabled:opacity-60"
-          >
-            {t('languageLabel', { locale: targetLocale.toUpperCase() })}
-          </button>
+                  <AnimatePresence initial={false}>
+                    {servicesOpen && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: EASE }}
+                        className="overflow-hidden"
+                      >
+                        {serviceLinks.map((service) => (
+                          <li
+                            key={service.key}
+                            className="ml-[4px] border-l border-[var(--theme-border-soft)] pl-[18px]"
+                          >
+                            <Link
+                              href={service.href}
+                              onClick={onClose}
+                              className={linkClasses(
+                                service.href,
+                                "block py-[9px] font-['Outfit'] text-[17px] leading-none font-normal",
+                              )}
+                            >
+                              {t(`services.${service.key}`)}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </motion.li>
 
-          <div className="rounded-[24px] bg-[var(--theme-surface-alt)] px-[16px] py-[18px] text-center">
-            <p className="font-['Outfit'] text-[15px] leading-[1.35] font-medium text-[var(--theme-muted)]">
-              {t('ctaTitle')}
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                window.setTimeout(() => {
-                  const target = document.getElementById('contato');
-                  if (!target) {
-                    router.push('/#contato', { locale });
-                    return;
-                  }
-
-                  if (window.__lenis) {
-                    window.__lenis.scrollTo(target, { duration: 1.15, lerp: 0.09 });
-                  } else {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 60);
-              }}
-              className="mt-[14px] flex h-[44px] items-center justify-center gap-[10px] rounded-[999px] bg-[var(--theme-accent)] px-[18px] font-['Outfit'] text-[15px] font-semibold text-[var(--theme-accent-contrast)] shadow-[0px_10px_24px_0px_var(--theme-accent-glow)] transition-transform hover:-translate-y-0.5"
-            >
-              <span>{t('ctaButton')}</span>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <motion.li
+                  variants={itemAnimation}
+                  aria-hidden="true"
+                  className="my-[14px] h-px w-full bg-[var(--theme-border-soft)]"
                 />
-              </svg>
-            </button>
-          </div>
+
+                {secondaryLinks.map((link) => (
+                  <motion.li key={link.key} variants={itemAnimation}>
+                    <Link
+                      href={link.href}
+                      onClick={onClose}
+                      className={linkClasses(
+                        link.href,
+                        "block py-[9px] font-['Outfit'] text-[24px] leading-none font-semibold tracking-[-0.01em]",
+                      )}
+                    >
+                      {t(`nav.${link.key}`)}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+
+            {/* Fecho: idioma + Contato, nos mesmos botões-pílula da header. */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE, delay: 0.3 } }}
+              className="flex shrink-0 items-center gap-[10px] border-t border-[var(--theme-border-soft)] px-[24px] pt-[16px] pb-[20px]"
+            >
+              <button
+                type="button"
+                onClick={onSwitchLanguage}
+                disabled={isLanguagePending}
+                aria-label={t('switchLanguageLabel', {
+                  language: targetLocale === 'en' ? 'English' : 'Português',
+                })}
+                className="flex h-[46px] shrink-0 cursor-pointer items-center rounded-full border border-[var(--theme-border-soft)] px-[18px] font-['Outfit'] text-[14px] leading-none font-medium whitespace-nowrap text-[var(--theme-text)] transition-colors duration-200 hover:text-[var(--theme-accent)] disabled:opacity-50"
+              >
+                PT / EN
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  router.push(futurePageHrefs.contact, { locale });
+                }}
+                className="flex h-[46px] flex-1 cursor-pointer items-center justify-center gap-[8px] rounded-full bg-[var(--theme-btn-default)] font-['Outfit'] text-[15px] leading-none font-medium text-[var(--theme-btn-text-default)] transition-transform duration-200 hover:-translate-y-[1px]"
+              >
+                <span>{t('contact')}</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M2 8h12M9.5 3.5L14 8l-4.5 4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.aside>
         </div>
-      </aside>
-    </div>
+      )}
+    </AnimatePresence>
   );
 }

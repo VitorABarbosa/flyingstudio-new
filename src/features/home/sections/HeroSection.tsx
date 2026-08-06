@@ -19,53 +19,51 @@ type HeroSlide = {
   animation: string;
 };
 
-/* Destaques do acervo (DESTAQUES/DESTAQUES_HEROS_HOME). O hero é a vitrine
-   do estúdio, então usa os ORIGINAIS de site-flying/ servidos crus
-   (`unoptimized` no <Image>): qualidade máxima absoluta, ao custo de
-   12-28 MB por slide — decisão consciente, validada em uso. O resto do site
-   segue nas versões -web otimizadas. */
-/* Seleção curada pelo Vitor em site-flying/HOME_HERO/ (originais, na ordem
-   dos arquivos). As animações alternam entre os quatro movimentos. */
+/* Destaques curados pelo Vitor (site-flying/HOME_HERO/ no servidor), servidos
+   LOCAIS e já otimizados: scripts/preparar-hero-home.mjs baixa os originais e
+   gera public/home/hero/0N.jpg em 3840px q85 — de 7-28 MB por slide para
+   1-3 MB, sem perda visível e sem depender do servidor remoto no primeiro
+   carregamento. As animações alternam entre os quatro movimentos. */
 const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/01.jpg',
+    src: '/home/hero/01.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-in',
   },
   {
     id: 'slide-2',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/02.png',
+    src: '/home/hero/02.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-3',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/03.jpg',
+    src: '/home/hero/03.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-pan-right',
   },
   {
     id: 'slide-4',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/04.jpg',
+    src: '/home/hero/04.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-out',
   },
   {
     id: 'slide-5',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/05.jpg',
+    src: '/home/hero/05.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-in',
   },
   {
     id: 'slide-6',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/06.jpg',
+    src: '/home/hero/06.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-pan-left',
   },
   {
     id: 'slide-7',
-    src: 'https://img.flyingstudio.com.br/site-flying/HOME_HERO/07.png',
+    src: '/home/hero/07.jpg',
     alt: 'Destaque do acervo Flying Studio',
     animation: 'hero-zoom-out',
   },
@@ -131,20 +129,24 @@ export default function HeroSection() {
               className="absolute inset-0 transition-opacity duration-700"
               style={{ opacity: index === currentSlide ? 1 : 0 }}
             >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                priority={index === 0}
-                /* Original servido cru, sem otimizador — teste de qualidade máxima */
-                unoptimized
-                className={`object-cover object-bottom will-change-transform ${
-                  index === currentSlide ? slide.animation : ''
-                }`}
-                sizes="1840px"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUE/8QAIRAAAQQCAgMAAAAAAAAAAAAAAQACAxESITFBUWH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Amk2la2pJZbADmPkbvaXY7wRkEeRBH2sLEuqLHSiMNe1pa4kgZJGCfPAiIgP/2Q=="
-              />
+              {/* <picture>: o celular recebe a versão -mobile (1080px,
+                  ~100-150 KB) e o desktop segue no arquivo cheio servido
+                  direto — sem otimizador em nenhum dos dois. */}
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={slide.src.replace('.jpg', '-mobile.jpg')}
+                />
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  className={`absolute inset-0 h-full w-full object-cover object-bottom will-change-transform ${
+                    index === currentSlide ? slide.animation : ''
+                  }`}
+                />
+              </picture>
             </div>
           ))}
         </div>
