@@ -18,7 +18,9 @@
 # next.js — o build (.next) É versionado para o deploy no cPanel (Napoleon):
 # sobe pronto, no servidor só se roda npm install + start (server.js).
 # O cache do webpack fica de fora: pesado (~230 MB) e inútil no deploy.
+# O dev usa .next-dev (ver next.config.mjs) para NUNCA sujar o build.
 /.next/cache/
+/.next-dev/
 /out/
 
 # versões web do acervo geradas por scripts/gerar-acervo-web.mjs
