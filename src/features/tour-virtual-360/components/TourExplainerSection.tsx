@@ -50,7 +50,7 @@ function CarouselArrow({
       }`}
     >
       <span
-        className="relative flex h-[74px] w-[38px] items-center justify-center overflow-hidden rounded-full border backdrop-blur-md transition-all duration-300 group-hover:h-[92px] group-focus-visible:ring-2 group-focus-visible:ring-[var(--theme-accent)] group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-[var(--theme-ring-offset)] md:h-[86px] md:w-[42px] md:group-hover:h-[106px]"
+        className="relative flex h-[74px] w-[38px] items-center justify-center overflow-hidden rounded-full border transition-all duration-300 lg:backdrop-blur-md group-hover:h-[92px] group-focus-visible:ring-2 group-focus-visible:ring-[var(--theme-accent)] group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-[var(--theme-ring-offset)] md:h-[86px] md:w-[42px] md:group-hover:h-[106px]"
         style={{
           backgroundColor: 'color-mix(in srgb, var(--theme-surface) 74%, transparent)',
           borderColor: 'color-mix(in srgb, var(--theme-text) 14%, transparent)',

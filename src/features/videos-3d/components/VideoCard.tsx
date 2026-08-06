@@ -161,7 +161,7 @@ export default function VideoCard({
             }}
           />
 
-          <span className="absolute top-1/2 left-1/2 flex size-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-white/15 text-white backdrop-blur-[3px] transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--theme-accent)] group-hover:text-[var(--theme-accent-contrast)]">
+          <span className="absolute top-1/2 left-1/2 flex size-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-white/25 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--theme-accent)] group-hover:text-[var(--theme-accent-contrast)] lg:bg-white/15 lg:backdrop-blur-[3px]">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M7 4.5v15l13-7.5-13-7.5z" />
             </svg>

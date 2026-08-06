@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { futurePageHrefs } from '@/lib/site-navigation';
 import CasesArrow from '../components/CasesArrow';
@@ -34,6 +35,13 @@ const orbits = groupCompanies.map((company, index) => ({
 export default function CasesCta() {
   const t = useTranslations('CasesPage.cta');
   const prefersReducedMotion = useReducedMotion();
+  /* Celular: as órbitas ficam paradas — 4 camadas de até 1270px girando em
+     loop eterno (na lista de cases E em cada case) pesavam demais no iPhone. */
+  const [orbitMotion, setOrbitMotion] = useState(false);
+
+  useEffect(() => {
+    setOrbitMotion(window.matchMedia('(min-width: 1024px)').matches);
+  }, []);
 
   return (
     <section className="relative flex min-h-[560px] w-full items-center justify-center overflow-hidden px-5 py-24 text-center md:min-h-[660px]">
@@ -64,7 +72,7 @@ export default function CasesCta() {
             }}
             initial={{ rotate: orbit.offset }}
             animate={
-              prefersReducedMotion
+              prefersReducedMotion || !orbitMotion
                 ? undefined
                 : { rotate: [orbit.offset, orbit.offset + 360] }
             }

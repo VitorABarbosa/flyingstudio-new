@@ -157,7 +157,16 @@ export default function CasesEcosystemRings({ hovered, onHoveredChange }: CasesE
   const [built, setBuilt] = useState(false);
   const [planets, setPlanets] = useState<ReadonlySet<CompanyId>>(new Set());
 
-  const skipMotion = Boolean(prefersReducedMotion);
+  /* Celular entra no mesmo caminho de `prefers-reduced-motion`: o sistema
+     solar renderiza pronto e parado — órbitas via rAF contínuo + filtros SVG
+     de 500% pulsando eram um dreno constante de memória no iPhone. */
+  const [smallScreen, setSmallScreen] = useState(false);
+
+  useEffect(() => {
+    setSmallScreen(window.matchMedia('(max-width: 1023px)').matches);
+  }, []);
+
+  const skipMotion = Boolean(prefersReducedMotion) || smallScreen;
 
   useEffect(() => {
     if (!inView) return;
@@ -195,7 +204,7 @@ export default function CasesEcosystemRings({ hovered, onHoveredChange }: CasesE
           className="pointer-events-none absolute top-1/2 left-1/2 h-[52%] w-[52%] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{ background: `radial-gradient(circle, ${glowColor}66 0%, transparent 68%)` }}
           initial={skipMotion ? false : { opacity: 0 }}
-          animate={built ? { opacity: [0.55, 1, 0.55], scale: fillRing ? (fillRing.r - FILL_INSET) / ogdi.r : 1 } : { opacity: 0 }}
+          animate={built ? { opacity: skipMotion ? 0.75 : [0.55, 1, 0.55], scale: fillRing ? (fillRing.r - FILL_INSET) / ogdi.r : 1 } : { opacity: 0 }}
           transition={{
             opacity: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
             scale: { type: 'spring', stiffness: 170, damping: 22 },
@@ -245,7 +254,7 @@ export default function CasesEcosystemRings({ hovered, onHoveredChange }: CasesE
                     animate={
                       inView
                         ? built
-                          ? { pathLength: 1, opacity: isHovered ? 1 : [1, 0.78, 1] }
+                          ? { pathLength: 1, opacity: isHovered || skipMotion ? 1 : [1, 0.78, 1] }
                           : { pathLength: 1 }
                         : undefined
                     }

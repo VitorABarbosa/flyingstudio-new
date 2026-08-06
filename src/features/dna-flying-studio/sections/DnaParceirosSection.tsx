@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
 import { dnaPartnerLogos } from '../data/dnaData';
 import { sectionAnimation, VIEWPORT_SECTION } from '../lib/animations';
 import type { DnaPartnerLogo } from '../types/dna.types';
@@ -20,14 +21,20 @@ type MarqueeRowProps = {
 };
 
 function MarqueeRow({ logos, reverse = false }: MarqueeRowProps) {
+  /* Fora da tela a faixa PAUSA — duas fileiras de logos animando em loop
+     continuavam compondo camadas no iPhone mesmo longe do scroll. */
+  const rowRef = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(rowRef, { margin: '25% 0px' });
+
   return (
     <div
+      ref={rowRef}
       className="relative w-full overflow-hidden"
       style={{ maskImage: EDGE_FADE_MASK, WebkitMaskImage: EDGE_FADE_MASK }}
     >
       <motion.div
         className="flex w-max items-center gap-[40px] pr-[40px] md:gap-[72px] md:pr-[72px]"
-        animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
+        animate={inView ? { x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] } : undefined}
         transition={{ duration: MARQUEE_DURATION_S, ease: 'linear', repeat: Infinity }}
       >
         {[...logos, ...logos].map((logo, index) => (
