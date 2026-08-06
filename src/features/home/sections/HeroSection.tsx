@@ -146,6 +146,10 @@ export default function HeroSection() {
       id="hero"
       className="relative z-10 w-full overflow-visible bg-[var(--theme-bg)] transition-colors duration-200"
     >
+      {/* Desktop: o canvas de 1920px fiel ao Figma. No celular ele fica
+          escondido — escalado a ~20% o hero virava uma faixa de ~190px,
+          minúsculo perto das seções empilhadas; abaixo há a versão própria. */}
+      <div className="hidden lg:block">
       <SectionScaleFrame designHeight={HERO_HEIGHT} overflow="visible">
         {/* Container da imagem no desenho do Figma (2076:3577): 1840px
             centralizado — 40px de respiro de cada lado, não colado nas
@@ -267,6 +271,102 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </SectionScaleFrame>
+      </div>
+
+      {/* Celular: hero em altura de tela — o MESMO carrossel (estado
+          compartilhado com o desktop), com a tagline, os dots e a seta
+          dentro da imagem. */}
+      <div className="lg:hidden">
+        <div className="relative h-[clamp(400px,58vh,560px)] w-full overflow-hidden rounded-b-[28px]">
+          {heroSlides.map((slide, index) => {
+            const gap = Math.abs(index - currentSlide);
+            const distance = Math.min(gap, heroSlides.length - gap);
+            const mounted = distance <= 1;
+
+            return (
+              <div
+                key={slide.id}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{ opacity: index === currentSlide ? 1 : 0 }}
+              >
+                {/* `loading="lazy"` de propósito: no desktop este bloco é
+                    display:none e nunca intersecta — não baixa nada em dobro;
+                    no celular o hero está no topo e carrega na hora. */}
+                {mounted && (
+                  <img
+                    src={slide.src.replace('.jpg', '-mobile.jpg')}
+                    alt={slide.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-bottom"
+                  />
+                )}
+              </div>
+            );
+          })}
+
+          {/* Véu no pé da imagem para a tagline e os dots lerem bem. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-black/60 via-black/25 to-transparent"
+          />
+
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={staggerContainer}
+            className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-4 px-6 pb-6"
+          >
+            <motion.div variants={revealItem} className="flex items-center gap-[10px]">
+              {heroSlides.map((slide, index) => {
+                const isActive = index === currentSlide;
+
+                return (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    aria-label={`Ir para o slide ${index + 1}`}
+                    aria-pressed={isActive}
+                    onClick={() => setCurrentSlide(index)}
+                    className="flex size-[18px] cursor-pointer items-center justify-center"
+                  >
+                    <span
+                      className={`size-[8px] rounded-full transition-colors duration-200 ${
+                        isActive ? 'bg-[var(--theme-accent)]' : 'bg-white/45'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </motion.div>
+
+            <motion.div
+              variants={revealItem}
+              className="flex w-full max-w-[400px] items-center justify-center rounded-[40px] border-2 border-white bg-[var(--theme-header-glass)] px-5 py-2.5 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)]"
+            >
+              <p className="text-center font-['Outfit'] text-[13px] leading-[1.35] font-normal tracking-[0.6px] text-[var(--theme-text)]">
+                {t('tagline')}
+              </p>
+            </motion.div>
+
+            <motion.button
+              variants={revealItem}
+              type="button"
+              onClick={handleNextSectionScroll}
+              aria-label="Ir para a próxima seção"
+              className="flex size-[52px] cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[var(--theme-accent)] shadow-[0px_14px_28px_0px_var(--theme-accent-glow)]"
+            >
+              <Image
+                src="/shared/icons/ui/icon-arrow-down-purple.svg"
+                alt=""
+                width={18}
+                height={18}
+                className={`theme-icon-on-accent ${arrowPressed ? 'hero-arrow-nudge' : ''}`}
+              />
+            </motion.button>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

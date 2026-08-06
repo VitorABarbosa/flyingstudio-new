@@ -12,7 +12,7 @@
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
-      "static/css/147f459b5f90bb51.css",
+      "static/css/d44a7d64d383fe28.css",
       "static/chunks/app/layout-6689a8f1d6ce19b2.js"
     ],
     "/sitemap.xml/route": [
@@ -40,6 +40,25 @@
       "static/chunks/953-a218faf39050dfce.js",
       "static/chunks/app/[locale]/layout-ba17d82f8bd6658b.js"
     ],
+    "/[locale]/cases/[caseId]/page": [
+      "static/chunks/webpack-58c18e3bbe6452dc.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-38b49df12a94ee57.js",
+      "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
+      "static/chunks/215-4b499324b7291057.js",
+      "static/chunks/396-eeaf5f3e6e1b0987.js",
+      "static/chunks/869-4ca8bd682c48162a.js",
+      "static/chunks/app/[locale]/cases/[caseId]/page-fd809e34f7ac8659.js"
+    ],
+    "/[locale]/flying-news/page": [
+      "static/chunks/webpack-58c18e3bbe6452dc.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-38b49df12a94ee57.js",
+      "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
+      "static/chunks/215-4b499324b7291057.js",
+      "static/chunks/396-eeaf5f3e6e1b0987.js",
+      "static/chunks/app/[locale]/flying-news/page-57b5d6cee06af9bb.js"
+    ],
     "/[locale]/page": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -48,7 +67,7 @@
       "static/chunks/215-4b499324b7291057.js",
       "static/chunks/396-eeaf5f3e6e1b0987.js",
       "static/chunks/789-7cf529f56a701a2c.js",
-      "static/chunks/app/[locale]/page-881f669bd6265631.js"
+      "static/chunks/app/[locale]/page-09ef03e0fea62bf1.js"
     ],
     "/[locale]/[slug]/page": [
       "static/chunks/webpack-58c18e3bbe6452dc.js",
@@ -62,25 +81,6 @@
       "static/chunks/869-4ca8bd682c48162a.js",
       "static/chunks/789-7cf529f56a701a2c.js",
       "static/chunks/app/[locale]/[slug]/page-776a763bbac3d49d.js"
-    ],
-    "/[locale]/flying-news/page": [
-      "static/chunks/webpack-58c18e3bbe6452dc.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-38b49df12a94ee57.js",
-      "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
-      "static/chunks/215-4b499324b7291057.js",
-      "static/chunks/396-eeaf5f3e6e1b0987.js",
-      "static/chunks/app/[locale]/flying-news/page-57b5d6cee06af9bb.js"
-    ],
-    "/[locale]/cases/[caseId]/page": [
-      "static/chunks/webpack-58c18e3bbe6452dc.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-38b49df12a94ee57.js",
-      "static/chunks/main-app-02cbd9e6dd6cfdb5.js",
-      "static/chunks/215-4b499324b7291057.js",
-      "static/chunks/396-eeaf5f3e6e1b0987.js",
-      "static/chunks/869-4ca8bd682c48162a.js",
-      "static/chunks/app/[locale]/cases/[caseId]/page-fd809e34f7ac8659.js"
     ]
   }
 }
